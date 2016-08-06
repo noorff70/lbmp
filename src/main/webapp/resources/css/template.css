@@ -1,0 +1,87 @@
+
+.jumbotron {
+	background-image: url(sunrise.jpg); 
+	background-size: 100%;
+}
+
+
+@CHARSET "ISO-8859-1";
+<style>
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+	margin-bottom: -330px;
+	position: relative;
+}
+
+.footer {
+	height: 330px;
+	position: relative;
+}
+
+.clearfooter {
+	height: 330px;
+	clear: both;
+}
+
+.panel-body {
+	background:#ffffff;
+}
+
+.panel-body-footer {
+	background:#ff9900;
+}
+
+
+.img-wrapper img{
+	position: absolute;
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+	min-height: 80%;
+}
+
+.img-wrapper{
+	width: 100%;
+	padding-bottom: 45%; /* your aspect ratio here! */
+	position: relative;
+}
+
+.question{
+	line-height: 150%;
+	letter-spacing: 10px;
+	font-size: 14px;
+	white-space:0;
+	text-align: right; 
+    display:block;
+	float:right;
+}
+
+.questionLine{
+	text-align: left;
+	width:15%;
+	display: inline-block;
+	height:2px
+}
+
+.fraction, .top, .bottom {
+    padding: 0 5px;    
+}
+
+.fraction {
+    display: inline-block;
+    text-align: center;    
+}
+
+.bottom{
+    border-top: 1px solid #000;
+    display: block;
+}
+
+</style>
+
