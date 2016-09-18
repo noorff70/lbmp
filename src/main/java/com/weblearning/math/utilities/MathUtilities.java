@@ -10,9 +10,10 @@ import java.util.Random;
 
 import org.apache.commons.math3.fraction.Fraction;
 
+import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.utilities.Constants;
 
-/* Utility class to for Gr 5
+/* Utility class
  * 
  */
 
@@ -22,7 +23,7 @@ public class MathUtilities {
 	 * 
 	 */
 	public static int getRandomNumber(int min, int max){
-		
+
 		Random r = new Random();
 		int randomNumber = r.nextInt(max - min + 1) + min;
 		
@@ -428,5 +429,219 @@ public class MathUtilities {
 		return null;
 	}
 	
+	/*
+	 * Takes a list of fractions and performs operation
+	 */
+	public static Fraction getResultAsFraction(List<FractionObject> fractionList){
+		
+		Fraction result = new Fraction (0,1);
+		
+		for (int i=0; i< fractionList.size(); i++){
+			
+			FractionObject fo = fractionList.get(i);
+			String prefix = fo.getPrefix();
+			//String postfix = fo.getPostFix();
+			Fraction f = new Fraction(fo.getNumerator(), fo.getDenominator());
+			
+			switch(prefix){
+			case ("+"):
+				result = result.add(f);
+				break;
+			case ("-"):
+				result = result.subtract(f);
+				break;
+			case ("/"):
+				result = result.divide(f);
+				break;
+			case ("*"):
+				result = result.multiply(f);
+				break;
+			}
+			
+		}
+		return result;
+		
+	}
+	
+	/*
+	 * Get the question as a string ex- 5/8 + 6/10
+	 */
+
+	public static String getQuestionAsStringFraction(List<FractionObject> fractionList){
+		
+		String result = null;
+		
+		for (int i=0; i< fractionList.size(); i++){
+			
+			FractionObject fo = fractionList.get(i);
+			String prefix = fo.getPrefix();
+			int numerator = fo.getNumerator();
+			int denominator = fo.getDenominator();
+			
+			if (numerator == denominator){
+				//result = Integer.toString(1);
+				
+				if (i==0 && prefix.equals("+"))
+				{
+					if (fo.isMissingFraction())
+						result = " X ";
+					else
+						result = Integer.toString(1);
+				}
+				else if (i==0 && prefix.equals("-"))
+				{
+					if (fo.isMissingFraction())
+						result = prefix + " X ";
+					else
+					result = prefix + Integer.toString(1);
+				}
+				
+				else{
+					if (fo.isMissingFraction())
+						result = result + " " + prefix + " X ";
+					else
+					result = result + " "+prefix+ " "  + Integer.toString(1);
+				}
+				
+				
+			}
+			else if (fo.getFractionType().equals(Constants.FRACTION_TYPE_WHOLE)){
+				if (i==0 && prefix.equals("+"))
+				{
+					if (fo.isMissingFraction())
+						result = " X ";
+					else
+						result = Integer.toString(numerator);
+				}
+				else if (i==0 && prefix.equals("-"))
+				{
+					if (fo.isMissingFraction())
+						result = prefix + " X ";
+					else
+					result = prefix + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else if (prefix.equals("*"))
+				{
+					result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else if (prefix.equals("/"))
+				{
+					result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else{
+					if (fo.isMissingFraction())
+						result = result + " " + prefix + " X ";
+					else
+					result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				
+			}
+			else if(fo.getFractionType().equals(Constants.FRACTION_TYPE_NORMAL))
+			{
+				if (i==0 && prefix.equals("+"))
+				{
+					if (fo.isMissingFraction())
+						result = " X ";
+					else
+						result = "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else if (i==0 && prefix.equals("-"))
+				{
+					if (fo.isMissingFraction())
+						result = prefix + " X ";
+					else
+					result = prefix + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else if (prefix.equals("*"))
+				{
+					if (fo.isMissingFraction())
+						result = result + prefix + " X ";
+					else
+						result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else if (prefix.equals("/"))
+				{
+					if (fo.isMissingFraction())
+						result = prefix + " X ";
+					else
+						result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+				else{
+					if (fo.isMissingFraction())
+						result = result + " " + prefix + " X ";
+					else
+					result = result + " "+prefix+ " "  + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+				}
+			}
+			else if (fo.getFractionType().equals(Constants.FRACTION_TYPE_MIXED)){
+				int newNumerator = numerator % denominator; 
+				int wholePart = numerator/denominator;
+				
+				if (i==0 && prefix.equals("+")){
+					if (fo.isMissingFraction())
+						result = " X ";
+					else{
+						if (newNumerator ==0)
+							result = Integer.toString(wholePart);
+						else
+							result = wholePart + "$\\frac{"+Integer.toString(newNumerator)+ "}{"+Integer.toString(denominator)+"}$";
+					}
+				}
+				else if (i==0 && prefix.equals("-")){
+					if (fo.isMissingFraction())
+						result = prefix +  " " + " X ";
+					else{
+						if (newNumerator ==0)
+							result = prefix + wholePart;
+						else
+							result = prefix + wholePart + "$\\frac{"+Integer.toString(newNumerator)+ "}{"+Integer.toString(denominator)+"}$";
+					}
+				}
+				else{
+					if (fo.isMissingFraction())
+						result = result + " " + prefix + " X ";
+					else{
+						if (newNumerator ==0)
+							result = result + " "  + prefix + wholePart;
+						else
+							result = result + " "+prefix+ " "  +wholePart +  "$\\frac{"+Integer.toString(newNumerator)+ "}{"+Integer.toString(denominator)+"}$";
+					}
+				}
+			}
+			
+		}
+		
+		return result;
+		
+	}
+	
+	/* This will take the min and max value and will return the fraction
+	 * 
+	 */
+	public static int[] getNumeratorDenominator(int min, int max, String type){
+		
+		int [] numbers = new int[2];
+		int numerator=0;
+		int denominator =0;
+		
+		numerator = MathUtilities.getRandomNumber(min, max);
+		if (Constants.FRACTION_TYPE_NORMAL.equals(type)){
+			denominator = MathUtilities.getRandomNumber(min, max+2);
+			while (denominator < numerator){
+				denominator = MathUtilities.getRandomNumber(min, max+2);
+			}
+		}
+		else if (Constants.FRACTION_TYPE_MIXED.equals(type)){
+			denominator = MathUtilities.getRandomNumber(min, max-2);
+			while (denominator > numerator)
+				denominator = MathUtilities.getRandomNumber(min, max-2);
+		}
+		
+		numbers[0] = numerator;
+		numbers[1] = denominator;
+		
+		return numbers;
+		
+	}
 
 }

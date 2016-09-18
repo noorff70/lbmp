@@ -5,13 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade6SubtractSingleLine extends Question {
 	
@@ -30,6 +30,8 @@ public class Grade6SubtractSingleLine extends Question {
 	 * Lesson for adding
 	 */
 	public Problem getProblem1(){
+		
+		CreateProblem cProblem = new CreateProblem();
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
@@ -51,29 +53,13 @@ public class Grade6SubtractSingleLine extends Question {
 		questionList.add(ql);
 		
 		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
-		String heading = "Add large numbers";
-		String subHeading = "What is the sum";
+		String heading = Constants.GRADE_6_CONTENT_SUB_SINGLE_LINE;
+		String subHeading = "Subtract numbers defined in a single line";
 		
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.RIGHT_TO_LEFT);
+		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
 		
 		return problem;
 
-	}
-	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
-		Answer answer = new Answer();
-		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
-		problem.setAnswer(answer);
-		
-		return problem;
 	}
 
 }

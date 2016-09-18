@@ -12,6 +12,7 @@ import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade6SubtractLargeNumber extends Question {
 	
@@ -31,7 +32,8 @@ public class Grade6SubtractLargeNumber extends Question {
 	 */
 	public Problem getProblem1(){
 		
-		//Problem problem = new Problem();
+		CreateProblem cProblem = new CreateProblem();
+		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		//Answer answer = new Answer();
 		int answerToQuestion =0;
@@ -63,29 +65,14 @@ public class Grade6SubtractLargeNumber extends Question {
 		questionList.add(q2);
 				
 		String answ = NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion);
-		String heading = "Subtract large numbers";
-		String subHeading = "What is the sum";
+		String heading = Constants.GRADE_6_CONTENT_SUB_LARGE_NUMBER;
+		String subHeading = "Subtract smaller from bigger number";
 		
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.RIGHT_TO_LEFT);
+		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
 		
 		return problem;
 
 	}
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
-		Answer answer = new Answer();
-		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
-		problem.setAnswer(answer);
-		
-		return problem;
-	}
 
 }

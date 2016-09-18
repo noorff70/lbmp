@@ -1,18 +1,17 @@
 package com.weblearning.math.grade6.impl;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade6AddSingleLine extends Question {
 	
@@ -32,6 +31,7 @@ public class Grade6AddSingleLine extends Question {
 	 */
 	public Problem getProblem1(){
 		
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
 		String numberInString = "";
@@ -46,36 +46,34 @@ public class Grade6AddSingleLine extends Question {
 				numberInString = NumberFormat.getNumberInstance(Locale.US).format(numbers[i]) ;
 			else
 				numberInString += " + " + NumberFormat.getNumberInstance(Locale.US).format(numbers[i]) ;
-			result += numbers[i];
 		}
+		
+		result = rule1Ans(numbers);
 		
 		QuestionLine ql = new QuestionLine();
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);
 		
 		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
-		String heading = "Add Single Line Numbers";
-		String subHeading = "What is the sum";
+		String heading = Constants.GRADE_6_CONTENT_ADD_SINGLE_LINE;
+		String subHeading = "Sum of numbers";
 		
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.DEFAULT);
 		
 		return problem;
 	}
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
+	/*
+	 * Get the results
+	 */
+	public int rule1Ans(int numbers[]){
+		int result =0;
 		
-		Problem problem = new Problem();
+		for (int i=0; i< numbers.length; i++){
+			result += numbers[i];
+		}
+		return result;
 		
-		Answer answer = new Answer();
-		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
-		problem.setAnswer(answer);
-		
-		return problem;
 	}
 
 }

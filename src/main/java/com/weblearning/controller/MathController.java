@@ -48,6 +48,7 @@ public class MathController {
 		//Create a list of problems
 		List<Problem> problemList = new ArrayList<Problem>();
 		List <String> questionHeadingList = new ArrayList<String>();
+		List <String> questionSubHeadingList = new ArrayList<String>();
 		
 		String gradeId = (String) request.getSession().getAttribute("GRADEID");
 				
@@ -66,13 +67,30 @@ public class MathController {
 		request.getSession().setAttribute(Constants.PROBLM_LIST, problemList);
 		
 	
-		//Create a list of question headings from the list of problems
-		for (Problem questionHeading: problemList){
-			questionHeadingList.add(questionHeading.getQuestionHeading());
-		}		
+		//Create a list of question headings from the list of problems. Only add the items once.
+		int currentRank=0, newRank =0;
+		for (Problem problems: problemList){
+			currentRank = problems.getRank();
+			if (newRank ==0 && currentRank !=0){//first time
+				questionHeadingList.add(problems.getQuestionHeading());
+				newRank = currentRank; //set newrank and currentrank same
+			}
+			if(newRank != currentRank){
+				questionHeadingList.add(problems.getQuestionHeading());
+				newRank = currentRank;
+			}
+			else
+				continue;
+		}
+		
+		//add all the sub headings on the list to display on screen
+		for (Problem problems: problemList){
+			questionSubHeadingList.add(problems.getQuestionSubHeading());
+		}
 					
 		//create the model
 		model.addObject(Constants.LIST_OF_QUESTION_HEADING, questionHeadingList);
+		model.addObject(Constants.LIST_OF_QUESTION_SUBHEADING,questionSubHeadingList );
     	model.setViewName(Constants.MATH_VIEW);
 		
 		return model;

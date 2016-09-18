@@ -4,15 +4,13 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.math3.fraction.Fraction;
-
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade6Exponents extends Question{
 
@@ -60,6 +58,7 @@ public class Grade6Exponents extends Question{
 	@SuppressWarnings("unchecked")
 	public Problem getProblem(String exponentType){
 		
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		String result =null;
 		
@@ -107,40 +106,21 @@ public class Grade6Exponents extends Question{
 			
 		}
 		
-		
-				
-		
-		
-				
 		String answ = result;
 				
 		String heading = "Find Exponentials";
 		String subHeading = "Find Exponentials";
 				
-				
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);		
+
 				
 		return problem;
 	}
 	
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
-		Answer answer = new Answer();
-		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
-		problem.setAnswer(answer);
-		
-		return problem;
-	}
-	
-	
+	/*
+	 * Formats String
+	 */
 	public String formattedString(List<Integer> numberList, String operation){
 		
 		StringBuilder sb = new StringBuilder();

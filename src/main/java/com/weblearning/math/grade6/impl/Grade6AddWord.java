@@ -1,18 +1,17 @@
 package com.weblearning.math.grade6.impl;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade6AddWord extends Question {
 	
@@ -31,6 +30,8 @@ public class Grade6AddWord extends Question {
 	 * Lesson for adding
 	 */
 	public Problem getProblem1(){
+		
+		CreateProblem cProblem = new CreateProblem();
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
@@ -57,28 +58,13 @@ public class Grade6AddWord extends Question {
 		questionList.add(ql);
 		
 		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
-		String heading = "Add Word numbers";
-		String subHeading = "What is the sum";
+		String heading = Constants.GRADE_6_CONTENT_ADD_WORD;
+		String subHeading = "Word problem- Convert to numeric and then sum up";
 		
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.DEFAULT);
 		
 		return problem;
 	}
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
-		Answer answer = new Answer();
-		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
-		problem.setAnswer(answer);
-		
-		return problem;
-	}
-
+	
 }

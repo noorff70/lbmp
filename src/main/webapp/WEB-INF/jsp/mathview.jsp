@@ -173,7 +173,7 @@ function doAjaxPost(type){
 	  	 var answer = response.problem.answer.answer;
 	  	 var answerType = response.problem.answer.type;
 	  	   
-	  	 $('#questionHeading').html(questionheading);
+	  	 $('#questionHeading').html("");
 	  		//clear the question lines
 	  	 $(".idQuestionLn").remove();
 	  		
@@ -218,7 +218,7 @@ function doAjaxPost(type){
 	  	if(answerType=="RTL"){
 	  		
 	  		
-	  		$('#idQuestion').append('<div class="form-group" style="display:inline-block"><label for="Answer:">Answer:</label>'
+	  		$('#idQuestion').append('<div class="form-group" style="display:inline-block float: right" ><label for="Answer:">Answer:</label>'
 	  		+ '<input class="form-control input-sm" id="id_inputTextSingleAnswer" onkeyPress ="writeRTL(event)" type="text" dir="rtl"></div>');
 	  	}
 	  	else if(answerType=="FRACTION"){
@@ -228,14 +228,14 @@ function doAjaxPost(type){
 			var math = document.getElementById("idQuestion");
 			MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);
 
-		  	$('#idQuestion').append('<div class="form-group" style="display:inline-block"><label for="Answer:">Answer:</label><input class="form-control input-sm" id="id_inputTextSingleAnswer" type="text"></div>');
+		  	$('#idQuestion').append('<div class="form-group" style="display:inline-block float: right"><label for="Answer:">Answer:</label><input class="form-control input-sm" id="id_inputTextSingleAnswer" type="text"></div>');
 	  	}
 	  	else if (answerType == "RADIOTYPE"){
 	  		
 	  	}
 	  	else {
 	  		
-	  		$('#idQuestion').append('<div class="form-group" style="display:inline-block"><label for="Answer:">Answer:</label>'
+	  		$('#idQuestion').append('<div class="form-group" style="display:inline-block float: right"><label for="Answer:">Answer:</label>'
 	  		+ '<input class="form-control input-sm" id="id_inputTextSingleAnswer" type="text"></div>');
 	  	}
 		
@@ -255,19 +255,24 @@ function doAjaxPost(type){
 	 		
 		    var Val = document.getElementById("id_inputTextSingleAnswer").value;
 		    		    
-		    var x = event.keyCode || event.which;     // Get the Unicode value
+		    var x = event.keyCode;     // Get the Unicode value
 		    var newValue = String.fromCharCode(x);
+		    var secondHalf, realValue;
 
-		    
-		    if (Val.length >0){
-		    	e.preventDefault();
-		    	var secondHalf = document.getElementById("id_inputTextSingleAnswer").value;
-
-		    	var realValue = newValue + secondHalf;
-
-		    	$("#id_inputTextSingleAnswer").val(realValue);
-		    	
+		    if (event.keyCode ==44){//when there is a comma
+		    	secondHalf = document.getElementById("id_inputTextSingleAnswer").value;
+		    	realValue = "," + secondHalf;
 		    }
+		    else if (Val.length >0){
+		    	e.preventDefault();
+		    	secondHalf = document.getElementById("id_inputTextSingleAnswer").value;
+		    	realValue = newValue + secondHalf;		    	
+		    }
+		    
+		    if (realValue.charAt(realValue.length - 1) == ',') {
+		    	realValue = realValue.substr(0, realValue.length - 1);
+		    }
+		    $("#id_inputTextSingleAnswer").val(realValue);
 	}  
 
 </script>
