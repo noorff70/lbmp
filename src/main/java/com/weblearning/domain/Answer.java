@@ -13,6 +13,7 @@ public class Answer {
 	String answer;
 	/*Type of the answer, i.e String answerr or something else */
 	String type;
+	int noOfCorrectAnswer;
 		
 	public String getAnswer() {
 		return answer;
@@ -25,6 +26,14 @@ public class Answer {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public void setNoOfCorrectAnswer(int no){
+		noOfCorrectAnswer = no;
+	}
+	
+	public int getNoOfCorrectAnswer(){
+		return noOfCorrectAnswer;
 	}
 	
 	

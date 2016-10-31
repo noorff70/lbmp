@@ -21,7 +21,7 @@ public class Grade6SubtractLargeNumber extends Question {
 		
 		List <Problem>subtractLargeNumber = new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
+		for (int i=0; i<20; i++)
 			subtractLargeNumber.add(getProblem1());
 		
 		return subtractLargeNumber;

@@ -17,14 +17,15 @@ import com.weblearning.service.TopicDetailService;
 @Transactional
 public class TopicDetailServiceImpl implements TopicDetailService{
 
+	
 	@Autowired 
 	TopicDetailDAO topicDetailDAO;
 	
 	@Override
 	public TopicDetail getTopicDetail(String topicDetailID) {
 		
-		
 		return (TopicDetail) topicDetailDAO.findAllTopicDetails(topicDetailID);
 	}
 
+	
 }

@@ -25,4 +25,9 @@
   <put-attribute name="body" value="/WEB-INF/jsp/mathview.jsp" />
  </definition>
  
+ <definition name="loginview" extends="baseLayout">
+  <put-attribute name="title" value="Home" />
+  <put-attribute name="body" value="/WEB-INF/jsp/loginview.jsp" />
+ </definition>
+ 
 </tiles-definitions>  

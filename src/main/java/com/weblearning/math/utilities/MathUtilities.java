@@ -241,11 +241,12 @@ public class MathUtilities {
 	 */
 	public static List<Integer> getHCF(List<Integer> numberList, List<Integer> primeList){
 		
-		for (int i=0; i< numberList.size(); i++){
+		//not sure what was the logic????
+		/*for (int i=0; i< numberList.size(); i++){
 			if ((int)numberList.get(i) ==1){
 				return primeList;
 			}
-		}
+		}*/
 		
 		//get the maximum number in the sorted list where last item is the max number
 		int maxNumber = (int) numberList.get(numberList.size()-1);
@@ -253,6 +254,8 @@ public class MathUtilities {
 		List<Integer> tempNumberList = null;
 		int i=0;
 		int counter=0;
+		
+		//iterate through all the numbers from 2 to the max/2 of the numbers and find if all numbers in list is divisible by i to make in a prime factor
 		for (i=2; i<=maxNumber/2; i++ ){
 			boolean contd = false;
 			primeFactor = false;
@@ -288,6 +291,7 @@ public class MathUtilities {
 		if (primeFactor ){
 			tempNumberList = new ArrayList();
 			
+			//now divide all the numbers by i to get a new numberlist and put i in the primelist
 			for (int k=0; k<numberList.size(); k++ ){
 				tempNumberList.add((int)numberList.get(k)/i);
 			}
@@ -642,6 +646,47 @@ public class MathUtilities {
 		
 		return numbers;
 		
+	}
+	
+	/*
+	 * Takes an Fraction and converts into a FractionObject
+	 */
+	public static FractionObject getFractionAsString(Fraction result){
+		
+		FractionObject resultObject = new FractionObject();
+		resultObject.setNumerator(result.getNumerator());
+		resultObject.setDenominator(result.getDenominator());
+
+		resultObject.setPrefix(Constants.SIGN_PLUS);
+		
+		if (result.getNumerator()> result.getDenominator())
+			resultObject.setFractionType(Constants.FRACTION_TYPE_MIXED);
+		else if (result.getNumerator()< result.getDenominator())
+			resultObject.setFractionType(Constants.FRACTION_TYPE_NORMAL);
+		else if (result.getNumerator()== result.getDenominator())
+			resultObject.setFractionType(Constants.FRACTION_TYPE_WHOLE);
+		
+		
+		return resultObject;
+	}
+	
+	public static FractionObject getFractionAsString(int numerator, int denominator, String fractionType){
+		
+		FractionObject resultObject = new FractionObject();
+		resultObject.setNumerator(numerator);
+		resultObject.setDenominator(denominator);
+
+		resultObject.setPrefix(Constants.SIGN_PLUS);
+		
+		if (fractionType.equals(Constants.FRACTION_TYPE_MIXED))
+			resultObject.setFractionType(Constants.FRACTION_TYPE_MIXED);
+		else if (fractionType.equals(Constants.FRACTION_TYPE_NORMAL))
+			resultObject.setFractionType(Constants.FRACTION_TYPE_NORMAL);
+		else if (fractionType.equals(Constants.FRACTION_TYPE_WHOLE))
+			resultObject.setFractionType(Constants.FRACTION_TYPE_WHOLE);
+		
+		
+		return resultObject;
 	}
 
 }

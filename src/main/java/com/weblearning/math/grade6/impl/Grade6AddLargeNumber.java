@@ -20,7 +20,7 @@ public class Grade6AddLargeNumber extends Question {
 		
 		List <Problem>addSubtractFraction = new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
+		for (int i=0; i<20; i++)
 			addSubtractFraction.add(getProblem1());
 		
 		return addSubtractFraction;

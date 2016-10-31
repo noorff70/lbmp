@@ -12,6 +12,8 @@ public interface Constants {
 	public static String PROBLM_LIST ="problemList";
 	public static String LIST_OF_QUESTION_HEADING = "questionHeadingList";
 	public static String LIST_OF_QUESTION_SUBHEADING = "questionSubHeadingList";
+	public static String NUMBER_OF_PROBLEMS = "numberOfProblems";
+	public static String NUMBER_OF_REMAINING_PROBLEMS = "numberOfRemainingProblems";
 	
 	public static String GRADE_5_PACKAGE = "com.weblearning.math.grade5.impl.";
 	public static String GRADE_6_PACKAGE = "com.weblearning.math.grade6.impl.";
@@ -36,8 +38,9 @@ public interface Constants {
 	public static int RANK_TWO = 2;
 	
 	public static String GRADE_6_CONTENT_ADD_LARGE_NUMBER = "The exercise is about adding large numbers";
-	public static String GRADE_6_CONTENT_ADD_SINGLE_LINE = "The exercise is about adding large numbers defined in a single line";
-	public static String GRADE_6_CONTENT_ADD_SUB = "This is about adding multiple numbers with various plus and minus si,ultaniously";
+	public static String GRADE_6_CONTENT_ADD_SINGLE_LINE = "gr6.content.add.single.line";
+	public static String GRADE_6_CONTENT_ADD_SUB = "gr6.content.add.sub.single.line";
+	public static String GRADE_6_SIMPLIFY_FRACTION= "gr6.simplify.fraction";
 	public static String GRADE_6_CONTENT_SUB_LARGE_NUMBER = "Practice to subtract one number from another";
 	public static String GRADE_6_CONTENT_SUB_SINGLE_LINE = "Practice to subtract numbers defined in a single line";
 	public static String GRADE_6_CONTENT_ADD_WORD = "Practice to convert words to numbers and add";
@@ -56,4 +59,7 @@ public interface Constants {
 	public static String GRADE_6_CONTENT_SIMPLE_MULTIPLICATION = "Learn to do multiplication of fractions";
 	public static String GRADE_6_CONTENT_FIND_MISSING_FRACTION = "Find the missing Fraction. A way to start learning Equations";
 	public static String GRADE_6_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION = "Learn to find out a missing fraction when there multiplication and divisions";
+	
+	public static String FIND_VALUE_OF_X = "find.value.of.x";
+	public static String SIMPLIFY_FRACTION = "simplify.fraction";
 }

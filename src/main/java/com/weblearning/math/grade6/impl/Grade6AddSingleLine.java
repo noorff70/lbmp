@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.log4j.Logger;
+import org.springframework.context.MessageSource;
+
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -15,13 +18,17 @@ import com.weblearning.utilities.CreateProblem;
 
 public class Grade6AddSingleLine extends Question {
 	
+	
+	private static final Logger logger = Logger.getLogger(Grade6AddSingleLine.class);
+	
+	
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
 		
 		List <Problem>addSingleLine= new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
-			addSingleLine.add(getProblem1());
+		for (int i=0; i<20; i++)
+			addSingleLine.add(getProblem1(mathConfig));
 		
 		return addSingleLine;
 	}
@@ -29,8 +36,10 @@ public class Grade6AddSingleLine extends Question {
 	/*
 	 * Lesson for adding
 	 */
-	public Problem getProblem1(){
+	public Problem getProblem1(MathConfiguration mathConfig){
 		
+		MessageSource mSource = mathConfig.getmSource();
+				
 		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
@@ -39,7 +48,7 @@ public class Grade6AddSingleLine extends Question {
 		int numberOfLines = MathUtilities.getRandomNumber(2,3);
 		
 		//Create the numbers in an array							
-		int numbers[] = MathUtilities.getRandomNumbers(numberOfLines, 99999, 9999999);
+		int numbers[] = MathUtilities.getRandomNumbers(numberOfLines, 99999, 999999);
 		
 		for (int i=0; i<numbers.length; i++){
 			if (i==0)
@@ -48,14 +57,18 @@ public class Grade6AddSingleLine extends Question {
 				numberInString += " + " + NumberFormat.getNumberInstance(Locale.US).format(numbers[i]) ;
 		}
 		
+		logger.info("Inside Grade6AddSingleLine " + numberInString);
+		
 		result = rule1Ans(numbers);
 		
 		QuestionLine ql = new QuestionLine();
 		ql.setQuestionLn(numberInString);
-		questionList.add(ql);
+		questionList.add(ql);	
 		
 		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
-		String heading = Constants.GRADE_6_CONTENT_ADD_SINGLE_LINE;
+		
+		
+		String heading = mSource.getMessage(Constants.GRADE_6_CONTENT_ADD_SINGLE_LINE, null, Locale.ENGLISH);
 		String subHeading = "Sum of numbers";
 		
 		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.DEFAULT);

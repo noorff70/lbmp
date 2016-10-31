@@ -20,7 +20,7 @@ public class Grade6SubtractSingleLine extends Question {
 		
 		List <Problem>subtractSingleLine = new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
+		for (int i=0; i<20; i++)
 			subtractSingleLine.add(getProblem1());
 		
 		return subtractSingleLine;
@@ -40,7 +40,7 @@ public class Grade6SubtractSingleLine extends Question {
 		int numberOfLines = MathUtilities.getRandomNumber(2,3);
 		
 		//Create the numbers in an array							
-		int numbers[] = MathUtilities.getRandomNumbers(numberOfLines, -9999999, -1);
+		int numbers[] = MathUtilities.getRandomNumbers(numberOfLines, -9999, -1);
 		
 		for (int i=0; i<numbers.length; i++){
 			

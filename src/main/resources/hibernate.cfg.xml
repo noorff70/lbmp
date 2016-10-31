@@ -12,5 +12,6 @@
     <mapping class ="com.weblearning.domain.Subject"/>
     <mapping class ="com.weblearning.domain.Topic"/>
     <mapping class ="com.weblearning.domain.TopicDetail"/>
+    <mapping class ="com.weblearning.security.model.User"/>
   </session-factory>
 </hibernate-configuration>

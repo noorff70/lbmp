@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.weblearning.controller.UserLoginController;
 import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
@@ -14,17 +17,28 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 
 public class Grade6HCF extends Question{
+	
+	private static final Logger logger = Logger.getLogger(UserLoginController.class);
 
 	@Override
 	//Generate the questions
 	public List<?> getQuestions(MathConfiguration mathConfig) {
+		
+		logger.info("Entering from Grade6HCF");
+		
 		List <Problem>hcfs = new  LinkedList<Problem>();
 		
-		hcfs.add(getProblem1());
-		hcfs.add(getProblem2());
+		for (int i=0; i<5; i++)
+			hcfs.add(getProblem1());
+		
+		for (int i=0; i<5; i++)
+			hcfs.add(getProblem2());
+		
 		for (int i=0; i<10; i++){
 			hcfs.add(getProblem3());
 		}
+		
+		logger.info("Returning from Grade6HCF");
 		return hcfs;
 	}
 	
@@ -32,7 +46,7 @@ public class Grade6HCF extends Question{
 	 * Take a number from 2 to 9
 	 */
 	public Problem getProblem1(){
-		Problem problem = getProblem(2,9, false, 0,0,0);
+		Problem problem = getProblem(2,20, false, 0,0,0);
 		return problem;
 	}
 	
@@ -40,7 +54,7 @@ public class Grade6HCF extends Question{
 	 * take a number from 11 to 19
 	 */
 	public Problem getProblem2(){
-		Problem problem = getProblem(10,19, false, 0,0,0);
+		Problem problem = getProblem(10,40, false, 0,0,0);
 		return problem;
 	}
 	
@@ -49,9 +63,9 @@ public class Grade6HCF extends Question{
 	 * 
 	 */
 	public Problem getProblem3(){
-		int incrementBy = MathUtilities.getRandomNumber(3, 9);
-		int multipliedBy = MathUtilities.getRandomNumber(4, 9);
-		int numberOfItems = MathUtilities.getRandomNumber(3, 4);
+		int incrementBy = MathUtilities.getRandomNumber(3, 5);
+		int multipliedBy = MathUtilities.getRandomNumber(2, 6);
+		int numberOfItems = MathUtilities.getRandomNumber(2, 3);
 		
 		Problem problem = getProblem(2,9,true, incrementBy, multipliedBy, numberOfItems);
 		return problem;
@@ -62,6 +76,8 @@ public class Grade6HCF extends Question{
 	 */
 	@SuppressWarnings("unchecked")
 	public Problem getProblem(int min, int max, boolean autoIncrement, int incrementBy, int multipliedBy, int numberOfItems){
+		
+		String answ =null;
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 						
@@ -86,14 +102,19 @@ public class Grade6HCF extends Question{
 		}
 		
 		Collections.sort(numberList);
+		//this will give a list of prime factors for the number in numberList 
 		primeList = MathUtilities.getHCF(numberList, primeList);
 				
 		//Add the questions		
 		questionList.add(new QuestionLine("Find the HCF of the following"));
 		String questionLn2 = formattedString(numberList, Constants.STRING_CONCAT);
 		questionList.add(new QuestionLine(questionLn2));
-				
-		String answ = formattedString(primeList, Constants.STRING_MULTIPLY);
+		
+		//numberList returned contains the prime factors which now need to be multiplied
+		if (primeList.size()==0)
+			answ = Integer.toString(1);
+		else 	
+			answ = formattedString(primeList, Constants.STRING_MULTIPLY);
 				
 		String heading = "Find HCF";
 		String subHeading = "Find HCF of two integers";

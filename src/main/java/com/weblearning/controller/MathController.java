@@ -1,9 +1,7 @@
 package com.weblearning.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.Lesson;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.TopicDetail;
@@ -63,6 +63,7 @@ public class MathController {
 		String className = packageName + topicDetail.getClassName();
 		
 		//Get the list of problems and add that to session for later retrieval
+		mathClassLoaderService.setGradeId(gradeId);
 		problemList = mathClassLoaderService.getProblemList(className);
 		request.getSession().setAttribute(Constants.PROBLM_LIST, problemList);
 		
@@ -102,22 +103,29 @@ public class MathController {
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="/mathviewnext", method = RequestMethod.POST)
 	@ResponseBody
-    public Lesson removeLesson(@ModelAttribute(value = "lesson") Lesson lesson, BindingResult result,HttpServletRequest request) {
+    public Lesson removeLesson(@ModelAttribute(value = "lesson") Lesson lesson, @RequestBody Answer answer, BindingResult result,HttpServletRequest request) {
         ModelAndView model = new ModelAndView();
        
-        //String test = answer.getTest();
+        int noCorrectAnswers = answer.getNoOfCorrectAnswer();
         List questionList = new ArrayList();
+          
+        
         //Get the list of questions from session
         questionList = (List) request.getSession().getAttribute(Constants.PROBLM_LIST);
+		
+        int numberOfRemainingProblems = questionList.size()-1;
+		int numberOfProblems= getNumberOfProblems(request, questionList);
        
         Problem problem = (Problem) questionList.get(0);
         
         lesson.setProblem(problem);
+        lesson.setNumberOfProblems(numberOfProblems);
+        lesson.setRemainingProblems(numberOfRemainingProblems);
+        lesson.setNumberOfCorrectAnswers(noCorrectAnswers);
         
         if (questionList.size()>0){
         //Add the new list
         	model.addObject("lesson", lesson);
-        	
         	model.setViewName(Constants.MATH_VIEW);
         }
         else
@@ -142,6 +150,24 @@ public class MathController {
 			return Constants.GRADE_6_PACKAGE;
 		
 		return null;
+		
+	}
+	
+	/*Returns the number of problems in a Lesson
+	 * 
+	 */
+	public int getNumberOfProblems(HttpServletRequest request, List<?> questionList){
+		
+		int numberOfProblems=0; 
+		
+		if (null == request.getSession().getAttribute(Constants.NUMBER_OF_PROBLEMS)){
+			numberOfProblems = questionList.size();
+			request.getSession().setAttribute(Constants.NUMBER_OF_PROBLEMS, numberOfProblems);
+		}
+		else 
+			numberOfProblems = (int) request.getSession().getAttribute(Constants.NUMBER_OF_PROBLEMS);
+		
+		return numberOfProblems;
 		
 	}
 	

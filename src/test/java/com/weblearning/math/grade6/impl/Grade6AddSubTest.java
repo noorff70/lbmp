@@ -22,9 +22,16 @@ public class Grade6AddSubTest extends TestCase {
 	@Test
     public void testRule1() {
 		
-		int result = grade6AddSub.rule1(numbers);
+		//test rule 1
+		String result1[] = grade6AddSub.rule(numbers, 1);
+		String result2[] = grade6AddSub.rule(numbers, 2);
+		String result3[] = grade6AddSub.rule(numbers, 3);
+		String result4[] = grade6AddSub.rule(numbers, 4);
 			
-        assertEquals(result, 4000);
+        assertEquals(Integer.parseInt(result1[1]), 4000);
+        assertEquals(Integer.parseInt(result2[1]), -2000);
+        assertEquals(Integer.parseInt(result3[1]), -4000);
+        assertEquals(Integer.parseInt(result4[1]), 2000);
     }
 
 

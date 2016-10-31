@@ -1,7 +1,6 @@
 package com.weblearning.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 
 /*Class to hold the information Lesson object formed from TopicDetail
@@ -18,6 +17,9 @@ public class Lesson implements Serializable{
 	
 	Problem problem;
 	String check;
+	int numberOfProblems;
+	int remainingProblems;
+	int numberOfCorrectAnswers;
 		
 	public Lesson(){
 		
@@ -38,6 +40,36 @@ public class Lesson implements Serializable{
 	
 	public void setProblem(Problem p){
 		problem =p;
+	}
+
+
+	public int getNumberOfProblems() {
+		return numberOfProblems;
+	}
+
+
+	public void setNumberOfProblems(int problems) {
+		this.numberOfProblems = problems;
+	}
+
+
+	public int getRemainingProblems() {
+		return remainingProblems;
+	}
+
+
+	public void setRemainingProblems(int remainingProblems) {
+		this.remainingProblems = remainingProblems;
+	}
+
+
+	public int getNumberOfCorrectAnswers() {
+		return numberOfCorrectAnswers;
+	}
+
+
+	public void setNumberOfCorrectAnswers(int numberOfCorrectAnswers) {
+		this.numberOfCorrectAnswers = numberOfCorrectAnswers;
 	}
 	
 }

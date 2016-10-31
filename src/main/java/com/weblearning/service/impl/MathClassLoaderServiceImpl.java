@@ -1,9 +1,12 @@
 package com.weblearning.service.impl;
 
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,15 +15,35 @@ import com.weblearning.domain.Problem;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.service.MathClassLoaderService;
+import com.weblearning.service.MessageResolveService;
 
 
 @Service("classLoaderService")
 @Transactional
 public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 
+	private String gradeId;
+	
+	@Autowired
+	MessageResolveService mService;
+	
+
+	@Override
+	public String getGradeId() {
+
+		return this.gradeId;
+	}
+
+
+	@Override
+	public void setGradeId(String gId) {
+		gradeId = gId;
+		
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Problem> getProblemList(String className){
-		
+
 		MathConfiguration mathConfig = new MathConfiguration();
 		createConfigValues(mathConfig);
 		
@@ -33,6 +56,13 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		problemList = (List<Problem>) question.getQuestions(mathConfig);
 				
 		return problemList;
+	}
+	
+	
+	@Override
+	public MessageSource getMessageResource(String gradeId) {
+
+		return mService.getMessageSource(gradeId);
 	}
 	
 	
@@ -53,9 +83,10 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	
 	}
 	
-	/*
-	 * Create a static value for different purposes
-	 */
+	
+	 /* Create a static value for different purposes 
+	  */
+	 
 	
 	public void createConfigValues (MathConfiguration mConfig){
 		
@@ -64,8 +95,9 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		
 		mConfig.setFactors(mapOfFactors);
 		mConfig.setPrimeFactors(mapOfPrimeFactors);
+		mConfig.setmSource(getMessageResource(getGradeId()));
 	}
-	
+
 
 
 }

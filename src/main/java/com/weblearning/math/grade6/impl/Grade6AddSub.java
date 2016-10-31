@@ -2,7 +2,12 @@ package com.weblearning.math.grade6.impl;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
+import org.apache.log4j.Logger;
+import org.springframework.context.MessageSource;
+
+import com.weblearning.controller.UserLoginController;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -13,13 +18,21 @@ import com.weblearning.utilities.CreateProblem;
 
 public class Grade6AddSub extends Question {
 	
+	private static final Logger logger = Logger.getLogger(UserLoginController.class);
+	
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
 		
 		List <Problem>addSubtractFraction = new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
-			addSubtractFraction.add(getProblem1());
+		MessageSource mSource = mathConfig.getmSource();
+		
+		for (int j=0; j< 5; j++){
+			for (int i=1; i<5; i++)
+				addSubtractFraction.add(getProblem1(i, mSource));
+		}
+		
+		logger.info("Returning from Grade6AddSub");
 		
 		return addSubtractFraction;
 	}
@@ -27,32 +40,26 @@ public class Grade6AddSub extends Question {
 	/*
 	 * Lesson for adding
 	 */
-	public Problem getProblem1(){
+	public Problem getProblem1(int i, MessageSource mSource){
+		
 		
 		CreateProblem createProbmem = new CreateProblem();;
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
-		int answerToQuestion =0;
+		String questionAndAnswer[];
 		
 		//four lines of addition
 		int numbersInArray = 3;
 		
 		//Create an empty array for the numbers
-		int numbers[] = MathUtilities.getRandomNumbers(numbersInArray, 1000, 10000);
+		int numbers[] = MathUtilities.getRandomNumbers(numbersInArray, 999, 9999);
 		
-		StringBuilder stb =new StringBuilder();
-		stb.append(numbers[0]);
-		stb.append(" + ");
-		stb.append(numbers[1]);
-		stb.append(" - ");
-		stb.append(numbers[2]);
-		
-		questionList.add(new QuestionLine(stb.toString()));
-		
-		answerToQuestion = rule1(numbers);//numbers[0] + numbers[1]- numbers[2];
-		
-		String answ = Integer.toString(answerToQuestion);
-		String heading = Constants.GRADE_6_CONTENT_ADD_SUB;
+		questionAndAnswer = rule(numbers, i);
+
+		questionList.add(new QuestionLine(questionAndAnswer[0]));
+
+		String answ = questionAndAnswer[1];
+		String heading = mSource.getMessage(Constants.GRADE_6_CONTENT_ADD_SUB, null, Locale.ENGLISH);
 		String subHeading = "Sum of numbers with different signs";
 		
 		Problem problem = createProbmem.constructProblem (questionList, answ, heading, subHeading, Constants.RANK_ONE,   Constants.DEFAULT);
@@ -63,9 +70,42 @@ public class Grade6AddSub extends Question {
 	/*the result should be number[0]+number[1]-number[2]
 	 * 
 	 */
-	public int rule1(int numbers[]){
+	
+	public String [] rule(int numbers[], int rule){
 		
-		return numbers[0] + numbers[1]- numbers[2];
+		int answer=0;
+		
+		String questionAndAnswer[]=new String [2];;
+		if (rule ==1){
+			
+			questionAndAnswer[0]= numbers[0] + " + " +  numbers[1] + " - " + numbers[2];
+			answer = numbers[0] + numbers[1]- numbers[2];
+			questionAndAnswer[1]= Integer.toString(answer);
+			
+		}
+		else if (rule ==2){
+			
+			questionAndAnswer[0]= numbers[0] + " - " +  numbers[1] + " + " + numbers[2];
+			answer = numbers[0] - numbers[1] + numbers[2];
+			questionAndAnswer[1]= Integer.toString(answer);
+			
+		}
+		else if (rule ==3){
+			
+			questionAndAnswer[0]= " - " + numbers[0] + " - " +  numbers[1] + " + " + numbers[2];
+			answer = -numbers[0] - numbers[1]+ numbers[2];
+			questionAndAnswer[1]= Integer.toString(answer);
+			
+		}
+		else{
+			
+			questionAndAnswer[0]= " - " + numbers[0] + " + " +  numbers[1] + " - " + numbers[2];
+			answer = -numbers[0] + numbers[1]- numbers[2];
+			questionAndAnswer[1]= Integer.toString(answer);
+			
+		}
+			return questionAndAnswer;
+		
 	}
 	
 }
