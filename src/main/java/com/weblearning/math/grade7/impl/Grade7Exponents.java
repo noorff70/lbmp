@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
@@ -12,7 +12,7 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class Grade6Exponents extends Question{
+public class Grade7Exponents extends Question{
 
 	@Override
 	//Generate the questions

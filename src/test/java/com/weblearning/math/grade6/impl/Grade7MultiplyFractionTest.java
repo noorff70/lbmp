@@ -7,10 +7,12 @@ import junit.framework.TestCase;
 
 import org.junit.Before;
 
+import com.weblearning.math.grade7.impl.Grade7MultiplyFraction;
 
-public class Grade6MultiplyFractionTest extends TestCase{
+
+public class Grade7MultiplyFractionTest extends TestCase{
 	
-	Grade6MultiplyFraction grade6MultiplyFraction;
+	Grade7MultiplyFraction grade6MultiplyFraction;
 
 	List<Integer> listFactor1WithOne = new ArrayList<Integer>();
 	List<Integer> listFactor2WithOne = new ArrayList<Integer>(); 
@@ -19,7 +21,7 @@ public class Grade6MultiplyFractionTest extends TestCase{
 	@Before
     public void setUp() throws Exception {
          
-        grade6MultiplyFraction = new Grade6MultiplyFraction();
+        grade6MultiplyFraction = new Grade7MultiplyFraction();
         
         listFactor1WithOne.add(1);
         listFactor1WithOne.add(3);

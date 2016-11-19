@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -18,7 +18,7 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G6SimplifyFraction extends Question{
+public class G7SimplifyFraction extends Question{
 
 	@Override
 	public List<?> getQuestions(MathConfiguration mathConfig) {
@@ -87,7 +87,7 @@ public class G6SimplifyFraction extends Question{
 		questionList.add(qLine1);
 		questionList.add(qLine2);
 		
-		String heading = mSource.getMessage(Constants.GRADE_6_SIMPLIFY_FRACTION, null, Locale.ENGLISH);
+		String heading = mSource.getMessage(Constants.GRADE_7_SIMPLIFY_FRACTION, null, Locale.ENGLISH);
 		String subHeading = "";
 		
 		Problem problem = cProblem.constructProblem(questionList, rFrac.toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);

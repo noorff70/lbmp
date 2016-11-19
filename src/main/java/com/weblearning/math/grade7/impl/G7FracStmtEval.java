@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G6FracStmtEval extends Question {
+public class G7FracStmtEval extends Question {
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
@@ -226,7 +226,7 @@ public class G6FracStmtEval extends Question {
 	
 		result = getResult(result1, result3);
 		
-		String heading = Constants.GRADE_6_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION;
+		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION;
 		String subHeading = "";
 		
 		Problem problem = cProblem.constructProblem(questionList, result, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);

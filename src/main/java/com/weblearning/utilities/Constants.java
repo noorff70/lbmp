@@ -17,6 +17,7 @@ public interface Constants {
 	
 	public static String GRADE_5_PACKAGE = "com.weblearning.math.grade5.impl.";
 	public static String GRADE_6_PACKAGE = "com.weblearning.math.grade6.impl.";
+	public static String GRADE_7_PACKAGE = "com.weblearning.math.grade7.impl.";
 	
 	//public static String PROBLEM_TYPE_SINGLE = "SINGLE";
 	public static String PROBLEM_TYPE_FRACTION = "FRACTION";
@@ -40,7 +41,6 @@ public interface Constants {
 	public static String GRADE_6_CONTENT_ADD_LARGE_NUMBER = "The exercise is about adding large numbers";
 	public static String GRADE_6_CONTENT_ADD_SINGLE_LINE = "gr6.content.add.single.line";
 	public static String GRADE_6_CONTENT_ADD_SUB = "gr6.content.add.sub.single.line";
-	public static String GRADE_6_SIMPLIFY_FRACTION= "gr6.simplify.fraction";
 	public static String GRADE_6_CONTENT_SUB_LARGE_NUMBER = "Practice to subtract one number from another";
 	public static String GRADE_6_CONTENT_SUB_SINGLE_LINE = "Practice to subtract numbers defined in a single line";
 	public static String GRADE_6_CONTENT_ADD_WORD = "Practice to convert words to numbers and add";
@@ -49,17 +49,35 @@ public interface Constants {
 	public static String FRACTION_TYPE_NORMAL = "normal";
 	public static String FRACTION_TYPE_WHOLE = "whole";
 	
+	public static String FRACTION_TYPE_MIXED_ANSWER = "C";
+	public static String FRACTION_TYPE_PERFECT_ANSWER = "A";
+	public static String FRACTION_TYPE_IMPERFECT_ANSWER = "B";
+	
 	public static String SIGN_PLUS = "+";
 	public static String SIGN_MINUS = "-";
 	public static String SIGN_MULTIPLY = "*";
 	public static String SIGN_DIVISION = "/";
 	
-	public static String GRADE_6_CONTENT_ADD_FRACTION = "Learn the way to add fractions";
-	public static String GRADE_6_CONTENT_ADD_MIXED_FRACTION = "Learn the way to add Mixed Numbers";
-	public static String GRADE_6_CONTENT_SIMPLE_MULTIPLICATION = "Learn to do multiplication of fractions";
-	public static String GRADE_6_CONTENT_FIND_MISSING_FRACTION = "Find the missing Fraction. A way to start learning Equations";
-	public static String GRADE_6_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION = "Learn to find out a missing fraction when there multiplication and divisions";
+	public static String GRADE_7_CONTENT_ADD_FRACTION = "Learn the way to add fractions";
+	public static String GRADE_7_CONTENT_ADD_MIXED_FRACTION = "Learn the way to add Mixed Numbers";
+	public static String GRADE_7_CONTENT_SIMPLE_MULTIPLICATION = "Learn to do multiplication of fractions";
+	public static String GRADE_7_CONTENT_FIND_MISSING_FRACTION = "Find the missing Fraction. A way to start learning Equations";
+	public static String GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION = "Learn to find out a missing fraction when there multiplication and divisions";
+	public static String GRADE_7_SIMPLIFY_FRACTION= "gr7.simplify.fraction";
+	public static String GRADE_7_COMPARE_FRACTION= "gr7.compare.fraction";
+	public static String GRADE_7_CONVERT_TO_MIXED_FRACTION= "gr7.convert.to.mixed.fraction";
+	public static String GRADE_7_ADD_FRACTION_WITH_WHOLE_NUMBER = "gr7.add.fraction.and.whole.number";
+	public static String GRADE_7_TYPE_OF_FRACTION= "gr7.type.of.fraction";
+	public static String GRADE_7_CONVERT_DECIMAL_TO_FRACTION= "gr7.convert.decimal.to.fraction";
+	public static String GRADE_7_CONVERT_FOLLOWING_FROM_DECIMAL_TO_FRACTION= "gr7.convert.following.from.decimal.to.fraction";
+	public static String GRADE_7_ADD_DECIMAL_NUMBERS = "gr7.add.decimal.numbers";
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";
+	public static String FIND_OUT_LARGER_FRACTION = "find.larger.fraction";
+	public static String CONVERT_THE_FOLLOWING_TO_MIXED_FRACTION = "convert.to.mixed.fraction";
+	public static String ADD_THE_FOLLOWING_IMPROPER_FRACTION = "add.the.folowing.improper.fraction";
+	public static String ADD_THE_FOLLOWING_MIXED_FRACTION = "add.the.folowing.mixed.fraction";
+	public static String SELECT_PROPER_TYPE_OF_FRACTION = "select.proper.type.of.fraction";
+	public static String ADD_FOLLOWING_DECIMAL_NUMBERS = "add.following.decimal.numbers";
 }

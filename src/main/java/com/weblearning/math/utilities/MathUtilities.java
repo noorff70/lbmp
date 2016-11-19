@@ -670,6 +670,10 @@ public class MathUtilities {
 		return resultObject;
 	}
 	
+	
+	/*Returns a fraction object when a numerator/denominator supplied
+	 * 
+	 */
 	public static FractionObject getFractionAsString(int numerator, int denominator, String fractionType){
 		
 		FractionObject resultObject = new FractionObject();
@@ -687,6 +691,17 @@ public class MathUtilities {
 		
 		
 		return resultObject;
+	}
+	
+	
+	/*
+	 * Converts a single fraction to a String
+	 */
+	public static String convertSingleFRactionToString(int numerator, int denominator){
+		
+		//return "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
+		return "$"+numerator+"\\over" +denominator+"$";
+		
 	}
 
 }

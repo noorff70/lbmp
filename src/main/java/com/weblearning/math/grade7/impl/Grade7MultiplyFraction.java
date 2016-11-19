@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,21 +16,21 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G6DivisionFraction extends Question {
+public class Grade7MultiplyFraction extends Question {
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
 
-		List<Problem> grade6DivisionFraction = new ArrayList<Problem>();
+		List<Problem> grade6MultiplyFraction = new ArrayList<Problem>();
 
 		for (int i = 0; i < 5; i++){
 			//j stands for rule. rules can be 1,2 ,3 etc
 			for (int j=1; j<=4; j++){
-				grade6DivisionFraction.add(getProblem1(mathConfig, j));
+				grade6MultiplyFraction.add(getProblem1(mathConfig, j));
 			}
 		}
 
-		return grade6DivisionFraction;
+		return grade6MultiplyFraction;
 	}
 
 	/*
@@ -55,7 +55,7 @@ public class G6DivisionFraction extends Question {
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 
-		String heading = Constants.GRADE_6_CONTENT_SIMPLE_MULTIPLICATION;
+		String heading = Constants.GRADE_7_CONTENT_SIMPLE_MULTIPLICATION;
 		String subHeading = "";
 
 		Problem problem = cProblem.constructProblem(questionList, result.toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
@@ -109,7 +109,7 @@ public class G6DivisionFraction extends Question {
 			
 			fracObject2.setNumerator(numerator2);
 			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_DIVISION);
+			fracObject2.setPrefix(Constants.SIGN_MULTIPLY);
 			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
 		
 			fractionList.add(fracObject1);
@@ -135,7 +135,7 @@ public class G6DivisionFraction extends Question {
 			
 			fracObject2.setNumerator(numerator2);
 			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_DIVISION);
+			fracObject2.setPrefix(Constants.SIGN_MULTIPLY);
 			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
 			
 			fractionList.add(fracObject1);
@@ -159,12 +159,12 @@ public class G6DivisionFraction extends Question {
 			
 			fracObject2.setNumerator(numerator2);
 			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_DIVISION);
+			fracObject2.setPrefix(Constants.SIGN_MULTIPLY);
 			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
 			
 			fractionList.add(fracObject1);
 			fractionList.add(fracObject2);
-			
+			break;
 		
 			//multiplication of between a mixed fraction and a real fraction	
 		case(4):
@@ -188,7 +188,6 @@ public class G6DivisionFraction extends Question {
 			fractionList.add(fracObject1);
 			fractionList.add(fracObject2);
 			break;
-			
 		}
 		
 		return fractionList;

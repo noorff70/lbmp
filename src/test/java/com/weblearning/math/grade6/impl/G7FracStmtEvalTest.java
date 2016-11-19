@@ -5,17 +5,19 @@ import junit.framework.TestCase;
 import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 
+import com.weblearning.math.grade7.impl.G7FracStmtEval;
 
-public class G6FracStmtEvalTest extends TestCase{
+
+public class G7FracStmtEvalTest extends TestCase{
 	
-	G6FracStmtEval g6FracStmtEval;
+	G7FracStmtEval g6FracStmtEval;
 
 	Fraction f1, f2, f3, f4, f5, f6;
 	
 	@Before
     public void setUp() throws Exception {
          
-        g6FracStmtEval = new G6FracStmtEval();
+        g6FracStmtEval = new G7FracStmtEval();
         
         f1 = new Fraction (1, 3);
         f2 = new Fraction (3, 1);

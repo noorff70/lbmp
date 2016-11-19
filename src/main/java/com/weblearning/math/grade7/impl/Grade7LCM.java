@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 
-public class Grade6LCM extends Question{
+public class Grade7LCM extends Question{
 
 	@Override
 	//Generate the questions

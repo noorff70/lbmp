@@ -20,30 +20,35 @@
 							     $(this).attr('disabled','disabled');
 							 });
 							
-							
+							var answerAsString= '';
 							var answer = '';
 							var answerValue = $("#id_answer").attr('value');
 							var answerType = $("#id_answerType").attr('value');
+							var radioType=true;
 							
-	
+							
 							if (answerType == "FRACTION") {
-								answer = $("#id_inputTextSingleAnswer").val();
-
+								
 								//Convert to JSON Object
-								answer = JSON.stringify(answer).replace(/ /g, '');
+								answerAsString = answerValue;
+								//answer = JSON.stringify(answer).replace(/ /g, '');
 								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
-
-								onClickCheckAnswer(answer, answerValue);
+								
+								onClickCheckAnswer(answer, answerValue, answerAsString, false);
 
 							} else if (answerType == "RADIOTYPE") {
-								answer = $('input[name="myRadio"]:checked', '#topicdetailform').val();
+								
+								answerAsString = answerValue;
+								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
 
-								onClickCheckAnswer(answer, answerValue);
+								onClickCheckAnswer(answer, answerValue, answerAsString,radioType);
 
 							} else {
+								
 								answer = $("#id_inputTextSingleAnswer").val();
+								answerAsString = answerValue;
 
-								onClickCheckAnswer(answer, answerValue);
+								onClickCheckAnswer(answer, answerValue, answerAsString, false);
 							}
 
 						});
@@ -237,6 +242,8 @@
 									.append(
 											'<div class="form-group" style="display:inline-block float: right"><label for="Answer:">Answer:</label><input class="form-control input-sm" id="id_inputTextSingleAnswer" type="text"></div>');
 						} else if (answerType == "RADIOTYPE") {
+							var math = document.getElementById("idQuestion");
+							MathJax.Hub.Queue([ "Typeset", MathJax.Hub, math ]);
 
 						} else {
 
@@ -279,29 +286,75 @@
 		$("#id_inputTextSingleAnswer").val(realValue);
 	}
 
-	function onClickCheckAnswer(answer, answerValue) {
+	function onClickCheckAnswer(answer, answerValue, answerAsString, radioType) {
 		
 		var value;
 		var noOfCorrectAnswers=0;
+
+
+		var toS = answerValue.replace(/[^\d.-/\\+]/g, '');
+		toS = replaceBackSlash(toS);
+
 		
-		if (answer == answerValue){
-			value = "Correct";
-			noOfCorrectAnswers= $('#id_answer_check').val();
-			noOfCorrectAnswers++;
+		if (radioType){
+			if (answer == answerAsString){
+				value = "Correct";
+				noOfCorrectAnswers= $('#id_answer_check').val();
+				noOfCorrectAnswers++;
+			}
+			else{
+				value = "Wrong";
+			}
 		}
-		else{
-			value = "Wrong";
+		
+		if (!radioType){
+			
+			if (answer == toS || answer == answerAsString){
+				value = "Correct";
+				noOfCorrectAnswers= $('#id_answer_check').val();
+				noOfCorrectAnswers++;
+			}
+			else{
+				value = "Wrong";
+			}
 		}
 		
 		$('#id_answer_check').val(noOfCorrectAnswers);
 		alert(noOfCorrectAnswers);
 
+		
 		$('#id_form_group_statistics').append('<div class="form-group-answer" id="id_form_group_answer">'+
 				'<div class="panel-body">' + 'Result Section </br>' + 
-					'Answer: '+ answerValue + '</br>'+
+					'Answer: '+ answerAsString + '</br>'+
 					'<label>Your answer is: </label>' + ' ' + '<label>'+ value  +'</label>'+
 				 '</div>' +
 				'</div>');
+		
+		var math = document.getElementById("id_form_group_answer");
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);
 
+	}
+	
+	/*weird way of dealing with //. The idea is to replace the // to \. For some reason the regex was not working for me.
+	*/
+	function replaceBackSlash(replaceString )
+	{
+		var newString = '';
+		var position;
+		for (i=0; i<replaceString.length; i++){
+			if (replaceString[i]=== '\\')
+			{
+				if (replaceString[i+1]=== '\\'){
+					
+				}
+				else{
+					newString = newString + '/';
+				}
+			}
+			else
+				newString += replaceString[i];
+		}
+		return newString;
+		
 	}
 </script>

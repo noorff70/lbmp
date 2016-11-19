@@ -1,4 +1,4 @@
-package com.weblearning.math.grade6.impl;
+package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,9 +20,9 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class Grade6FractionMissingNumber extends Question {
+public class Grade7FractionMissingNumber extends Question {
 	
-	private static final Logger logger = Logger.getLogger(Grade6FractionMissingNumber.class);
+	private static final Logger logger = Logger.getLogger(Grade7FractionMissingNumber.class);
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
@@ -122,7 +122,7 @@ public class Grade6FractionMissingNumber extends Question {
 		questionList.add(qLine1);
 		questionList.add(qLine2);
 
-		String heading = Constants.GRADE_6_CONTENT_FIND_MISSING_FRACTION;
+		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION;
 		String subHeading = "Adding two Fractions";
 
 		Problem problem = cProblem.constructProblem(questionList, missingResult, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
