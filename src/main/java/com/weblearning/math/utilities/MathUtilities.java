@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Random;
 
 import org.apache.commons.math3.fraction.Fraction;
+import org.apache.log4j.Logger;
 
 import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.utilities.Constants;
@@ -19,13 +20,25 @@ import com.weblearning.utilities.Constants;
 
 public class MathUtilities {
 	
+	private static Logger logger = Logger.getLogger(MathUtilities.class);
+	
 	/*Returns a random number within a rangs
 	 * 
 	 */
 	public static int getRandomNumber(int min, int max){
+		
+		logger.debug("Max: "+ max + " " + "Min: " + min);
 
 		Random r = new Random();
-		int randomNumber = r.nextInt(max - min + 1) + min;
+		int randomNumber =0;
+		
+		if (max > min){
+			
+			randomNumber = r.nextInt(max - min + 1) + min;
+		}
+		else{
+			randomNumber = r.nextInt(min - max + 1) + max;
+		}
 		
 		return randomNumber;
 	}
@@ -701,6 +714,30 @@ public class MathUtilities {
 		
 		//return "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 		return "$"+numerator+"\\over" +denominator+"$";
+		
+	}
+	
+	/*
+	 * Rounding a decimal point 
+	 */
+	public static double getRoundedAnswer(double answer,  int decimalPoint){
+		
+		if (decimalPoint ==1)
+			return (double)Math.round(answer * 10)/10;
+		else if (decimalPoint ==2)
+			return (double)Math.round(answer * 100)/100;
+		else if (decimalPoint ==3)
+			return (double)Math.round(answer * 1000)/1000;
+		else if (decimalPoint ==4)
+			return (double)Math.round(answer * 10000)/10000;
+		else if (decimalPoint ==5)
+			return (double)Math.round(answer * 100000)/100000;
+		else if (decimalPoint ==6)
+			return (double)Math.round(answer * 1000000)/1000000;
+		else if (decimalPoint ==7)
+			return (double)Math.round(answer * 10000000)/10000000;
+		else
+			return (double)Math.round(answer * 100000000)/100000000;
 		
 	}
 

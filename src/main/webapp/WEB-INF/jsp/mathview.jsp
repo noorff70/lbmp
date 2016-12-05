@@ -21,7 +21,7 @@
 							 });
 							
 							var answerAsString= '';
-							var answer = '';
+							var answer = $("#id_inputTextSingleAnswer").val();
 							var answerValue = $("#id_answer").attr('value');
 							var answerType = $("#id_answerType").attr('value');
 							var radioType=true;
@@ -29,15 +29,14 @@
 							
 							if (answerType == "FRACTION") {
 								
-								//Convert to JSON Object
 								answerAsString = answerValue;
-								//answer = JSON.stringify(answer).replace(/ /g, '');
 								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
 								
 								onClickCheckAnswer(answer, answerValue, answerAsString, false);
 
 							} else if (answerType == "RADIOTYPE") {
 								
+								answer = $('input[name="myRadio"]:checked', '#topicdetailform').val(); 
 								answerAsString = answerValue;
 								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
 
@@ -45,7 +44,6 @@
 
 							} else {
 								
-								answer = $("#id_inputTextSingleAnswer").val();
 								answerAsString = answerValue;
 
 								onClickCheckAnswer(answer, answerValue, answerAsString, false);
@@ -295,7 +293,7 @@
 		var toS = answerValue.replace(/[^\d.-/\\+]/g, '');
 		toS = replaceBackSlash(toS);
 
-		
+		//alert("answer: "+ answer + " answerValue: "+ answerValue + "answerAsString: " + answerAsString);
 		if (radioType){
 			if (answer == answerAsString){
 				value = "Correct";
@@ -320,7 +318,6 @@
 		}
 		
 		$('#id_answer_check').val(noOfCorrectAnswers);
-		alert(noOfCorrectAnswers);
 
 		
 		$('#id_form_group_statistics').append('<div class="form-group-answer" id="id_form_group_answer">'+
