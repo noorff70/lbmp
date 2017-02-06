@@ -1,34 +1,31 @@
 package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
+import com.weblearning.math.grade.UniqueObjectMap;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G7ExponentBase extends Question {
+public class G7ExponentBase extends GenericQuestion {
 	
-	Map<Integer, UniqueObjectMap> objectMaps = new HashMap<Integer, UniqueObjectMap>();
+	Map<Integer, UniqueObjectMap> objectMaps = new ConcurrentHashMap<Integer, UniqueObjectMap>();
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
 
 		List<Problem> g7ExponentEvaluation = new ArrayList<Problem>();
-		
-
 
 		for (int i = 0; i <25; i++)
 			g7ExponentEvaluation.add(getProblem1(mathConfig, i));
@@ -72,27 +69,21 @@ public class G7ExponentBase extends Question {
 			answer = objectMap.getNumber();
 		}else{
 			//2nd time and so on, we need to compare the value if that is in the map
-			Iterator iterator = objectMaps.entrySet().iterator();
-			while (iterator.hasNext()){
-				Map.Entry<Integer, UniqueObjectMap> entry = (Entry<Integer, UniqueObjectMap>) iterator.next();
-				UniqueObjectMap  mapObject = entry.getValue();
+
+			while (MathUtilities.isObjectPresent(firstNumber, pow, objectMaps)){
 				
-				//iterate until we get a distinct value of (firstnumber, pow)
-				while(firstNumber == (int)mapObject.getNumber() && pow == (int)mapObject.getPow()){
-					firstNumber = MathUtilities.getRandomNumber(1, 10);
-					pow = MathUtilities.getRandomNumber(1, 4);
-				}
-				//save the values to the class and put in the map
-				UniqueObjectMap objectMap = new UniqueObjectMap();
-				objectMap.setNumber(firstNumber);
-				objectMap.setPow(pow);
-				objectMaps.put(i, objectMap);
-				
-				//create question and answer sections
-				question = "$ X ^{" +objectMap.getPow()+"}$" + " = " + (int) Math.pow(objectMap.getNumber(), objectMap.getPow());
-				answer = objectMap.getNumber();
-				//answer = (int) Math.pow(objectMap.getNumber(), objectMap.getPow());
+				firstNumber = MathUtilities.getRandomNumber(1, 10);
+				pow = MathUtilities.getRandomNumber(1, 4);
+
 			}
+			UniqueObjectMap objectMap = new UniqueObjectMap();
+			objectMap.setNumber(firstNumber);
+			objectMap.setPow(pow);
+			objectMaps.put(i, objectMap);
+			
+			//create question and answer sections
+			question = "$ X ^{" +objectMap.getPow()+"}$" + " = " + (int) Math.pow(objectMap.getNumber(), objectMap.getPow());
+			answer = objectMap.getNumber();
 		
 		}		
 	
@@ -109,32 +100,5 @@ public class G7ExponentBase extends Question {
 
 		return problem;
 	}
-	
-	/*
-	 * a class to hold the data structure of a number and pow
-	 */
-	class UniqueObjectMap{
-		
-		int number;
-		int pow;
-		
-		public int getPow() {
-			return pow;
-		}
-
-		public void setPow(int pow) {
-			this.pow = pow;
-		}
-
-		public int getNumber() {
-			return number;
-		}
-
-		public void setNumber(int n){
-			number= n;
-		}
-		
-	}
-		
 
 }

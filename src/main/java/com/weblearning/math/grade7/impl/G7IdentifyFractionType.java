@@ -12,12 +12,12 @@ import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G7IdentifyFractionType extends Question{
+public class G7IdentifyFractionType extends GenericQuestion{
 
 	private int noOfMixedFraction;
 	

@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
+import com.weblearning.math.grade.GenericQuestion;
+import com.weblearning.math.grade.GeometryQuestion;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.service.MathClassLoaderService;
@@ -52,8 +54,12 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		Question question = getQuestion(className);
 		question.setMathConfiguration(mathConfig);
 		
+		if (question instanceof GenericQuestion)
+			problemList = (List<Problem>) question.getQuestions(mathConfig);
+		else if (question instanceof GeometryQuestion )
+			problemList = (List<Problem>) question.getGeometryQuestions(mathConfig);
 		//Get the list of the problems	
-		problemList = (List<Problem>) question.getQuestions(mathConfig);
+		
 				
 		return problemList;
 	}

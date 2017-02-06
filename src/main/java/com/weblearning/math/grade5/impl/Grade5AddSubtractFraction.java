@@ -10,10 +10,10 @@ import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 
-public class Grade5AddSubtractFraction extends Question{
+public class Grade5AddSubtractFraction extends GenericQuestion{
 
 	@Override
 	public List<?> getQuestions(MathConfiguration mathConfig) {

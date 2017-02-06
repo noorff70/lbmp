@@ -21,6 +21,10 @@ public interface Constants {
 	
 	//public static String PROBLEM_TYPE_SINGLE = "SINGLE";
 	public static String PROBLEM_TYPE_FRACTION = "FRACTION";
+	public static String PROBLEM_TYPE_GEOMETRY = "GEOMETRY";
+	public static String MOVE_TO = "moveTo";
+	public static String LINE_TO = "lineTo";
+	public static int SET_PRECISION_THREE = 3;
 	//public static String PROBLEM_TYPE_MULTIPLE = "MULTIPLE";
 	public static String RIGHT_TO_LEFT = "RTL";
 	public static String DEFAULT= "DEFAULT";
@@ -82,6 +86,7 @@ public interface Constants {
 	public static String GRADE_7_EXPONENT_BASE= "gr7.exponent.base";
 	public static String GRADE_7_INTEGER_EXPONENTIATION_EXPRESSION= "gr7.division.integer.exponentiation.expression";
 	public static String GRADE_7_EXPONENT_DECIMAL_FRACTION= "gr7.exponent.decimal.fraction";
+	public static String GRADE_7_GEOMETRY_AREA_TRIANGLE= "gr7.geometry.area.triangle";
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";
@@ -98,4 +103,5 @@ public interface Constants {
 	public static String DIVISION_FOLLOWING_DECIMAL_NUMBERS = "division.following.decimal.numbers";
 	public static String INTEGER_EXPONENTIATION = "value.of.number.exponentiation";
 	public static String FIND_EXPRESSION = "value.of.expression";
+	public static String FIND_OUT_AREA_OF_TRIANGLE = "find.out.area.of.triangle";
 }

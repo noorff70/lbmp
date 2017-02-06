@@ -1,6 +1,8 @@
 package com.weblearning.domain;
 
 import java.util.List;
+
+import com.weblearning.domain.utility.CoordinateObject;
 /**
  * 
  * @author Faizul
@@ -14,6 +16,9 @@ public class Problem {
 	String questionHeading;
 	/*Question subheading */
 	String questionSubHeading;
+	
+	GeometryObject  geometryObject;
+	
 	public String getQuestionSubHeading() {
 		return questionSubHeading;
 	}
@@ -64,6 +69,14 @@ public class Problem {
 	
 	public void setQuestionLines(List questions){
 		questionLines= questions;
+	}
+	
+	public GeometryObject getGeometryObject(){
+		return geometryObject;
+	}
+	
+	public void setGeometryObject(GeometryObject geoObject){
+		geometryObject= geoObject;
 	}
 
 }

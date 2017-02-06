@@ -1,17 +1,21 @@
 package com.weblearning.math.utilities;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Map.Entry;
 
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 
 import com.weblearning.domain.utility.FractionObject;
+import com.weblearning.math.grade.UniqueObjectMap;
 import com.weblearning.utilities.Constants;
 
 /* Utility class
@@ -740,5 +744,59 @@ public class MathUtilities {
 			return (double)Math.round(answer * 100000000)/100000000;
 		
 	}
+	
+	/*compare the values num1 and num2 in Unique ObjectMap
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	public static boolean isObjectPresent(int num1, int num2, Map objectMaps)
+	{
+		
+		Iterator iterator = objectMaps.entrySet().iterator();
+		
+		while(iterator.hasNext())
+		{
+			Map.Entry<Integer, UniqueObjectMap> entry = (Entry<Integer, UniqueObjectMap>) iterator.next();
+			UniqueObjectMap  mapObject = entry.getValue();
+			
+			if (num1 == (int)mapObject.getNumber() && num2 == (int)mapObject.getPow()){
+				return true;
+			}
+				
+			
+		}
+		return false;
+		
+	}
+	
+	public static double setPrecision(double numberToFormat, int precision)
+	{
+		
+		Double toBeTruncated = new Double(numberToFormat);
+		Double truncatedDouble = BigDecimal.valueOf(toBeTruncated).setScale(precision, RoundingMode.HALF_UP).doubleValue();
+		
+		return truncatedDouble;
+		
+	}
+	
+	public static Double convertToRadian(double angleInDegree){
+		
+		double radians=0.0; 
+		
+		if (angleInDegree ==0)
+			radians=  Math.PI * 2;
+		if (angleInDegree ==90)
+			radians=  Math.PI * 3/2;
+		if (angleInDegree ==180)
+			radians =  Math.PI;
+		if (angleInDegree == 225)
+			radians = Math.PI*3/4;
+		if (angleInDegree == 315)
+			radians = Math.PI/4;
+		
+		return radians;
+		
+	}
+	
 
 }

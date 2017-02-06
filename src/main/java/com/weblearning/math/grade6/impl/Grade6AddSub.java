@@ -11,12 +11,12 @@ import com.weblearning.controller.UserLoginController;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class Grade6AddSub extends Question {
+public class Grade6AddSub extends GenericQuestion {
 	
 	private static final Logger logger = Logger.getLogger(UserLoginController.class);
 	

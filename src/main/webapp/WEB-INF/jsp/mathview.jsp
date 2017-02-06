@@ -1,15 +1,20 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+response.setHeader("Expires", "0"); // Proxies.
+%>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+<script type="text/javascript" src="resources/js/geolib.js"></script>
 <script type="text/javascript" async
 	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-
+ 
 <script>
 	$(document).ready(
 			function() {
@@ -154,6 +159,7 @@
 						var numberOfRemainingProblems = response.remainingProblems;
 						var questionheading = response.problem.questionHeading;
 						var questionLines = response.problem.questionLines;
+						var geometryObject = response.problem.geometryObject;
 						var answer = response.problem.answer.answer;
 						var answerType = response.problem.answer.type;
 						var correctAnswers = response.numberOfCorrectAnswers;
@@ -216,6 +222,15 @@
 													+ '</div>');
 								}
 							}
+						}
+						
+						
+						if (geometryObject != null) {
+							$('#geometryCanvas').remove();
+							$('#idQuestion').append('<canvas id="geometryCanvas" width="578" height="200"></canvas>');
+
+						    drawShape(geometryObject, geometryCanvas);
+
 						}
 
 						//Get the answer
@@ -285,73 +300,65 @@
 	}
 
 	function onClickCheckAnswer(answer, answerValue, answerAsString, radioType) {
-		
-		var value;
-		var noOfCorrectAnswers=0;
 
+		var value;
+		var noOfCorrectAnswers = 0;
 
 		var toS = answerValue.replace(/[^\d.-/\\+]/g, '');
 		toS = replaceBackSlash(toS);
 
 		//alert("answer: "+ answer + " answerValue: "+ answerValue + "answerAsString: " + answerAsString);
-		if (radioType){
-			if (answer == answerAsString){
+		if (radioType) {
+			if (answer == answerAsString) {
 				value = "Correct";
-				noOfCorrectAnswers= $('#id_answer_check').val();
+				noOfCorrectAnswers = $('#id_answer_check').val();
 				noOfCorrectAnswers++;
-			}
-			else{
+			} else {
 				value = "Wrong";
 			}
 		}
-		
-		if (!radioType){
-			
-			if (answer == toS || answer == answerAsString){
+
+		if (!radioType) {
+
+			if (answer == toS || answer == answerAsString) {
 				value = "Correct";
-				noOfCorrectAnswers= $('#id_answer_check').val();
+				noOfCorrectAnswers = $('#id_answer_check').val();
 				noOfCorrectAnswers++;
-			}
-			else{
+			} else {
 				value = "Wrong";
 			}
 		}
-		
+
 		$('#id_answer_check').val(noOfCorrectAnswers);
 
-		
-		$('#id_form_group_statistics').append('<div class="form-group-answer" id="id_form_group_answer">'+
-				'<div class="panel-body">' + 'Result Section </br>' + 
-					'Answer: '+ answerAsString + '</br>'+
-					'<label>Your answer is: </label>' + ' ' + '<label>'+ value  +'</label>'+
-				 '</div>' +
-				'</div>');
-		
+		$('#id_form_group_statistics').append(
+				'<div class="form-group-answer" id="id_form_group_answer">'
+						+ '<div class="panel-body">' + 'Result Section </br>'
+						+ 'Answer: ' + answerAsString + '</br>'
+						+ '<label>Your answer is: </label>' + ' ' + '<label>'
+						+ value + '</label>' + '</div>' + '</div>');
+
 		var math = document.getElementById("id_form_group_answer");
-		MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);
+		MathJax.Hub.Queue([ "Typeset", MathJax.Hub, math ]);
 
 	}
-	
+
 	/*weird way of dealing with //. The idea is to replace the // to \. For some reason the regex was not working for me.
-	*/
-	function replaceBackSlash(replaceString )
-	{
+	 */
+	function replaceBackSlash(replaceString) {
 		var newString = '';
 		var position;
-		for (i=0; i<replaceString.length; i++){
-			if (replaceString[i]=== '\\')
-			{
-				if (replaceString[i+1]=== '\\'){
-					
-				}
-				else{
+		for (i = 0; i < replaceString.length; i++) {
+			if (replaceString[i] === '\\') {
+				if (replaceString[i + 1] === '\\') {
+
+				} else {
 					newString = newString + '/';
 				}
-			}
-			else
+			} else
 				newString += replaceString[i];
 		}
 		return newString;
-		
+
 	}
 </script>

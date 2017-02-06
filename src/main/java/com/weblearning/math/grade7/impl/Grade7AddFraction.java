@@ -10,12 +10,12 @@ import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.utility.FractionObject;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class Grade7AddFraction extends Question {
+public class Grade7AddFraction extends GenericQuestion {
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub

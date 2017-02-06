@@ -9,11 +9,11 @@ import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 
-public class Grade7LCM extends Question{
+public class Grade7LCM extends GenericQuestion{
 
 	@Override
 	//Generate the questions

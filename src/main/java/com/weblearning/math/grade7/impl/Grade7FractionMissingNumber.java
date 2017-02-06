@@ -15,12 +15,12 @@ import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.utility.FractionObject;
-import com.weblearning.math.grade.Question;
+import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class Grade7FractionMissingNumber extends Question {
+public class Grade7FractionMissingNumber extends GenericQuestion {
 	
 	private static final Logger logger = Logger.getLogger(Grade7FractionMissingNumber.class);
 
