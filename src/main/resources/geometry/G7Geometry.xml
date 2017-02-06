@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+	<problem type="Triangle">
+		<number>1</number>
+		<question>What is the Area of Triangle ABC</question>
+		<basecoordinates>
+			<xcoordinate>150</xcoordinate>
+			<ycoordinate>150</ycoordinate>
+		</basecoordinates>
+		<coordinatePoint name="A">
+			<angle>0</angle>
+			<nextpoint>B</nextpoint>
+			<direction>lineTo</direction>
+		</coordinatePoint>
+		<coordinatePoint name="B">
+			<angle>90</angle>
+			<nextpoint>C</nextpoint>
+			<direction>lineTo</direction>
+		</coordinatePoint>
+		<coordinatePoint name="C">
+			<angle>180</angle>
+			<nextpoint>A</nextpoint>
+			<direction>lineTo</direction>
+		</coordinatePoint>
+		<!-- This part will print the angle. Center is the angle name where angle 
+			value will be printed -->
+		<anglepoint name="B">
+			<anglevalue>90</anglevalue>
+			<anglelocation>center</anglelocation>
+		</anglepoint>
+		<anglepoint name="C">
+			<anglevalue>225</anglevalue>
+			<anglelocation>left</anglelocation>
+		</anglepoint>
+		<anglepoint name="A">
+			<anglevalue>315</anglevalue>
+			<anglelocation>right</anglelocation>
+		</anglepoint>
+		<!-- This will be for displaying distance -->
+		<displaylabel>
+			<displaycoordinates>
+				<firstcoordinate>A</firstcoordinate>
+				<secondcoordinate>B</secondcoordinate>
+				<lengthtype>base</lengthtype>
+			</displaycoordinates>
+			<displaycoordinates>
+				<firstcoordinate>B</firstcoordinate>
+				<secondcoordinate>C</secondcoordinate>
+				<lengthtype>height</lengthtype>
+			</displaycoordinates>
+		</displaylabel>
+		<anglesoftriangle>
+			<angle1>90</angle1>
+			<angle2>45</angle2>
+			<angle3>45</angle3>
+		</anglesoftriangle>
+	</problem>
+</problems>
+
+
