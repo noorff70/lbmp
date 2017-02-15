@@ -90,11 +90,14 @@ public class GeometryShapeUtility {
 						 String angleName = coordinateNode.getAttributes().getNamedItem("name").getNodeValue();
 						 cObj.setPoint(angleName);
 						 
+						 NodeList radiusList = coordinateElement.getElementsByTagName("radius");
+						 int radiusType = Integer.parseInt(radiusList.item(0).getChildNodes().item(0).getNodeValue());
+						 
 						 //set the coordinate points
 						 NodeList angleNodeList = coordinateElement.getElementsByTagName("angle");
 						 String angle = angleNodeList.item(0).getChildNodes().item(0).getNodeValue();
-						 cObj.setxCoordinate(MathUtilities.setPrecision(radius*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(angle))), precision));
-						 cObj.setyCoordinate(MathUtilities.setPrecision(radius*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(angle))), precision));
+						 cObj.setxCoordinate(MathUtilities.setPrecision(radiusType* radius*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(angle))), precision));
+						 cObj.setyCoordinate(MathUtilities.setPrecision(radiusType *radius*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(angle))), precision));
 						 
 						 //set the direction i.e line_to or move_to
 						 NodeList directionList = coordinateElement.getElementsByTagName("direction");
@@ -150,10 +153,10 @@ public class GeometryShapeUtility {
 								 angleObj.setRightC(cObj);
 							 }
 							 angleObj.setNameOfAngle(angleName);
-							 
+							 angleObjectList.add(angleObj); 
 							 
 						 }
-						 angleObjectList.add(angleObj);	 
+						 //angleObjectList.add(angleObj);	 
 						 pObj.setAngleObjectList(angleObjectList);
 						 
 						 List <LineObject>lineObjectList = new ArrayList<LineObject>();
