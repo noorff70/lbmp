@@ -119,9 +119,11 @@ public class GeometryShapeUtility {
 
 						 //now gt the angleList
 						 NodeList angleList = e.getElementsByTagName("anglepoint");
-						 AngleObject angleObj = new AngleObject();
+						 
 						 for(int ang=0; ang<angleList.getLength(); ang++)
 						 {
+							 AngleObject angleObj = new AngleObject();
+							 
 							 Node angleNode = angleList.item(ang);
 							 Element angleElement = (Element) angleNode;
 							 String angleName = angleNode.getAttributes().getNamedItem("name").getNodeValue();
@@ -130,28 +132,41 @@ public class GeometryShapeUtility {
 							 String anglevalue = anglev.item(0).getChildNodes().item(0).getNodeValue();
 							
 							 
-							 NodeList anglel = angleElement.getElementsByTagName("anglelocation");
-							 String anglelocation = anglel.item(0).getChildNodes().item(0).getNodeValue();
+							 NodeList anglelLeft = angleElement.getElementsByTagName("anglelocationleft");
+							 String anglelocationleft = anglelLeft.item(0).getChildNodes().item(0).getNodeValue();
+							 
+							 NodeList anglelRight = angleElement.getElementsByTagName("anglelocationright");
+							 String anglelocationright = anglelRight.item(0).getChildNodes().item(0).getNodeValue();
 							 
 							 CoordinateObject cObj = new CoordinateObject();
-							 if (anglelocation.equals("center"))
-							 {	 
-								 cObj.setxCoordinate(MathUtilities.setPrecision(radius*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 cObj.setyCoordinate(MathUtilities.setPrecision(radius*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 angleObj.setDegreeValue(Float.parseFloat(anglevalue));
-								 angleObj.setCenterC(cObj);
-							 }
-							 else if (anglelocation.equals("left"))
-							 {	 
-								 cObj.setxCoordinate(MathUtilities.setPrecision(radius/4*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 cObj.setyCoordinate(MathUtilities.setPrecision(radius/4*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 angleObj.setLeftC(cObj);
-							 }
-							 else{
-								 cObj.setxCoordinate(MathUtilities.setPrecision(radius/4*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 cObj.setyCoordinate(MathUtilities.setPrecision(radius/4*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
-								 angleObj.setRightC(cObj);
-							 }
+							 CoordinateObject cObjl = new CoordinateObject();
+							 CoordinateObject cObjr = new CoordinateObject();
+							 
+							 List cList = pObj.getCoordinateList();
+							 for (int m=0; m<cList.size(); m++)
+							 {
+								 CoordinateObject cOrdinate = (CoordinateObject) cList.get(m);
+								 if (cOrdinate.getPoint().equals(angleName))
+								 {
+									 cObj.setxCoordinate(cOrdinate.getxCoordinate());
+									 cObj.setyCoordinate(cOrdinate.getyCoordinate());
+									 //cObj.setxCoordinate(MathUtilities.setPrecision(radius*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
+									 //cObj.setyCoordinate(MathUtilities.setPrecision(radius*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglevalue))), precision));
+									 angleObj.setDegreeValue(Float.parseFloat(anglevalue));
+									 angleObj.setCenterC(cObj);
+					
+								 
+									 cObjl.setxCoordinate(MathUtilities.setPrecision(radius/4*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglelocationleft))), precision));
+									 cObjl.setyCoordinate(MathUtilities.setPrecision(radius/4*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglelocationleft))), precision));
+									 angleObj.setLeftC(cObjl);
+									
+									 cObjr.setxCoordinate(MathUtilities.setPrecision(radius/4*Math.cos(MathUtilities.convertToRadian(Float.parseFloat(anglelocationright))), precision));
+									 cObjr.setyCoordinate(MathUtilities.setPrecision(radius/4*Math.sin(MathUtilities.convertToRadian(Float.parseFloat(anglelocationright))), precision));
+									 angleObj.setRightC(cObjr);
+								 }
+								 
+							 } 
+							
 							 angleObj.setNameOfAngle(angleName);
 							 angleObjectList.add(angleObj); 
 							 

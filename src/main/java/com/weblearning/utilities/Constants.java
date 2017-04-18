@@ -67,6 +67,7 @@ public interface Constants {
 	public static String GRADE_7_CONTENT_ADD_FRACTION = "Learn the way to add fractions";
 	public static String GRADE_7_CONTENT_ADD_MIXED_FRACTION = "Learn the way to add Mixed Numbers";
 	public static String GRADE_7_CONTENT_SIMPLE_MULTIPLICATION = "Learn to do multiplication of fractions";
+	public static String GRADE_7_CONTENT_SIMPLE_DIVISION = "Learn to do Divide of fractions";
 	public static String GRADE_7_CONTENT_FIND_MISSING_FRACTION = "Find the missing Fraction. A way to start learning Equations";
 	public static String GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION = "Learn to find out a missing fraction when there multiplication and divisions";
 	public static String GRADE_7_SIMPLIFY_FRACTION= "gr7.simplify.fraction";

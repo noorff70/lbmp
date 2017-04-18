@@ -25,7 +25,7 @@ public class G7SimplifyFraction extends GenericQuestion{
 		
 		List<Problem> g6SimplifyFraction = new ArrayList<Problem>();
 		
-		for (int i=0; i< 20; i++)
+		for (int i=0; i< 25; i++)
 			g6SimplifyFraction.add(getProblem(mathConfig));
 		
 		return g6SimplifyFraction;

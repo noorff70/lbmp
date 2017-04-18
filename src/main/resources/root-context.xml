@@ -19,15 +19,23 @@
 		<!-- JDC Properties Configuration -->
 	<!-- 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" p:location="classpath:jdbc.properties" /> -->
 	
-
+<!-- 
   	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1523:ORCL1"/>
       	<property name="username" value="weblearning"/>
         <property name="password" value="Moloy0117"/>
     </bean>	
-	     
-  
+    -->
+    
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value ="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/lbmp"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Moloy0117"/>
+    </bean>	
+    
      
     <!-- Hibernate Configuration -->    
 	<bean id="sessionFactory"

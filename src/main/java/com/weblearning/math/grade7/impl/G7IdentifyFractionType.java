@@ -27,7 +27,7 @@ public class G7IdentifyFractionType extends GenericQuestion{
 		List<Problem> g7IdentifyFractionType = new ArrayList<Problem>();
 		
 		
-		for (int i=0; i< 20; i++)
+		for (int i=0; i< 25; i++)
 			g7IdentifyFractionType.add(getProblem(mathConfig));
 		
 		return g7IdentifyFractionType;

@@ -22,18 +22,14 @@ public class Grade7AddFraction extends GenericQuestion {
 
 		List<Problem> addSubtractFraction = new ArrayList<Problem>();
 
-		for (int i = 0; i < 2; i++)
-			addSubtractFraction.add(getProblem1(2, false));
-
-		for (int i = 0; i < 2; i++)
+			for (int i=0; i< 6; i++){
+				addSubtractFraction.add(getProblem1(2, false));
+				addSubtractFraction.add(getProblem1(3, false));
+				addSubtractFraction.add(getProblem1(4, false));
+				//this will create a whole number and a fraction ex (1 + 5/7)
+				addSubtractFraction.add(getProblem1(2, true));
+			}
 			addSubtractFraction.add(getProblem1(3, false));
-
-		for (int i = 0; i < 2; i++)
-			addSubtractFraction.add(getProblem1(4, false));
-
-		//this will create a whole number and a fraction ex (1 + 5/7)
-		for (int i = 0; i < 2; i++)
-			addSubtractFraction.add(getProblem1(2, true));
 
 		return addSubtractFraction;
 	}

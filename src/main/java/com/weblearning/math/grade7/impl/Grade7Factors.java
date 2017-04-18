@@ -23,12 +23,14 @@ public class Grade7Factors extends GenericQuestion{
 		
 		List <Problem>factors = new  ArrayList<Problem>();
 		
-		factors.add(getProblem1(mathConfig));
-		factors.add(getProblem2(mathConfig));
-		factors.add(getProblem3(mathConfig));
-		factors.add(getProblem4(mathConfig));
-		factors.add(getProblem5(mathConfig));
-		factors.add(getProblem6(mathConfig));
+		for (int i=0; i< 5; i++){
+			factors.add(getProblem1(mathConfig));
+			factors.add(getProblem2(mathConfig));
+			factors.add(getProblem3(mathConfig));
+			factors.add(getProblem4(mathConfig));
+			factors.add(getProblem5(mathConfig));
+		}
+		//factors.add(getProblem6(mathConfig));
 		
 		return factors;
 	}

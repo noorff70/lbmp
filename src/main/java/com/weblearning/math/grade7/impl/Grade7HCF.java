@@ -28,15 +28,14 @@ public class Grade7HCF extends GenericQuestion{
 		
 		List <Problem>hcfs = new  LinkedList<Problem>();
 		
-		for (int i=0; i<5; i++)
+		for (int i=0; i<8; i++){
 			hcfs.add(getProblem1());
-		
-		for (int i=0; i<5; i++)
 			hcfs.add(getProblem2());
-		
-		for (int i=0; i<10; i++){
 			hcfs.add(getProblem3());
 		}
+		
+		hcfs.add(getProblem3());
+
 		
 		logger.info("Returning from Grade6HCF");
 		return hcfs;

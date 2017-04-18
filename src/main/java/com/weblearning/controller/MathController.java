@@ -144,11 +144,12 @@ public class MathController {
 	 */
 	public String getPackageName(String gradeId){
 		
-		if (Integer.parseInt(gradeId)== 5)
-			return Constants.GRADE_5_PACKAGE;
-		else if (Integer.parseInt(gradeId)== 6)
-			return Constants.GRADE_6_PACKAGE;
-		else if (Integer.parseInt(gradeId)== 7)
+		//if (Integer.parseInt(gradeId)== 5)
+			//return Constants.GRADE_5_PACKAGE;
+		//else if (Integer.parseInt(gradeId)== 6)
+			//return Constants.GRADE_6_PACKAGE;
+		//else if (Integer.parseInt(gradeId)== 7)
+		if (Integer.parseInt(gradeId)== 7)
 			return Constants.GRADE_7_PACKAGE;
 		
 		return null;

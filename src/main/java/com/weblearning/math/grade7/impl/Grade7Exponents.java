@@ -19,14 +19,13 @@ public class Grade7Exponents extends GenericQuestion{
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		List <Problem>exponents = new  LinkedList<Problem>();
 		
-		for (int i=0; i< 2; i++)
+		for (int i=0; i< 8; i++){
 			exponents.add(getProblem1());
-		
-		for (int i=0; i< 2; i++)
 			exponents.add(getProblem2());
+			exponents.add(getProblem3());
+		}
+		exponents.add(getProblem1());
 		
-		exponents.add(getProblem3());
-
 		return exponents;
 	}
 	
@@ -70,7 +69,7 @@ public class Grade7Exponents extends GenericQuestion{
 		
 		if (Constants.EXPONENTS_WHOLE_NUMBER.equals(exponentType)){
 			
-			exponentialNumber = MathUtilities.getRandomNumber(2, 7);
+			exponentialNumber = MathUtilities.getRandomNumber(2, 5);
 			result = MathUtilities.getExponential(Integer.toString(numerator), null, exponentialNumber, Constants.EXPONENTS_WHOLE_NUMBER);
 			//Add the questions
 			questionList.add(new QuestionLine("What is  " + numerator+"^"+exponentialNumber));

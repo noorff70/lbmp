@@ -29,15 +29,8 @@
 			value will be printed -->
 		<anglepoint name="B">
 			<anglevalue>90</anglevalue>
-			<anglelocation>center</anglelocation>
-		</anglepoint>
-		<anglepoint name="C">
-			<anglevalue>225</anglevalue>
-			<anglelocation>left</anglelocation>
-		</anglepoint>
-		<anglepoint name="A">
-			<anglevalue>315</anglevalue>
-			<anglelocation>right</anglelocation>
+			<anglelocationleft>225</anglelocationleft>
+			<anglelocationright>315</anglelocationright>
 		</anglepoint>
 		<!-- This will be for displaying distance -->
 		<displaylabel>
@@ -85,33 +78,16 @@
 		</coordinatePoint>
 		<!-- This part will print the angle. Center is the angle name where angle 
 			value will be printed -->
+		<anglepoint name="A">
+			<anglevalue>45</anglevalue>
+			<anglelocationleft>135</anglelocationleft>
+			<anglelocationright>270</anglelocationright>
+		</anglepoint>
 		<anglepoint name="B">
 			<anglevalue>45</anglevalue>
-			<anglelocation>center</anglelocation>
+			<anglelocationleft>270</anglelocationleft>
+			<anglelocationright>315</anglelocationright>
 		</anglepoint>
-		<anglepoint name="C">
-			<anglevalue>135</anglevalue>
-			<anglelocation>left</anglelocation>
-		</anglepoint>
-		<anglepoint name="A">
-			<anglevalue>270</anglevalue>
-			<anglelocation>right</anglelocation>
-		</anglepoint>
-		<!-- another -->
-		<anglepoint name="B">
-			<anglevalue>50</anglevalue>
-			<anglelocation>center</anglelocation>
-		</anglepoint>
-		<anglepoint name="C">
-			<anglevalue>135</anglevalue>
-			<anglelocation>left</anglelocation>
-		</anglepoint>
-		<anglepoint name="A">
-			<anglevalue>270</anglevalue>
-			<anglelocation>right</anglelocation>
-		</anglepoint>
-		
-		
 		<!-- This will be for displaying distance -->
 		<displaylabel>
 			<displaycoordinates>

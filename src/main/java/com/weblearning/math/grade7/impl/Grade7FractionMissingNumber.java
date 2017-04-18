@@ -29,7 +29,7 @@ public class Grade7FractionMissingNumber extends GenericQuestion {
 
 		List<Problem> addSubtractFraction = new LinkedList<Problem>();
 
-		for (int i=0; i<20; i++){
+		for (int i=0; i<25; i++){
 			//either three or four items in the statement
 			//for (int j = 2; j<=3 ; j++)
 			int j=2;//have 2 fractions in the equation
