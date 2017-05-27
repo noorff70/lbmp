@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topiclist>
+	<topic>
+		<gradeid>7</gradeid>
+		<subjectid>socialstudies</subjectid>
+		<topicname>A</topicname>
+	</topic>
+	<topic>
+		<gradeid>7</gradeid>
+		<subjectid>socialsutudies</subjectid>
+		<topicname>B</topicname>
+	</topic>
+
+</topiclist>
+
+<!--  
+	int gradeId;
+	int subjectId;
+	int topicId;
+	String topicName;
+	String gradeSubject;
+	Set<TopicDetail> topicDetail = new HashSet<TopicDetail>();-->
