@@ -14,6 +14,8 @@ import javax.persistence.Table;
 public class TopicDetail implements Serializable
 {
 		
+	private static final long serialVersionUID = 1L;
+	
 	int topicDetailsID;
 	String topicDetailName;
 	String className;

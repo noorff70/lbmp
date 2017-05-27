@@ -30,4 +30,9 @@
   <put-attribute name="body" value="/WEB-INF/jsp/loginview.jsp" />
  </definition>
  
+   <definition name="socialstudiesview" extends="baseLayout">
+  <put-attribute name="title" value="Home" />
+  <put-attribute name="body" value="/WEB-INF/jsp/socialstudiesview.jsp" />
+ </definition>
+ 
 </tiles-definitions>  
