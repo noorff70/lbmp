@@ -21,22 +21,21 @@ response.setHeader("Expires", "0"); // Proxies.
 				$('#btn_checkAnswer').click(
 						function() {
 							
-							 $('input[type=submit]').one('submit', function() {
-							     $(this).attr('disabled','disabled');
-							 });
+				//			 $('input[type=submit]').one('submit', function() {
+				//			     $(this).attr('disabled','disabled');
+				//			 });
 							
 							var answerAsString= '';
 							var answer = $("#id_inputTextSingleAnswer").val();
 							var answerValue = $("#id_answer").attr('value');
 							var answerType = $("#id_answerType").attr('value');
 							var radioType=true;
-							
+
 							
 							if (answerType == "FRACTION") {
-								
+
 								answerAsString = answerValue;
 								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
-								
 								onClickCheckAnswer(answer, answerValue, answerAsString, false);
 
 							} else if (answerType == "RADIOTYPE") {
@@ -50,7 +49,6 @@ response.setHeader("Expires", "0"); // Proxies.
 							} else {
 								
 								answerAsString = answerValue;
-
 								onClickCheckAnswer(answer, answerValue, answerAsString, false);
 							}
 
@@ -300,13 +298,13 @@ response.setHeader("Expires", "0"); // Proxies.
 	}
 
 	function onClickCheckAnswer(answer, answerValue, answerAsString, radioType) {
-
+		
 		var value;
 		var noOfCorrectAnswers = 0;
 
 		var toS = answerValue.replace(/[^\d.-/\\+]/g, '');
 		toS = replaceBackSlash(toS);
-
+		
 		//alert("answer: "+ answer + " answerValue: "+ answerValue + "answerAsString: " + answerAsString);
 		if (radioType) {
 			if (answer == answerAsString) {
@@ -325,8 +323,9 @@ response.setHeader("Expires", "0"); // Proxies.
 				noOfCorrectAnswers = $('#id_answer_check').val();
 				noOfCorrectAnswers++;
 			} else {
-				value = "Wrong";
+				value = "Wrong";				
 			}
+
 		}
 
 		$('#id_answer_check').val(noOfCorrectAnswers);

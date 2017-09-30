@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 
+import com.weblearning.domain.RootObject;
 import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.math.grade.UniqueObjectMap;
 import com.weblearning.utilities.Constants;
@@ -161,8 +162,7 @@ public class MathUtilities {
 	 * 
 	 */
 	
-	@SuppressWarnings("rawtypes")
-	public static List getPrimeNumberList(int beg, int end){
+	public static List<Integer> getPrimeNumberList(int beg, int end){
 		
 		List<Integer> primeList = new ArrayList<Integer>();
 				
@@ -798,5 +798,59 @@ public class MathUtilities {
 		
 	}
 	
+	/*
+	 * take input of a number and the root. Returns a Root Object
+	 */
+	
+	public static RootObject getRoot(int value, int pow){
+		
+		RootObject rObject = new RootObject();
+		
+		List<Integer> listofFactors = new ArrayList<Integer>();
+		Map<Integer, Integer> listOfOccurance = new HashMap<Integer, Integer>();
+		//get the prime list in between 2-25
+		List<Integer> primeList = MathUtilities.getPrimeNumberList(2, 25);
+		
+		int square=1;
+		int root=1;
+		
+		while (value != 1) {
+			for (int i = 0; i < primeList.size(); i++) {
+				if (value % primeList.get(i) == 0) {
+					value = value / primeList.get(i);
+					listofFactors.add(primeList.get(i));
+				}
+			}
+		}
+		//now put the number of occurance of each prime factor in the list for that particukar square root
+		for (int i = 0; i < listofFactors.size(); i++) {
+			int key = listofFactors.get(i);
+			if (null == listOfOccurance.get(key)){
+				listOfOccurance.put(key, 1);
+			}else{
+				//get the value and increment by 1
+				listOfOccurance.put(key, listOfOccurance.get(key)+1);
+			}
+		}
+		
 
+		for (Map.Entry<Integer, Integer> entry : listOfOccurance.entrySet()) {
+			
+			if (entry.getValue() / pow >0){
+				int x = entry.getValue()/pow;
+				square = square * (int)Math.pow(entry.getKey(), x);
+
+			}
+			if (entry.getValue() % pow >0){
+				int x = entry.getKey();
+				root = root* x;
+			}
+
+		}
+		rObject.setRoot(root);
+		rObject.setSquare(square);
+		
+		return rObject;
+	}
+	
 }

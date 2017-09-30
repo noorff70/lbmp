@@ -37,7 +37,9 @@ public class MessageResolverServiceImpl implements MessageResolveService{
 		else if (Integer.parseInt(gradeId)==7){
 			return "grade7//mgrade7";
 		}
-		
+		else if (Integer.parseInt(gradeId)==8){
+			return "grade8//mgrade8";
+		}
 		return null;
 		
 	}

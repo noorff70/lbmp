@@ -18,6 +18,7 @@ public interface Constants {
 	public static String GRADE_5_PACKAGE = "com.weblearning.math.grade5.impl.";
 	public static String GRADE_6_PACKAGE = "com.weblearning.math.grade6.impl.";
 	public static String GRADE_7_PACKAGE = "com.weblearning.math.grade7.impl.";
+	public static String GRADE_8_PACKAGE = "com.weblearning.math.grade8.impl.";
 	
 	//public static String PROBLEM_TYPE_SINGLE = "SINGLE";
 	public static String PROBLEM_TYPE_FRACTION = "FRACTION";
@@ -88,6 +89,12 @@ public interface Constants {
 	public static String GRADE_7_INTEGER_EXPONENTIATION_EXPRESSION= "gr7.division.integer.exponentiation.expression";
 	public static String GRADE_7_EXPONENT_DECIMAL_FRACTION= "gr7.exponent.decimal.fraction";
 	public static String GRADE_7_GEOMETRY_AREA_TRIANGLE= "gr7.geometry.area.triangle";
+	public static String GRADE_7_INTEGER_PERCENT="gr7.integer.percent";
+	public static String GRADE_7_FRACTION_PERCENT="gr7.fraction.percent";
+	public static String GRADE_7_CONVERSION_OF_UNITS_LENGTH="gr7.conversion.unit.length";
+	
+	public static String GRADE_8_FIND_SQUAREROOT="gr8.integer.squareroot";
+	public static String GRADE_8_FIND_INTEGER_SQUARE_ROOT = "gr8.find.integer.square.root";
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";
@@ -105,4 +112,14 @@ public interface Constants {
 	public static String INTEGER_EXPONENTIATION = "value.of.number.exponentiation";
 	public static String FIND_EXPRESSION = "value.of.expression";
 	public static String FIND_OUT_AREA_OF_TRIANGLE = "find.out.area.of.triangle";
+	public static String CALCULATE_INTEGER_PERCENTAGE="gr7.calculate.integer.percentage";
+	public static String CALCULATE_PERCENTAGE_OF_FRACTION="calculate.fraction.precentage";
+	public static String CONVERT_TO_IMPROPER_FRACTION_WHEN_NECESSARY="convert.to.improper";
+	public static String CONVERT_UNIT_LENGTH="gr7.convert.length.unit";
+	
+	public static String UNIT_MILI_METER="mili";
+	public static String UNIT_CENTI_METER="centi";
+	public static String UNIT_DECI_METER="deci";
+	public static String UNIT_METER="meter";
+	
 }

@@ -151,6 +151,8 @@ public class MathController {
 		//else if (Integer.parseInt(gradeId)== 7)
 		if (Integer.parseInt(gradeId)== 7)
 			return Constants.GRADE_7_PACKAGE;
+		if (Integer.parseInt(gradeId)== 8)
+			return Constants.GRADE_8_PACKAGE;
 		
 		return null;
 		

@@ -90,7 +90,7 @@ public class Grade7FractionMissingNumber extends GenericQuestion {
 			if (i== missingNumber){
 				fracObject.setMissingFraction(true);
 				Fraction missingFraction = new Fraction (numeratorDenominators[0], numeratorDenominators[1]);
-				missingResult = missingFraction.toString();
+				missingResult = MathUtilities.convertSingleFRactionToString(missingFraction.getNumerator(), missingFraction.getDenominator());
 			}
 			else
 				fracObject.setMissingFraction(false);

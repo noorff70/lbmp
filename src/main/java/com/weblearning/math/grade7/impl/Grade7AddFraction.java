@@ -68,6 +68,7 @@ public class Grade7AddFraction extends GenericQuestion {
 
 		question = MathUtilities.getQuestionAsStringFraction(fractionList);
 		result = MathUtilities.getResultAsFraction(fractionList);
+		String answer = MathUtilities.convertSingleFRactionToString(result.getNumerator(), result.getDenominator());
 
 		QuestionLine qLine = new QuestionLine();
 		qLine.setQuestionLn(question);
@@ -76,7 +77,7 @@ public class Grade7AddFraction extends GenericQuestion {
 		String heading = Constants.GRADE_7_CONTENT_ADD_FRACTION;
 		String subHeading = "Adding two Fractions";
 
-		Problem problem = cProblem.constructProblem(questionList, result.toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, answer, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 
 		return problem;
 	}
