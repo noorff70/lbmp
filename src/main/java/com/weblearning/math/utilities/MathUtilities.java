@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 
+import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.RootObject;
 import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.math.grade.UniqueObjectMap;
@@ -851,6 +852,31 @@ public class MathUtilities {
 		rObject.setSquare(square);
 		
 		return rObject;
+	}
+	
+	/*
+	 * takes a questionlist and arranges the new question.
+	 * The first is the original question. The second the answer to the question. The next three are the false answers. Swap
+	 * the second with a random number from 3-max.
+	 */
+	public static List<QuestionLine>getQuestionList(List<QuestionLine>qList, int max ){
+		
+		int randomNumber = getRandomNumber(1, max);
+		QuestionLine temp = qList.get(1);
+		qList.set(1, qList.get(randomNumber));
+		qList.set(randomNumber, temp);
+		
+		return qList;
+		
+	}
+	/*COnverts a number to decimal points.
+	 * Ex= 105/ 10, value= 105, decimalpoint= 1
+	 * 
+	 */
+	
+	public static double convertToDecimal(int value, int decimalPoint){
+
+		return value/Math.pow((double)10, (double)decimalPoint);
 	}
 	
 }

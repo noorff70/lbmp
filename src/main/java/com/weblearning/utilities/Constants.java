@@ -93,8 +93,10 @@ public interface Constants {
 	public static String GRADE_7_FRACTION_PERCENT="gr7.fraction.percent";
 	public static String GRADE_7_CONVERSION_OF_UNITS_LENGTH="gr7.conversion.unit.length";
 	
-	public static String GRADE_8_FIND_SQUAREROOT="gr8.integer.squareroot";
+	public static String GRADE_8_SELECT_SQUAREROOT="gr8.integer.select.squareroot";
 	public static String GRADE_8_FIND_INTEGER_SQUARE_ROOT = "gr8.find.integer.square.root";
+	public static String GRADE_8_SQUARE_ROOT_OF_DECIMALS="gr8.sq.root.of.decimals";
+	public static String GRADE_8_FIND_SQUARE_ROOT_OF="gr8.find.sq.root.of";
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";

@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -19,6 +21,8 @@ import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
 public class G8SqrInteger extends GenericQuestion {
+	
+	private static final Logger logger = Logger.getLogger(G8SqrInteger.class);
 
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
@@ -55,10 +59,12 @@ public class G8SqrInteger extends GenericQuestion {
 		int value = perfectRoots.get(squareroot);
 		question = "$\\sqrt{"+ value+ "}$";
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUAREROOT, null, Locale.ENGLISH));
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH));
 		QuestionLine qLine2 = new QuestionLine(question);
 		questionList.add(qLine1);
 		questionList.add(qLine2);
+		
+		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(squareroot));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
@@ -75,8 +81,9 @@ public class G8SqrInteger extends GenericQuestion {
 		
 		MessageSource mSource = mathConfig.getmSource();
 		
+		Answer answer = new Answer();
 		String question = "";
-		String answer;
+		String result;
 
 		Map<Integer, Integer> perfectRoots = new HashMap<Integer, Integer>();
 		
@@ -99,20 +106,30 @@ public class G8SqrInteger extends GenericQuestion {
 		RootObject rObject = MathUtilities.getRoot(value, 2);
 
 		if (rObject.getRoot() ==1)
-			answer = Integer.toString(rObject.getSquare());
+			result = Integer.toString(rObject.getSquare());
 		else
-			answer = rObject.getSquare()+"$\\sqrt{"+ rObject.getRoot()+ "}$";
+			result = rObject.getSquare()+"$\\sqrt{"+ rObject.getRoot()+ "}$";
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUAREROOT, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine(question);
+		answer.setType(Constants.RADIO_TYPE);
+		answer.setAnswer(result);
+		
+		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
+		
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question);
 		questionList.add(qLine1);
-		questionList.add(qLine2);
+		questionList.add(new QuestionLine(rObject.getSquare()+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
+		questionList.add(new QuestionLine(rObject.getSquare()*2+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
+		questionList.add(new QuestionLine(rObject.getSquare()*1+"$\\sqrt{"+ rObject.getRoot()*3+ "}$"));
+		questionList.add(new QuestionLine(rObject.getSquare()*1+"$\\sqrt{"+ rObject.getRoot()*2+ "}$"));
+		
+		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
-
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answer);
 		
 		return problem;
 		
