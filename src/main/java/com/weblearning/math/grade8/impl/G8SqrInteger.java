@@ -123,7 +123,7 @@ public class G8SqrInteger extends GenericQuestion {
 		questionList.add(new QuestionLine(rObject.getSquare()*1+"$\\sqrt{"+ rObject.getRoot()*2+ "}$"));
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 

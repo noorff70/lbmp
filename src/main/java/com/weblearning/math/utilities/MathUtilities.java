@@ -859,11 +859,11 @@ public class MathUtilities {
 	 * The first is the original question. The second the answer to the question. The next three are the false answers. Swap
 	 * the second with a random number from 3-max.
 	 */
-	public static List<QuestionLine>getQuestionList(List<QuestionLine>qList, int max ){
+	public static List<QuestionLine>getQuestionList(List<QuestionLine>qList, int maxLength, int answerPos ){
 		
-		int randomNumber = getRandomNumber(1, max);
-		QuestionLine temp = qList.get(1);
-		qList.set(1, qList.get(randomNumber));
+		int randomNumber = getRandomNumber(1, maxLength);
+		QuestionLine temp = qList.get(answerPos);
+		qList.set(answerPos, qList.get(randomNumber));
 		qList.set(randomNumber, temp);
 		
 		return qList;

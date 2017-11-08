@@ -92,7 +92,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()*2+"$"));
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()+"$"));
 		
-		questionList = MathUtilities.getQuestionList(questionList, 3);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
@@ -157,7 +157,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()*2+"$"));
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()+"$"));
 		
-		questionList = MathUtilities.getQuestionList(questionList, 3);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
@@ -221,7 +221,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()*2+"$"));
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getSquare()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getSquare()+"$"));
 		
-		questionList = MathUtilities.getQuestionList(questionList, 3);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 

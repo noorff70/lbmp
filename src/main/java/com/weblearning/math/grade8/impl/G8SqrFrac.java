@@ -44,6 +44,8 @@ public class G8SqrFrac extends GenericQuestion {
 	
 	public Problem getProblem1(MathConfiguration mathConfig){
 		
+		int UPPER_BOUND=20;
+		
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
@@ -56,22 +58,22 @@ public class G8SqrFrac extends GenericQuestion {
 		Map<Integer, Integer> perfectRoots1 = new HashMap<Integer, Integer>();
 		Map<Integer, Integer> perfectRoots2= new HashMap<Integer, Integer>();
 		
-		//take any number from 2-25
+		//take any number from 2-15
 		int factor1 = MathUtilities.getRandomNumber(2, 15);
 		int factor2 = MathUtilities.getRandomNumber(2, 15);
 
 		//generate the square roots and multiply that with a factor and put that in a map-perfectroots
-		for (int i=1; i< 26; i++){
+		for (int i=1; i<= UPPER_BOUND; i++){
 			perfectRoots1.put(i, i*i*factor1);
 		}
 		//generate a second set of roots
-		for (int i=1; i< 26; i++){
+		for (int i=1; i<= UPPER_BOUND; i++){
 			perfectRoots2.put(i, i*i*factor2);
 		}
 		
-		//get any random number from 2-25 as a key
-		int squarerootnumerator = MathUtilities.getRandomNumber(2, 25);
-		int squarerootdenominator = MathUtilities.getRandomNumber(2, 25);
+		//get any random number from 2-20 as a key
+		int squarerootnumerator = MathUtilities.getRandomNumber(2, UPPER_BOUND);
+		int squarerootdenominator = MathUtilities.getRandomNumber(2, UPPER_BOUND);
 		
 		//create a fraction object from the keys
 		Fraction frac = Fraction.getReducedFraction(perfectRoots1.get(squarerootnumerator), perfectRoots2.get(squarerootdenominator));
@@ -101,7 +103,7 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
@@ -115,6 +117,8 @@ public class G8SqrFrac extends GenericQuestion {
 	
 	public Problem getProblem2(MathConfiguration mathConfig){
 		
+		int UPPER_BOUND = 20;
+		
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
@@ -126,30 +130,29 @@ public class G8SqrFrac extends GenericQuestion {
 
 		Map<Integer, Integer> perfectRoots= new HashMap<Integer, Integer>();
 		
-		//take any number from 2-25
-		int factor2 = MathUtilities.getRandomNumber(2, 20);
+		//take any number from 2-20
+		int factor2 = MathUtilities.getRandomNumber(2, 10);
 
-
-		//generate a second set of roots
-		for (int i=1; i< 20; i++){
+		//generate a map
+		for (int i=1; i<= UPPER_BOUND; i++){
 			perfectRoots.put(i, i*i*factor2);
 		}
 		
-		//get any random number from 2-25 as a key
-		int squarerootnumerator = MathUtilities.getRandomNumber(2, 15);
+		//get any random number from above map
+		int squarerootnumerator = MathUtilities.getRandomNumber(2, UPPER_BOUND);
+		
+		//get a random number as denominator and then its result from the map
 		int denominator = MathUtilities.getRandomNumber(2, 15);
 		int squarerootdenominator = perfectRoots.get(denominator);
 		
 		//create a fraction object from the keys
 		Fraction frac = Fraction.getReducedFraction(squarerootnumerator * squarerootnumerator, squarerootdenominator);
-		//get the value of that number/key from the map
 
 		//find the square root of that number
 		question = "$"+ squarerootnumerator+"\\over\\sqrt{" +squarerootdenominator+ "}$";
 
 		RootObject rObjectNumerator = MathUtilities.getRoot(frac.getNumerator(), 2);
 		RootObject rObjectDenominator = MathUtilities.getRoot(frac.getDenominator(), 2);
-		
 
 		
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
@@ -167,7 +170,7 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1);
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
