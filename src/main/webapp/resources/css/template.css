@@ -55,7 +55,6 @@ html, body {
 .question{
 	line-height: 150%;
 	letter-spacing: 10px;
-	font-size: 14px;
 	white-space:0;
 	text-align: right; 
     display:block;
@@ -82,6 +81,22 @@ html, body {
     border-top: 1px solid #000;
     display: block;
 }
+
+@media all and (max-width: 1200px) { /* screen size until 1200px */
+    body {
+        font-size: 1.5em; /* 1.5x default size */
+    }
+}
+@media all and (max-width: 1000px) { /* screen size until 1000px */
+    body {
+        font-size: 1.2em; /* 1.2x default size */
+        }
+    }
+@media all and (max-width: 500px) { /* screen size until 500px */
+    body {
+        font-size: 0.8em; /* 0.8x default size */
+        }
+    }
 
 </style>
 
