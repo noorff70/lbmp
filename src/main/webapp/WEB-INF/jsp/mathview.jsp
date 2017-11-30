@@ -74,7 +74,7 @@ response.setHeader("Expires", "0"); // Proxies.
 				</div>
 				<div id="idQuestion" class="panel-body" style="padding-right: 2cm">
 					<div class="idQuestionLn"
-						style="display: block; text-align: right; font-size: 14px; letter-spacing: 10px;"></div>
+						style="display: block; text-align: right; letter-spacing: 10px;"></div>
 					<div class="form-group pull-right"></div>
 				</div>
 				</br> </br

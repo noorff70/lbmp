@@ -27,17 +27,23 @@ public class G8ExponentBasics extends GenericQuestion {
 		
 		List<Problem> gExponentBasics = new ArrayList<Problem>();
 		
-		//for (int i = 0; i < 5; i++)
-		//	gExponentBasics.add(getProblem1(mathConfig));
+		for (int i = 0; i < 2; i++)
+			gExponentBasics.add(getProblem1(mathConfig));
 		
-		//for (int i = 0; i < 5; i++)
-		//	gExponentBasics.add(getProblem2(mathConfig));
+		for (int i = 0; i < 3; i++)
+			gExponentBasics.add(getProblem2(mathConfig));
 		
-		//for (int i = 0; i < 5; i++)
-		//	gExponentBasics.add(getProblem3(mathConfig));
+		for (int i = 0; i < 5; i++)
+			gExponentBasics.add(getProblem3(mathConfig));
 		
 		for (int i = 0; i < 5; i++)
 			gExponentBasics.add(getProblem4(mathConfig));
+		
+		for (int i = 0; i < 5; i++)
+			gExponentBasics.add(getProblem5(mathConfig));
+		
+		for (int i = 0; i < 5; i++)
+			gExponentBasics.add(getProblem6(mathConfig));
 
 
 		return gExponentBasics;
@@ -111,14 +117,61 @@ public class G8ExponentBasics extends GenericQuestion {
 		int power = MathUtilities.getRandomNumber(0, 4);
 		
 		if (power==0) {
-			result = base;
+			result = 1;
 		}
 		else {
-			for (int i=1; i<= power; i++) {
-				result = result * base;
-			}
+				result = (int)Math.pow(base, power);
 		}
 		question = ("$" + base + "^" + power + "$");
+	
+		answer.setAnswer(Integer.toString(result));
+		answer.setType(Constants.RADIO_TYPE);
+		
+
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		questionList.add(qLine1);
+		questionList.add(new QuestionLine(Integer.toString(result)));
+		questionList.add(new QuestionLine(Integer.toString(result+1)));
+		questionList.add(new QuestionLine(Integer.toString(result-1)));
+		
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
+
+		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
+
+
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answer);
+
+		return problem;
+	}
+	
+	/*
+	 * ex- converts -2^3 = -8
+	 */
+	
+	public Problem getProblem3(MathConfiguration mathConfig) {
+		
+		String question = "";
+		Answer answer = new Answer();
+		int result = 1;
+
+		CreateProblem cProblem = new CreateProblem();
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		int base = MathUtilities.getRandomNumber(-10, -2);
+		int power = MathUtilities.getRandomNumber(0, 4);
+		
+		if (power==0) {
+			result = 1;
+		}
+		else {
+			result = (int)Math.pow(base, power);
+		}
+		question = ("$(" + base + ")^" + "{" +power + "}" +"$");
 	
 		answer.setAnswer(Integer.toString(result));
 		answer.setType(Constants.RADIO_TYPE);
@@ -147,7 +200,7 @@ public class G8ExponentBasics extends GenericQuestion {
 	 * ex Converts 16 = 2^4
 	 */
 	
-	public Problem getProblem3(MathConfiguration mathConfig) {
+	public Problem getProblem4(MathConfiguration mathConfig) {
 		
 		String question = "";
 		Answer answer = new Answer();
@@ -200,7 +253,7 @@ public class G8ExponentBasics extends GenericQuestion {
 	/*
 	 * Converts 2^-1 = 1/2
 	 */
-	public Problem getProblem4(MathConfiguration mathConfig) {
+	public Problem getProblem5(MathConfiguration mathConfig) {
 		
 		String question = "";
 		Answer answer = new Answer();
@@ -229,7 +282,7 @@ public class G8ExponentBasics extends GenericQuestion {
 			question = "$" + base + "^" +"{" + power + "}" + "$";
 			power = -power;
 			frac = Fraction.getReducedFraction(1, (int)Math.pow(base, power));
-			answer.setAnswer(("$"+ frac.getNumerator()+"\\over" +frac.getDenominator()+ "$"));
+			answer.setAnswer("$"+ frac.getNumerator()+"\\over" +frac.getDenominator()+ "$");
 		}
 	
 		answer.setType(Constants.RADIO_TYPE);	
@@ -237,8 +290,76 @@ public class G8ExponentBasics extends GenericQuestion {
 		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  "+question);
 		questionList.add(qLine1);
 		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine("$" + base + "^" + Integer.toString(power-1) + "$"));
-		questionList.add(new QuestionLine("$" + base + "^" + Integer.toString(power+1) + "$"));
+		questionList.add(new QuestionLine("$"+ frac.getNumerator()+"\\over" +frac.getDenominator()+1+ "$"));
+		questionList.add(new QuestionLine("$"+ frac.getNumerator()+"\\over" +frac.getDenominator()+2+ "$"));
+		
+		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
+
+		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
+
+
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answer);
+
+		return problem;
+	}
+	
+	/*
+	 * ex Converts 1.6^2 = 16 *16/ 10*10
+	 */
+	
+	public Problem getProblem6(MathConfiguration mathConfig) {
+		
+		String question = "";
+		Answer answer = new Answer();
+		String result = "";
+		int power=0;
+		Fraction frac = new Fraction(1, 1);
+		int numerator =0;
+		int denominator= 0;
+
+		CreateProblem cProblem = new CreateProblem();
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		//take only multiple of 5
+		int baseNumber = 5* MathUtilities.getRandomNumber(2, 8);
+		int decimalPoint = MathUtilities.getRandomNumber(1, 2);
+		
+		double base = MathUtilities.convertToDecimal(baseNumber, decimalPoint);
+		power = MathUtilities.getRandomNumber(0, 3);
+		
+		if (power ==1)
+			power = 2;
+		
+		question = "$" + base + "^" +"{" + power + "}" + "$";
+		numerator = (int)Math.pow(baseNumber, power);
+		denominator = (int) Math.pow((int)Math.pow(10, decimalPoint), power);
+		
+		frac = Fraction.getReducedFraction(numerator, denominator);
+		
+		if (frac.getNumerator() ==1 && frac.getDenominator() ==1)
+			result = Integer.toString(1);
+		else
+			result = "$"+ frac.getNumerator() + "\\over" + frac.getDenominator() +"$";
+		
+		answer.setAnswer(result);
+		answer.setType(Constants.RADIO_TYPE);
+		
+		int fakeNumerator1 = frac.getNumerator() +1;
+		int fakeDenominator1 = frac.getDenominator() +1;
+		
+		int fakeNumerator2 = frac.getNumerator()+ 2;
+		int fakeDenominator2 = frac.getDenominator() +2;
+
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_CONVERT , null, Locale.ENGLISH)+ " " + " "+ mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_CONVERT, null, Locale.ENGLISH) + "  " + question);
+		questionList.add(qLine1);
+		questionList.add(new QuestionLine(answer.getAnswer()));
+		questionList.add(new QuestionLine("$"+ fakeNumerator1 + "\\over" + fakeDenominator1 +"$"));
+		questionList.add(new QuestionLine("$"+ fakeNumerator2 + "\\over" + fakeDenominator2 +"$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		

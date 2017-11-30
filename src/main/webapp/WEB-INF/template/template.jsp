@@ -18,7 +18,7 @@
 		
 	<!-- Header -->
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12" >
+		<div class="col-xs-12" >
 			<tiles:insertAttribute name="header" />
  		</div>
 	</div>
@@ -26,11 +26,11 @@
 	<!-- Menu and Main Body -->
 	<div class="row">
 		<!-- Menu -->
-		<div class="col-xs-4 col-sm-2 col-md-2">
+		<div class="col-xs-2 col-sm-2 col-md-2">
 			<tiles:insertAttribute name="menu" />
   		</div>
   		<!-- Main Body -->
-  		<div class="col-xs-8 col-sm-10 col-md-10">
+  		<div class="col-xs-10 col-sm-10 col-md-10">
 			<tiles:insertAttribute name="body" />
  		</div>
  	</div>
@@ -38,7 +38,7 @@
  <div class="clearfooter"></div>
  <!-- Footer -->
  	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12">
+		<div class="col-xs-12">
 			<tiles:insertAttribute name="footer" />
  		</div>
  	</div>

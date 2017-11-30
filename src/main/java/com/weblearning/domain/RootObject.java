@@ -3,16 +3,16 @@ package com.weblearning.domain;
 public class RootObject {
 	
 	/** the square portion 3√2 3 is the square */
-	int square;
+	int whole;
 	/** the square portion 2√2 2 is the root */
 	int root;
 	
-	public int getSquare() {
-		return square;
+	public int getWhole() {
+		return whole;
 	}
 	
-	public void setSquare(int square) {
-		this.square = square;
+	public void setWhole(int square) {
+		this.whole = square;
 	}
 	
 	public int getRoot() {
@@ -22,5 +22,7 @@ public class RootObject {
 	public void setRoot(int root) {
 		this.root = root;
 	}
+	
+
 
 }

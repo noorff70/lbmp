@@ -99,9 +99,11 @@ public interface Constants {
 	public static String GRADE_8_FIND_SQUARE_ROOT_OF="gr8.find.sq.root.of";
 	
 	public static String GRADE_8_EXPONENT_BASICS="gr8.exponents.basics";
+	public static String GRADE_8_EXPONENT_OPERATION="gr8.exponent.operations";
 	public static String GRADE_EIGHT_EXPONENT_EXPRES_SELECT="gr8.exponent.express.select";
 	public static String GRADE_EIGHT_EXPONENT_CONVERT="gr8.exponent.convert";
 	public static String GRADE_EIGHT_CONVERT="gr8.convert";
+	public static String GRADE_EIGHT_CONVERT_BASE_MULTIPLICATION="gr8.convert.base.multiplication";
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";

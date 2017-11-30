@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 
+import com.weblearning.domain.NumberObject;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.RootObject;
 import com.weblearning.domain.utility.FractionObject;
@@ -199,7 +200,7 @@ public class MathUtilities {
 		if (i==1 || i==2 || i==3)
 			return prime;
 		else{
-			for (int j=1; j<i/2; j++){
+			for (int j=2; j<i/2; j++){
 				if (i %j ==0){
 					prime =false;
 					break;
@@ -801,6 +802,8 @@ public class MathUtilities {
 	
 	/*
 	 * take input of a number and the root. Returns a Root Object
+	 * ex- value = 2400 pow= 2, 
+	 * object- root=6, square=20 i.e sqrt(2400) = 20 * sqrt(6)
 	 */
 	
 	public static RootObject getRoot(int value, int pow){
@@ -849,7 +852,7 @@ public class MathUtilities {
 
 		}
 		rObject.setRoot(root);
-		rObject.setSquare(square);
+		rObject.setWhole(square);
 		
 		return rObject;
 	}
@@ -877,6 +880,224 @@ public class MathUtilities {
 	public static double convertToDecimal(int value, int decimalPoint){
 
 		return value/Math.pow((double)10, (double)decimalPoint);
+	}
+	
+	/*will return list of factors such as
+	 * 48 will return 
+	 * 2- 4 times
+	 * 3- 1 times
+	 * 
+	 */
+	public static Map<Integer, Integer> getListOfFactors(int number) {
+		
+		Map<Integer, Integer> factorMap = new HashMap<Integer, Integer>();
+		int numberOfOccurance;
+		
+		for (int i=2; i<= number; i++) {
+			numberOfOccurance =0;
+			if (checkForPrime(i)) {
+				while (number % i == 0) {
+					numberOfOccurance++;
+					number = number / i;
+				}
+				if (numberOfOccurance > 0) {
+					factorMap.put(i, numberOfOccurance);
+				}
+			}
+		}
+		return factorMap;
+	}
+	
+	/*ex- we have 48 + 96sqrt(2)
+	 * 1. find the max of 48 and 96
+	 * 2. Reduce the whole part to get common. i.e- commonfactor =48 and the whole parts become- 1 and 2sqrt(2)
+	 * so we should 
+	 */
+	public static NumberObject createNumberObject(List<RootObject> rb) {
+		
+		NumberObject no = new NumberObject();
+		
+		int maxNumber= 0;
+		int commonFactor=1;
+		
+		//get the max numbers among whole parts of all the rootobjects
+		for (int i=0; i< rb.size(); i++) {
+			int tempNumber = rb.get(i).getWhole();
+			if (tempNumber > maxNumber)
+				maxNumber = tempNumber; 
+		}
+		
+		//this method will find the common factor i.e 4sqrt(2)+ 2 will be common factpr=2 and remainder 2sqrt(2)+1
+		for (int i=2; i< maxNumber; ) {
+			if (MathUtilities.checkForPrime(i) && isAllDivisible(i, rb)) {
+				//if i is divisible then increment the commonfactor by i
+				commonFactor = commonFactor * i;
+				//reduce the maxnumber by i
+				maxNumber = maxNumber/i;
+				//reduce the objects whole part by i
+				for (int k=0; k< rb.size(); k++) {
+					RootObject rootObject = rb.get(k);
+					rootObject.setWhole(rootObject.getWhole()/i);
+				}
+			}
+			else {
+				i++;		
+			}
+		}
+				
+		//now create a number object and populate the map with values from rootobject
+		//i.e- 3sqrt(2)->2 will have 2 components, key -> sqrt(2) and value -> 3.
+		//keep on adding the values, i.e 2sqrt(2) + 3sqrt(2) = 5sqrt(2)
+		Map<Integer, Integer> rootMap = new HashMap<Integer, Integer>();
+		no.setCommonFactor(commonFactor);
+		for (int i=0; i< rb.size(); i++) {
+			RootObject rob = rb.get(i);
+			if( null == rootMap.get(rob.getRoot())) {
+				rootMap.put(rob.getRoot(), rob.getWhole());
+			}
+			else {
+				int key = rob.getRoot();
+				int val = (int) rootMap.get(key);
+				rootMap.put(key, rob.getWhole() + val);
+			}
+		}
+		no.setRootObject(rootMap);
+		
+		return no;
+	}
+	
+	/*
+	 * Find that a counter is divisible by all the whole parts
+	 */
+	public static boolean isAllDivisible(int counter, List<RootObject> rb) {
+		
+		boolean allDivisible = false;
+		
+		for (int i=0; i< rb.size(); i++) {
+
+			RootObject r = rb.get(i);
+			//check if the whole part is divisible by counter
+ 			if (r.getWhole() % counter == 0) {
+ 				allDivisible = true;
+ 			}
+ 			else {
+ 				allDivisible = false;
+ 				return allDivisible;
+ 			}
+		}
+			return allDivisible;
+	}
+	
+	/*
+	 * Multiplies two root objects 
+	 * r1= (4, 2)
+	 * r2 = (3, 1)
+	 * returns (12, 1)
+	 */
+	public static RootObject multiplyRoots(List<RootObject> robs) {
+		
+		RootObject rb = new RootObject();
+		rb.setRoot(1);
+		rb.setWhole(1);
+		
+		for (int i=0; i< robs.size(); i++) {
+			RootObject r = robs.get(i);
+			rb.setRoot(rb.getRoot() * r.getRoot() );
+			rb.setWhole(rb.getWhole() * r.getWhole());
+		}
+		
+		return rb;	
+	}
+	
+	/*
+	 * Adds two root objects 
+	 * r1= (4, 2)
+	 * r2 = (3, 1)
+	 * returns (7, 3)
+	 */
+	
+	public static RootObject addRoots(List<RootObject> robs) {
+		
+		RootObject rb = new RootObject();
+		
+		//add up the whole part
+		for (int i=0; i< robs.size(); i++) {
+			RootObject r = (RootObject)robs.get(i);
+			rb.setWhole(rb.getWhole() + r.getWhole());			
+		}
+		
+		//add up the root part
+		for (int i=0; i< robs.size(); i++) {
+			
+		}
+		
+		return rb;
+		
+	}
+	
+	/*
+	 * sqrt(2)^3 = 2 sqrt(2)
+	 * pow = 3
+	 * sqrt =2
+	 * % operation gives remainder which is the root section
+	 * operation shows that what should be the new whole number
+	 */
+	
+	public static RootObject convertRoottoWhole(int num, int pow, int sqrt) {
+		
+		RootObject rb = new RootObject();
+		
+		//ex- pow is 9 and num is sqrt(2), i.e. need to find sqrt(2)^9. So the num becomes 2 and pow is halved 9/2 = 4. i.e sqrt(2)^8 = (2)^4
+		int wholePortion = pow / sqrt;
+		//the remainder becomes the only sqrt portion
+		int rootPortion = pow % sqrt;
+
+		
+		rb.setWhole((int)Math.pow(num, wholePortion));
+		rb.setRoot(rootPortion * sqrt);
+		
+		if (rb.getRoot()==0)
+			rb.setRoot(1);
+		
+		return rb;
+	}
+	
+	/*
+	 * format the string to display on UI
+	 */
+	
+	public static String formatNumberObject(NumberObject no) {
+		
+		String result = "";
+		
+		if (no.getCommonFactor()!= null) {
+			result = no.getCommonFactor().toString() + "$(";
+			Map<?, ?> rootMap = no.getRootObject();
+			Iterator<?> entries = rootMap.entrySet().iterator();
+			
+			while (entries.hasNext()) {
+				@SuppressWarnings("unchecked")
+				Entry<Integer, Integer> next = (Entry<Integer, Integer>)entries.next();
+				Map.Entry<Integer, Integer> entry = next;
+				Integer key = entry.getKey();
+				Integer value = entry.getValue();
+				
+				if (key ==1) {
+					result = result + value + "+";
+				}
+				else {
+					if (value == 1) {
+						result = result + "\\sqrt{"+key+"}+" ;
+					}
+					else {
+						result = result + value + "\\sqrt{"+key+"}+" ;
+					}
+				}
+			}
+			result = result +")$";
+			//result = format(result);
+		}
+		return result;
 	}
 	
 }
