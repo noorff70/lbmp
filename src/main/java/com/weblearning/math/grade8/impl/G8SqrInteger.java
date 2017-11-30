@@ -106,9 +106,9 @@ public class G8SqrInteger extends GenericQuestion {
 		RootObject rObject = MathUtilities.getRoot(value, 2);
 
 		if (rObject.getRoot() ==1)
-			result = Integer.toString(rObject.getSquare());
+			result = Integer.toString(rObject.getWhole());
 		else
-			result = rObject.getSquare()+"$\\sqrt{"+ rObject.getRoot()+ "}$";
+			result = rObject.getWhole()+"$\\sqrt{"+ rObject.getRoot()+ "}$";
 		
 		answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
@@ -117,10 +117,10 @@ public class G8SqrInteger extends GenericQuestion {
 		
 		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(rObject.getSquare()+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
-		questionList.add(new QuestionLine(rObject.getSquare()*2+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
-		questionList.add(new QuestionLine(rObject.getSquare()*1+"$\\sqrt{"+ rObject.getRoot()*3+ "}$"));
-		questionList.add(new QuestionLine(rObject.getSquare()*1+"$\\sqrt{"+ rObject.getRoot()*2+ "}$"));
+		questionList.add(new QuestionLine(rObject.getWhole()+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
+		questionList.add(new QuestionLine(rObject.getWhole()*2+"$\\sqrt{"+ rObject.getRoot()+ "}$"));
+		questionList.add(new QuestionLine(rObject.getWhole()*1+"$\\sqrt{"+ rObject.getRoot()*3+ "}$"));
+		questionList.add(new QuestionLine(rObject.getWhole()*1+"$\\sqrt{"+ rObject.getRoot()*2+ "}$"));
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
