@@ -1,19 +1,18 @@
 package com.weblearning.domain;
 import java.util.Map;
 
+/*
+ * A number object can be represented as 3(1+ 2root(3) + 4root(2))
+ * commonfactor=3, 
+ * rootobject 1- root-3, whole-2
+ * rootobject 2- root-2, whole-4
+ */
 public class NumberObject {
 	
-	//Double wholeNumber ;
+	
 	Map <Integer, Integer> rootObject;
 	Integer commonFactor;
 	
-	
-	//public double getWholeNumber() {
-	//	return wholeNumber;
-	//}
-	//public void setWholeNumber(double wholeNumber) {
-	//	this.wholeNumber = wholeNumber;
-	//}
 	public Map<Integer, Integer> getRootObject() {
 		return rootObject;
 	}

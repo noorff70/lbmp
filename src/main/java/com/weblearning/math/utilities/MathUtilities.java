@@ -911,7 +911,7 @@ public class MathUtilities {
 	/*ex- we have 48 + 96sqrt(2)
 	 * 1. find the max of 48 and 96
 	 * 2. Reduce the whole part to get common. i.e- commonfactor =48 and the whole parts become- 1 and 2sqrt(2)
-	 * so we should 
+	 * so we should 48
 	 */
 	public static NumberObject createNumberObject(List<RootObject> rb) {
 		
@@ -928,7 +928,7 @@ public class MathUtilities {
 		}
 		
 		//this method will find the common factor i.e 4sqrt(2)+ 2 will be common factpr=2 and remainder 2sqrt(2)+1
-		for (int i=2; i< maxNumber; ) {
+		for (int i=2; i<= maxNumber; ) {
 			if (MathUtilities.checkForPrime(i) && isAllDivisible(i, rb)) {
 				//if i is divisible then increment the commonfactor by i
 				commonFactor = commonFactor * i;
@@ -989,7 +989,7 @@ public class MathUtilities {
 	}
 	
 	/*
-	 * Multiplies two root objects 
+	 * Multiplies a list of rootobjects 
 	 * r1= (4, 2)
 	 * r2 = (3, 1)
 	 * returns (12, 1)
@@ -1010,69 +1010,68 @@ public class MathUtilities {
 	}
 	
 	/*
-	 * Adds two root objects 
-	 * r1= (4, 2)
-	 * r2 = (3, 1)
-	 * returns (7, 3)
+	 * multiply two rootobjects
 	 */
-	
-	public static RootObject addRoots(List<RootObject> robs) {
+	public static RootObject multiplyRoots(RootObject a, RootObject b) {
 		
 		RootObject rb = new RootObject();
+		rb.setRoot(1);
+		rb.setWhole(1);
 		
-		//add up the whole part
-		for (int i=0; i< robs.size(); i++) {
-			RootObject r = (RootObject)robs.get(i);
-			rb.setWhole(rb.getWhole() + r.getWhole());			
-		}
+		int whole = a.getWhole() * b.getWhole();
+		int root = a.getRoot()* b.getRoot();
 		
-		//add up the root part
-		for (int i=0; i< robs.size(); i++) {
+		int wholeandRoot = (int)Math.pow(whole, 2)* root;
+		
+		return getRoot(wholeandRoot, 2);
 			
-		}
-		
-		return rb;
-		
 	}
 	
-	/*
-	 * sqrt(2)^3 = 2 sqrt(2)
-	 * pow = 3
-	 * sqrt =2
-	 * % operation gives remainder which is the root section
-	 * operation shows that what should be the new whole number
-	 */
 	
-	public static RootObject convertRoottoWhole(int num, int pow, int sqrt) {
-		
-		RootObject rb = new RootObject();
-		
-		//ex- pow is 9 and num is sqrt(2), i.e. need to find sqrt(2)^9. So the num becomes 2 and pow is halved 9/2 = 4. i.e sqrt(2)^8 = (2)^4
-		int wholePortion = pow / sqrt;
-		//the remainder becomes the only sqrt portion
-		int rootPortion = pow % sqrt;
 
-		
-		rb.setWhole((int)Math.pow(num, wholePortion));
-		rb.setRoot(rootPortion * sqrt);
-		
-		if (rb.getRoot()==0)
-			rb.setRoot(1);
-		
-		return rb;
-	}
 	
 	/*
-	 * format the string to display on UI
+	 * list always contains only two numberobjects. The first one is numerator and the second is a denominator
+	 * both numberobject will contain commonfactor and a map. map contains key as root and value as whole. 
+	 * ex- first numberobject: commonfactor-6, first value key-2, value-3(3 root 2), secondvalue- key-3, value-2(2 root 3), thirdvalue- key 2, value- 5(5 root2 )
+	 *     should be written as 6(8 root2 + 2 root3)
+	 * 
 	 */
 	
-	public static String formatNumberObject(NumberObject no) {
+	public static String formatNumberObject(List<NumberObject> noList) {
 		
 		String result = "";
+		String numeratorResult= "";
+		String denominatorResult = "";
 		
-		if (no.getCommonFactor()!= null) {
-			result = no.getCommonFactor().toString() + "$(";
-			Map<?, ?> rootMap = no.getRootObject();
+		NumberObject non = noList.get(0);
+		NumberObject nod= noList.get(1);
+
+		
+		
+		String commonNumerator = "";
+		String commonDenominator = "";
+		
+		//first factor out numerator and denominator i.e 6(3+2)/2(5+1) -> 3(3+2)/(5+1)
+		if (null!= non.getCommonFactor() && null != nod.getCommonFactor()) {
+			if (nod.getCommonFactor() == non.getCommonFactor()) {
+				commonNumerator = "";
+				commonDenominator = "";
+			}
+			else if (non.getCommonFactor() % nod.getCommonFactor() ==0 ) {
+				commonNumerator = Integer.toString(non.getCommonFactor()/ nod.getCommonFactor());
+			}
+			else if (nod.getCommonFactor() % non.getCommonFactor() ==0 ) {
+				commonDenominator = Integer.toString(nod.getCommonFactor()/ non.getCommonFactor());
+			}
+		}else if (null!= non.getCommonFactor() && null == nod.getCommonFactor()) {
+			commonNumerator = Integer.toString(non.getCommonFactor()); 
+		}
+		
+		//first format the numerator
+		if (non.getCommonFactor()!= null) {
+			result = "$" + commonNumerator + "(";
+			Map<?, ?> rootMap = non.getRootObject();
 			Iterator<?> entries = rootMap.entrySet().iterator();
 			
 			while (entries.hasNext()) {
@@ -1094,10 +1093,195 @@ public class MathUtilities {
 					}
 				}
 			}
-			result = result +")$";
-			//result = format(result);
+			result = result +")";
 		}
+		result = removeString(result, "+");
+		
+		//check for root=1 and whole=1. in that case no need for looing into denominator
+		boolean checkForOne= true;
+		
+		Map<Integer, Integer> booleanMap = nod.getRootObject();
+		Iterator<?> booleanIterator = booleanMap.entrySet().iterator();
+		
+		while (booleanIterator.hasNext()) {
+			@SuppressWarnings("unchecked")
+			Entry booleanNext = (Entry<Integer, Integer>)booleanIterator.next();
+			@SuppressWarnings("unchecked")
+			Map.Entry<Integer, Integer> booleanEntry = booleanNext;
+			if (booleanEntry.getKey()== 1 && booleanEntry.getValue() ==1) {
+				checkForOne = true;
+			}
+			else {
+				checkForOne = false;
+				break;
+			}
+		}
+		
+		
+		//format denominator if numerator and denominator !=1 and denominator !=null
+		if (null != nod && checkForOne != true) {
+			result = result + "\\over" + commonDenominator + "(";
+			Map<?, ?> rootMap = nod.getRootObject();
+			Iterator<?> entries = rootMap.entrySet().iterator();
+			
+			while (entries.hasNext()) {
+				@SuppressWarnings("unchecked")
+				Entry<Integer, Integer> next = (Entry<Integer, Integer>)entries.next();
+				Map.Entry<Integer, Integer> entry = next;
+				Integer key = entry.getKey();
+				Integer value = entry.getValue();
+				
+				if (key ==1) {
+					result = result + value + "+";
+				}
+				else {
+					if (value == 1) {
+						result = result + "\\sqrt{"+key+"}+" ;
+					}
+					else {
+						result = result + value + "\\sqrt{"+key+"}+" ;
+					}
+				}
+			}
+			result = removeString(result, "+");
+		}
+		result = result +")$";
+		
 		return result;
+	}
+	
+	//add a list of rootobject
+	//ex- 1st rootobject- root=2, whole=2, 2nd rootobject- root=2, whole=5, 3rd rootobject- root-3, whole-3
+	public static List<RootObject> addRoots(List<RootObject> roots) {
+		
+		List <RootObject> rObject = new ArrayList<RootObject>();
+		//key is the root part and value is the whole part
+		Map<Integer, Integer> rootMap = new HashMap<Integer, Integer>();
+		
+		//use a map to add all the rootobjects to a map
+		//from the above example- will be in the map as first- key-2, value-7, second- key-3, value-3
+		for (int i=0; i< roots.size(); i++) {
+			RootObject root = roots.get(i);
+			
+			int key = root.getRoot();
+			if (rootMap.get(key)!= null) {
+				rootMap.put(key, rootMap.get(key)+ root.getWhole());
+			}else {
+				rootMap.put(root.getRoot(), root.getWhole());
+			}
+		}
+		
+		//create two rootobjects from above example as root-2, whole-7 and root-3, whole-3
+		Iterator iterator = rootMap.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Entry<Integer, Integer> next = (Entry<Integer, Integer>)iterator.next();
+			Map.Entry<Integer, Integer> entry = next;
+			Integer key = entry.getKey();
+			Integer value = entry.getValue();
+			RootObject r = new RootObject();
+			r.setRoot(key);
+			r.setWhole(value);
+			rObject.add(r);
+		}
+		
+		return rObject;
+	}
+	
+	/*
+	 * each map has 
+	 * key= Integer(1,2,3 etc)
+	 * value= List<RootObject> numerator-RootObject and denominator-RootObject
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<NumberObject> performRootOperation(Map<Integer, List<RootObject>> rootListMap){
+		
+		//these are for iterating the map object passed on
+		
+		Iterator entriesNumerator = rootListMap.entrySet().iterator();
+		Iterator entriesDenominator = rootListMap.entrySet().iterator();
+		
+		List<RootObject> numeratorRootList = new ArrayList<RootObject>();
+		List<RootObject> denominatorRootList = new ArrayList<RootObject>();
+		
+		//create a new rootobject and initialize
+		RootObject denominatorRoot = new RootObject();
+		denominatorRoot.setWhole(1);
+		denominatorRoot.setRoot(1);
+
+		//create a denominator RootObject. This will be used for holding multiplication of all the denominator passed through rootListMap
+		RootObject denominator = new RootObject();
+		denominator.setRoot(1);
+		denominator.setWhole(1);
+		
+		//multiply the denominators first
+		while (entriesNumerator.hasNext()) {
+			
+			Entry<Integer, List<RootObject>> next = (Entry<Integer, List<RootObject>>)entriesNumerator.next();
+			Map.Entry<Integer, List<RootObject>> entry = next;
+			List<RootObject> rootList = entry.getValue();
+			//multiply all the denominatorroots which has an index of 1 in the list
+			denominator = MathUtilities.multiplyRoots(denominator, rootList.get(1));
+		}
+		
+		//iterate over all the rootobjects coming from rootlistmap
+		while (entriesDenominator.hasNext()) {
+			Entry<Integer, List<RootObject>> next = (Entry<Integer, List<RootObject>>)entriesDenominator.next();
+			Map.Entry<Integer, List<RootObject>> entry = next;
+			Integer key = entry.getKey();
+			List<RootObject> rootList = entry.getValue();
+			//get the rootobject for numerator from the map
+			RootObject numertorRoot = rootList.get(0);
+			RootObject dRoot = rootList.get(1);
+		
+			//divide denominator by numerator ex- 3/2 and 3/6, 2/5 we get denominator = 2*6*5 = 60. so the division is 60/2 = 30
+			denominatorRoot = divideRoots(denominator, dRoot);
+			
+			//multiply demominatorRoot with numerator to get a new numerator 30*3 = 90
+			numertorRoot = MathUtilities.multiplyRoots(denominatorRoot, numertorRoot);
+			numeratorRootList.add(numertorRoot);
+			
+
+		}
+		numeratorRootList = MathUtilities.addRoots(numeratorRootList);
+		NumberObject numeratorNumberObject = MathUtilities.createNumberObject(numeratorRootList);
+		denominatorRootList.add(denominator);
+		NumberObject denominatorNumberObject = MathUtilities.createNumberObject(denominatorRootList);
+		
+		List<NumberObject> nObject = new ArrayList<NumberObject>();
+		nObject.add(numeratorNumberObject);
+		nObject.add(denominatorNumberObject);
+		
+		return nObject;
+	}
+	
+	public static RootObject divideRoots(RootObject a, RootObject b) {
+		
+		//square both numerator and denominator, then reduce fraction and convert back to rootobject
+		
+		int rootA = (int)Math.pow(a.getWhole(), 2)* a.getRoot();
+		int rootB = (int)Math.pow(b.getWhole(), 2)* b.getRoot();
+		
+		Fraction frac = Fraction.getReducedFraction(rootA, rootB);
+		
+		//convert it back to square root
+		return MathUtilities.getRoot(frac.getNumerator(), 2);
+				
+	}
+	
+	/*
+	 * removes the last occurance of a string from original string
+	 */
+	public static String removeString(String originalString, String toReplace ) {
+		
+		StringBuilder sb = new StringBuilder(originalString);
+		int index = originalString.lastIndexOf(toReplace);
+		if (index >0) {
+			sb.deleteCharAt(index);
+		}
+		
+		
+		return sb.toString();
+		
 	}
 	
 }

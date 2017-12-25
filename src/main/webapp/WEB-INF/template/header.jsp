@@ -1,19 +1,28 @@
 <!-- Third Container (Grid) -->
+<div class="container-fluid ">
+	<div>
+		<!--style="padding: 45px; background-image: url('resources/css/home/book.png'); background-repeat: no-repeat; background-size: cover"  -->
+		<div class="row">
 
-<div class="container-fluid bg-3 text-center">
+			<div class="col-xs-2">
+				<img class="img-responsive" src="resources/css/home/home.png" style="width: 60%" />
 
-	<div class="row">
-		<div class="col-sm-2">
-			<img class="img-responsive" src="resources/css/home/home.jpg"
-				style="width: 60%" />
-			<!--    <img src="sunrise.jpg" class="img-responsive margin" style="width:100%" alt="Image">-->
-		</div>
-		<div class="col-sm-6"></div>
-		<div class="col-sm-4">
-			<form class="form-horizontal">
-				<p class="text-primary text-right"><a href="/lbmp/loginview">Sign In</a></p>
-				<p class="text-primary text-right">Register</p>
-			</form>
+			</div>
+			<div>
+			<div class="col-xs-8">
+				<div>
+					<!-- style="padding: 25px; background-image: url('resources/css/home/school.jpg'); background-repeat: no-repeat; background-size: cover"> -->
+				</div>
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<form class="form-horizontal">
+					<p class="text-primary text-right">
+						<a href="/lbmp/loginview">Sign In</a>
+					</p>
+					<p class="text-primary text-right">Register</p>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
