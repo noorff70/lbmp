@@ -83,6 +83,9 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -128,6 +131,9 @@ public class G8ExponentOperation extends GenericQuestion {
 		questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -188,6 +194,9 @@ public class G8ExponentOperation extends GenericQuestion {
 		questionList.add(new QuestionLine(fakeResult2));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -259,6 +268,9 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -306,6 +318,9 @@ public class G8ExponentOperation extends GenericQuestion {
 		questionList.add(new QuestionLine(Integer.toString(fakeResult2)));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -381,6 +396,9 @@ public class G8ExponentOperation extends GenericQuestion {
 	
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 

@@ -86,8 +86,6 @@ public class G8SqrFrac extends GenericQuestion {
 		RootObject rObjectNumerator = MathUtilities.getRoot(valueNumerator, 2);
 		RootObject rObjectDenominator = MathUtilities.getRoot(valueDenominator, 2);
 		
-
-		
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
 		answer.setType(Constants.RADIO_TYPE);
@@ -104,6 +102,9 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
@@ -171,6 +172,9 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 

@@ -86,6 +86,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -136,6 +139,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -184,6 +190,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		questionList.add(new QuestionLine(Integer.toString(result-1)));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -238,6 +247,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		questionList.add(new QuestionLine("$" + base + "^" + Integer.toString(power+1) + "$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -294,6 +306,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+ frac.getNumerator()+"\\over" +frac.getDenominator()+2+ "$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -362,6 +377,9 @@ public class G8ExponentBasics extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+ fakeNumerator2 + "\\over" + fakeDenominator2 +"$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 

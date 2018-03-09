@@ -33,11 +33,11 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		List<Problem> gExponentBasics = new ArrayList<Problem>();
 		
-		//for (int i = 0; i < 5; i++)
-		//	gExponentBasics.add(getProblem1(mathConfig));
-		//for (int i = 0; i < 5; i++)
-		//	gExponentBasics.add(getProblem2(mathConfig));
-		for (int i = 0; i < 1; i++)
+		for (int i = 0; i < 5; i++)
+			gExponentBasics.add(getProblem1(mathConfig));
+		for (int i = 0; i < 10; i++)
+			gExponentBasics.add(getProblem2(mathConfig));
+		for (int i = 0; i <10; i++)
 			gExponentBasics.add(getProblem3(mathConfig));
 
 		return gExponentBasics;
@@ -47,7 +47,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 	 * 8*2^2+6*sqrt(2)3
 	 */
 	public Problem getProblem1(MathConfiguration mathConfig) {
-		
+
 		String question = "";
 		Answer answer = new Answer();
 
@@ -132,6 +132,9 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -147,7 +150,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 	 * 8*2^2+8*sqrt(2)^-3
 	 */
 	public Problem getProblem2(MathConfiguration mathConfig) {
-		
+
 		String question = "";
 		Answer answer = new Answer();
 		String result = "";
@@ -157,7 +160,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		MessageSource mSource = mathConfig.getmSource();
 		
-		//ex- (sqrt(2)*3)- convert 4*sqrt(2)- whole-4, root-2
+		//ex- (sqrt(2)^3)- 8- convert 4*sqrt(2)- whole-4, root-2
 		int A1power = MathUtilities.getRandomNumber(-6,-2);
 		int A1base = 2;
 		String A11 = "$(\\sqrt"+A1base+ ")^"+ "{" +A1power+ "}" +"$";
@@ -225,6 +228,9 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -240,7 +246,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 	 * 2root2 - 3(root2)^3 + 5(root3)^2 + 3(root2)^4
 	 */
 	public Problem getProblem3(MathConfiguration mathConfig) {
-		
+
 		String question = "";
 		Answer answer = new Answer();
 		String result = "";
@@ -254,15 +260,19 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		//A.1 construct (root2)^3
 		int A1power = MathUtilities.getRandomNumber(1,6);
 		int A1base = 2;
+		int n1= 0;
 		String A11 = "$\\sqrt"+A1base+ "^"+ "{" +A1power+ "}";
 		RootObject A11R = convertSquareRoottoRootObject(A1base, A1power, 2);
 
 		//A.2 Construct 3
-		int A12 = MathUtilities.getRandomNumber(-3, 3);
+		int A12 = -3;//MathUtilities.getRandomNumber(-3, 3);
 		if (A12 ==0) A12= 3;
 		
-		//convert 3(root2)^3  to a RootObject. First make that a square- square(3*root2^3)= square(6root2)= 72  and then make rootobject 
-		int n1 = (int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
+		if (A12 < 0)
+			//convert 3(root2)^3  to a RootObject. First make that a square- square(3*root2^3)= square(6root2)= 72  and then make rootobject 
+			n1 = -(int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
+		else 
+			n1 = (int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
 		
 		Fraction frac1 = Fraction.getReducedFraction(n1,1);
 		RootObject fracNumeratorRootA1 = MathUtilities.getRoot(frac1.getNumerator(), A1base);
@@ -280,7 +290,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 
 		RootObject B11R = convertSquareRoottoRootObject(B1base, B1power, 2);
 		
-		int B12 = 3; //MathUtilities.getRandomNumber(1, 3);
+		int B12 = MathUtilities.getRandomNumber(1, 3);
 		
 		//convert 3(root2)^3  to a RootObject. First make that a square- square(3*root2^3)= square(6root2)= 72  and then make rootobject 
 		int n2= (int)Math.pow(B11R.getWhole()*B12, 2)*B11R.getRoot();
@@ -363,6 +373,9 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
@@ -419,7 +432,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		RootObject rb = new RootObject();
 
-		int num1 = (int)Math.pow(num, pow);
+		int num1 = (int)Math.pow(num, Math.abs(pow));
 		rb = MathUtilities.getRoot(num1, sqrt);
 		
 		return rb;

@@ -808,6 +808,12 @@ public class MathUtilities {
 	
 	public static RootObject getRoot(int value, int pow){
 		
+		int sign =1;
+		if (value < 0)
+			sign = -1;
+		
+		value = Math.abs(value);
+		
 		RootObject rObject = new RootObject();
 		
 		List<Integer> listofFactors = new ArrayList<Integer>();
@@ -852,7 +858,7 @@ public class MathUtilities {
 
 		}
 		rObject.setRoot(root);
-		rObject.setWhole(square);
+		rObject.setWhole(square * sign);
 		
 		return rObject;
 	}
@@ -1014,6 +1020,8 @@ public class MathUtilities {
 	 */
 	public static RootObject multiplyRoots(RootObject a, RootObject b) {
 		
+		int wholeandRoot =0;
+				
 		RootObject rb = new RootObject();
 		rb.setRoot(1);
 		rb.setWhole(1);
@@ -1021,7 +1029,11 @@ public class MathUtilities {
 		int whole = a.getWhole() * b.getWhole();
 		int root = a.getRoot()* b.getRoot();
 		
-		int wholeandRoot = (int)Math.pow(whole, 2)* root;
+		if (whole < 0)
+			wholeandRoot = -(int)Math.pow(whole, 2)* root;
+		else 
+			wholeandRoot = (int)Math.pow(whole, 2)* root;
+		
 		
 		return getRoot(wholeandRoot, 2);
 			
@@ -1041,19 +1053,16 @@ public class MathUtilities {
 	public static String formatNumberObject(List<NumberObject> noList) {
 		
 		String result = "";
-		String numeratorResult= "";
-		String denominatorResult = "";
 		
 		NumberObject non = noList.get(0);
 		NumberObject nod= noList.get(1);
-
-		
 		
 		String commonNumerator = "";
 		String commonDenominator = "";
 		
 		//first factor out numerator and denominator i.e 6(3+2)/2(5+1) -> 3(3+2)/(5+1)
 		if (null!= non.getCommonFactor() && null != nod.getCommonFactor()) {
+		
 			if (nod.getCommonFactor() == non.getCommonFactor()) {
 				commonNumerator = "";
 				commonDenominator = "";
@@ -1061,12 +1070,17 @@ public class MathUtilities {
 			else if (non.getCommonFactor() % nod.getCommonFactor() ==0 ) {
 				commonNumerator = Integer.toString(non.getCommonFactor()/ nod.getCommonFactor());
 			}
-			else if (nod.getCommonFactor() % non.getCommonFactor() ==0 ) {
-				commonDenominator = Integer.toString(nod.getCommonFactor()/ non.getCommonFactor());
+			else {
+				commonNumerator = Integer.toString(non.getCommonFactor());
+				commonDenominator = Integer.toString(nod.getCommonFactor());
 			}
+
 		}else if (null!= non.getCommonFactor() && null == nod.getCommonFactor()) {
 			commonNumerator = Integer.toString(non.getCommonFactor()); 
 		}
+		
+		boolean nKeyAndValue = false;
+		boolean dKeyAndValue = false;
 		
 		//first format the numerator
 		if (non.getCommonFactor()!= null) {
@@ -1074,12 +1088,17 @@ public class MathUtilities {
 			Map<?, ?> rootMap = non.getRootObject();
 			Iterator<?> entries = rootMap.entrySet().iterator();
 			
+			
 			while (entries.hasNext()) {
 				@SuppressWarnings("unchecked")
 				Entry<Integer, Integer> next = (Entry<Integer, Integer>)entries.next();
 				Map.Entry<Integer, Integer> entry = next;
 				Integer key = entry.getKey();
 				Integer value = entry.getValue();
+				
+				if (key == 1 && value == 1) {
+					nKeyAndValue = true;
+				}
 				
 				if (key ==1) {
 					result = result + value + "+";
@@ -1097,29 +1116,9 @@ public class MathUtilities {
 		}
 		result = removeString(result, "+");
 		
-		//check for root=1 and whole=1. in that case no need for looing into denominator
-		boolean checkForOne= true;
-		
-		Map<Integer, Integer> booleanMap = nod.getRootObject();
-		Iterator<?> booleanIterator = booleanMap.entrySet().iterator();
-		
-		while (booleanIterator.hasNext()) {
-			@SuppressWarnings("unchecked")
-			Entry booleanNext = (Entry<Integer, Integer>)booleanIterator.next();
-			@SuppressWarnings("unchecked")
-			Map.Entry<Integer, Integer> booleanEntry = booleanNext;
-			if (booleanEntry.getKey()== 1 && booleanEntry.getValue() ==1) {
-				checkForOne = true;
-			}
-			else {
-				checkForOne = false;
-				break;
-			}
-		}
-		
 		
 		//format denominator if numerator and denominator !=1 and denominator !=null
-		if (null != nod && checkForOne != true) {
+		if (null != nod) {
 			result = result + "\\over" + commonDenominator + "(";
 			Map<?, ?> rootMap = nod.getRootObject();
 			Iterator<?> entries = rootMap.entrySet().iterator();
@@ -1130,6 +1129,10 @@ public class MathUtilities {
 				Map.Entry<Integer, Integer> entry = next;
 				Integer key = entry.getKey();
 				Integer value = entry.getValue();
+				
+				if (key ==1 && value ==1) {
+					dKeyAndValue = true;
+				}
 				
 				if (key ==1) {
 					result = result + value + "+";
@@ -1146,6 +1149,10 @@ public class MathUtilities {
 			result = removeString(result, "+");
 		}
 		result = result +")$";
+		
+		if (dKeyAndValue && nKeyAndValue) {
+			result = "$" + commonNumerator + "\\over" + commonDenominator + "$";
+		}
 		
 		return result;
 	}
@@ -1258,10 +1265,15 @@ public class MathUtilities {
 		
 		//square both numerator and denominator, then reduce fraction and convert back to rootobject
 		
+		Fraction frac = new Fraction (1, 1);
+		
 		int rootA = (int)Math.pow(a.getWhole(), 2)* a.getRoot();
 		int rootB = (int)Math.pow(b.getWhole(), 2)* b.getRoot();
 		
-		Fraction frac = Fraction.getReducedFraction(rootA, rootB);
+		if (a.getWhole()/ b.getWhole() < 0)
+			frac = Fraction.getReducedFraction(rootA * -1, rootB);
+		else
+			frac = Fraction.getReducedFraction(rootA , rootB);
 		
 		//convert it back to square root
 		return MathUtilities.getRoot(frac.getNumerator(), 2);
@@ -1282,6 +1294,30 @@ public class MathUtilities {
 		
 		return sb.toString();
 		
+	}
+	
+	/**this will take answerlist and answer and then compare the correct position of answer in the answerlist
+	 * to be displayed in UI
+	 * 
+	 * @param answerList
+	 * @param ans
+	 * @return
+	 */
+	public static String getCorrectAnswerPosition(List<?> answerList, String ans ) {
+		
+		int answerPosition = -1;
+		
+		for (int i=0; i< answerList.size(); i++) {
+			QuestionLine qln = (QuestionLine) answerList.get(i);
+			String question = qln.getQuestionLn();
+			answerPosition++;
+			if (question.equals(ans)) {
+				
+				break;
+			}
+		}
+
+		return Integer.toString(answerPosition);
 	}
 	
 }

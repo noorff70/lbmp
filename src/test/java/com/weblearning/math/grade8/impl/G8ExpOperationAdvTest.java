@@ -2,24 +2,16 @@ package com.weblearning.math.grade8.impl;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.MessageSource;
 
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.NumberObject;
-import com.weblearning.domain.Problem;
-import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.RootObject;
 import com.weblearning.math.utilities.MathUtilities;
-import com.weblearning.utilities.Constants;
-import com.weblearning.utilities.CreateProblem;
 import com.weblearning.math.grade8.impl.G8ExpOperationAdv;
 
 import junit.framework.TestCase;
@@ -102,6 +94,7 @@ public class G8ExpOperationAdvTest extends TestCase {
 
 		//A. construct 3(root2)^3 
 		//A.1 construct (root2)^3
+		int n1 = 0;
 		int A1power = 3;//MathUtilities.getRandomNumber(1,6);
 		int A1base = 2;
 		//String A11 = "$\\sqrt"+A1base+ "^"+ "{" +A1power+ "}";
@@ -109,10 +102,12 @@ public class G8ExpOperationAdvTest extends TestCase {
 
 		//A.2 Construct 3
 		int A12 = -3;
-		if (A12 ==0) A12= 3;
-		
+		//if (A12 ==0) A12= 3;
+		if (A12 < 0)
 		//convert 3(root2)^3  to a RootObject. First make that a square- square(3*root2^3)= square(6root2)= 72  and then make rootobject 
-		int n1 = (int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
+			n1 = -(int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
+		else
+			n1 = (int)Math.pow(A11R.getWhole()*A12, 2)*A11R.getRoot();
 		
 		Fraction frac1 = Fraction.getReducedFraction(n1,1);
 		RootObject fracNumeratorRootA1 = MathUtilities.getRoot(frac1.getNumerator(), A1base);
@@ -186,7 +181,7 @@ public class G8ExpOperationAdvTest extends TestCase {
 		
 		String actualResult = MathUtilities.formatNumberObject(numberObjectList);
 		//String expectedResult = "$10(\sqrt{2}+\sqrt{5}))$";
-		assertEquals("$10(\\sqrt{2}+\\sqrt{5}))$", actualResult);
+		assertEquals("$2(-1\\sqrt{2}+5\\sqrt{5}))$", actualResult);
 
 
 		System.out.println("");

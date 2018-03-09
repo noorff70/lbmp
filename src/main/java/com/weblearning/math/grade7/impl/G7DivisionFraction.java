@@ -23,9 +23,9 @@ public class G7DivisionFraction extends GenericQuestion {
 
 		List<Problem> grade6DivisionFraction = new ArrayList<Problem>();
 
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 7; i++){
 			//j stands for rule. rules can be 1,2 ,3 etc
-			for (int j=1; j<=4; j++){
+			for (int j=1; j<3; j++){
 				grade6DivisionFraction.add(getProblem1(mathConfig, j));
 			}
 		}
@@ -144,7 +144,7 @@ public class G7DivisionFraction extends GenericQuestion {
 			break;
 			
 		//multiplication of between a mixed fraction and a real fraction	
-		case(3):
+/*		case(3):
 			
 			numerator1 = MathUtilities.getRandomNumber(11, 20);
 			denominator1 = MathUtilities.getRandomNumber(1, 10);
@@ -164,10 +164,10 @@ public class G7DivisionFraction extends GenericQuestion {
 			
 			fractionList.add(fracObject1);
 			fractionList.add(fracObject2);
-			
+			*/
 		
 			//multiplication of between a mixed fraction and a real fraction	
-		case(4):
+		case(3):
 						
 			numerator1 = MathUtilities.getRandomNumber(11, 20);
 			denominator1 = MathUtilities.getRandomNumber(1, 10);

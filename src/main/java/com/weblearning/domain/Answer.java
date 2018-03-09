@@ -13,6 +13,8 @@ public class Answer {
 	String answer;
 	/*Type of the answer, i.e String answerr or something else */
 	String type;
+	String answerOption;
+	
 	int noOfCorrectAnswer;
 		
 	public String getAnswer() {
@@ -36,7 +38,12 @@ public class Answer {
 		return noOfCorrectAnswer;
 	}
 	
+	public String getAnswerOption() {
+		return answerOption;
+	}
 	
-	
+	public void setAnswerOption(String ans) {
+		answerOption = ans;
+	}
 
 }

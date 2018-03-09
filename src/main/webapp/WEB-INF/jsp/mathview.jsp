@@ -21,15 +21,12 @@ response.setHeader("Expires", "0"); // Proxies.
 				$('#btn_checkAnswer').click(
 						function() {
 							
-				//			 $('input[type=submit]').one('submit', function() {
-				//			     $(this).attr('disabled','disabled');
-				//			 });
-							
 							var answerAsString= '';
 							var answer = $("#id_inputTextSingleAnswer").val();
 							var answerValue = $("#id_answer").attr('value');
 							var answerType = $("#id_answerType").attr('value');
 							var radioType=true;
+							var answerTypeOption = $("#id_radio_option").attr('value');
 
 							
 							if (answerType == "FRACTION") {
@@ -43,8 +40,8 @@ response.setHeader("Expires", "0"); // Proxies.
 								answer = $('input[name="myRadio"]:checked', '#topicdetailform').val(); 
 								answerAsString = answerValue;
 								answerValue = JSON.stringify(answerValue).replace(/ /g, '');
-
-								onClickCheckAnswer(answer, answerValue, answerAsString,radioType);
+						
+								onClickCheckAnswer(answer, answerTypeOption, answerAsString, radioType);
 
 							} else {
 								
@@ -61,6 +58,7 @@ response.setHeader("Expires", "0"); // Proxies.
 	<input type="hidden" id="id_answerType" name="answerType" value="${lesson.problem.answer.type}">
 	<input type="hidden" id="id_answer" name="answer" value="${lesson.problem.answer.answer}">
 	<input type="hidden" id="id_answer_check" name="answerCheck" value="">
+	<input type="hidden" id="id_radio_option" name="id_radio_option" value="">
 
 	<div class="container">
 		<div class="row">
@@ -161,6 +159,8 @@ response.setHeader("Expires", "0"); // Proxies.
 						var answer = response.problem.answer.answer;
 						var answerType = response.problem.answer.type;
 						var correctAnswers = response.numberOfCorrectAnswers;
+						var answerRadioOption = response.problem.answer.answerOption;
+	
 						$('#id_answer_check').val(correctAnswers);
 
 						$('#questionHeading').html("");
@@ -209,7 +209,7 @@ response.setHeader("Expires", "0"); // Proxies.
 									} else {
 										$('#idQuestion')
 												.append(
-														'<div class="radio"><input type="radio"  name="myRadio" value='+ questionLine.questionLn+ ' /> '
+														'<div class="radio"><input type="radio"  name="myRadio" value='+ i + ' /> '
 																+ questionLine.questionLn
 																+ '<br /></div>');
 									}
@@ -233,7 +233,7 @@ response.setHeader("Expires", "0"); // Proxies.
 
 						//Get the answer
 						$('#id_answer').val(answer);
-
+						$('#id_radio_option').val(answerRadioOption);
 						//Generate the answer text boxes
 
 						$('#id_answerType').val(answerType)
@@ -307,7 +307,7 @@ response.setHeader("Expires", "0"); // Proxies.
 		
 		//alert("answer: "+ answer + " answerValue: "+ answerValue + "answerAsString: " + answerAsString);
 		if (radioType) {
-			if (answer == answerAsString) {
+			if (answer == answerValue) {
 				value = "Correct";
 				noOfCorrectAnswers = $('#id_answer_check').val();
 				noOfCorrectAnswers++;

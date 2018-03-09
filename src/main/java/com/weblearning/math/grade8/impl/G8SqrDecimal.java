@@ -94,6 +94,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
@@ -159,6 +162,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
+		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
@@ -222,6 +228,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		answer.setAnswerOption(correctAnswerOption);
 		
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 

@@ -97,6 +97,9 @@ public interface Constants {
 	public static String GRADE_8_FIND_INTEGER_SQUARE_ROOT = "gr8.find.integer.square.root";
 	public static String GRADE_8_SQUARE_ROOT_OF_DECIMALS="gr8.sq.root.of.decimals";
 	public static String GRADE_8_FIND_SQUARE_ROOT_OF="gr8.find.sq.root.of";
+	public static String GRADE_8_INTEGER_OPERATION="gr8.integer.operation";
+	public static String GRADE_8_INTEGER_OPERATION_OPERATOR_PRECEDENCE="gr8.integer.operation.operator.precedence";
+	public static String GRADE_8_INTEGER_OPERATION_EVALUATE="gr8.integer.operation.evaluate";
 	
 	public static String GRADE_8_EXPONENT_BASICS="gr8.exponents.basics";
 	public static String GRADE_8_EXPONENT_OPERATION="gr8.exponent.operations";
@@ -104,6 +107,12 @@ public interface Constants {
 	public static String GRADE_EIGHT_EXPONENT_CONVERT="gr8.exponent.convert";
 	public static String GRADE_EIGHT_CONVERT="gr8.convert";
 	public static String GRADE_EIGHT_CONVERT_BASE_MULTIPLICATION="gr8.convert.base.multiplication";
+	public static String GRADE_8_CONVERT_TO_SCIENTIFIC_NOTATION="gr8.conv.to.scientific.notation";
+	public static String GRADE_EIGHT_CONVERT_FROM_SCIENTIFIC_NOTATION="gr8.convert.from.scientific.notation";
+	public static String GRADE_EIGHT_SELECT_PROPER_EXPRESSION="gr8.select.proper.scientific.expression";
+	public static String GRADE_EIGHT_POLYNOMIAL_OPERATION="gr8.polynomial.operation";
+	public static String GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION="gr8.polynomial.operation.expression";
+	
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";
