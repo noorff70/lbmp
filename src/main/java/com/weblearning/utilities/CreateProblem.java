@@ -50,5 +50,24 @@ public class CreateProblem {
 		return problem;
 		
 	}
+	
+	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, int rank, String type, String picturePath  ){
+		
+		Problem problem = new Problem();
+		
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
+		answer.setType(type);
+		
+		problem.setQuestionLines(questionList);
+		problem.setQuestionHeading(questionHeading);
+		problem.setQuestionSubHeading(subHeading);
+		problem.setRank(rank);
+		problem.setAnswer(answer);
+		problem.setPicturePath(picturePath);
+		
+		return problem;
+		
+	}
 
 }

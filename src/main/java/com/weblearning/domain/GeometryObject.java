@@ -11,6 +11,10 @@ public class GeometryObject {
 	List <LineObject> lineObject;
 	PolygonObject polygonObject;
 	Triangle triangle;
+	String question;
+	String answer;
+	String slNo;
+	String pathToPicture;
 	
 	public void setLineObject(List<LineObject> lo){
 		lineObject = lo;
@@ -34,6 +38,38 @@ public class GeometryObject {
 	
 	public Triangle getTriangle(){
 		return triangle;
+	}
+	
+	public void setQuestion(String q) {
+		this.question = q;
+	}
+	
+	public String getQuestion() {
+		return this.question;
+	}
+	
+	public void setAnswer(String a) {
+		this.answer = a;
+	}
+	
+	public String getAnswer() {
+		return this.answer;
+	}
+	
+	public String getSlNo( ) {
+		return this.slNo;
+	}
+	
+	public void setSlNo(String sl) {
+		this.slNo = sl;
+	}
+	
+	public String getPathToPicture() {
+		return this.pathToPicture;
+	}
+	
+	public void setPathToPicture(String path) {
+		this.pathToPicture = path;
 	}
 
 }

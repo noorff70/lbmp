@@ -16,6 +16,7 @@ public class Problem {
 	String questionHeading;
 	/*Question subheading */
 	String questionSubHeading;
+	String picturePath;
 	
 	GeometryObject  geometryObject;
 	
@@ -77,6 +78,14 @@ public class Problem {
 	
 	public void setGeometryObject(GeometryObject geoObject){
 		geometryObject= geoObject;
+	}
+	
+	public String getPicturePath() {
+		return this.picturePath;
+	}
+	
+	public void setPicturePath(String pic) {
+		this.picturePath = pic;
 	}
 
 }

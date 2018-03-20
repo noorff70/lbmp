@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+	<problem type="Triangle">
+		<slNo>1</slNo>
+		<question>Find out area of the square with one side x cm</question>
+		<pathToPicture>q1.svg</pathToPicture>
+		<answer></answer>
+	</problem>
+	<problem type="Triangle">
+		<slNo>2</slNo>
+		<question>Find out area of the square</question>
+		<pathToPicture>q2.svg</pathToPicture>
+		<answer></answer>
+	</problem>
+</problems>
