@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="TOPIC")
@@ -62,6 +64,7 @@ public class Topic {
 		this.topicName = topicName;
 	}
 	
+	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="topic")
 	public Set<TopicDetail> getTopicDetail(){
 		return topicDetail;

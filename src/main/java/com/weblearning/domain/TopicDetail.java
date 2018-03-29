@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="TOPICDETAIL")
 public class TopicDetail implements Serializable
@@ -41,6 +43,7 @@ public class TopicDetail implements Serializable
 		this.topicDetailName = topicDetailName;
 	}
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="TOPICID")
 	public Topic getTopic() {
