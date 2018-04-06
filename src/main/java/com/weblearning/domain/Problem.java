@@ -2,7 +2,6 @@ package com.weblearning.domain;
 
 import java.util.List;
 
-import com.weblearning.domain.utility.CoordinateObject;
 /**
  * 
  * @author Faizul
@@ -17,7 +16,10 @@ public class Problem {
 	/*Question subheading */
 	String questionSubHeading;
 	String picturePath;
-	
+	/*Question lines in the question */
+	List<QuestionLine> questionLines;
+	/*Answer to the question */
+	Answer answer;
 	GeometryObject  geometryObject;
 	
 	public String getQuestionSubHeading() {
@@ -32,11 +34,6 @@ public class Problem {
 		return rank;
 	}
 
-	/*Question lines in the question */
-	List<QuestionLine> questionLines;
-	/*Answer to the question */
-	Answer answer;
-	
 	public Problem(){
 		
 	}
