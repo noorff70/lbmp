@@ -1,16 +1,9 @@
 package com.weblearning.math.grade8.impl;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +11,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.w3c.dom.Document;
 
 import com.weblearning.domain.GeometryObject;
 import com.weblearning.domain.MathConfiguration;
@@ -26,7 +18,6 @@ import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.GeometryParser;
-import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 

@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.weblearning.domain.Lesson;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.TopicDetail;
 import com.weblearning.service.MathClassLoaderService;
@@ -31,12 +29,9 @@ public class RestMathController {
 
 		// Create a list of problems
 		List<Problem> problemList = new ArrayList<Problem>();
-		List<String> questionHeadingList = new ArrayList<String>();
 		List<String> questionSubHeadingList = new ArrayList<String>();
-		Lesson lesson = new Lesson();
-		
 
-		ModelAndView model = new ModelAndView();
+		
 
 		// Get the TopicDetail from db based on the topicDetailId passed by the URL get
 		// method

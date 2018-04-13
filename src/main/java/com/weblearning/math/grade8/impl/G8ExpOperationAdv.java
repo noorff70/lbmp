@@ -120,12 +120,12 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  ");
-		
-		questionList.add(new QuestionLine(question));
-		questionList.add(new QuestionLine(answer.getAnswer()));
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
+		questionList.add(qLine1);
+	//	questionList.add(new QuestionLine(question, null));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i)));
+			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 
 		//questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$"));
@@ -219,11 +219,12 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  ");
-		questionList.add(new QuestionLine(question));
-		questionList.add(new QuestionLine(answer.getAnswer()));
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
+		questionList.add(qLine1);
+	//	questionList.add(new QuestionLine(question, ""));
+		questionList.add(new QuestionLine(answer.getAnswer(),Constants.RADIO_TYPE ));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i)));
+			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
@@ -364,11 +365,12 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  ");
-		questionList.add(new QuestionLine(question));
-		questionList.add(new QuestionLine(answer.getAnswer()));
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
+		questionList.add(qLine1);
+	//	questionList.add(new QuestionLine(question));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i)));
+			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);

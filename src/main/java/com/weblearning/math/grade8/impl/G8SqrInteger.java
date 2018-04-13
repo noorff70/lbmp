@@ -27,7 +27,7 @@ public class G8SqrInteger extends GenericQuestion {
 		
 		List<Problem> g8SqrInteger = new ArrayList<Problem>();
 		
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 25; i++)
 			g8SqrInteger.add(getProblem1(mathConfig));
 
 		return g8SqrInteger;

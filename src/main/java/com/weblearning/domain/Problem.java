@@ -61,11 +61,11 @@ public class Problem {
 		this.answer = answer;
 	}
 	
-	public List getQuestionLines(){
+	public List<QuestionLine> getQuestionLines(){
 		return questionLines;
 	}
 	
-	public void setQuestionLines(List questions){
+	public void setQuestionLines(List<QuestionLine> questions){
 		questionLines= questions;
 	}
 	

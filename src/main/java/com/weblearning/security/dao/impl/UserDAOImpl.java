@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO{
 		List<User> result = cr.list();
 
 		
-		User user = (User) result.get(0);
+		User user = result.get(0);
 		
 		if (user.getPassword().equals(password))
 			return true;

@@ -47,7 +47,7 @@ public class Grade6AddSubFraction extends GenericQuestion {
 		question = questionAnswer[0];
 		result = questionAnswer[1];
 
-		QuestionLine qLine = new QuestionLine();
+		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 
@@ -67,10 +67,13 @@ public class Grade6AddSubFraction extends GenericQuestion {
 		FractionObject obj2 = new FractionObject();
 		FractionObject obj3 = new FractionObject();
 		
+		@SuppressWarnings("unused")
 		int numerratorDenominator1[] = new int[2];
+		@SuppressWarnings("unused")
 		int numerratorDenominator2[] = new int[2];
 		
 		List<FractionObject> fractionList = new ArrayList<FractionObject>();
+		@SuppressWarnings("unused")
 		Fraction f1, f2;
 
 		int numerator1, denominator1, numerator2, denominator2;
@@ -271,7 +274,6 @@ public class Grade6AddSubFraction extends GenericQuestion {
 			
 			f1 = new Fraction(numerator1, denominator1);
 			f2 = new Fraction(numerator2, denominator2);
-			Fraction f3 = new Fraction(numerator3, denominator3);
 
 			obj1.setNumerator(numerator1);
 			obj1.setDenominator(denominator1);

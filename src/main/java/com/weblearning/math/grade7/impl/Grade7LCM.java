@@ -73,8 +73,7 @@ public class Grade7LCM extends GenericQuestion{
 	 * 
 	 */
 	public Problem getProblem9(){
-		int incrementBy = MathUtilities.getRandomNumber(3, 9);
-		int multipliedBy = MathUtilities.getRandomNumber(4, 9);
+		
 		int numberOfItems = MathUtilities.getRandomNumber(3, 4);
 		
 		Problem problem = getProblem(2,9,true, numberOfItems);
@@ -84,12 +83,11 @@ public class Grade7LCM extends GenericQuestion{
 	/*
 	 * Build the logic of the problem
 	 */
-	@SuppressWarnings("unchecked")
 	public Problem getProblem(int min, int max, boolean primeNumber, int numberOfItems){
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
-		List primeNumberList = MathUtilities.getPrimeNumberList(2, 100);
+		List<?> primeNumberList = MathUtilities.getPrimeNumberList(2, 100);
 				
 		int lcmNumber1=0;
 		int lcmNumber2=0;

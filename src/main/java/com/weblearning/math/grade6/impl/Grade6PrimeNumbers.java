@@ -37,7 +37,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		//Fraction result = new Fraction(0,1);;
 		String question= "How many prime numbers between 1 and 10 inclusive";
-		QuestionLine qLine = new QuestionLine();
+		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		
 		List primeNumberList = MathUtilities.getPrimeNumberList(1, 10);
 				

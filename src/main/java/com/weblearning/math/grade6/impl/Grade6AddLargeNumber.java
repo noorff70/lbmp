@@ -49,7 +49,7 @@ public class Grade6AddLargeNumber extends GenericQuestion {
 						
 		//Set the numbers in QuestineLine Object
 		for (int i=0; i<numberOfLines; i++){
-			QuestionLine ql = new QuestionLine();
+			QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 			ql.setQuestionLn(NumberFormat.getNumberInstance(Locale.US).format(numbers[i]));
 			questionList.add(ql);
 		}

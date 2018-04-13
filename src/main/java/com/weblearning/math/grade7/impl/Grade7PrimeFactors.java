@@ -46,8 +46,8 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		//Take any number from 3 to 20
 		int randomPosition = MathUtilities.getRandomNumber(3,20 );
 		
-		Map mapPrimeFactor = mConfig.getPrimeFactors();
-		List listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
+		Map<?, ?> mapPrimeFactor = mConfig.getPrimeFactors();
+		List<?> listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
 		
 		//for a prime number listFactor will have a size of 2. We need something more than a prime number.
 		while(listFactor.size()<= 2){
@@ -93,8 +93,8 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		//Take any number from 3 to 20
 		int randomPosition = MathUtilities.getRandomNumber(21,50 );
 		
-		Map mapPrimeFactor = mConfig.getPrimeFactors();
-		List listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
+		Map<?, ?> mapPrimeFactor = mConfig.getPrimeFactors();
+		List<?> listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
 		
 		//for a prime number listFactor will have a size of 2. We need something more than a prime number.
 		while(listFactor.size()<= 2){
@@ -139,8 +139,8 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		//Take any number from 3 to 20
 		int randomPosition = MathUtilities.getRandomNumber(3,20 );
 		
-		Map mapPrimeFactor = mConfig.getPrimeFactors();
-		List listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
+		Map<?, ?> mapPrimeFactor = mConfig.getPrimeFactors();
+		List<?> listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
 		
 		//for a prime number listFactor will have a size of 2. We need something more than a prime number.
 		while(listFactor.size()<= 2){

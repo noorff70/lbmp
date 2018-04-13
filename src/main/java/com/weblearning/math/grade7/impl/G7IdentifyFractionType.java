@@ -80,16 +80,16 @@ public class G7IdentifyFractionType extends GenericQuestion{
 		QuestionLine qLine1;
 		if (wholeNumber > 0){
 			//mixed number
-			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH)+ Integer.toString(wholeNumber) + MathUtilities.convertSingleFRactionToString(newNumerator, denominator));
+			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH)+ Integer.toString(wholeNumber) + MathUtilities.convertSingleFRactionToString(newNumerator, denominator), null);
 		}
 		else
 			//proper or improper fraction
-			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH) + MathUtilities.convertSingleFRactionToString(numerator, denominator));
+			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH) + MathUtilities.convertSingleFRactionToString(numerator, denominator), null);
 		 
 		
-		QuestionLine qLine2 = new QuestionLine(Constants.FRACTION_TYPE_PERFECT_ANSWER + " Perfect Fraction");
-		QuestionLine qLine3 = new QuestionLine(Constants.FRACTION_TYPE_IMPERFECT_ANSWER + " Imperfect Fraction");
-		QuestionLine qLine4 = new QuestionLine(Constants.FRACTION_TYPE_MIXED_ANSWER + " Mixed Fraction");
+		QuestionLine qLine2 = new QuestionLine(Constants.FRACTION_TYPE_PERFECT_ANSWER + " Perfect Fraction", Constants.RADIO_TYPE);
+		QuestionLine qLine3 = new QuestionLine(Constants.FRACTION_TYPE_IMPERFECT_ANSWER + " Imperfect Fraction", Constants.RADIO_TYPE);
+		QuestionLine qLine4 = new QuestionLine(Constants.FRACTION_TYPE_MIXED_ANSWER + " Mixed Fraction", Constants.RADIO_TYPE);
 		
 		questionList.add(qLine1);
 		questionList.add(qLine2);

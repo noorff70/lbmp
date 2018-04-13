@@ -93,11 +93,11 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
@@ -163,11 +163,11 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers

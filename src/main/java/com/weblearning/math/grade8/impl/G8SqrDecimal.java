@@ -86,11 +86,11 @@ public class G8SqrDecimal extends GenericQuestion {
 		
 		//add the random answers as random
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -154,11 +154,11 @@ public class G8SqrDecimal extends GenericQuestion {
 		
 		//add the answers as random
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -221,11 +221,11 @@ public class G8SqrDecimal extends GenericQuestion {
 		
 		//add the random answers as random
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_SQUARE_ROOT_OF, null, Locale.ENGLISH) + " " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		

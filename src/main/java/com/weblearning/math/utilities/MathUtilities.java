@@ -308,7 +308,7 @@ public class MathUtilities {
 		
 		}
 		if (primeFactor ){
-			tempNumberList = new ArrayList();
+			tempNumberList = new ArrayList<Integer>();
 			
 			//now divide all the numbers by i to get a new numberlist and put i in the primelist
 			for (int k=0; k<numberList.size(); k++ ){
@@ -316,7 +316,7 @@ public class MathUtilities {
 			}
 
 			
-			numberList = new ArrayList();
+			numberList = new ArrayList<Integer>();
 			numberList = tempNumberList;
 			getHCF(numberList, primeList);
 		}
@@ -750,11 +750,10 @@ public class MathUtilities {
 	/*compare the values num1 and num2 in Unique ObjectMap
 	 * 
 	 */
-	@SuppressWarnings("unused")
-	public static boolean isObjectPresent(int num1, int num2, Map objectMaps)
+	public static boolean isObjectPresent(int num1, int num2, Map<?, ?> objectMaps)
 	{
 		
-		Iterator iterator = objectMaps.entrySet().iterator();
+		Iterator<?> iterator = objectMaps.entrySet().iterator();
 		
 		while(iterator.hasNext())
 		{
@@ -1179,7 +1178,7 @@ public class MathUtilities {
 		}
 		
 		//create two rootobjects from above example as root-2, whole-7 and root-3, whole-3
-		Iterator iterator = rootMap.entrySet().iterator();
+		Iterator<?> iterator = rootMap.entrySet().iterator();
 		while (iterator.hasNext()) {
 			Entry<Integer, Integer> next = (Entry<Integer, Integer>)iterator.next();
 			Map.Entry<Integer, Integer> entry = next;
@@ -1204,8 +1203,8 @@ public class MathUtilities {
 		
 		//these are for iterating the map object passed on
 		
-		Iterator entriesNumerator = rootListMap.entrySet().iterator();
-		Iterator entriesDenominator = rootListMap.entrySet().iterator();
+		Iterator<?> entriesNumerator = rootListMap.entrySet().iterator();
+		Iterator<?> entriesDenominator = rootListMap.entrySet().iterator();
 		
 		List<RootObject> numeratorRootList = new ArrayList<RootObject>();
 		List<RootObject> denominatorRootList = new ArrayList<RootObject>();
@@ -1234,7 +1233,6 @@ public class MathUtilities {
 		while (entriesDenominator.hasNext()) {
 			Entry<Integer, List<RootObject>> next = (Entry<Integer, List<RootObject>>)entriesDenominator.next();
 			Map.Entry<Integer, List<RootObject>> entry = next;
-			Integer key = entry.getKey();
 			List<RootObject> rootList = entry.getValue();
 			//get the rootobject for numerator from the map
 			RootObject numertorRoot = rootList.get(0);

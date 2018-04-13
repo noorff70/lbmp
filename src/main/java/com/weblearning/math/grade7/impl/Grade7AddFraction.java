@@ -70,7 +70,7 @@ public class Grade7AddFraction extends GenericQuestion {
 		result = MathUtilities.getResultAsFraction(fractionList);
 		String answer = MathUtilities.convertSingleFRactionToString(result.getNumerator(), result.getDenominator());
 
-		QuestionLine qLine = new QuestionLine();
+		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 

@@ -1,6 +1,5 @@
 package com.weblearning.domain.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.weblearning.domain.Topic;
 import com.weblearning.domain.TopicDetail;
 import com.weblearning.domain.dao.TopicDetailDAO;
 

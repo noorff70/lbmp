@@ -61,7 +61,7 @@ public class Grade6AddSingleLine extends GenericQuestion {
 		
 		result = rule1Ans(numbers);
 		
-		QuestionLine ql = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);	
 		

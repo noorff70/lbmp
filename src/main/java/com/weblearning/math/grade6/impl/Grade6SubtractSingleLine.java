@@ -48,7 +48,7 @@ public class Grade6SubtractSingleLine extends GenericQuestion {
 			result += numbers[i];
 		}
 		
-		QuestionLine ql = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);
 		

@@ -71,12 +71,12 @@ public class G8SciNotFrom extends GenericQuestion {
 		answer.setAnswer(Double.toString(baseNumber));
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(Double.toString(baseNumber*10)));
-		questionList.add(new QuestionLine(Integer.toString((int)baseNumber *10)));
-		questionList.add(new QuestionLine(Double.toString(baseNumber/10)));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Double.toString(baseNumber*10), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Integer.toString((int)baseNumber *10), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Double.toString(baseNumber/10), Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -134,12 +134,12 @@ public class G8SciNotFrom extends GenericQuestion {
 		answer.setAnswer(df.format(baseNumber));
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(df.format(baseNumber * 10)));
-		questionList.add(new QuestionLine(df.format(baseNumber * 100)));
-		questionList.add(new QuestionLine(df.format(baseNumber / 10)));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(df.format(baseNumber * 10), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(df.format(baseNumber * 100), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(df.format(baseNumber / 10), Constants.RADIO_TYPE));
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);

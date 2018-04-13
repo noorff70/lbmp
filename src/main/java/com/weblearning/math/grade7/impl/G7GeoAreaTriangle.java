@@ -21,7 +21,6 @@ import com.weblearning.domain.GeometryObject;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.domain.utility.PolygonObject;
 import com.weblearning.math.grade.GeometryQuestion;
 import com.weblearning.math.utilities.GeometryShapeUtility;
 import com.weblearning.utilities.Constants;

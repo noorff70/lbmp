@@ -11,7 +11,7 @@
 		<c:forEach items="${topicList}" var="topic">
 	  		
  	 			<div class="item">
-		 			${topic.topicName}</br> 
+		 			${topic.topicName}<br> 
 					<c:forEach items="${topic.topicDetail}" var="topicDetails">
 						<li><a href="${uiobject.viewpage}?TOPICDETAILID=${topicDetails.topicDetailsID}"> ${topicDetails.topicDetailName} </a></li>
 					</c:forEach>

@@ -12,6 +12,7 @@ import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
+import com.weblearning.utilities.Constants;
 
 public class Grade5AddSubtractFraction extends GenericQuestion{
 
@@ -39,7 +40,6 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		Fraction result = new Fraction(0,1);;
 		String question= "";
-		QuestionLine qLine = new QuestionLine();
 		
 		for (int i=0; i<2; i++){
 			int numerator = MathUtilities.getRandomNumber(1, 8);
@@ -53,7 +53,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 			else
 				question = question + " + " + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 		}
-		
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add two fraction numbers");
@@ -77,7 +77,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		Fraction result = new Fraction (0,1);;
 		String question= "";
-		QuestionLine qLine = new QuestionLine();
+
 		
 		for (int i=0; i<3; i++){
 			int numerator = MathUtilities.getRandomNumber(1, 8);
@@ -91,7 +91,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 			else
 				question = question + " + " + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 		}
-		
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add three fraction numbers");
@@ -116,7 +116,6 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		Fraction result = new Fraction(0,1);
 		String question= "";
-		QuestionLine qLine = new QuestionLine();
 		
 		for (int i=0; i<3; i++){
 			int numerator = MathUtilities.getRandomNumber(1, 8);
@@ -138,7 +137,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 				result = result.add(fi);
 			}
 		}
-		
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add and Subtract in Same Statement");

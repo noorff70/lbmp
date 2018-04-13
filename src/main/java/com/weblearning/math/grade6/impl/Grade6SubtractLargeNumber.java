@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -45,8 +44,8 @@ public class Grade6SubtractLargeNumber extends GenericQuestion {
 		
 		int[] numbers= MathUtilities.getRandomNumbers(numberOfLines, 99999, 9999999);
 						
-		QuestionLine ql = new QuestionLine();
-		QuestionLine q2 = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine q2 = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		//Set the numbers in QuestineLine Object
 		for (int i=0; i<numberOfLines-1; i++){
 			

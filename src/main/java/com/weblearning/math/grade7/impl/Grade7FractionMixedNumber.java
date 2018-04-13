@@ -87,7 +87,7 @@ public class Grade7FractionMixedNumber extends GenericQuestion {
 		question = MathUtilities.getQuestionAsStringFraction(fractionList);
 		
 
-		QuestionLine qLine = new QuestionLine();
+		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 

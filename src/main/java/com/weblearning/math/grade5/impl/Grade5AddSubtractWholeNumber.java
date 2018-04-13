@@ -58,8 +58,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 						
 		//Set the numbers in QuestineLine Object
 		for (int i=0; i<numberOfLines; i++){
-			QuestionLine ql = new QuestionLine();
-			ql.setQuestionLn(NumberFormat.getNumberInstance(Locale.US).format(numbers[i]));
+			QuestionLine ql = new QuestionLine(NumberFormat.getNumberInstance(Locale.US).format(numbers[i]), Constants.PROBLEM_TYPE_FRACTION);
 			questionList.add(ql);
 		}
 		
@@ -94,8 +93,8 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		
 		int[] numbers= MathUtilities.getRandomNumbers(numberOfLines, 99999, 9999999);
 						
-		QuestionLine ql = new QuestionLine();
-		QuestionLine q2 = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine q2 = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		//Set the numbers in QuestineLine Object
 		for (int i=0; i<numberOfLines-1; i++){
 			
@@ -138,8 +137,8 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		//Create an empty array for the numbers
 		int[] numbers= MathUtilities.getRandomNumbers(numberOfLines, 99999, 9999999);
 					
-		QuestionLine ql = new QuestionLine();
-		QuestionLine q2 = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine q2 = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		//Set the numbers in QuestineLine Object
 		for (int i=0; i<numberOfLines-1; i++){
 			
@@ -195,7 +194,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		//Convert the numbers to Words
 		String numbersInWordFormat = MathUtilities.getNumberConvertedToWord(numbers);
 		
-		QuestionLine ql = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		ql.setQuestionLn(numbersInWordFormat);
 		questionList.add(ql);
 		
@@ -231,7 +230,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 			result += numbers[i];
 		}
 		
-		QuestionLine ql = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);
 		
@@ -266,7 +265,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 			result += numbers[i];
 		}
 		
-		QuestionLine ql = new QuestionLine();
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);
 		

@@ -70,12 +70,12 @@ public class G8SciNotConv extends GenericQuestion {
 		answer.setAnswer(numberFormat + "x" + "${" +10+ "}^" + pointToMove + "$") ;
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + baseNumber);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + baseNumber, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$"));
-		questionList.add(new QuestionLine(Double.parseDouble(numberFormat)*10 + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$"));
-		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$"));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Double.parseDouble(numberFormat)*10 + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -131,12 +131,12 @@ public class G8SciNotConv extends GenericQuestion {
 		answer.setAnswer(numberFormat + "x" + "${" +10+ "}^{" + pointToMove + "}$") ;
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + df.format(baseNumber));
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + df.format(baseNumber), null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$"));
-		questionList.add(new QuestionLine(Double.parseDouble(numberFormat)*100 + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$"));
-		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$"));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Double.parseDouble(numberFormat)*100 + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		

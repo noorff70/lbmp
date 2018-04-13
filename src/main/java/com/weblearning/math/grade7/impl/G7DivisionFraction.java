@@ -51,7 +51,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		result = MathUtilities.getResultAsFraction(fractionList);
 
-		QuestionLine qLine = new QuestionLine();
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 
@@ -72,7 +72,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		int numerator1, denominator1, numerator2, denominator2;
 		numerator1=denominator1=numerator2=denominator2=0;
 		
-		Map mapFactor = mathConfig.getFactors();
+		Map<?, ?> mapFactor = mathConfig.getFactors();
 		
 		
 		switch (rule){
@@ -83,9 +83,9 @@ public class G7DivisionFraction extends GenericQuestion {
 
 			//Get the first fraction where numerator <denominator and denominator doesnot have any factor of numerator
 			numerator1 = MathUtilities.getRandomNumber(1, 5);
-			List numerator1List = (List) mapFactor.get(numerator1);
+			List<?> numerator1List = (List<?>) mapFactor.get(numerator1);
 			denominator1 = MathUtilities.getRandomNumber(6, 10);
-			while (containsFactor(numerator1List, (List)mapFactor.get(denominator1))){
+			while (containsFactor(numerator1List, (List<?>)mapFactor.get(denominator1))){
 				denominator1 = MathUtilities.getRandomNumber(2, 20);
 			}			
 		
@@ -97,13 +97,13 @@ public class G7DivisionFraction extends GenericQuestion {
 			//Get the second numerator and denominator
 			numerator2 = MathUtilities.getRandomNumber(1, 5);
 		
-			while (containsFactor((List)mapFactor.get(numerator2), (List)mapFactor.get(denominator1))){
+			while (containsFactor((List<?>)mapFactor.get(numerator2), (List<?>)mapFactor.get(denominator1))){
 				numerator2 = MathUtilities.getRandomNumber(3, 20);
 			}
 			
 			denominator2 = MathUtilities.getRandomNumber(6,20);
-			List numerator1numerator2 = (List) mapFactor.get(numerator1 * numerator2);
-			while (containsFactor(numerator1numerator2, (List)mapFactor.get(denominator2)) ){
+			List<?> numerator1numerator2 = (List<?>) mapFactor.get(numerator1 * numerator2);
+			while (containsFactor(numerator1numerator2, (List<?>)mapFactor.get(denominator2)) ){
 				denominator2 = MathUtilities.getRandomNumber(3, 20);
 			}
 			

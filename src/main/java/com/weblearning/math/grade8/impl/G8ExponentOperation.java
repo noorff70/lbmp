@@ -68,18 +68,18 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		int power = power1 + power2;
 		
-		question = "$" + base + "^" + "{" +power1+ "}" +  " X "  + base + "^" + "{" + power2 + "}" + "$";
+		question = "$" + base + "^" + "{" +power1+ "}" +  "\\times "  + base + "^" + "{" + power2 + "}" + "$";
 
 		answer.setAnswer("$" + base + "^" + power + "$");
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine("$" + base*2 +"^"+power/2 +"$"));
-		questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$"));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$" + base*2 +"^"+power/2 +"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -117,18 +117,18 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		int power = power1 + power2;
 		
-		question = "$" + base1 +  " X "  + base + "^" + "{" + power2 + "}" + "$";
+		question = "$" + base1 +  " \\times  "  + base + "^" + "{" + power2 + "}" + "$";
 
 		answer.setAnswer("$" + base + "^" + power + "$");
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine("$" + base*2 +"^"+power/2 +"$"));
-		questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$"));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$" + base*2 +"^"+power/2 +"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$", Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -187,11 +187,11 @@ public class G8ExponentOperation extends GenericQuestion {
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(fakeResult1));
-		questionList.add(new QuestionLine(fakeResult2));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult1, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult2, Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -260,11 +260,11 @@ public class G8ExponentOperation extends GenericQuestion {
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(fakeResult1));
-		questionList.add(new QuestionLine(fakeResult2));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult1, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult2, Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -311,11 +311,11 @@ public class G8ExponentOperation extends GenericQuestion {
 		answer.setType(Constants.RADIO_TYPE);
 		
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer()));
-		questionList.add(new QuestionLine(Integer.toString(fakeResult1)));
-		questionList.add(new QuestionLine(Integer.toString(fakeResult2)));
+		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Integer.toString(fakeResult1), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(Integer.toString(fakeResult2), Constants.RADIO_TYPE));
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
 		
@@ -388,11 +388,11 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question);
+		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
 		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result));
-		questionList.add(new QuestionLine(fakeResult1));
-		questionList.add(new QuestionLine(fakeResult2));
+		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult1, Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(fakeResult2, Constants.RADIO_TYPE));
 	
 		
 		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
@@ -410,9 +410,5 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		return problem;
 	}
-	
-	
-	
-
 	
 }

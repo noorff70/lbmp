@@ -66,7 +66,7 @@ public class MathUtilitiesTest {
 	@Test
 	public void testGetHCF(){
 		
-		List<Integer> primeList = new ArrayList();
+		List<Integer> primeList = new ArrayList<Integer>();
 		
 		//All prime numbers
 		List<Integer> testList1 = new ArrayList<Integer>();
@@ -80,10 +80,10 @@ public class MathUtilitiesTest {
 		testList2.add(6);
 		testList2.add(8);
 		
-		List hcfList1 = new ArrayList();
+		List<?> hcfList1 = new ArrayList();
 		hcfList1 = MathUtilities.getHCF(testList1, primeList);
 		
-		List hcfList2 = new ArrayList();
+		List<?> hcfList2 = new ArrayList();
 		//hcfList2 = MathUtilities.getHCF(testList2, primeList);
 		
 		//assertTrue(StringUtils.isEmpty(hcfList1));

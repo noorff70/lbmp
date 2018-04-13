@@ -50,11 +50,6 @@ public class GeometryShapeUtility {
 					 int radius = MathUtilities.getRandomNumber(50, 100);
 					 
 					 Element e = (Element) node;
-					 NodeList nameNodeList = e.getElementsByTagName("number");
-					 String number = nameNodeList.item(0).getChildNodes().item(0).getNodeValue();
-					 
-					 NodeList questionNodeList = e.getElementsByTagName("question");
-					 String question = questionNodeList.item(0).getChildNodes().item(0).getNodeValue();
 					 
 					 NodeList basecoordinatesList = e.getElementsByTagName("basecoordinates");
 					 for (int j=0; j<basecoordinatesList.getLength(); j++ ){
@@ -106,10 +101,6 @@ public class GeometryShapeUtility {
 						 
 						 coordinateList.add(cObj);
 						 
-						 
-						 NodeList nextpointList = coordinateElement.getElementsByTagName("nextpoint");
-						 String nextPoint = nextpointList.item(0).getChildNodes().item(0).getNodeValue();
-						 
 						 pObj.setCoordinateList(coordinateList);
 						 geoObject.setPolygonObject(pObj);
 					 }
@@ -142,7 +133,7 @@ public class GeometryShapeUtility {
 							 CoordinateObject cObjl = new CoordinateObject();
 							 CoordinateObject cObjr = new CoordinateObject();
 							 
-							 List cList = pObj.getCoordinateList();
+							 List<?> cList = pObj.getCoordinateList();
 							 for (int m=0; m<cList.size(); m++)
 							 {
 								 CoordinateObject cOrdinate = (CoordinateObject) cList.get(m);
@@ -183,7 +174,7 @@ public class GeometryShapeUtility {
 								 LineObject lineObj = new LineObject();
 								 CoordinateObject cObj = new CoordinateObject();
 								 
-								 List cList = pObj.getCoordinateList();
+								 List<?> cList = pObj.getCoordinateList();
 								 
 								 Node displayNode = childList.item(k);
 								 Element displayElement = (Element) displayNode;
