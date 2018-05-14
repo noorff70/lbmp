@@ -53,7 +53,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 			else
 				question = question + " + " + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 		}
-		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION, "");
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add two fraction numbers");
@@ -91,7 +91,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 			else
 				question = question + " + " + "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 		}
-		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION, "");
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add three fraction numbers");
@@ -137,7 +137,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 				result = result.add(fi);
 			}
 		}
-		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION, "");
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		problem.setQuestionHeading("Add and Subtract in Same Statement");

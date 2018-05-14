@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.NumberObject;
 import com.weblearning.domain.Problem;
@@ -119,21 +120,22 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-	//	questionList.add(new QuestionLine(question, null));
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH),null, null));
+		questionList.add(new QuestionLine(question, null, null));
+		
+		List<AnswerLine> answerList= new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
+			answerList.add(new AnswerLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 
 		//questionList.add(new QuestionLine("$" + base +"^"+power*2 +"$"));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -219,18 +221,20 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-	//	questionList.add(new QuestionLine(question, ""));
-		questionList.add(new QuestionLine(answer.getAnswer(),Constants.RADIO_TYPE ));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+		
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(),Constants.RADIO_TYPE ));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
+			answerList.add(new AnswerLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -365,18 +369,20 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-	//	questionList.add(new QuestionLine(question));
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+		
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
 		for (int i=0; i<fakeAnswers.size(); i++ ) {
-			questionList.add(new QuestionLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
+			answerList.add(new AnswerLine(fakeAnswers.get(i), Constants.RADIO_TYPE));
 		}
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 

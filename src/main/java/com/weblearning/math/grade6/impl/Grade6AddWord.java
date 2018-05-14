@@ -53,7 +53,7 @@ public class Grade6AddWord extends GenericQuestion {
 		//Convert the numbers to Words
 		String numbersInWordFormat = MathUtilities.getNumberConvertedToWord(numbers);
 		
-		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine ql = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION, "");
 		ql.setQuestionLn(numbersInWordFormat);
 		questionList.add(ql);
 		

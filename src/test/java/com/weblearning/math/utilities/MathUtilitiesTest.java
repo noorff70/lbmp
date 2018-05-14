@@ -5,11 +5,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
-
 
 import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.utilities.Constants;
@@ -89,6 +88,53 @@ public class MathUtilitiesTest {
 		//assertTrue(StringUtils.isEmpty(hcfList1));
 		//assertEquals(2, hcfList2.get(0));
 		
+	}
+	
+	@Test
+	public void testRemoveZeroAndOne() {
+
+		
+		String s1 = MathUtilities.removeZeroAndOne("0x + 12");
+		assertEquals("12", s1);
+		
+		String s2 = MathUtilities.removeZeroAndOne("1x + 12");
+		assertEquals(StringUtils.deleteWhitespace("x+12"), StringUtils.deleteWhitespace(s2));
+		
+		String s3 = MathUtilities.removeZeroAndOne("-1x + 12");
+		assertEquals(StringUtils.deleteWhitespace(s3), StringUtils.deleteWhitespace("-x + 12"));
+		
+		String s4 = MathUtilities.removeZeroAndOne("12 + 0x");
+		assertEquals(StringUtils.deleteWhitespace(s4), StringUtils.deleteWhitespace("12"));
+		
+		String s5 = MathUtilities.removeZeroAndOne("12 - 0x");
+		assertEquals(StringUtils.deleteWhitespace(s5), StringUtils.deleteWhitespace("12"));
+		
+		String s6 = MathUtilities.removeZeroAndOne("12 + 1x");
+		assertEquals(StringUtils.deleteWhitespace(s6), StringUtils.deleteWhitespace("12+x"));
+		
+		String s7 = MathUtilities.removeZeroAndOne("12 -1x");
+		assertEquals(StringUtils.deleteWhitespace(s7), StringUtils.deleteWhitespace("12-x")); 
+		
+		String s8 = MathUtilities.removeZeroAndOne("12x + 12");
+		assertEquals(StringUtils.deleteWhitespace(s8), StringUtils.deleteWhitespace("12x+12"));
+		
+		String s9 = MathUtilities.removeZeroAndOne("12x - 12");
+		assertEquals(StringUtils.deleteWhitespace(s9), StringUtils.deleteWhitespace("12x-12"));
+		
+		String s10 = MathUtilities.removeZeroAndOne("-12x + 12");
+		assertEquals(StringUtils.deleteWhitespace(s10), StringUtils.deleteWhitespace("-12x+12"));
+		
+		String s11 = MathUtilities.removeZeroAndOne("-1.2x + 12");
+		assertEquals(StringUtils.deleteWhitespace(s11), StringUtils.deleteWhitespace("-1.2x+12")); 
+		
+		String s12 = MathUtilities.removeZeroAndOne("x + 15");
+		assertEquals(StringUtils.deleteWhitespace(s12), StringUtils.deleteWhitespace("x + 15")); 
+		
+		String s13 = MathUtilities.removeZeroAndOne("1x + 15");
+		assertEquals(StringUtils.deleteWhitespace(s13), StringUtils.deleteWhitespace("x + 15")); 
+		
+		String s14 = MathUtilities.removeZeroAndOne("2x+2-1x+13");
+		assertEquals(StringUtils.deleteWhitespace(s14), StringUtils.deleteWhitespace("2x+2-x+13"));
 	}
 
 }

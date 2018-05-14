@@ -14,6 +14,19 @@ public class FractionObject {
 	private String postFix;
 	private String fractionType;
 	private boolean missingFraction;
+	private String unknownValueNumerator;
+	private String unknownValueDenominator;
+	
+	public FractionObject() {
+		
+	}
+	
+	public FractionObject ( int n1, int d1,  String uvn, String uvd) {
+		this.numerator = n1;
+		this.denominator = d1; 
+		this.unknownValueNumerator = uvn;
+		this.unknownValueDenominator = uvd;
+	}
 	
 	public String getPrefix() {
 		return preFix;
@@ -57,6 +70,24 @@ public class FractionObject {
 	public void setMissingFraction(boolean missingFraction) {
 		this.missingFraction = missingFraction;
 	}
+	
+	public String getUnknownValueNumerator (){
+		return this.unknownValueNumerator;
+	}
+	
+	public void setUnknownValueNumerator(String uv) {
+		this.unknownValueNumerator = uv;
+	}
+	
+	public String getUnknownValueDenominator() {
+		return unknownValueDenominator;
+	}
+
+	public void setUnknownValueDenominator(String unknownValueDenominator) {
+		this.unknownValueDenominator = unknownValueDenominator;
+	}
+
+
 	
 
 }

@@ -47,7 +47,7 @@ public class Grade6AddSubFraction extends GenericQuestion {
 		question = questionAnswer[0];
 		result = questionAnswer[1];
 
-		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION, "");
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 

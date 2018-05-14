@@ -51,9 +51,7 @@ public class Grade7MultiplyFraction extends GenericQuestion {
 		
 		result = MathUtilities.getResultAsFraction(fractionList);
 
-		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION);
-		qLine.setQuestionLn(question);
-		questionList.add(qLine);
+		questionList.add(new QuestionLine(question, "", ""));
 
 		String heading = Constants.GRADE_7_CONTENT_SIMPLE_MULTIPLICATION;
 		String subHeading = "";

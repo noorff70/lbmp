@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -69,29 +70,27 @@ public class G8IntEval3 extends GenericQuestion {
 		//just make x3 as negative
 		x3 = Math.abs(x3) * -1;	
 		
-		
 		int x4 = MathUtilities.getRandomNumber(2, 8);
 		
-		
 		Fraction frac = Fraction.getReducedFraction(x1-x2, x4 * x3);
-		
-
+	
 		question = "$(" + Integer.toString(x1) + " - "+ Integer.toString(x2) +")\\div(" + Integer.toString(x3) + ")\\over" + Integer.toString(x4) + "$";
 		ans.setAnswer("$"+ Integer.toString(frac.getNumerator()) + "\\over" + Integer.toString(frac.getDenominator()) + "$");
-	
+
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(ans.getAnswer()));
-		questionList.add(new QuestionLine("$"+ Integer.toString(frac.getNumerator()+1) + "\\over" + Integer.toString(frac.getDenominator()) + "$"));
-		questionList.add(new QuestionLine("$"+ Integer.toString(frac.getNumerator()+2) + "\\over" + Integer.toString(frac.getDenominator()) + "$"));
+		List<AnswerLine>answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(ans.getAnswer(), null));
+		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+1) + "\\over" + Integer.toString(frac.getDenominator()) + "$", null));
+		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+2) + "\\over" + Integer.toString(frac.getDenominator()) + "$", null));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, ans.getAnswer());
 		ans.setAnswerOption(correctAnswerOption);
 		ans.setType(Constants.RADIO_TYPE);
-		
+		ans.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + ans.getAnswer());
 

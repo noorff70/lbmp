@@ -6,14 +6,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.StringTokenizer;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
+import org.springframework.util.StringUtils;
 
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.NumberObject;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.domain.RootObject;
@@ -867,10 +872,10 @@ public class MathUtilities {
 	 * The first is the original question. The second the answer to the question. The next three are the false answers. Swap
 	 * the second with a random number from 3-max.
 	 */
-	public static List<QuestionLine>getQuestionList(List<QuestionLine>qList, int maxLength, int answerPos ){
+	public static List<AnswerLine>getQuestionList(List<AnswerLine>qList, int maxLength, int answerPos ){
 		
 		int randomNumber = getRandomNumber(1, maxLength);
-		QuestionLine temp = qList.get(answerPos);
+		AnswerLine temp = qList.get(answerPos);
 		qList.set(answerPos, qList.get(randomNumber));
 		qList.set(randomNumber, temp);
 		
@@ -1306,8 +1311,8 @@ public class MathUtilities {
 		int answerPosition = -1;
 		
 		for (int i=0; i< answerList.size(); i++) {
-			QuestionLine qln = (QuestionLine) answerList.get(i);
-			String question = qln.getQuestionLn();
+			AnswerLine qln = (AnswerLine) answerList.get(i);
+			String question = qln.getAnswerLn();
 			answerPosition++;
 			if (question.equals(ans)) {
 				
@@ -1316,6 +1321,78 @@ public class MathUtilities {
 		}
 
 		return Integer.toString(answerPosition);
+	}
+	
+	public static String removeZeroAndOne (String toFormat) {
+		
+		String result = "";
+	//	toFormat = StringUtils.trimWhitespace(toFormat);
+		
+		StringTokenizer token = new StringTokenizer(toFormat, "+-", true);
+		
+		List<String> parseList = new LinkedList<String>();
+		while (token.hasMoreElements()) {
+			String s= (String)token.nextElement();
+			parseList.add(s);
+		}
+		
+		for (int i=0; i< parseList.size(); i++) {
+			String s = StringUtils.trimWhitespace( parseList.get(i));
+			
+			if (!NumberUtils.isNumber(s)) {
+				String numberPart = "",  stringPart= "";
+				
+				for (int j=0; j< s.length(); j++) {
+					String s1 = s.substring(j, j+1);
+					if (NumberUtils.isNumber(s1) || s1== "." ) {
+						numberPart = numberPart + s1;
+					}
+				}
+				
+				if (!StringUtils.isEmpty(numberPart)) {
+					stringPart = s.substring(numberPart.length(), s.length());
+				}
+				
+				if (!StringUtils.isEmpty(numberPart)  && Double.parseDouble(numberPart) == 1)
+					s = stringPart;
+				if (!StringUtils.isEmpty(numberPart)  && Double.parseDouble(numberPart)== 0)
+					s = "";
+				
+			}
+			parseList.set(i, s);
+		}
+
+	
+		for (int i=0; i< parseList.size(); i++) {
+			result = result + (String)parseList.get(i);
+		}
+		
+		//remove leading + sign
+		if (result.substring(0, 1).equals("+")) {
+			result = result.substring(1, result.length());
+		}
+		
+		//remove trailing +
+		if (result.substring(result.length()-1, result.length()).equals("+") ||
+				result.substring(result.length()-1, result.length()).equals("-")) {
+			result = result.substring(0, result.length()-1);
+		}
+		
+		return result;
+	}
+	
+	public static String placeSpaces(String ans) {
+		
+		StringTokenizer token = new StringTokenizer(ans, "+-", true);
+		
+		String result = "";
+		
+		while(token.hasMoreElements()) {
+			String s = (String)token.nextElement();
+			result = result + s + " ";
+		}
+		
+		return result;
 	}
 	
 }

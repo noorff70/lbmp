@@ -51,7 +51,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		result = MathUtilities.getResultAsFraction(fractionList);
 
-		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION);
+		QuestionLine qLine = new QuestionLine(question, Constants.PROBLEM_TYPE_FRACTION, "");
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
 

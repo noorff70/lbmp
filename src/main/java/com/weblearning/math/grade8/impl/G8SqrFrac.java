@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -93,18 +94,21 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+		
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
@@ -163,18 +167,21 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH) + " " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(result, Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_8_SELECT_SQUAREROOT, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 

@@ -38,9 +38,9 @@ public class Problem {
 		
 	}
 		
-	public int getPRank() {
+/*	public int getRank() {
 		return rank;
-	}
+	}*/
 	public void setRank(int r) {
 		this.rank = r;
 	}

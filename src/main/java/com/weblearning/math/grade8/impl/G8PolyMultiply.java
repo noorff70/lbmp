@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -80,18 +81,20 @@ public class G8PolyMultiply extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -142,19 +145,20 @@ public class G8PolyMultiply extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
-
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH) + "  " + question,  null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH),null,  null));
+		questionList.add(new QuestionLine(question, null, null));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
-		//answer.setAnswer(correctAnswerOption);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -215,19 +219,20 @@ public class G8PolyMultiply extends GenericQuestion {
 		
 		answer.setType(Constants.RADIO_TYPE);
 		
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH),null, null));
+		questionList.add(new QuestionLine(question, null, null));
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, questionList.size()-1, 0);
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
-		//answer.setAnswer(correctAnswerOption);
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -286,22 +291,22 @@ public class G8PolyMultiply extends GenericQuestion {
 
 		ans = formatAnswer(ans);
 		answer.setAnswer(ans);
-		
 		answer.setType(Constants.RADIO_TYPE);
 		
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
 
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ ansYPower+ "}" + "y{^"+ xPower1+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower1+ "}" + "y{^"+ yPower2+ "}"+"$", Constants.RADIO_TYPE));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
-		//answer.setAnswer(correctAnswerOption);
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -317,8 +322,6 @@ public class G8PolyMultiply extends GenericQuestion {
 	
 	public String handleZero(int val1, int val2, int xPower1, int xPower2, int yPower1, int yPower2, String sign) {
 		String question = "";
-		
-		StringBuffer sb = new StringBuffer();
 		
 		if (val1 ==1 || val2 ==1) {
 			if (val1 ==1)

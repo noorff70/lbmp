@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
+import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -71,17 +72,20 @@ public class G8SciNotFrom extends GenericQuestion {
 		answer.setAnswer(Double.toString(baseNumber));
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(Double.toString(baseNumber*10), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(Integer.toString((int)baseNumber *10), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(Double.toString(baseNumber/10), Constants.RADIO_TYPE));
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(Double.toString(baseNumber*10), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(Integer.toString((int)baseNumber *10), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(Double.toString(baseNumber/10), Constants.RADIO_TYPE));
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
@@ -134,17 +138,21 @@ public class G8SciNotFrom extends GenericQuestion {
 		answer.setAnswer(df.format(baseNumber));
 		answer.setType(Constants.RADIO_TYPE);
 		
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH) + "  " + question, null);
-		questionList.add(qLine1);
-		questionList.add(new QuestionLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(df.format(baseNumber * 10), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(df.format(baseNumber * 100), Constants.RADIO_TYPE));
-		questionList.add(new QuestionLine(df.format(baseNumber / 10), Constants.RADIO_TYPE));
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, answer.getAnswer());
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(df.format(baseNumber * 10), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(df.format(baseNumber * 100), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(df.format(baseNumber / 10), Constants.RADIO_TYPE));
+		
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
+		answer.setAnswerList(answerList);
 		
-		questionList = MathUtilities.getQuestionList(questionList, questionList.size()-1, 1);
+		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
 
