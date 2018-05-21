@@ -19,13 +19,14 @@ public class CreateProblem {
 		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
+	//	answer.setType(type);
 		
 		problem.setQuestionLines(questionList);
 		problem.setQuestionHeading(questionHeading);
 		problem.setQuestionSubHeading(subHeading);
 		problem.setRank(rank);
 		problem.setAnswer(answer);
+		problem.setQuestionType(type);
 		
 		return problem;
 		
@@ -38,7 +39,7 @@ public class CreateProblem {
 		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
+	//	answer.setType(type);
 		
 		problem.setQuestionLines(questionList);
 		problem.setGeometryObject(geoObject);
@@ -46,6 +47,7 @@ public class CreateProblem {
 		problem.setQuestionSubHeading(subHeading);
 		problem.setRank(rank);
 		problem.setAnswer(answer);
+		problem.setQuestionType(type);
 		
 		return problem;
 		
@@ -57,7 +59,7 @@ public class CreateProblem {
 		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
+	//	answer.setType(type);
 		
 		problem.setQuestionLines(questionList);
 		problem.setQuestionHeading(questionHeading);
@@ -65,6 +67,7 @@ public class CreateProblem {
 		problem.setRank(rank);
 		problem.setAnswer(answer);
 		problem.setPicturePath(picturePath);
+		problem.setQuestionType(type);
 		
 		return problem;
 		

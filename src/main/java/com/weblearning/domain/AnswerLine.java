@@ -9,9 +9,8 @@ public class AnswerLine {
 		
 	}
 	
-	public AnswerLine(String ans, String type) {
+	public AnswerLine(String ans) {
 		this.answerLn = ans;
-		this.format = type;
 	}
 	
 	public String getAnswerLn() {

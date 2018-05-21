@@ -30,8 +30,6 @@ public class TopicDetailDAOImpl implements TopicDetailDAO{
 		Query query = sessionFactory.getCurrentSession().createQuery(sql);
 		query.setParameter("topic", topic );
 		
-		
-		@SuppressWarnings("unchecked")
 		List<TopicDetail> result = query.list();
 		
 		TopicDetail topicDetail= (TopicDetail) result.get(0);

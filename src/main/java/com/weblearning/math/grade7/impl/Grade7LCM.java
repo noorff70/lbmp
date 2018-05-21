@@ -12,6 +12,7 @@ import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade7LCM extends GenericQuestion{
 
@@ -85,6 +86,8 @@ public class Grade7LCM extends GenericQuestion{
 	 */
 	public Problem getProblem(int min, int max, boolean primeNumber, int numberOfItems){
 		
+		CreateProblem cProblem = new CreateProblem();
+		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
 		List<?> primeNumberList = MathUtilities.getPrimeNumberList(2, 100);
@@ -132,35 +135,19 @@ public class Grade7LCM extends GenericQuestion{
 		lcmList = MathUtilities.getLCM(numberList, lcmList);
 				
 		//Add the questions		
-		questionList.add(new QuestionLine("Find the HCF of the following"));
+		questionList.add(new QuestionLine("Find the LCM of the following"));
 		String questionLn2 = formattedString(numberList, Constants.STRING_CONCAT);
 		questionList.add(new QuestionLine(questionLn2));
 				
 		String answ = formattedString(lcmList, Constants.STRING_MULTIPLY);
-				
-		String heading = "Find LCM";
-		String subHeading = "Find LCM of two integers";
-				
-				
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
-				
-		return problem;
-	}
-	
-	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
+				
+		String heading = "Find LCM";
+				
+		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
-		
+				
 		return problem;
 	}
 	

@@ -32,6 +32,7 @@ public interface Constants {
 	public static String CHECK_BOX_TYPE= "CHECKBOXTYPE";
 	public static String RADIO_TYPE= "RADIOTYPE";
 	public static String LATEX_FORMAT= "LATEXFORMAT";
+	public static String PI_PLOT= "PIPLOT";
 	
 	public static String FACTOR_LIST="factorList";
 	public static String STRING_MULTIPLY="multiply";

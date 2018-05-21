@@ -69,16 +69,16 @@ public class G8SciNotConv extends GenericQuestion {
 		
 		//set answer
 		answer.setAnswer(numberFormat + "x" + "${" +10+ "}^" + pointToMove + "$") ;
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH),null, null));
-		questionList.add(new QuestionLine(question, null, null));
+		questionList.add(new QuestionLine(Double.toString(baseNumber), null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Double.parseDouble(numberFormat)*10 + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$"));
+		answerList.add(new AnswerLine(Double.parseDouble(numberFormat)*10 + "x" + "${" +10+ "}^" + Integer.toString(pointToMove +1) + "$"));
+		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -91,7 +91,7 @@ public class G8SciNotConv extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_CONVERT_TO_SCIENTIFIC_NOTATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -133,16 +133,16 @@ public class G8SciNotConv extends GenericQuestion {
 		
 		//set answer
 		answer.setAnswer(numberFormat + "x" + "${" +10+ "}^{" + pointToMove + "}$") ;
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(df.format(baseNumber), null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Double.parseDouble(numberFormat)*100 + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$"));
+		answerList.add(new AnswerLine(Double.parseDouble(numberFormat)*100 + "x" + "${" +10+ "}^{" + Integer.toString(pointToMove +1) + "}$"));
+		answerList.add(new AnswerLine(numberFormat + "x" + "${" +10+ "}^" + "{" + Integer.toString(pointToMove -1) + "}$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -155,7 +155,7 @@ public class G8SciNotConv extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_CONVERT_TO_SCIENTIFIC_NOTATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;

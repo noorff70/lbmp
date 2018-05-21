@@ -14,6 +14,7 @@ import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade7Factors extends GenericQuestion{
 
@@ -40,9 +41,9 @@ public class Grade7Factors extends GenericQuestion{
 	 */
 	public Problem getProblem1(MathConfiguration mConfig){
 	
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		String heading = null;
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -69,14 +70,16 @@ public class Grade7Factors extends GenericQuestion{
 				str.append(" ");
 			}
 		}
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
 		
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
 	
 		heading = "Factor of a complex number";
-		subHeading = "Factor of a complex number";
 			
-		Problem problem = getProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		problem.setAnswer(answer);
 		
 		return problem;
 	}
@@ -87,8 +90,8 @@ public class Grade7Factors extends GenericQuestion{
 	 */
 	public Problem getProblem2(MathConfiguration mConfig){
 	
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -115,13 +118,14 @@ public class Grade7Factors extends GenericQuestion{
 				str.append(" ");
 			}
 		}
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
 		
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
-	
-		subHeading = "Factor of a complex number";
 			
-		Problem problem = getProblem(questionList, answ,"", subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		problem.setAnswer(answer);
 		
 		return problem;
 	}
@@ -131,8 +135,8 @@ public class Grade7Factors extends GenericQuestion{
 	 */
 	public Problem getProblem3(MathConfiguration mConfig){
 	
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -159,13 +163,14 @@ public class Grade7Factors extends GenericQuestion{
 				str.append(" ");
 			}
 		}
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
 		
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
-	
-		subHeading = "Factor of a complex number";
 			
-		Problem problem = getProblem(questionList, answ,"", subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		problem.setAnswer(answer);
 		
 		return problem;
 	}
@@ -176,8 +181,8 @@ public class Grade7Factors extends GenericQuestion{
 	 */
 	public Problem getProblem4(MathConfiguration mConfig){
 	
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -204,13 +209,14 @@ public class Grade7Factors extends GenericQuestion{
 				str.append(" ");
 			}
 		}
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
 		
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
-	
-		subHeading = "Factor of a complex number";
-			
-		Problem problem = getProblem(questionList, answ,"", subHeading,   Constants.DEFAULT);
+
+		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		problem.setAnswer(answer);
 		
 		return problem;
 	}
@@ -220,9 +226,8 @@ public class Grade7Factors extends GenericQuestion{
 	 */
 	public Problem getProblem5(MathConfiguration mConfig){
 	
-
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -249,13 +254,14 @@ public class Grade7Factors extends GenericQuestion{
 				str.append(" ");
 			}
 		}
+		Answer answer = new Answer();
+		answer.setAnswer(answ);
 		
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
-	
-		subHeading = "Factor of a complex number";
 			
-		Problem problem = getProblem(questionList, answ,"", subHeading,   Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		problem.setAnswer(answer);
 		
 		return problem;
 	}
@@ -263,9 +269,8 @@ public class Grade7Factors extends GenericQuestion{
 	
 	public Problem getProblem6(MathConfiguration mConfig){
 		
+		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		String heading = null;
-		String subHeading = null;
 		String answ = null;
 		
 		//Take any number from 3 to 20
@@ -291,35 +296,16 @@ public class Grade7Factors extends GenericQuestion{
 		
 		answ = str.toString();
 		
-		questionList.add(new QuestionLine("What are each of the factors for " + randomPosition));
-		questionList.add(new QuestionLine("Write each in an ascending order seperated by comma "));
-	
-		heading = "Factor of a complex number";
-		subHeading = "Factor of a complex number";
-			
-		Problem problem = getProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
-		
-		return problem;
-	}
-	
-	
-	public Problem getProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
-		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
 		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
+		questionList.add(new QuestionLine("What are each of the factors for " + randomPosition));
+		questionList.add(new QuestionLine("Write each in an ascending order seperated by comma "));
+			
+		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
-		
-		
 		
 		return problem;
 	}
-
 }
 

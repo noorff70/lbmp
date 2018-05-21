@@ -15,6 +15,7 @@ import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
+import com.weblearning.utilities.CreateProblem;
 
 public class Grade7HCF extends GenericQuestion{
 	
@@ -73,9 +74,9 @@ public class Grade7HCF extends GenericQuestion{
 	/*
 	 * Build the logic of the problem
 	 */
-	@SuppressWarnings("unchecked")
 	public Problem getProblem(int min, int max, boolean autoIncrement, int incrementBy, int multipliedBy, int numberOfItems){
 		
+		CreateProblem cProblem = new CreateProblem();
 		String answ =null;
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
@@ -114,33 +115,17 @@ public class Grade7HCF extends GenericQuestion{
 			answ = Integer.toString(1);
 		else 	
 			answ = formattedString(primeList, Constants.STRING_MULTIPLY);
-				
-		String heading = "Find HCF";
-		String subHeading = "Find HCF of two integers";
-				
-				
-		Problem problem = constructProblem(questionList, answ, heading, subHeading,   Constants.DEFAULT);
-				
-		return problem;
-	}
-	
-	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, String type  ){
-		
-		Problem problem = new Problem();
 		
 		Answer answer = new Answer();
 		answer.setAnswer(answ);
-		answer.setType(type);
-		
-		problem.setQuestionLines(questionList);
-		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
+				
+		String heading = "Find HCF";
+				
+		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
-		
+				
 		return problem;
 	}
-	
 	
 	public String formattedString(List<Integer> numberList, String operation){
 		

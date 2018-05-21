@@ -70,16 +70,16 @@ public class G8SciNotFrom extends GenericQuestion {
 		
 		//set answer
 		answer.setAnswer(Double.toString(baseNumber));
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Double.toString(baseNumber*10), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Integer.toString((int)baseNumber *10), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Double.toString(baseNumber/10), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(Double.toString(baseNumber*10)));
+		answerList.add(new AnswerLine(Integer.toString((int)baseNumber *10)));
+		answerList.add(new AnswerLine(Double.toString(baseNumber/10)));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -92,7 +92,7 @@ public class G8SciNotFrom extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_CONVERT_FROM_SCIENTIFIC_NOTATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -136,17 +136,17 @@ public class G8SciNotFrom extends GenericQuestion {
 		
 		//set answer
 		answer.setAnswer(df.format(baseNumber));
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_SELECT_PROPER_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(df.format(baseNumber * 10), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(df.format(baseNumber * 100), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(df.format(baseNumber / 10), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(df.format(baseNumber * 10)));
+		answerList.add(new AnswerLine(df.format(baseNumber * 100)));
+		answerList.add(new AnswerLine(df.format(baseNumber / 10)));
 		
 		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, answer.getAnswer());
 		answer.setAnswerOption(correctAnswerOption);
@@ -159,7 +159,7 @@ public class G8SciNotFrom extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_CONVERT_FROM_SCIENTIFIC_NOTATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;

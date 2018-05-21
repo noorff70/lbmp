@@ -46,8 +46,8 @@ public class G7SimplifyFraction extends GenericQuestion{
 		int denominator = MathUtilities.getRandomNumber(numerator, 50);
 		
 		//get a list of factors of numerator
-		Map numeratorMap = MathUtilities.getFactors();
-		List numeratorList = (List) numeratorMap.get(numerator);
+		Map<?, ?> numeratorMap = MathUtilities.getFactors();
+		List<?> numeratorList = (List<?>) numeratorMap.get(numerator);
 		
 		//multiply denominator with a factor of numerator except 1 and the numerator itself
 		for (int i=0; i<numeratorList.size(); i++ ){

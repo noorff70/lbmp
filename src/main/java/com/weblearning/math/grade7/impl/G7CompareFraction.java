@@ -49,8 +49,8 @@ public class G7CompareFraction extends GenericQuestion{
 		double result2 = numerator2/(double)denominator2;
 		String question2 = "B " + " " + MathUtilities.convertSingleFRactionToString(numerator2, denominator2);
 		
-		Fraction frac1 = Fraction.getReducedFraction(numerator1, denominator1);
-		Fraction frac2 = Fraction.getReducedFraction(numerator2, denominator2);
+	//	Fraction frac1 = Fraction.getReducedFraction(numerator1, denominator1);
+	//	Fraction frac2 = Fraction.getReducedFraction(numerator2, denominator2);
 		
 		if (result1>result2)
 			answer = "A";

@@ -50,6 +50,7 @@ public class G8IntEval2 extends GenericQuestion {
 	/*
 	 * 4/2 * (2-4) % 6 + 2
 	 */
+	@SuppressWarnings("unchecked")
 	public Problem getProblem1(MathConfiguration mathConfig) {
 		
 		String question = "";
@@ -73,7 +74,8 @@ public class G8IntEval2 extends GenericQuestion {
 		Iterator<?> it = factorMap.entrySet().iterator();
 		Map.Entry<Integer, Integer> result = null;
 		while (it.hasNext()) {
-			result = (Entry<Integer, Integer>) it.next();
+			Entry<Integer, Integer> next = (Entry<Integer, Integer>) it.next();
+			result = next;
 		}
 		x6 = result.getKey();
 		
@@ -102,6 +104,7 @@ public class G8IntEval2 extends GenericQuestion {
 	/*
 	 * 4/2 * (2-4) % 6 + 2
 	 */
+	@SuppressWarnings("unchecked")
 	public Problem getProblem2(MathConfiguration mathConfig) {
 		
 		String question = "";
@@ -149,6 +152,7 @@ public class G8IntEval2 extends GenericQuestion {
 	/*
 	 * 4/2 * (2-4) % 6 + 2
 	 */
+	@SuppressWarnings("unchecked")
 	public Problem getProblem3(MathConfiguration mathConfig) {
 		
 		String question = "";
@@ -237,6 +241,7 @@ public class G8IntEval2 extends GenericQuestion {
 	/*
 	 * -4 + ((-5)(-10)^2)/(-5)^2 = -24
 	 */
+	@SuppressWarnings("unchecked")
 	public Problem getProblem5(MathConfiguration mathConfig) {
 		
 		String question = "";

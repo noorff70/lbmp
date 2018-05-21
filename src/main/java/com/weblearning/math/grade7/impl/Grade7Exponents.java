@@ -54,7 +54,6 @@ public class Grade7Exponents extends GenericQuestion{
 	/*
 	 * Build the logic of the problem
 	 */
-	@SuppressWarnings("unchecked")
 	public Problem getProblem(String exponentType){
 		
 		CreateProblem cProblem = new CreateProblem();

@@ -14,7 +14,7 @@ public class Answer {
 	/*Answer to the question */
 	String answer;
 	/*Type of the answer, i.e String answerr or something else */
-	String type;
+//	String type;
 	String answerOption;
 	List<AnswerLine> answerList;
 	
@@ -26,12 +26,12 @@ public class Answer {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+//	public String getType() {
+//		return type;
+//	}
+//	public void setType(String type) {
+//		this.type = type;
+//	}
 	
 	public void setNoOfCorrectAnswer(int no){
 		noOfCorrectAnswer = no;

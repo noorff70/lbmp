@@ -96,8 +96,8 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	
 	public void createConfigValues (MathConfiguration mConfig){
 		
-		Map mapOfFactors = MathUtilities.getFactors();
-		Map mapOfPrimeFactors = MathUtilities.getPrimeFactors();
+		Map<Integer, List<Integer>> mapOfFactors = MathUtilities.getFactors();
+		Map<Integer, List<Integer>> mapOfPrimeFactors = MathUtilities.getPrimeFactors();
 		
 		mConfig.setFactors(mapOfFactors);
 		mConfig.setPrimeFactors(mapOfPrimeFactors);

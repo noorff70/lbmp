@@ -79,7 +79,7 @@ public class G8PolyAdd extends GenericQuestion {
 		
 		answer.setAnswer("$" + result +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 
 		questionList.add( new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
@@ -87,10 +87,10 @@ public class G8PolyAdd extends GenericQuestion {
 		
 		
 		List<AnswerLine> answerList = new LinkedList<AnswerLine>();
-		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeVal2 +"x{^"+ xPower+ "}" + "y{^"+ xPower+ "}"+"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -103,7 +103,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -136,16 +136,16 @@ public class G8PolyAdd extends GenericQuestion {
 		
 		answer.setAnswer("$" + val1 + "y{^"+ yPower+ "}"+ "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower2+ "}"+ "$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine> answerList = new LinkedList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower1+ "}" + "+"+ "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 +"x{^"+ xPower1+ "}" + "+" + val2 +"y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower1+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower2+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower1+ "}" + "+"+ "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 +"x{^"+ xPower1+ "}" + "+" + val2 +"y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower1+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower2+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -158,7 +158,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -189,16 +189,16 @@ public class G8PolyAdd extends GenericQuestion {
 		
 		answer.setAnswer("$" + result + "y{^"+ yPower+ "}"+"$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeVal1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + result +"x{^"+ xPower+ "}" + "y{^"+ xPower+ "}"+"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -211,7 +211,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -243,16 +243,16 @@ public class G8PolyAdd extends GenericQuestion {
 		
 		answer.setAnswer("$" + result +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -265,7 +265,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -306,16 +306,16 @@ public class G8PolyAdd extends GenericQuestion {
 			answer.setAnswer("$" + result +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$");
 		
 		
-		answer.setType(Constants.RADIO_TYPE);
+//		answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -328,7 +328,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -365,16 +365,16 @@ public class G8PolyAdd extends GenericQuestion {
 		else
 			answer.setAnswer("$" + result +"x^{"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+//		answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -387,7 +387,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -419,16 +419,16 @@ public class G8PolyAdd extends GenericQuestion {
 
 		answer.setAnswer(Integer.toString(0));
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -441,7 +441,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -481,17 +481,17 @@ public class G8PolyAdd extends GenericQuestion {
 		else
 			answer.setAnswer("$" + result +"x^{"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + val2 +"x{^"+ xPower+ "}" + "y{^"+ yPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + fakeResult1 +"x{^"+ yPower+ "}" + "y{^"+ xPower+ "}"+"$"));
+		answerList.add(new AnswerLine("$" + val1 + "x{^"+ xPower+ "}" + "y{^"+ yPower+ "}" + "+" + val2 + "y{^"+ yPower+ "}" + "x{^"+ xPower+ "}"+  "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -504,7 +504,7 @@ public class G8PolyAdd extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_EIGHT_POLYNOMIAL_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;

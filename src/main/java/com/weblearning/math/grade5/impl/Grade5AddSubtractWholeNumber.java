@@ -69,7 +69,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionHeading("Add large numbers");
 		problem.setQuestionLines(questionList);
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion));
-		answer.setType(Constants.RIGHT_TO_LEFT);
+	//	answer.setType(Constants.RIGHT_TO_LEFT);
 		problem.setAnswer(answer);
 		
 				
@@ -115,7 +115,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionHeading("Subtract large numbers");
 		problem.setQuestionLines(questionList);
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion));
-		answer.setType(Constants.RIGHT_TO_LEFT);
+	//	answer.setType(Constants.RIGHT_TO_LEFT);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -160,7 +160,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionHeading("Subtract large number when the result is a negative");
 		problem.setQuestionLines(questionList);
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion));
-		answer.setType(Constants.RIGHT_TO_LEFT);
+	//	answer.setType(Constants.RIGHT_TO_LEFT);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -202,7 +202,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
-		answer.setType(Constants.DEFAULT);
+	//	answer.setType(Constants.DEFAULT);
 		
 		problem.setAnswer(answer);
 		
@@ -238,7 +238,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
-		answer.setType(Constants.DEFAULT);
+	//	answer.setType(Constants.DEFAULT);
 		
 		problem.setAnswer(answer);
 		
@@ -273,7 +273,7 @@ public class Grade5AddSubtractWholeNumber extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
-		answer.setType(Constants.RIGHT_TO_LEFT);
+	//	answer.setType(Constants.RIGHT_TO_LEFT);
 		
 		problem.setAnswer(answer);
 		

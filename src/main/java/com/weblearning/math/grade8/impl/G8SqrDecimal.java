@@ -80,7 +80,7 @@ public class G8SqrDecimal extends GenericQuestion {
 	
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(squareroot));
@@ -91,9 +91,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine>answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(result));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -104,7 +104,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -151,7 +151,7 @@ public class G8SqrDecimal extends GenericQuestion {
 	
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(squareroot));
@@ -162,9 +162,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null ));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -175,7 +175,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -221,7 +221,7 @@ public class G8SqrDecimal extends GenericQuestion {
 	
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(squareroot));
@@ -232,9 +232,9 @@ public class G8SqrDecimal extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(result));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -245,7 +245,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;

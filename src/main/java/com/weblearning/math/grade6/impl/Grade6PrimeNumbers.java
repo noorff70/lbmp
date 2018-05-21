@@ -39,7 +39,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		String question= "How many prime numbers between 1 and 10 inclusive";
 		QuestionLine qLine = new QuestionLine("", Constants.PROBLEM_TYPE_FRACTION, "");
 		
-		List primeNumberList = MathUtilities.getPrimeNumberList(1, 10);
+		List<?> primeNumberList = MathUtilities.getPrimeNumberList(1, 10);
 				
 		qLine.setQuestionLn(question);
 		questionList.add(qLine);
@@ -47,7 +47,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(Integer.toString(primeNumberList.size()));
-		answer.setType(Constants.DEFAULT);
+	//	answer.setType(Constants.DEFAULT);
 		
 		problem.setAnswer(answer);
 				
@@ -69,7 +69,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		questionList.add(new QuestionLine("False"));
 
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		//problem.setQuestionLines(newQuestionList);
 		answer.setAnswer("False");
@@ -86,7 +86,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		Answer answer = new Answer();
 		
 		List<QuestionLine> questionList = new ArrayList<QuestionLine>();
-		List primeNumberList = MathUtilities.getPrimeNumberList(20, 100);
+		List<?> primeNumberList = MathUtilities.getPrimeNumberList(20, 100);
 		
 		//
 		int randomPosition = MathUtilities.getRandomNumber(0, primeNumberList.size()-2);
@@ -96,7 +96,7 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		
 		problem.setQuestionLines(questionList);
 		
-		answer.setType(Constants.DEFAULT);
+	//	answer.setType(Constants.DEFAULT);
 		answer.setAnswer(Integer.toString(nextPrime));
 		
 		problem.setAnswer(answer);

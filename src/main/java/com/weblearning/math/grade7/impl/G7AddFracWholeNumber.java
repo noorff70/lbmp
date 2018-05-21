@@ -47,7 +47,6 @@ public class G7AddFracWholeNumber extends GenericQuestion {
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		Fraction result = new Fraction(0, 1);
 		String question = "";
-		String answer = "";
 		
 		int wholeNumber = MathUtilities.getRandomNumber(1, 10);
 
@@ -76,7 +75,6 @@ public class G7AddFracWholeNumber extends GenericQuestion {
 
 		question = MathUtilities.getQuestionAsStringFraction(fractionList);
 		result = MathUtilities.getResultAsFraction(fractionList);
-		answer = MathUtilities.convertSingleFRactionToString(result.getNumerator(), result.getDenominator());
 
 		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.ADD_THE_FOLLOWING_IMPROPER_FRACTION, null, Locale.ENGLISH));
 		QuestionLine qLine2 = new QuestionLine(question);

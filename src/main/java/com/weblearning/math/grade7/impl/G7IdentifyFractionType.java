@@ -73,7 +73,7 @@ public class G7IdentifyFractionType extends GenericQuestion{
 			result = fractionType(numerator, denominator);
 		}
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		//construct question
@@ -88,9 +88,9 @@ public class G7IdentifyFractionType extends GenericQuestion{
 			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH) + MathUtilities.convertSingleFRactionToString(numerator, denominator), null, "");
 		 
 		
-		QuestionLine qLine2 = new QuestionLine(Constants.FRACTION_TYPE_PERFECT_ANSWER + " Perfect Fraction", Constants.RADIO_TYPE, "");
-		QuestionLine qLine3 = new QuestionLine(Constants.FRACTION_TYPE_IMPERFECT_ANSWER + " Imperfect Fraction", Constants.RADIO_TYPE, "");
-		QuestionLine qLine4 = new QuestionLine(Constants.FRACTION_TYPE_MIXED_ANSWER + " Mixed Fraction", Constants.RADIO_TYPE, "");
+		QuestionLine qLine2 = new QuestionLine(Constants.FRACTION_TYPE_PERFECT_ANSWER + " Perfect Fraction", "", "");
+		QuestionLine qLine3 = new QuestionLine(Constants.FRACTION_TYPE_IMPERFECT_ANSWER + " Imperfect Fraction", "", "");
+		QuestionLine qLine4 = new QuestionLine(Constants.FRACTION_TYPE_MIXED_ANSWER + " Mixed Fraction", "", "");
 		
 		questionList.add(qLine1);
 		questionList.add(qLine2);

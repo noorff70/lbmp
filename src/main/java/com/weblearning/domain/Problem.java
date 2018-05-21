@@ -21,6 +21,11 @@ public class Problem {
 	/*Answer to the question */
 	Answer answer;
 	GeometryObject  geometryObject;
+	String questionType;
+	
+	public Problem(){
+		
+	}
 	
 	public String getQuestionSubHeading() {
 		return questionSubHeading;
@@ -34,13 +39,8 @@ public class Problem {
 		return rank;
 	}
 
-	public Problem(){
+
 		
-	}
-		
-/*	public int getRank() {
-		return rank;
-	}*/
 	public void setRank(int r) {
 		this.rank = r;
 	}
@@ -83,6 +83,14 @@ public class Problem {
 	
 	public void setPicturePath(String pic) {
 		this.picturePath = pic;
+	}
+	
+	public String getQuestionType() {
+		return this.questionType;
+	}
+	
+	public void setQuestionType(String type) {
+		this.questionType = type;
 	}
 
 }

@@ -89,7 +89,7 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
@@ -98,9 +98,9 @@ public class G8SqrFrac extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(result));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
@@ -113,7 +113,7 @@ public class G8SqrFrac extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
 		
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -162,7 +162,7 @@ public class G8SqrFrac extends GenericQuestion {
 		
 		result = convertSquareRoot2Strings(rObjectNumerator, rObjectDenominator);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		answer.setAnswer(result);
 		
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
@@ -171,9 +171,9 @@ public class G8SqrFrac extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(result));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*2+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()*2+"$"));
+		answerList.add(new AnswerLine("$"+rObjectNumerator.getWhole()*3+"\\sqrt{"+ rObjectNumerator.getRoot()*3+ "}\\over" + rObjectDenominator.getWhole()+"$"));
 		
 		
 		//get the questionlist rearranged by passing the list itself and a max number to swap the answers
@@ -186,7 +186,7 @@ public class G8SqrFrac extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_FIND_INTEGER_SQUARE_ROOT, null, Locale.ENGLISH);
 
 		
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;

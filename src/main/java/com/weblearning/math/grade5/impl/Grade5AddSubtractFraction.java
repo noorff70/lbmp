@@ -60,7 +60,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(result.toString());
-		answer.setType("FRACTION");
+	//	answer.setType("FRACTION");
 		
 		problem.setAnswer(answer);
 				
@@ -98,7 +98,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(result.toString());
-		answer.setType("FRACTION");
+	//	answer.setType("FRACTION");
 		
 		problem.setAnswer(answer);
 				
@@ -144,7 +144,7 @@ public class Grade5AddSubtractFraction extends GenericQuestion{
 		problem.setQuestionLines(questionList);
 		
 		answer.setAnswer(result.toString());
-		answer.setType("FRACTION");
+	//	answer.setType("FRACTION");
 		
 		problem.setAnswer(answer);
 				

@@ -82,15 +82,13 @@ public class G8AgExpression extends GenericQuestion {
 
 		ans = a1Sign + Math.abs(a1)+ "*x" + a2Sign + Math.abs(a2)+ "*x" +n1Sign+ Math.abs(n1) + n2Sign + Math.abs(n2) ;
 
-		answer.setType(Constants.RADIO_TYPE);
-
 		questionList.add( new QuestionLine(mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION_EVALUATE, null, Locale.ENGLISH) , null, null));
 		questionList.add( new QuestionLine( question, null, Constants.LATEX_FORMAT));
 	
 		List<AnswerLine> answerList = new LinkedList<AnswerLine>();
-		answerList.add(new AnswerLine(ans, Constants.RADIO_TYPE));
-		answerList.add( new AnswerLine(a1Sign + Math.abs(a1)+ "*x" + a2Sign + Math.abs(a2)+ "*x" + n1Sign + Integer.toString(Math.abs(n1+1)) + n2Sign + Math.abs(n2) , Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(a1Sign + Math.abs(2*a1)+ "*x" + a2Sign+ Math.abs(a2)+ "*x" + n1Sign+ Math.abs(n1) + n2Sign + Integer.toString(Math.abs(n2-1)), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(ans));
+		answerList.add( new AnswerLine(a1Sign + Math.abs(a1)+ "*x" + a2Sign + Math.abs(a2)+ "*x" + n1Sign + Integer.toString(Math.abs(n1+1)) + n2Sign + Math.abs(n2)));
+		answerList.add(new AnswerLine(a1Sign + Math.abs(2*a1)+ "*x" + a2Sign+ Math.abs(a2)+ "*x" + n1Sign+ Math.abs(n1) + n2Sign + Integer.toString(Math.abs(n2-1))));
 		answer.setAnswerList(answerList);
 
 		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
@@ -98,8 +96,7 @@ public class G8AgExpression extends GenericQuestion {
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE,
-				Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;

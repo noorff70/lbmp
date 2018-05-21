@@ -42,6 +42,7 @@ public class G8IntEval3 extends GenericQuestion {
 	/*
 	 * ((-8-6)/(-7))/4
 	 */
+	@SuppressWarnings("unchecked")
 	public Problem getProblem1(MathConfiguration mathConfig) {
 		
 		String question = "";
@@ -81,15 +82,15 @@ public class G8IntEval3 extends GenericQuestion {
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine>answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(ans.getAnswer(), null));
-		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+1) + "\\over" + Integer.toString(frac.getDenominator()) + "$", null));
-		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+2) + "\\over" + Integer.toString(frac.getDenominator()) + "$", null));
+		answerList.add(new AnswerLine(ans.getAnswer()));
+		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+1) + "\\over" + Integer.toString(frac.getDenominator()) + "$"));
+		answerList.add(new AnswerLine("$"+ Integer.toString(frac.getNumerator()+2) + "\\over" + Integer.toString(frac.getDenominator()) + "$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
-		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(questionList, ans.getAnswer());
+		String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, ans.getAnswer());
 		ans.setAnswerOption(correctAnswerOption);
-		ans.setType(Constants.RADIO_TYPE);
+	//	ans.setType(Constants.RADIO_TYPE);
 		ans.setAnswerList(answerList);
 		
 		logger.debug("Question: " + question + " " + "answer: " + ans.getAnswer());

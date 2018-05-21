@@ -73,15 +73,15 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		answer.setAnswer("$" + base + "^" + power + "$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + base*2 +"^"+power/2 +"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + base +"^"+power*2 +"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + base*2 +"^"+power/2 +"$"));
+		answerList.add(new AnswerLine("$" + base +"^"+power*2 +"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -94,7 +94,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -124,15 +124,15 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		answer.setAnswer("$" + base + "^" + power + "$");
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + base*2 +"^"+power/2 +"$", Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine("$" + base +"^"+power*2 +"$", Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine("$" + base*2 +"^"+power/2 +"$"));
+		answerList.add(new AnswerLine("$" + base +"^"+power*2 +"$"));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -145,7 +145,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -189,15 +189,15 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		answer.setAnswer(result);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult1, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult2, Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(fakeResult1));
+		answerList.add(new AnswerLine(fakeResult2));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -210,7 +210,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -264,15 +264,15 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		answer.setAnswer(result);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult1, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult2, Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(fakeResult1));
+		answerList.add(new AnswerLine(fakeResult2));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -285,7 +285,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -317,15 +317,15 @@ public class G8ExponentOperation extends GenericQuestion {
 
 		answer.setAnswer(Integer.toString(result));
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(answer.getAnswer(), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Integer.toString(fakeResult1), Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(Integer.toString(fakeResult2), Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(answer.getAnswer()));
+		answerList.add(new AnswerLine(Integer.toString(fakeResult1)));
+		answerList.add(new AnswerLine(Integer.toString(fakeResult2)));
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
 		
@@ -338,7 +338,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;
@@ -397,15 +397,15 @@ public class G8ExponentOperation extends GenericQuestion {
 		
 		answer.setAnswer(result);
 		
-		answer.setType(Constants.RADIO_TYPE);
+	//	answer.setType(Constants.RADIO_TYPE);
 		
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_EIGHT_EXPONENT_EXPRES_SELECT, null, Locale.ENGLISH), null, null));
 		questionList.add(new QuestionLine(question, null, null));
 		
 		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
-		answerList.add(new AnswerLine(result, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult1, Constants.RADIO_TYPE));
-		answerList.add(new AnswerLine(fakeResult2, Constants.RADIO_TYPE));
+		answerList.add(new AnswerLine(result));
+		answerList.add(new AnswerLine(fakeResult1));
+		answerList.add(new AnswerLine(fakeResult2));
 	
 		
 		answerList = MathUtilities.getQuestionList(answerList, answerList.size()-1, 0);
@@ -419,7 +419,7 @@ public class G8ExponentOperation extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_EXPONENT_BASICS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 
 		return problem;

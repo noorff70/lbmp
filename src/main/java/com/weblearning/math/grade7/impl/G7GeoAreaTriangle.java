@@ -76,8 +76,6 @@ public class G7GeoAreaTriangle extends GeometryQuestion {
 	
 	private Problem getProblem2(MathConfiguration mathConfig, Document doc, List<GeometryObject> geometryObjectList, int i) {
 
-		String answer = null;
-
 		MessageSource mSource = mathConfig.getmSource();
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new ArrayList<QuestionLine>();
