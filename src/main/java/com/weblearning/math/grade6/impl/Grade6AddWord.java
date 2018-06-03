@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -34,6 +35,7 @@ public class Grade6AddWord extends GenericQuestion {
 		CreateProblem cProblem = new CreateProblem();
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
+		Answer answ = new Answer();
 		int result = 0;
 		
 		//Three lines of addition
@@ -57,11 +59,11 @@ public class Grade6AddWord extends GenericQuestion {
 		ql.setQuestionLn(numbersInWordFormat);
 		questionList.add(ql);
 		
-		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
 		String heading = Constants.GRADE_6_CONTENT_ADD_WORD;
-		String subHeading = "Word problem- Convert to numeric and then sum up";
+		answ.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
 		
-		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE,  Constants.DEFAULT);
+		problem.setAnswer(answ);
 		
 		return problem;
 	}

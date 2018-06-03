@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -39,7 +40,7 @@ public class G7DecimalMultiplication extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig) {
 
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -76,9 +77,10 @@ public class G7DecimalMultiplication extends GenericQuestion {
 		questionList.add(qLine3);
 
 		String heading = mSource.getMessage(Constants.GRADE_7_MULTIPLY_DECIMAL_NUMBERS, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(answer);
 
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, subHeading, Constants.RANK_ONE, Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.DEFAULT);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -86,7 +88,7 @@ public class G7DecimalMultiplication extends GenericQuestion {
 	public Problem getProblem2(MathConfiguration mathConfig) {
 
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -122,9 +124,10 @@ public class G7DecimalMultiplication extends GenericQuestion {
 		questionList.add(qLine3);
 
 		String heading = mSource.getMessage(Constants.GRADE_7_MULTIPLY_DECIMAL_NUMBERS, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(Double.toString(answer));
 
-		Problem problem = cProblem.constructProblem(questionList, Double.toString(answer), heading, subHeading, Constants.RANK_ONE, Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.DEFAULT);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

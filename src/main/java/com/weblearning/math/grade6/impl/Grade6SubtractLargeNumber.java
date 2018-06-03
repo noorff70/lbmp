@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -34,7 +35,7 @@ public class Grade6SubtractLargeNumber extends GenericQuestion {
 		CreateProblem cProblem = new CreateProblem();
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
-		//Answer answer = new Answer();
+		Answer answer = new Answer();
 		int answerToQuestion =0;
 		
 		//four lines of addition
@@ -63,11 +64,11 @@ public class Grade6SubtractLargeNumber extends GenericQuestion {
 		questionList.add(ql);
 		questionList.add(q2);
 				
-		String answ = NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion);
 		String heading = Constants.GRADE_6_CONTENT_SUB_LARGE_NUMBER;
-		String subHeading = "Subtract smaller from bigger number";
+		answer.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion));
 		
-		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
+		problem.setAnswer(answer);
 		
 		return problem;
 

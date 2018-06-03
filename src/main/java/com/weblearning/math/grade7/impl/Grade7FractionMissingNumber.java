@@ -11,6 +11,7 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -47,7 +48,7 @@ public class Grade7FractionMissingNumber extends GenericQuestion {
 		MessageSource mSource = mathConfig.getmSource();
 		
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		List<FractionObject> fractionList = new ArrayList<FractionObject>();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		Fraction result = new Fraction(0, 1);
@@ -123,9 +124,10 @@ public class Grade7FractionMissingNumber extends GenericQuestion {
 		questionList.add(qLine2);
 
 		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION;
-		String subHeading = "Adding two Fractions";
+		answ.setAnswer(missingResult);
 
-		Problem problem = cProblem.constructProblem(questionList, missingResult, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

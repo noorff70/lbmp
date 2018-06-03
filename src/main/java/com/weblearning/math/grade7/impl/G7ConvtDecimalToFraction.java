@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.apache.commons.math3.fraction.Fraction;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -35,7 +36,7 @@ public class G7ConvtDecimalToFraction extends GenericQuestion{
 		String answer = null;
 		
 		MessageSource mSource = mathConfig.getmSource();
-		
+		Answer answ = new Answer();
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
@@ -80,8 +81,10 @@ public class G7ConvtDecimalToFraction extends GenericQuestion{
 		questionList.add(qLine2);
 		
 		String heading = mSource.getMessage(Constants.GRADE_7_CONVERT_DECIMAL_TO_FRACTION, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
 		
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 		
 		return problem;
 		

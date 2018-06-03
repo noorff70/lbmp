@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -36,7 +37,7 @@ public class G7SolveExponentEquation extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig) {
 
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -68,9 +69,10 @@ public class G7SolveExponentEquation extends GenericQuestion {
 		questionList.add(qLine2);
 
 		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(Integer.toString(pow));
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(pow), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

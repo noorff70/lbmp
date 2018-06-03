@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
 import com.weblearning.controller.UserLoginController;
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -42,7 +43,7 @@ public class Grade6AddSub extends GenericQuestion {
 	 */
 	public Problem getProblem1(int i, MessageSource mSource){
 		
-		
+		Answer answ = new Answer();
 		CreateProblem createProbmem = new CreateProblem();;
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
@@ -58,11 +59,12 @@ public class Grade6AddSub extends GenericQuestion {
 
 		questionList.add(new QuestionLine(questionAndAnswer[0]));
 
-		String answ = questionAndAnswer[1];
+		//String answ = ;
 		String heading = mSource.getMessage(Constants.GRADE_6_CONTENT_ADD_SUB, null, Locale.ENGLISH);
-		String subHeading = "Sum of numbers with different signs";
+		answ.setAnswer(questionAndAnswer[1]);
 		
-		Problem problem = createProbmem.constructProblem (questionList, answ, heading, subHeading, Constants.RANK_ONE,   Constants.DEFAULT);
+		Problem problem = createProbmem.constructProblem (questionList, heading, Constants.RANK_ONE,   Constants.DEFAULT);
+		problem.setAnswer(answ);
 		
 		return problem;
 	}

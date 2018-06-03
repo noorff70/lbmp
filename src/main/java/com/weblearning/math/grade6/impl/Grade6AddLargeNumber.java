@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -33,6 +34,7 @@ public class Grade6AddLargeNumber extends GenericQuestion {
 		
 		CreateProblem createProbmem = new CreateProblem();;
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
+		Answer answ = new Answer();
 		
 		int answerToQuestion =0;
 		
@@ -58,11 +60,11 @@ public class Grade6AddLargeNumber extends GenericQuestion {
 		for (int i=0; i<numberOfLines; i++)
 			answerToQuestion += numbers[i];
 		
-		String answ = NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion);
 		String heading = Constants.GRADE_6_CONTENT_ADD_LARGE_NUMBER;
-		String subHeading = "Sum of numbers";
+		answ.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(answerToQuestion));
 		
-		Problem problem = createProbmem.constructProblem (questionList, answ, heading, subHeading, Constants.RANK_ONE,   Constants.RIGHT_TO_LEFT);
+		Problem problem = createProbmem.constructProblem (questionList, heading, Constants.RANK_ONE,   Constants.RIGHT_TO_LEFT);
+		problem.setAnswer(answ);
 		
 		return problem;
 	}

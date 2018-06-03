@@ -104,7 +104,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -175,7 +175,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -245,7 +245,7 @@ public class G8SqrDecimal extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_SQUARE_ROOT_OF_DECIMALS, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(answer);
 		
 		return problem;

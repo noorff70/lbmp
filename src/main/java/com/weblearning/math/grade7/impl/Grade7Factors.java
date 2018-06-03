@@ -78,7 +78,7 @@ public class Grade7Factors extends GenericQuestion{
 	
 		heading = "Factor of a complex number";
 			
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -124,7 +124,7 @@ public class Grade7Factors extends GenericQuestion{
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
 			
-		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -169,7 +169,7 @@ public class Grade7Factors extends GenericQuestion{
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
 			
-		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -215,7 +215,7 @@ public class Grade7Factors extends GenericQuestion{
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
 
-		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -260,7 +260,7 @@ public class Grade7Factors extends GenericQuestion{
 		questionList.add(new QuestionLine("What is the missing factor of " + randomPosition));
 		questionList.add(new QuestionLine(str.toString()));
 			
-		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList,"", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;
@@ -302,7 +302,7 @@ public class Grade7Factors extends GenericQuestion{
 		questionList.add(new QuestionLine("What are each of the factors for " + randomPosition));
 		questionList.add(new QuestionLine("Write each in an ascending order seperated by comma "));
 			
-		Problem problem = cProblem.constructProblem(questionList, "", "", "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;

@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.apache.commons.math3.fraction.Fraction;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -32,6 +33,7 @@ public class G7CompareFraction extends GenericQuestion{
 	private Problem getProblem(MathConfiguration mathConfig){
 		
 		String answer = null;
+		Answer answ = new Answer();
 		
 		MessageSource mSource = mathConfig.getmSource();
 		
@@ -48,10 +50,7 @@ public class G7CompareFraction extends GenericQuestion{
 		int denominator2 = MathUtilities.getRandomNumber(numerator2, 50);
 		double result2 = numerator2/(double)denominator2;
 		String question2 = "B " + " " + MathUtilities.convertSingleFRactionToString(numerator2, denominator2);
-		
-	//	Fraction frac1 = Fraction.getReducedFraction(numerator1, denominator1);
-	//	Fraction frac2 = Fraction.getReducedFraction(numerator2, denominator2);
-		
+
 		if (result1>result2)
 			answer = "A";
 		else if (result1<result2)
@@ -68,8 +67,10 @@ public class G7CompareFraction extends GenericQuestion{
 		questionList.add(qLine3);
 		
 		String heading = mSource.getMessage(Constants.GRADE_7_COMPARE_FRACTION, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
 		
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 		
 		return problem;
 		

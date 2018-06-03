@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -39,7 +40,7 @@ public class Grade6AddSingleLine extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig){
 		
 		MessageSource mSource = mathConfig.getmSource();
-				
+		Answer answ = new Answer();		
 		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
@@ -65,13 +66,11 @@ public class Grade6AddSingleLine extends GenericQuestion {
 		ql.setQuestionLn(numberInString);
 		questionList.add(ql);	
 		
-		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
-		
-		
 		String heading = mSource.getMessage(Constants.GRADE_6_CONTENT_ADD_SINGLE_LINE, null, Locale.ENGLISH);
-		String subHeading = "Sum of numbers";
+		answ.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
 		
-		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE,  Constants.DEFAULT);
+		problem.setAnswer(answ);
 		
 		return problem;
 	}

@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -39,6 +40,7 @@ public class G8SqrInteger extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig) {
 		
 		String question = "";
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -63,9 +65,10 @@ public class G8SqrInteger extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(squareroot));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(squareroot));
 
-
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(squareroot), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

@@ -145,7 +145,7 @@ public class Grade7LCM extends GenericQuestion{
 				
 		String heading = "Find LCM";
 				
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 				
 		return problem;

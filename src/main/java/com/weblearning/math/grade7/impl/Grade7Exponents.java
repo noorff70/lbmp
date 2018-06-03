@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -59,6 +60,7 @@ public class Grade7Exponents extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		String result =null;
+		Answer answ = new Answer();
 		
 		int numerator =0;
 		int denominator=0;
@@ -95,22 +97,18 @@ public class Grade7Exponents extends GenericQuestion{
 			exponentialNumber = MathUtilities.getRandomNumber(2, 3);
 			denominator = MathUtilities.getRandomNumber(numerator+1, numerator+MathUtilities.getRandomNumber(2, 10));
 			
-			//Fraction f1 = new Fraction(numerator, denominator);
-			
 			result = MathUtilities.getExponential(Integer.toString(numerator), Integer.toString(denominator), exponentialNumber, Constants.EXPONENTS_FRACTION);
 			
 			String question = "$\\frac{"+Integer.toString(numerator)+ "}{"+Integer.toString(denominator)+"}$";
 			questionList.add(new QuestionLine("What is  " + question+"^"+exponentialNumber));
 			
 		}
-		
-		String answ = result;
 				
 		String heading = "Find Exponentials";
-		String subHeading = "Find Exponentials";
+		answ.setAnswer(result);
 				
-		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);		
-
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);		
+		problem.setAnswer(answ);
 				
 		return problem;
 	}

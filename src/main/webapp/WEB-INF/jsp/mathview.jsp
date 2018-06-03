@@ -67,7 +67,7 @@ response.setHeader("Expires", "0"); // Proxies.
 				<div id="questionHeading" class="panel-heading text-center">
 					<c:forEach var="questionHeading" items="${questionHeadingList}">
 						<c:out value="${questionHeading}" />
-						</br>
+						<br>
 					</c:forEach>
 				</div>
 				<div id="idQuestion" class="panel-body" style="padding-right: 2cm">
@@ -75,8 +75,8 @@ response.setHeader("Expires", "0"); // Proxies.
 						style="display: block; text-align: right; letter-spacing: 10px;"></div>
 					<div class="form-group pull-right"></div>
 				</div>
-				</br> </br
-				</br> </br>
+				<br> 
+				<br> 
 				<div id="buttons">
 					<button type="button" name="btn_checkAnswer" id="btn_checkAnswer">Check</button>
 					<input type="submit" value="Next" onclick="doAjaxPost();" />

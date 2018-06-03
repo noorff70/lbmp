@@ -79,7 +79,7 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		heading = "Prime Factor of a complex number";
 		//subHeading = "Prime Factor of a complex number";
 			
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 
@@ -93,7 +93,7 @@ public class Grade7PrimeFactors extends GenericQuestion{
 	public Problem getProblem2(MathConfiguration mConfig){
 		
 		CreateProblem cProblem = new CreateProblem();
-	
+
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		String heading = null;
 		String answ = null;
@@ -131,7 +131,7 @@ public class Grade7PrimeFactors extends GenericQuestion{
 	
 		heading = "Prime Factor of a complex number";
 			
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 				//;getProblem(questionList, answ, heading, subHeading,   Constants.PROBLEM_TYPE_FRACTION);
 		
@@ -179,7 +179,7 @@ public class Grade7PrimeFactors extends GenericQuestion{
 	
 		heading = "Prime Factor of a complex number";
 			
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 		
 		return problem;

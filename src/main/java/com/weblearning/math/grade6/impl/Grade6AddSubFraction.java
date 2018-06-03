@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.math3.fraction.Fraction;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -41,6 +42,7 @@ public class Grade6AddSubFraction extends GenericQuestion {
 		String result = null;
 		String[] questionAnswer = new String[2];
 		String question = "";
+		Answer answ = new Answer();
 
 		questionAnswer = getRule(Integer.toString(ruleNumber));
 
@@ -52,11 +54,10 @@ public class Grade6AddSubFraction extends GenericQuestion {
 		questionList.add(qLine);
 
 		String heading = Constants.GRADE_7_CONTENT_ADD_FRACTION;
-		String subHeading = "Adding two Fractions";
+		answ.setAnswer(result.toString());
 
-		Problem problem = cProblem.constructProblem(questionList,
-				result.toString(), heading, subHeading, Constants.RANK_ONE,
-				Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

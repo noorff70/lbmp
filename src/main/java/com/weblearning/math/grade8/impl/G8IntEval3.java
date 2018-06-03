@@ -98,7 +98,7 @@ public class G8IntEval3 extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
 
 
-		Problem problem = cProblem.constructProblem(questionList, ans.getAnswer(), heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.RADIO_TYPE);
 		problem.setAnswer(ans);
 
 		return problem;

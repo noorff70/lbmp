@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.apache.commons.math3.fraction.Fraction;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -42,10 +43,9 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 		
-
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question = "";
@@ -75,9 +75,10 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		questionList.add(qLine3);
 
 		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(answer);
 
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -86,7 +87,7 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 
 		CreateProblem cProblem = new CreateProblem();
-		
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 		
 
@@ -132,9 +133,10 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		questionList.add(qLine3);
 
 		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(answer);
 
-		Problem problem = cProblem.constructProblem(questionList, answer, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

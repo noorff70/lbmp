@@ -83,7 +83,7 @@ public class G8P1Peremeter extends GenericQuestion {
 
 		ans = a1Sign + Math.abs(a1)+ "*x" + a2Sign + Math.abs(a2)+ "*x" +n1Sign+ Math.abs(n1) + n2Sign + Math.abs(n2) ;
 
-		questionList.add( new QuestionLine(mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION_EVALUATE, null, Locale.ENGLISH) , null, null));
+	//	questionList.add( new QuestionLine(mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION_EVALUATE, null, Locale.ENGLISH) , null, null));
 		questionList.add( new QuestionLine( question, null, Constants.PI_PLOT));
 	
 		List<AnswerLine> answerList = new LinkedList<AnswerLine>();
@@ -97,7 +97,7 @@ public class G8P1Peremeter extends GenericQuestion {
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
 
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setAnswer(answer);
 
 		return problem;

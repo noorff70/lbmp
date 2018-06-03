@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -36,6 +37,7 @@ public class Grade6SubtractSingleLine extends GenericQuestion {
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		int result = 0;
 		String numberInString = "";
+		Answer answ = new Answer();
 		
 		int numberOfLines = MathUtilities.getRandomNumber(2,3);
 		
@@ -50,11 +52,12 @@ public class Grade6SubtractSingleLine extends GenericQuestion {
 		
 		questionList.add(new QuestionLine(numberInString, null, null));
 		
-		String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
+	//	String answ = NumberFormat.getNumberInstance(Locale.US).format(result);
 		String heading = Constants.GRADE_6_CONTENT_SUB_SINGLE_LINE;
-		String subHeading = "Subtract numbers defined in a single line";
+		answ.setAnswer(NumberFormat.getNumberInstance(Locale.US).format(result));
 		
-		Problem problem = cProblem.constructProblem(questionList, answ, heading, subHeading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE,  Constants.RIGHT_TO_LEFT);
+		problem.setAnswer(answ);
 		
 		return problem;
 

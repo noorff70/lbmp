@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -51,7 +52,7 @@ public class G8IntEval1 extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig) {
 		
 		String question = "";
-		
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -77,9 +78,10 @@ public class G8IntEval1 extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(ans));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(ans));
 
-
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(ans), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -90,7 +92,7 @@ public class G8IntEval1 extends GenericQuestion {
 	public Problem getProblem2(MathConfiguration mathConfig) {
 		
 		String question = "";
-		
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -102,8 +104,6 @@ public class G8IntEval1 extends GenericQuestion {
 		
 		int x3 = MathUtilities.getRandomNumber(10, 10);
 		int x4 = x3 * MathUtilities.getRandomNumber(2, 5);
-		
-		
 
 		question = Integer.toString(x2) + "$\\div(" +  Integer.toString(x1) + ") - " + Integer.toString(x4) + "\\times" + Integer.toString(x3) + "$";
 		int ans = x2/x1 - x4*x3;
@@ -116,9 +116,10 @@ public class G8IntEval1 extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(ans));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(ans));;
 
-
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(ans), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -129,6 +130,7 @@ public class G8IntEval1 extends GenericQuestion {
 	public Problem getProblem3(MathConfiguration mathConfig) {
 		
 		String question = "";
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -140,7 +142,6 @@ public class G8IntEval1 extends GenericQuestion {
 		
 		int x3 = MathUtilities.getRandomNumber(3, 10);
 		int x4 = x3 * MathUtilities.getRandomNumber(2, 5);
-		
 		
 
 		question = Integer.toString(x2) + "$\\times" +  Integer.toString(x1) + " + " + Integer.toString(x4) + "\\div" + Integer.toString(x3) + "$";
@@ -154,9 +155,10 @@ public class G8IntEval1 extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(ans));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(ans));
 
-
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(ans), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -167,6 +169,7 @@ public class G8IntEval1 extends GenericQuestion {
 	public Problem getProblem4(MathConfiguration mathConfig) {
 		
 		String question = "";
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -178,9 +181,7 @@ public class G8IntEval1 extends GenericQuestion {
 		
 		int x3 = MathUtilities.getRandomNumber(-10, -3);
 		int x4 = Math.abs(x3 * MathUtilities.getRandomNumber(2, 5));
-		
-		
-
+	
 		question = Integer.toString(x2) + "$\\times" +  Integer.toString(x1) + " + " + Integer.toString(x4) + "\\div(" + Integer.toString(x3) + ")$";
 		int ans = x2*x1 + x4/x3;
 	
@@ -192,9 +193,10 @@ public class G8IntEval1 extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(ans));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(ans));
 
-
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(ans), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}
@@ -205,6 +207,7 @@ public class G8IntEval1 extends GenericQuestion {
 	public Problem getProblem5(MathConfiguration mathConfig) {
 		
 		String question = "";
+		Answer answ = new Answer();
 
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -216,8 +219,6 @@ public class G8IntEval1 extends GenericQuestion {
 		
 		int x3 = MathUtilities.getRandomNumber(-10, -3);
 		int x4 = Math.abs(x3 * MathUtilities.getRandomNumber(2, 5));
-		
-		
 
 		question = Integer.toString(x2) + "$\\times" +  Integer.toString(x1) + " - " + Integer.toString(x4) + "\\div(" + Integer.toString(x3) + ")$";
 		int ans = x2*x1 - x4/x3;
@@ -230,9 +231,11 @@ public class G8IntEval1 extends GenericQuestion {
 		logger.debug("Question: " + question + " " + "answer: " + Integer.toString(ans));
 
 		String heading = mSource.getMessage(Constants.GRADE_8_INTEGER_OPERATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(ans));
 
 
-		Problem problem = cProblem.constructProblem(questionList, Integer.toString(ans), heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

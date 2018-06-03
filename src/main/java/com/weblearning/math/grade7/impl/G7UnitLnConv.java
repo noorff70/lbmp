@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -41,6 +42,7 @@ public class G7UnitLnConv extends GenericQuestion{
 		
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+		Answer answ = new Answer();
 		
 		//random key will be used to get a value i.e MILI, CENTI etc from the map
 		int num1 = MathUtilities.getRandomNumber(1, 4);
@@ -75,9 +77,10 @@ public class G7UnitLnConv extends GenericQuestion{
 
 		
 		String heading = mSource.getMessage(Constants.GRADE_7_CONVERSION_OF_UNITS_LENGTH, null, Locale.ENGLISH);
-		String subHeading = "";
+		answ.setAnswer(Double.toString(answer));
 		
-		Problem problem = cProblem.constructProblem(questionList, Double.toString(answer), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 		
 		return problem;
 		

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.math3.fraction.Fraction;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -34,7 +35,7 @@ public class G7MultiplyMissingFrac extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Problem problem= null;;
-
+		Answer answ = new Answer();
 		int numerator1, denominator1, numerator2, denominator2;
 		numerator1 = denominator1 = numerator2 = denominator2 = 0;
 
@@ -108,12 +109,17 @@ public class G7MultiplyMissingFrac extends GenericQuestion {
 		// qLine.setQuestionLn(question);
 		questionList.add(qLine);
 		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION;
-		String subHeading = "";
 
-		if (rule ==1)
-			problem = cProblem.constructProblem(questionList, new Fraction(numerator1, denominator1).toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
-		else if (rule ==2)
-			problem = cProblem.constructProblem(questionList, new Fraction(numerator2, denominator2).toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		if (rule ==1) {
+			problem = cProblem.constructProblem(questionList, heading,  Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+			answ.setAnswer(new Fraction(numerator1, denominator1).toString());
+			problem.setAnswer(answ);
+		}
+		else if (rule ==2) {
+			problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+			answ.setAnswer(new Fraction(numerator2, denominator2).toString());
+			problem.setAnswer(answ);
+		}
 		
 		return problem;
 

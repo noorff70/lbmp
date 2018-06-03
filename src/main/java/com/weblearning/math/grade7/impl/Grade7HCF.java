@@ -121,7 +121,7 @@ public class Grade7HCF extends GenericQuestion{
 				
 		String heading = "Find HCF";
 				
-		Problem problem = cProblem.constructProblem(questionList, "", heading, "", Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION) ;
 		problem.setAnswer(answer);
 				
 		return problem;

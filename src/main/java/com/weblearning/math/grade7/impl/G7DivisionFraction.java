@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.math3.fraction.Fraction;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -39,6 +40,7 @@ public class G7DivisionFraction extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig, int rule) {
 
 		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
 
 		List<FractionObject> fractionList = new ArrayList<FractionObject>();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -56,9 +58,10 @@ public class G7DivisionFraction extends GenericQuestion {
 		questionList.add(qLine);
 
 		String heading = Constants.GRADE_7_CONTENT_SIMPLE_MULTIPLICATION;
-		String subHeading = "";
+		answ.setAnswer(result.toString());
 
-		Problem problem = cProblem.constructProblem(questionList, result.toString(), heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading,  Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

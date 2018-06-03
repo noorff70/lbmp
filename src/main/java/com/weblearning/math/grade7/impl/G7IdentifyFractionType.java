@@ -99,7 +99,7 @@ public class G7IdentifyFractionType extends GenericQuestion{
 		
 		String heading = mSource.getMessage(Constants.GRADE_7_TYPE_OF_FRACTION, null, Locale.ENGLISH);
 		
-		Problem problem = cProblem.constructProblem(questionList, "", heading, null, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answer);
 		
 		return problem;

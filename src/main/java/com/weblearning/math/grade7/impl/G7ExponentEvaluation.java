@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -39,7 +40,7 @@ public class G7ExponentEvaluation extends GenericQuestion {
 	public Problem getProblem1(MathConfiguration mathConfig, int i) {
 
 		CreateProblem cProblem = new CreateProblem();
-
+		Answer answ = new Answer();
 		MessageSource mSource = mathConfig.getmSource();
 
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
@@ -92,13 +93,10 @@ public class G7ExponentEvaluation extends GenericQuestion {
 		questionList.add(qLine1);
 		questionList.add(qLine2);
 
-		String heading = mSource.getMessage(
-				Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
-		String subHeading = "";
+		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		answ.setAnswer(Integer.toString(answer));
 
-		Problem problem = cProblem.constructProblem(questionList,
-				Integer.toString(answer), heading, subHeading,
-				Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 
 		return problem;
 	}

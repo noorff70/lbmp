@@ -13,17 +13,17 @@ import com.weblearning.domain.QuestionLine;
 
 public class CreateProblem {
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, int rank, String type  ){
+	public Problem constructProblem(List<QuestionLine> questionList, String questionHeading, int rank, String type  ){
 		
 		Problem problem = new Problem();
 		
 		Answer answer = new Answer();
-		answer.setAnswer(answ);
+	//	answer.setAnswer(answ);
 	//	answer.setType(type);
 		
 		problem.setQuestionLines(questionList);
 		problem.setQuestionHeading(questionHeading);
-		problem.setQuestionSubHeading(subHeading);
+	//	problem.setQuestionSubHeading(subHeading);
 		problem.setRank(rank);
 		problem.setAnswer(answer);
 		problem.setQuestionType(type);

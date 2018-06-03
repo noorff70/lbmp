@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.math3.fraction.Fraction;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
@@ -38,6 +39,7 @@ public class G7FracStmtEval extends GenericQuestion {
 	public Problem getProblem (int rule, MathConfiguration mathConfig){
 		
 		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
 		
 		int numerator1, denominator1, numerator2, denominator2, numerator3, denominator3, numerator4, denominator4;
 		numerator1=denominator1=numerator2=denominator2=numerator3=denominator3=numerator4=denominator4=0;
@@ -227,9 +229,9 @@ public class G7FracStmtEval extends GenericQuestion {
 		result = getResult(result1, result3);
 		
 		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION;
-		String subHeading = "";
+		answ.setAnswer(result);
 		
-		Problem problem = cProblem.constructProblem(questionList, result, heading, subHeading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		
 		return problem;
 	}
