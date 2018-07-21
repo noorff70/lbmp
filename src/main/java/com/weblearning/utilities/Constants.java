@@ -102,6 +102,7 @@ public interface Constants {
 	public static String GRADE_8_INTEGER_OPERATION="gr8.integer.operation";
 	public static String GRADE_8_INTEGER_OPERATION_OPERATOR_PRECEDENCE="gr8.integer.operation.operator.precedence";
 	public static String GRADE_8_INTEGER_OPERATION_EVALUATE="gr8.integer.operation.evaluate";
+	public static String GRADE_8_FIND_VALUE_OF_X = "gr8.find.value.of.x";
 	
 	public static String GRADE_8_EXPONENT_BASICS="gr8.exponents.basics";
 	public static String GRADE_8_EXPONENT_OPERATION="gr8.exponent.operations";
@@ -114,6 +115,7 @@ public interface Constants {
 	public static String GRADE_EIGHT_SELECT_PROPER_EXPRESSION="gr8.select.proper.scientific.expression";
 	public static String GRADE_EIGHT_POLYNOMIAL_OPERATION="gr8.polynomial.operation";
 	public static String GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION="gr8.polynomial.operation.expression";
+	public static String GRADE_EIGHT_UNDERSTAND_RATIOS="gr8.understand.ratios";
 	
 	
 	public static String FIND_VALUE_OF_X = "find.value.of.x";

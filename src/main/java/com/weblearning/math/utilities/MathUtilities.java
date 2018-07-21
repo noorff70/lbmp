@@ -18,9 +18,10 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
 import org.springframework.util.StringUtils;
 
+import com.weblearning.domain.Answer;
 import com.weblearning.domain.AnswerLine;
 import com.weblearning.domain.NumberObject;
-import com.weblearning.domain.QuestionLine;
+import com.weblearning.domain.Problem;
 import com.weblearning.domain.RootObject;
 import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.math.grade.UniqueObjectMap;
@@ -1393,6 +1394,58 @@ public class MathUtilities {
 		}
 		
 		return result;
+	}
+	
+	public static List<Problem> assignAnswer (List<Problem> problemList) {
+		
+		for (int i=0; i< problemList.size(); i++) {
+			Problem prb = problemList.get(i);
+			Answer ans = prb.getAnswer();
+			//set the first one as correct answer
+			ans.setAnswer(ans.getAnswerList().get(0).getAnswerLn().replaceAll("$", ""));
+			//rearrange answers
+			List<?>answerList = MathUtilities.getQuestionList(ans.getAnswerList(), ans.getAnswerList().size() - 1, 0);
+			
+			String correctAnswerOption = MathUtilities.getCorrectAnswerPosition(answerList, ans.getAnswer());
+			ans.setAnswerOption(correctAnswerOption);
+		}
+		
+		return problemList;
+	}
+	
+	public static String fractionConversion (int numerator, int denominator, String fractionType) {
+		
+		if (denominator == 1)
+			return Integer.toString(numerator);
+		
+		
+		
+		if (null == fractionType) {
+			if (numerator < denominator) {
+				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
+			}
+			else {
+				int whole = numerator /denominator;
+				int remainder = numerator % denominator;
+				String fraction =  Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
+				return fraction;
+			}
+		} else {
+			if (fractionType.equals(Constants.FRACTION_TYPE_NORMAL))
+				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
+			else if (fractionType.equals(Constants.FRACTION_TYPE_MIXED)){
+				if (numerator > denominator) {
+					int whole = numerator /denominator;
+					int remainder = numerator % denominator;
+					String fraction =  Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
+					return fraction;
+				}
+			}
+		}
+		
+
+		
+		return null;
 	}
 	
 }
