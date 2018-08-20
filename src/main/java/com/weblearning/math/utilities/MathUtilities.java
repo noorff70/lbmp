@@ -1415,13 +1415,25 @@ public class MathUtilities {
 	
 	public static String fractionConversion (int numerator, int denominator, String fractionType) {
 		
+		// handle division by zero
+		if (denominator == 0)
+			return "Can not Divide by Zero";
+		
+		if (numerator == 0)
+			return Integer.toString(0);
+		
+		//make the fraction reduced
+		Fraction frac = Fraction.getReducedFraction(numerator, denominator);
+		numerator = frac.getNumerator();
+		denominator = frac.getDenominator();
+		
+		// handle 1 as denominator
 		if (denominator == 1)
 			return Integer.toString(numerator);
 		
 		
-		
 		if (null == fractionType) {
-			if (numerator < denominator) {
+			if (Math.abs(numerator) < Math.abs(denominator)) {
 				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
 			}
 			else {
@@ -1434,7 +1446,7 @@ public class MathUtilities {
 			if (fractionType.equals(Constants.FRACTION_TYPE_NORMAL))
 				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
 			else if (fractionType.equals(Constants.FRACTION_TYPE_MIXED)){
-				if (numerator > denominator) {
+				if (Math.abs(numerator) > Math.abs(denominator)) {
 					int whole = numerator /denominator;
 					int remainder = numerator % denominator;
 					String fraction =  Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
@@ -1442,9 +1454,7 @@ public class MathUtilities {
 				}
 			}
 		}
-		
-
-		
+			
 		return null;
 	}
 	
