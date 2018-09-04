@@ -52,9 +52,11 @@ public class G8Angles extends GenericQuestion {
 
 		MessageSource mSource = mathConfig.getmSource();
 		
-		int c1X = MathUtilities.getRandomNumber(1, 6);
+		//first coordinate (x= -2 to 6, y=0)
+		int c1X = MathUtilities.getRandomNumber(-2, 6);
 		int c1Y = 0;
 		
+		//second coordinate 
 		int c2X = c1X + MathUtilities.getRandomNumber(2, 5);
 		int c2Y = MathUtilities.getRandomNumber(4, 6);
 		
@@ -63,12 +65,12 @@ public class G8Angles extends GenericQuestion {
 		
 		
 		//this is passed to a Python to be used in pyplot. The coordinates work as follows line1= (1,0) and (6,0). line2 =(1,0) and (3,6)
-		//String line1 = "[" + c1X + "," + c2X + "], [" + c1Y + "," + c2Y + "]";
-		String line1 = "[1,6], [0,0]";
-		//String line2 = "[" + c1X + "," + c2X + "], [" + c1Y + "," + c2Y + "]";
-		String line2 = "[1,3], [0,6]";
-		//String line3 = "[" + c2X + "," + c3X + "], [" + c2Y + "," + c3Y + "]";
-		String line3 = "[3,6], [6,0]";
+		String line1 = "[" + c1X + "," + c2X + "], [" + c1Y + "," + c2Y + "]";
+		//String line1 = "[1,6], [0,0]";
+		String line2 = "[" + c1X + "," + c2X + "], [" + c1Y + "," + c2Y + "]";
+		//String line2 = "[1,3], [0,6]";
+		String line3 = "[" + c2X + "," + c3X + "], [" + c2Y + "," + c3Y + "]";
+		//String line3 = "[3,6], [6,0]";
 		
 		/* first four coordinates make two lines that make up the angles, fourth one tells the position of the angle
 			where it will be displayed, fifth one tells if the angle to be show on UI. If there is 1 then show the angle
@@ -76,16 +78,18 @@ public class G8Angles extends GenericQuestion {
 		String angle1 = "[1,6], [0,0], [1,3], [0,6], [1.5,.25], [1]"; //line 1 and line 2
 		String angle2 = "[3,6], [6,0], [1,6], [0,0], [5.5,.25], [1]"; //line 3 and line 1
 		String angle3 = "[3,6], [6,0], [1,3], [0,6], [3,5.5], 'x'"; //line 2 and line 3
+		String xAxisRange = c1X + "," + c3X +  "," + c3Y + "," + c2Y;
 		
 		// coordinate tells the position of label
 		String labelA = "[.75,.25], 'A'";
 		String labelB = "[3,6.5], 'B'";
 		String labelC = "[6.25,.25],'C'";
 		
-		
+		System.out.println(line1 + " " + line2 + " " + line3);;
 		question = "<linebeg>" + line1 + "line" + line2 + "line" + line3 + "<lineend>" +
 				"<anglesbeg>" + angle1 + "angle" + angle2 + "angle" + angle3 + "<anglesend>" + "" +
-				"<vertexbeg>"+ labelA + "vertice" + labelB + "vertice" + labelC + "<vertexend>";
+				"<vertexbeg>"+ labelA + "vertice" + labelB + "vertice" + labelC + "<vertexend>" +
+				"<xyLimitbeg>" + xAxisRange + "<xyLimitend>";
 		
 
 		questionList.add( new QuestionLine( question, null, Constants.PI_PLOT));
