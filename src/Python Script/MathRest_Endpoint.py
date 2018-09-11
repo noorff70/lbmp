@@ -14,7 +14,8 @@ This is a temporary script file.
 import matplotlib.pyplot as plt, mpld3
 import math
 import sympy
-#import numpy as np
+import numpy as np
+import matplotlib.patheffects
 #import base64
 #from io import BytesIO
 #from StringIO import StringIO
@@ -41,6 +42,8 @@ def get_math_answers():
         problems = json.loads( json.dumps(request.json, indent =4))
         #print problems
         for problem in problems:
+            
+
             if 'answer' in problem:
                 if problem['answer']['answerList'] is not None:
                     for answerLn in problem['answer']['answerList']:
@@ -70,33 +73,36 @@ def get_math_answers():
                             
                         #print angles
                         for ang in anglelist:
+                            
                             angleline = literal_eval(ang)
-                         
-                            angleline1 = Line2D(angleline[0], angleline[1])
+                            #print angleline
 
-                            angleline2 = Line2D(angleline[2], angleline[3])
+                            angle_plot = angleline[1]
 
-                            angle_plot = get_angle_plot(angleline1, angleline2, 1, None, angleline[4])
-                            #print angle_plot
-                           # angle_text = get_angle_text(angle_plot)
-                            #ax.add_patch(angle_plot)
-                            #ax.text(*angle_text)
-                            if angleline[5] == 'x':
-                                ans = angle_plot
-                                angle_plot = 'x'
+                            #angleLine[5] is a laceholder if the angle will be shown of not
+                            if angleline[1] == 'x':
+                                ans = angleline[2]
+                               
 
-                            ax.text (angleline[4][0], angleline[4][1], angle_plot)
+                            #angleline[4][0] is the x coordinate where it will be placed
+                            if angle_plot != 90 :
+                                ax.text (angleline[0][0], angleline[0][1], angle_plot)
+                            
+
                         
                         for vlabel in vertexlabels:
                             vertexlabel = literal_eval(vlabel)
-                            ax.text(vertexlabel[0][0], vertexlabel[0][1], vertexlabel[1])
-                            
-                        # xaxis (position[0], position[1], position[2], position[3])                        
+                            ax.text(vertexlabel[0][0], vertexlabel[0][1], vertexlabel[1])              
+  
+                        ax.set_aspect('equal')
+                        ax.grid(True, which='both')
                         ax.axis([float(coordinatelist[0]), float(coordinatelist[1]), float(coordinatelist[2]), float(coordinatelist[3])]) 
                        
                         #plot = json.dumps(mpld3.fig_to_html(fig)) 
                         plot = json.dumps(mpld3.fig_to_dict(fig))
                         qLn['questionLn'] = plot
+
+                        plt.gcf().clear()
             
             if 'answer' in problem:
                 if problem['answer']['answer'] == 'Blank':
@@ -176,26 +182,6 @@ def get_angle_list(s):
     
     return anglelist
 
-
-def get_angle_plot(line1, line2, offset, color, origin, len_x_axis = 1, len_y_axis = 1):
-    #print line1
-    #print line2
-    l1xy = line1.get_xydata()
-    #print origin
-    # Angle between line1 and x-axis
-    m1 = (l1xy[1][1] - l1xy[0][1]) / float(l1xy[1][0] - l1xy[0][0])
-
-    l2xy = line2.get_xydata()
-
-    # Angle between line2 and x-axis
-    m2 = (l2xy[1][1] - l2xy[0][1]) / float(l2xy[1][0] - l2xy[0][0])
-    tangent = abs((m2 -m1)/ (1 + m1 * m2))
-   
-    angle = round(math.degrees(math.atan(tangent)),2)
-    
-    
-    return angle
-    #return Arc(origin, len_x_axis*offset, len_y_axis*offset, 0, color=color, label = str(angle))
 
 
 def get_angle_text(angle_plot):
