@@ -103,6 +103,7 @@ public interface Constants {
 	public static String GRADE_8_INTEGER_OPERATION_OPERATOR_PRECEDENCE="gr8.integer.operation.operator.precedence";
 	public static String GRADE_8_INTEGER_OPERATION_EVALUATE="gr8.integer.operation.evaluate";
 	public static String GRADE_8_FIND_VALUE_OF_X = "gr8.find.value.of.x";
+	public static String GRADE_8_ANGLES="gr8.integer.angles";
 	
 	public static String GRADE_8_EXPONENT_BASICS="gr8.exponents.basics";
 	public static String GRADE_8_EXPONENT_OPERATION="gr8.exponent.operations";
