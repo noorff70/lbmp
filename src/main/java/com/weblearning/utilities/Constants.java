@@ -26,7 +26,7 @@ public interface Constants {
 	public static String MOVE_TO = "moveTo";
 	public static String LINE_TO = "lineTo";
 	public static int SET_PRECISION_THREE = 3;
-	//public static String PROBLEM_TYPE_MULTIPLE = "MULTIPLE";
+	public static String PROBLEM_TYPE_MULTIPLE_QUESTIONS = "MULTIPLE_QUESTION";
 	public static String RIGHT_TO_LEFT = "RTL";
 	public static String DEFAULT= "DEFAULT";
 	public static String CHECK_BOX_TYPE= "CHECKBOXTYPE";
