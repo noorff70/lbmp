@@ -26,11 +26,11 @@ public class RestTopicController {
 	public UIObject topics(@RequestParam("GRADEID") String gradeId, @RequestParam("SUBJECTID") String subjectId,
 			HttpServletRequest request) {
 
-		UIObject uiObject = (UIObject) request.getSession().getAttribute(WebConstants.UI_OBJECT);
-		List<Topic> topicList;
+		// UIObject uiObject = (UIObject) request.getSession().getAttribute(WebConstants.UI_OBJECT);
+		// List<Topic> topicList;
 
 		// Look for the UIObject in Session
-		if (null != uiObject) {
+/*		if (null != uiObject) {
 			topicList = uiObject.getTopicList();
 
 			if (null != topicList && topicList.size() > 0) {
@@ -54,9 +54,9 @@ public class RestTopicController {
 
 			return getNewUIObject(gradeId, subjectId, request);
 
-		}
+		}*/
 
-		// return uiObject;
+		return getNewUIObject(gradeId, subjectId, request);
 	}
 
 	public UIObject getNewUIObject(String gradeId, String subjectId, HttpServletRequest request) {

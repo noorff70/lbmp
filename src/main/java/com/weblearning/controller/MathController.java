@@ -1,4 +1,4 @@
-package com.weblearning.controller;
+/*package com.weblearning.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +24,9 @@ import com.weblearning.service.MathClassLoaderService;
 import com.weblearning.service.TopicDetailService;
 import com.weblearning.utilities.Constants;
 
-/*Returns to UI the TopicDetail Object while taking Topic Detail ID
+Returns to UI the TopicDetail Object while taking Topic Detail ID
  * Will be invoked to call the first problem only. 
- */
+ 
 
 @Controller
 public class MathController {
@@ -38,9 +38,9 @@ public class MathController {
 	private MathClassLoaderService mathClassLoaderService;
 	
 	
-	/* First time the controller is invoked to return to view a list of question headings to display
+	 First time the controller is invoked to return to view a list of question headings to display
 	 * 
-	 */
+	 
 	@RequestMapping(value="mathview", method=RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView topicdetail(@RequestParam("TOPICDETAILID") String topicDetailId, HttpServletRequest request) {
@@ -97,9 +97,9 @@ public class MathController {
 		return model;
 	}
 	
-	/*Will be invoked after the list of question heading is displayed
+	Will be invoked after the list of question heading is displayed
 	 * 
-	 */
+	 
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="/mathviewnext", method = RequestMethod.POST)
 	@ResponseBody
@@ -138,10 +138,10 @@ public class MathController {
         return lesson;
     }
 	
-	/*
+	
 	 * Get the package name of the class
 	 * 
-	 */
+	 
 	public String getPackageName(String gradeId){
 		
 		//if (Integer.parseInt(gradeId)== 5)
@@ -158,9 +158,9 @@ public class MathController {
 		
 	}
 	
-	/*Returns the number of problems in a Lesson
+	Returns the number of problems in a Lesson
 	 * 
-	 */
+	 
 	public int getNumberOfProblems(HttpServletRequest request, List<?> questionList){
 		
 		int numberOfProblems=0; 
@@ -177,3 +177,4 @@ public class MathController {
 	}
 	
 }
+*/

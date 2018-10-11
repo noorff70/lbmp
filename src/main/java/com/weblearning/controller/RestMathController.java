@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.weblearning.domain.Lesson;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.TopicDetail;
 import com.weblearning.service.MathClassLoaderService;
@@ -25,12 +26,12 @@ public class RestMathController {
 	private MathClassLoaderService mathClassLoaderService;
 
 	@RequestMapping(value = "/mathDetail", method = RequestMethod.GET)
-	public List<Problem> getProblems(@RequestParam("TOPICDETAILID") String topicDetailId, @RequestParam("GRADEID") String gradeId) {
+	public Lesson getProblems(@RequestParam("TOPICDETAILID") String topicDetailId, @RequestParam("GRADEID") String gradeId) {
 
+		Lesson ls = new Lesson();
+		
 		// Create a list of problems
 		List<Problem> problemList = new ArrayList<Problem>();
-		List<String> questionSubHeadingList = new ArrayList<String>();
-
 		
 
 		// Get the TopicDetail from db based on the topicDetailId passed by the URL get
@@ -45,34 +46,9 @@ public class RestMathController {
 		mathClassLoaderService.setGradeId(gradeId);
 		problemList = mathClassLoaderService.getProblemList(className);
 
-
-		// Create a list of question headings from the list of problems. Only add the
-		// items once.
-/*		int currentRank = 0, newRank = 0;
-		for (Problem problems : problemList) {
-			currentRank = problems.getRank();
-			if (newRank == 0 && currentRank != 0) {// first time
-				questionHeadingList.add(problems.getQuestionHeading());
-				newRank = currentRank; // set newrank and currentrank same
-			}
-			if (newRank != currentRank) {
-				questionHeadingList.add(problems.getQuestionHeading());
-				newRank = currentRank;
-			} else
-				continue;
-		}*/
-
-		// add all the sub headings on the list to display on screen
-		for (Problem problems : problemList) {
-			questionSubHeadingList.add(problems.getQuestionSubHeading());
-		}
-
-		// create the model
-	//	model.addObject(Constants.LIST_OF_QUESTION_HEADING, questionHeadingList);
-	//	model.addObject(Constants.LIST_OF_QUESTION_SUBHEADING, questionSubHeadingList);
-	//	model.setViewName(Constants.MATH_VIEW);
-
-		return problemList;
+		ls.setProblemList(problemList);
+		
+		return ls;
 	}
 	
 	

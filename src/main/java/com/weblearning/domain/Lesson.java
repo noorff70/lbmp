@@ -1,6 +1,6 @@
 package com.weblearning.domain;
 
-import java.io.Serializable;
+import java.util.List;
 
 
 /*Class to hold the information Lesson object formed from TopicDetail
@@ -8,68 +8,24 @@ import java.io.Serializable;
  * 
  */
 
-public class Lesson implements Serializable{
+public class Lesson {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
-	Problem problem;
-	String check;
-	int numberOfProblems;
-	int remainingProblems;
-	int numberOfCorrectAnswers;
-		
+	List<Problem> problemList;
+	
+	
 	public Lesson(){
 		
 	}
 		
-		
-	public String getCheck(){
-		return check;
+	
+	public List<Problem> getProblem(){
+		return problemList;
 	}
 	
-	public void setCheck(String c){
-		check = c;
-	}
-	
-	public Problem getProblem(){
-		return problem;
-	}
-	
-	public void setProblem(Problem p){
-		problem =p;
+	public void setProblemList(List<Problem> problem){
+		problemList = problem;
 	}
 
-
-	public int getNumberOfProblems() {
-		return numberOfProblems;
-	}
-
-
-	public void setNumberOfProblems(int problems) {
-		this.numberOfProblems = problems;
-	}
-
-
-	public int getRemainingProblems() {
-		return remainingProblems;
-	}
-
-
-	public void setRemainingProblems(int remainingProblems) {
-		this.remainingProblems = remainingProblems;
-	}
-
-
-	public int getNumberOfCorrectAnswers() {
-		return numberOfCorrectAnswers;
-	}
-
-
-	public void setNumberOfCorrectAnswers(int numberOfCorrectAnswers) {
-		this.numberOfCorrectAnswers = numberOfCorrectAnswers;
-	}
 	
 }

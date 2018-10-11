@@ -1,4 +1,4 @@
-package com.weblearning.controller;
+/*package com.weblearning.controller;
 
 
 import java.util.ArrayList;
@@ -20,9 +20,9 @@ public class MenuController implements ApplicationContextAware{
 	@SuppressWarnings("unused")
 	private ApplicationContext applicationContext;
    	
-	/*Returns a list of grades from DB
+	Returns a list of grades from DB
 	 * 
-	*/		
+			
 	@SuppressWarnings("unchecked")
 	public List<?> getdata(){
 		
@@ -46,3 +46,4 @@ public class MenuController implements ApplicationContextAware{
 	}
 	
 }
+*/

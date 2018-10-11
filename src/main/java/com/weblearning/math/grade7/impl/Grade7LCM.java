@@ -90,7 +90,7 @@ public class Grade7LCM extends GenericQuestion{
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
-		List<?> primeNumberList = MathUtilities.getPrimeNumberList(2, 100);
+		List<?> primeNumberList = MathUtilities.getPrimeNumberList(2, 500);
 				
 		int lcmNumber1=0;
 		int lcmNumber2=0;

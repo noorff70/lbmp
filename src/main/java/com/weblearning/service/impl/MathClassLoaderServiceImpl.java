@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.math.grade.GenericQuestion;
-import com.weblearning.math.grade.GeometryQuestion;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.service.MathClassLoaderService;
@@ -56,10 +55,7 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		
 		if (question instanceof GenericQuestion)
 			problemList = (List<Problem>) question.getQuestions(mathConfig);
-		else if (question instanceof GeometryQuestion )
-			problemList = (List<Problem>) question.getGeometryQuestions(mathConfig);
-		//Get the list of the problems	
-		
+	
 				
 		return problemList;
 	}
@@ -73,20 +69,19 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	
 	
 	public Question getQuestion(String className) {
-		
-					
-			try {
-				Class clazz = Class.forName(className);
-				return (Question) clazz.newInstance();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-			return null;
-	
+
+		try {
+			Class clazz = Class.forName(className);
+			return (Question) clazz.newInstance();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 	
 	

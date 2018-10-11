@@ -3,7 +3,7 @@ package com.weblearning.math.grade;
 import java.util.List;
 
 import com.weblearning.domain.MathConfiguration;
-import com.weblearning.domain.Problem;
+//import com.weblearning.domain.Problem;
 
 public abstract class GenericQuestion implements Question{
 	
@@ -16,8 +16,8 @@ public abstract class GenericQuestion implements Question{
 		mathConfig = mConfig;
 	}
 	
-	public List<Problem> getGeometryQuestions(MathConfiguration mathConfig){
-		return null;
-	}
+	//public List<Problem> getGeometryQuestions(MathConfiguration mathConfig){
+	//	return null;
+	//}
 
 }

@@ -60,11 +60,11 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		//ex- (sqrt(2)*3)- convert 4*sqrt(2)- whole-4, root-2
 		int A1power = MathUtilities.getRandomNumber(2,6);
 		int A1base = 2;
-		String A11 = "$(\\sqrt"+A1base+ ")^"+ "{" +A1power+ "}" +"$";
+		String A11 = "(\\sqrt"+A1base+ ")^"+ "{" +A1power+ "}" +"$";
 		RootObject A11R = convertSquareRoottoRootObject(A1base, A1power, 2);
 		
 		int A12 = 2* MathUtilities.getRandomNumber(2, 6);
-		String A1 = A12 + " X " + A11;
+		String A1 = A12 + "$\\times " + A11;
 		//get then root object for this integer
 		RootObject A12R = new RootObject();
 		A12R.setRoot(1);
@@ -86,7 +86,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		int A2base = 2;
 		int A21 = 2* MathUtilities.getRandomNumber(2, 6);
 		int A22 = A21 * (int)Math.pow(2, A2power);
-		String A2 = A21 + " X " + "$" + A2base + "^" + "{" +A2power+ "}" + "$";
+		String A2 = A21 + "$ \\times "  + A2base + "^" + "{" +A2power+ "}" + "$";
 		RootObject r2 = new RootObject();
 		r2.setWhole(A22);
 		r2.setRoot(1);
@@ -165,7 +165,7 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		//ex- (sqrt(2)^3)- 8- convert 4*sqrt(2)- whole-4, root-2
 		int A1power = MathUtilities.getRandomNumber(-6,-2);
 		int A1base = 2;
-		String A11 = "$(\\sqrt"+A1base+ ")^"+ "{" +A1power+ "}" +"$";
+		String A11 = "(\\sqrt"+A1base+ ")^"+ "{" +A1power+ "}" +"$";
 		RootObject A11R = convertSquareRoottoRootObject(A1base, A1power, 2);
 
 		
@@ -178,14 +178,14 @@ public class G8ExpOperationAdv extends GenericQuestion {
 		firstRootList.add(fracNumeratorRootA1);
 		firstRootList.add(fracDenominatorRootA2);
 		
-		String A1 = A12 + " X " + A11;
+		String A1 = A12 + " $\\times " + A11;
 
 		//multiply a number with anothernumber to the power something to get a whole number
 		int A2power = MathUtilities.getRandomNumber(2, 3);
 		int A2base = 2;
 		int A21 = 2* MathUtilities.getRandomNumber(2, 6);
 		int A22 = A21 * (int)Math.pow(2, A2power);
-		String A2 = A21 + " X " + "$" + A2base + "^" + "{" +A2power+ "}" + "$";
+		String A2 = A21 + "$\\times " + A2base + "^" + "{" +A2power+ "}" + "$";
 		
 		//this is whole number so the denominator is set to 1
 		Fraction frac2 = Fraction.getReducedFraction(A22,1);
