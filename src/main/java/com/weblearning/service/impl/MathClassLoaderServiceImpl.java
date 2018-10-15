@@ -10,6 +10,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.weblearning.domain.Lesson;
+import com.weblearning.domain.LessonBody;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.math.grade.GenericQuestion;
@@ -50,7 +52,7 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		
 		List<Problem> problemList = new LinkedList<Problem>();
 		
-		Question question = getQuestion(className);
+		Question question = loadQuestionClass(className);
 		question.setMathConfiguration(mathConfig);
 		
 		if (question instanceof GenericQuestion)
@@ -58,6 +60,15 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	
 				
 		return problemList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<LessonBody> getLesson(String className) {
+		
+		//List<Lesson> lessionList = new LinkedList<Lesson>();
+		Lesson ls = loadLessonClass(className);
+		
+		return ls.getLessonList();		
 	}
 	
 	
@@ -68,11 +79,27 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	}
 	
 	
-	public Question getQuestion(String className) {
+	public Question loadQuestionClass(String className) {
 
 		try {
-			Class clazz = Class.forName(className);
+			Class<?> clazz = Class.forName(className);
 			return (Question) clazz.newInstance();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	
+	public Lesson loadLessonClass(String className) {
+
+		try {
+			Class<?> clazz = Class.forName(className);
+			return (Lesson) clazz.newInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {

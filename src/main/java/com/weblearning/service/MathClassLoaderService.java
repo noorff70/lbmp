@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.MessageSource;
 
+import com.weblearning.domain.LessonBody;
 import com.weblearning.domain.Problem;
 
 public interface MathClassLoaderService {
@@ -15,5 +16,7 @@ public interface MathClassLoaderService {
 	public String  getGradeId();
 	
 	public MessageSource getMessageResource(String gradeId);
+	
+	public List<LessonBody> getLesson(String className);
 
 }

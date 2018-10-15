@@ -1,6 +1,7 @@
 package com.weblearning.controller;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.weblearning.domain.Chapter;
 import com.weblearning.domain.Lesson;
+import com.weblearning.domain.LessonBody;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.TopicDetail;
 import com.weblearning.service.MathClassLoaderService;
@@ -26,13 +29,13 @@ public class RestMathController {
 	private MathClassLoaderService mathClassLoaderService;
 
 	@RequestMapping(value = "/mathDetail", method = RequestMethod.GET)
-	public Lesson getProblems(@RequestParam("TOPICDETAILID") String topicDetailId, @RequestParam("GRADEID") String gradeId) {
+	public Chapter getProblems(@RequestParam("TOPICDETAILID") String topicDetailId, @RequestParam("GRADEID") String gradeId) {
 
-		Lesson ls = new Lesson();
+		Chapter ch = new Chapter();
 		
 		// Create a list of problems
 		List<Problem> problemList = new ArrayList<Problem>();
-		
+		List<LessonBody> lessonList = new LinkedList<LessonBody>();
 
 		// Get the TopicDetail from db based on the topicDetailId passed by the URL get
 		// method
@@ -41,14 +44,20 @@ public class RestMathController {
 		// Get the name of the class from TopicDetail object
 		String packageName = getPackageName(gradeId);
 		String className = packageName + topicDetail.getClassName();
+		
+		String lessonName = topicDetail.getTopic().getGradeSubject();
+		String lessonClassName = getLessonPackageName(gradeId) + lessonName;
 
 		// Get the list of problems and add that to session for later retrieval
 		mathClassLoaderService.setGradeId(gradeId);
 		problemList = mathClassLoaderService.getProblemList(className);
 
-		ls.setProblemList(problemList);
+		ch.setProblemList(problemList);
 		
-		return ls;
+		lessonList = mathClassLoaderService.getLesson(lessonClassName);
+		ch.setLessonList(lessonList);
+		
+		return ch;
 	}
 	
 	
@@ -65,6 +74,16 @@ public class RestMathController {
 		
 		return null;
 		
+	}
+	
+	public String getLessonPackageName(String gradeId) {
+		
+		if (Integer.parseInt(gradeId)== 7)
+			return Constants.GRADE_7_PACKAGE_LESSON;
+		if (Integer.parseInt(gradeId)== 8)
+			return Constants.GRADE_8_PACKAGE_LESSON;
+		
+		return null;
 	}
 
 }

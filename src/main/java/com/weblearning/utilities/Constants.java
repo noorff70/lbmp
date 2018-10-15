@@ -19,6 +19,8 @@ public interface Constants {
 	public static String GRADE_6_PACKAGE = "com.weblearning.math.grade6.impl.";
 	public static String GRADE_7_PACKAGE = "com.weblearning.math.grade7.impl.";
 	public static String GRADE_8_PACKAGE = "com.weblearning.math.grade8.impl.";
+	public static String GRADE_7_PACKAGE_LESSON = "com.weblearning.math.grade7.lessons.";
+	public static String GRADE_8_PACKAGE_LESSON = "com.weblearning.math.grade8.lessons.";
 	
 	//public static String PROBLEM_TYPE_SINGLE = "SINGLE";
 	public static String PROBLEM_TYPE_FRACTION = "FRACTION";
