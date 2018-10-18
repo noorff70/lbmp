@@ -1,14 +1,31 @@
 package com.weblearning.math.grade8.lessons;
 
-import java.util.LinkedList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResourceLoader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 import com.weblearning.domain.Lesson;
 import com.weblearning.domain.LessonBody;
+import com.weblearning.math.utilities.ExampleParser;
 
 public class G8RatiosLs implements Lesson{
+	
+	@Autowired
+	private ResourceLoader resourceLoader;
+	
+	public List<LessonBody> getLessonList() {
+		resourceLoader = new FileSystemResourceLoader();
+	    Resource baseresource = resourceLoader.getResource( "classpath:/locale/math/grade8/lessons/G8Ratios.xml" );
 
-	@Override
+	    List<LessonBody> lessonList = ExampleParser.getLessons(baseresource);
+	    
+	    return lessonList;
+	}
+
+	/*@Override
 	public List<LessonBody> getLessonList() {
 
 		List<LessonBody> lessonList = new LinkedList<LessonBody>();
@@ -40,6 +57,6 @@ public class G8RatiosLs implements Lesson{
 		lessonList.add(ls5);
 				
 		return lessonList;
-	}
+	}*/
 
 }

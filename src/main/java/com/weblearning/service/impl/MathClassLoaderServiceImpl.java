@@ -62,13 +62,14 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 		return problemList;
 	}
 	
-	@SuppressWarnings("unchecked")
+
 	public List<LessonBody> getLesson(String className) {
-		
-		//List<Lesson> lessionList = new LinkedList<Lesson>();
+
 		Lesson ls = loadLessonClass(className);
-		
-		return ls.getLessonList();		
+		if (null != ls) {
+			return ls.getLessonList();
+		}
+		return null;
 	}
 	
 	
