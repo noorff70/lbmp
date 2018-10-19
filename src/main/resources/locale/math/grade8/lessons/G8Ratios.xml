@@ -3,13 +3,16 @@
 	<lesson>
 		<LessonHeader>Two Term Ratio</LessonHeader>
 		<LessonBody>Here one part is compared to a whole Part. Suppose you have total 15 balls. 5 are red and 10 are blue. According to this the ratio of red balls is 5: 15. This can be further simplified as 1: 3. We can also write that as 1 over 3 .</LessonBody>
+		<PicturePath>./assets/images/gr8/G8Ratios_1.svg</PicturePath>
 	</lesson>
 	<lesson>
 		<LessonHeader>Part To Part Ratio</LessonHeader>
 		<LessonBody>Lesson 2</LessonBody>
+		<PicturePath></PicturePath>
 	</lesson>
 	<lesson>
 		<LessonHeader>Equivalent Ratio</LessonHeader>
 		<LessonBody>Lesson 3</LessonBody>
+		<PicturePath></PicturePath>
 	</lesson>
 </lessons>

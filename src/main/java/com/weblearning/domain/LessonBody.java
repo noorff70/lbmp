@@ -4,7 +4,7 @@ public class LessonBody {
 	
 	String lessonHeader;
 	String lessonBody;
-	
+	String picturePath;
 	
 	public String getLessonHeader() {
 		return lessonHeader;
@@ -19,6 +19,11 @@ public class LessonBody {
 		this.lessonBody = lessonBody;
 	}
 	
-	
+	public void setPicturePath(String path) {
+		this.picturePath = path;
+	}
+	public String getPicturePath() {
+		return this.picturePath;
+	}
 
 }

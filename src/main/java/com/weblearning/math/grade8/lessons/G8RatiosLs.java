@@ -19,8 +19,9 @@ public class G8RatiosLs implements Lesson{
 	public List<LessonBody> getLessonList() {
 		resourceLoader = new FileSystemResourceLoader();
 	    Resource baseresource = resourceLoader.getResource( "classpath:/locale/math/grade8/lessons/G8Ratios.xml" );
+	   // Resource picturePath = resourceLoader.getResource("classpath:/locale/math/grade8/lessons/");
 
-	    List<LessonBody> lessonList = ExampleParser.getLessons(baseresource);
+	    List<LessonBody> lessonList = ExampleParser.getLessons(baseresource/*, picturePath*/);
 	    
 	    return lessonList;
 	}

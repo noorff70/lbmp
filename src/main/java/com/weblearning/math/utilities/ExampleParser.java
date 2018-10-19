@@ -16,10 +16,11 @@ import org.springframework.core.io.Resource;
 public class ExampleParser {
 
 	private static String configFile;
+	//private static String configPicPath;
 	private static LessonBody lesson;
 	static List<LessonBody> lessonList;
 
-	public static List<LessonBody> getLessons(Resource resource) {
+	public static List<LessonBody> getLessons(Resource resource/*, Resource path*/) {
 
 		lessonList = null;
 		lesson = null;
@@ -28,6 +29,7 @@ public class ExampleParser {
 		try {
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 			configFile = resource.getFile().getAbsolutePath();
+			//configPicPath = path.getFile().getAbsolutePath();
 
 			InputStream in = new FileInputStream(configFile);
 			XMLStreamReader reader = inputFactory.createXMLStreamReader(in);
@@ -59,6 +61,9 @@ public class ExampleParser {
 						break;
 					case "LessonBody":
 						lesson.setLessonBody(tagContent);
+						break;
+					case "PicturePath":
+						lesson.setPicturePath(tagContent);
 						break;
 					}
 					break;
