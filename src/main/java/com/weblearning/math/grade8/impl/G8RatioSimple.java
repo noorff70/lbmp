@@ -32,14 +32,16 @@ public class G8RatioSimple extends GenericQuestion {
 			gRatioSample.add(getProblem1(mathConfig));
 		for (int i = 0; i < 4; i++)
 			gRatioSample.add(getProblem2(mathConfig));
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 2; i++)
 			gRatioSample.add(getProblem3(mathConfig));
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 2; i++)
 			gRatioSample.add(getProblem4(mathConfig));
 		for (int i = 0; i < 4; i++)
 			gRatioSample.add(getProblem5(mathConfig));
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 4; i++)
 			gRatioSample.add(getProblem6(mathConfig));
+		for (int i = 0; i < 5; i++)
+			gRatioSample.add(getProblem7(mathConfig));
 		
 
 		gRatioSample = MathUtilities.assignAnswer(gRatioSample);
@@ -153,10 +155,10 @@ public class G8RatioSimple extends GenericQuestion {
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
 		//format a
-		int a = MathUtilities.getRandomNumber(-10, 10);
+		int a = MathUtilities.getRandomNumber(-2, -10);
 		
 		//format b
-		Fraction b = new Fraction (MathUtilities.getRandomNumber(1, 8), MathUtilities.getRandomNumber(9, 20));
+		Fraction b = new Fraction (MathUtilities.getRandomNumber(1, 5), MathUtilities.getRandomNumber(6, 10));
 		
 		//format d
 		int dInt = MathUtilities.getRandomNumber(1, 20);
@@ -196,7 +198,7 @@ public class G8RatioSimple extends GenericQuestion {
 	}
 	
 	/*
-	 * x/(3 1/2) = 2 1/2 / .2 
+	 * 5 / (1/2) = x / .25 = 2 1/2
 	 */
 	public Problem getProblem4(MathConfiguration mathConfig) {
 		
@@ -207,13 +209,64 @@ public class G8RatioSimple extends GenericQuestion {
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
 		//format a
-		//int a = MathUtilities.getRandomNumber(-10, 10);
+		int a = MathUtilities.getRandomNumber(2, 5);
 		
 		//format b
-		Fraction b = new Fraction (MathUtilities.getRandomNumber(11, 25), MathUtilities.getRandomNumber(2, 10));
+		Fraction b = new Fraction (MathUtilities.getRandomNumber(1, 5), MathUtilities.getRandomNumber(6, 10));
+		
+		//format d
+		int dInt = MathUtilities.getRandomNumber(1, 10);
+		double d = (double) dInt/100;
+		Fraction fracD = new Fraction(dInt , 100);
+		
+		String left = "$" + Integer.toString(a) + "\\over" + MathUtilities.fractionConversion(b.getNumerator(), b.getDenominator(), null) + "$";
+		String right = "$" + " x " + "\\over" + Double.toString(MathUtilities.getRoundedAnswer(d, 2)) + "$";
+		question = left + " = " + right;
+		
+		MessageSource mSource = mathConfig.getmSource();
+		Fraction resultFrac = fracD.multiply(a).divide(b);
+		
+		//set answer
+		answer.setAnswer("$" + MathUtilities.fractionConversion(resultFrac.getNumerator(), resultFrac.getDenominator(), null) + "$");
+		
+		questionList.add(new QuestionLine(mSource.getMessage(Constants.GRADE_8_FIND_VALUE_OF_X, null, Locale.ENGLISH), null, null));
+		questionList.add(new QuestionLine(question, null, null));
+
+		List<AnswerLine> answerList = new ArrayList<AnswerLine>();
+		answerList.add(new AnswerLine("$" + MathUtilities.fractionConversion(resultFrac.getNumerator(), resultFrac.getDenominator(), null) + "$"));
+		answerList.add(new AnswerLine("$" + MathUtilities.fractionConversion(resultFrac.getNumerator()+2, resultFrac.getDenominator(), null) + "$"));
+		answerList.add(new AnswerLine("$" + MathUtilities.fractionConversion(resultFrac.getNumerator()*5, resultFrac.getDenominator(), null) + "$"));
+		answerList.add(new AnswerLine("$" + MathUtilities.fractionConversion(resultFrac.getNumerator()+3, resultFrac.getDenominator(), null) + "$"));
+
+		answer.setAnswerList(answerList);
+		
+		logger.debug("Question: " + question + " " + "answer: " + answer.getAnswer());
+
+		String heading = mSource.getMessage(Constants.GRADE_EIGHT_UNDERSTAND_RATIOS, null, Locale.ENGLISH);
+
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.RADIO_TYPE);
+		problem.setAnswer(answer);
+
+		return problem;
+	}
+	
+	/*
+	 * x/(3 1/2) = 2 1/2 / .2 
+	 */
+	public Problem getProblem5(MathConfiguration mathConfig) {
+		
+		String question = "";
+		Answer answer = new Answer();
+
+		CreateProblem cProblem = new CreateProblem();
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+		
+		//format b
+		Fraction b = new Fraction (MathUtilities.getRandomNumber(6, 10), MathUtilities.getRandomNumber(2, 5));
 		
 		// format C
-		Fraction c = new Fraction (MathUtilities.getRandomNumber(11, 25), MathUtilities.getRandomNumber(2, 10));
+		Fraction c = new Fraction (MathUtilities.getRandomNumber(6, 10), MathUtilities.getRandomNumber(2, 5));
 		
 		//format d
 		int dInt = MathUtilities.getRandomNumber(1, 20);
@@ -255,7 +308,7 @@ public class G8RatioSimple extends GenericQuestion {
 	/*
 	 * .x/(3 1/2) = 2 1/2 / .2 
 	 */
-	public Problem getProblem5(MathConfiguration mathConfig) {
+	public Problem getProblem6(MathConfiguration mathConfig) {
 		
 		String question = "";
 		Answer answer = new Answer();
@@ -264,10 +317,10 @@ public class G8RatioSimple extends GenericQuestion {
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
 		//format b
-		Fraction b = new Fraction (MathUtilities.getRandomNumber(11, 25), MathUtilities.getRandomNumber(2, 10));
+		Fraction b = new Fraction (MathUtilities.getRandomNumber(5, 10), MathUtilities.getRandomNumber(2, 5));
 		
 		// format C
-		Fraction c = new Fraction (MathUtilities.getRandomNumber(11, 25), MathUtilities.getRandomNumber(2, 10));
+		Fraction c = new Fraction (MathUtilities.getRandomNumber(5, 10), MathUtilities.getRandomNumber(2, 5));
 		
 		//format d
 		int dInt = MathUtilities.getRandomNumber(1, 20);
@@ -309,7 +362,7 @@ public class G8RatioSimple extends GenericQuestion {
 	/*
 	 * (3 1/2)/.x = 2 1/2 / .2 
 	 */
-	public Problem getProblem6(MathConfiguration mathConfig) {
+	public Problem getProblem7(MathConfiguration mathConfig) {
 		
 		String question = "";
 		Answer answer = new Answer();

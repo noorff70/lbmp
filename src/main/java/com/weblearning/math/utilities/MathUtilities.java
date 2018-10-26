@@ -1415,6 +1415,14 @@ public class MathUtilities {
 	
 	public static String fractionConversion (int numerator, int denominator, String fractionType) {
 		
+		String fraction = "";
+		
+		if (numerator < 0 || denominator < 0)
+			fraction = fraction + "-";
+		
+		numerator = Math.abs(numerator);
+		denominator = Math.abs(denominator);
+		
 		// handle division by zero
 		if (denominator == 0)
 			return "Can not Divide by Zero";
@@ -1429,27 +1437,27 @@ public class MathUtilities {
 		
 		// handle 1 as denominator
 		if (denominator == 1)
-			return Integer.toString(numerator);
+			return fraction + Integer.toString(numerator);
 		
 		
 		if (null == fractionType) {
 			if (Math.abs(numerator) < Math.abs(denominator)) {
-				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
+				return fraction + "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
 			}
 			else {
 				int whole = numerator /denominator;
 				int remainder = numerator % denominator;
-				String fraction =  Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
+				fraction =  fraction + Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
 				return fraction;
 			}
 		} else {
 			if (fractionType.equals(Constants.FRACTION_TYPE_NORMAL))
-				return "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
+				return fraction + "\\frac{" + Integer.toString(numerator) + "}{" + Integer.toString(denominator) + "}" ;
 			else if (fractionType.equals(Constants.FRACTION_TYPE_MIXED)){
 				if (Math.abs(numerator) > Math.abs(denominator)) {
 					int whole = numerator /denominator;
 					int remainder = numerator % denominator;
-					String fraction =  Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
+					fraction =  fraction + Integer.toString(whole) + "\\frac{" + Integer.toString(remainder) + "}{" + Integer.toString(denominator) + "}";
 					return fraction;
 				}
 			}

@@ -76,7 +76,7 @@ public class G7DecimalAddition extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_7_ADD_DECIMAL_NUMBERS, null, Locale.ENGLISH);
 		answ.setAnswer(Double.toString(answer));
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
 
 		return problem;

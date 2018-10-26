@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lessons>
 	<lesson>
-		<LessonHeader>Two Term Ratio</LessonHeader>
-		<LessonBody>Here one part is compared to a whole Part. Suppose you have total 15 balls. 5 are red and 10 are blue. According to this the ratio of red balls is 5: 15. This can be further simplified as 1: 3. We can also write that as 1 over 3 .</LessonBody>
-		<PicturePath>./assets/images/gr8/G8Ratios_1.svg</PicturePath>
+		<LessonBodies>
+			<LessonHeader>Two Term Ratio</LessonHeader>
+			<LessonBody>The picture shows three watermelons and two apples. We can interpret the picture in the following ways:</LessonBody>
+			<PicturePath>./assets/images/gr8/G8Ratios_1.svg</PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader></LessonHeader>
+			<LessonBody>The ratio of Watermelon to Apples can be represented as 3: 2. This means out of 5 fruits, 3 are watermelons and 2 are apples.</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader></LessonHeader>
+			<LessonBody>The ratio of watermelon to total number of fruits as 3:5. This means when there are 5 fruits, 3 will be watermelons. The ratio can be represented as a fraction as $ 3\\\over 5 $</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader></LessonHeader>
+			<LessonBody>When total number of fruits are 10 with 6 Watermelons and 4 Apples, the ration between Watermelons and Apples become 6: 4. This can be represented by $ 6\\\over 4 $. This can be reduced by 2 and we can the same ratio as 3: 2</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
 	</lesson>
 	<lesson>
-		<LessonHeader>Part To Part Ratio</LessonHeader>
-		<LessonBody>Lesson 2</LessonBody>
-		<PicturePath></PicturePath>
+		<LessonBodies>
+			<LessonHeader>Part To Part Ratio-1</LessonHeader>
+			<LessonBody>Lesson 2-1</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>Part To Part Ratio-2</LessonHeader>
+			<LessonBody>Lesson 2-2</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
 	</lesson>
 	<lesson>
-		<LessonHeader>Equivalent Ratio</LessonHeader>
-		<LessonBody>Lesson 3</LessonBody>
-		<PicturePath></PicturePath>
+		<LessonBodies>
+			<LessonHeader>Equivalent Ratio</LessonHeader>
+			<LessonBody>Lesson 3</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
 	</lesson>
 </lessons>

@@ -5,7 +5,7 @@ import java.util.List;
 public class Chapter {
 	
 	private List<Problem> problemList;
-	private List<LessonBody> lessonList;
+	private List<Lesson> lessonList;
 	
 	
 	public List<Problem> getProblemList() {
@@ -14,10 +14,10 @@ public class Chapter {
 	public void setProblemList(List<Problem> problemList) {
 		this.problemList = problemList;
 	}
-	public List<LessonBody> getLessonList() {
+	public List<Lesson> getLessonList() {
 		return lessonList;
 	}
-	public void setLessonList(List<LessonBody> ls) {
+	public void setLessonList(List<Lesson> ls) {
 		this.lessonList = ls;
 	}
 	

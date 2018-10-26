@@ -6,22 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.stereotype.Service;
 
 import com.weblearning.domain.Lesson;
-import com.weblearning.domain.LessonBody;
 import com.weblearning.math.utilities.ExampleParser;
+import com.weblearning.service.LessonService;
 
-public class G8RatiosLs implements Lesson{
+@Service("lessonService")
+public class G8RatiosLs implements LessonService{
 	
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	public List<LessonBody> getLessonList() {
+	public List<Lesson> getLessonList() {
 		resourceLoader = new FileSystemResourceLoader();
 	    Resource baseresource = resourceLoader.getResource( "classpath:/locale/math/grade8/lessons/G8Ratios.xml" );
 	   // Resource picturePath = resourceLoader.getResource("classpath:/locale/math/grade8/lessons/");
 
-	    List<LessonBody> lessonList = ExampleParser.getLessons(baseresource/*, picturePath*/);
+	    List<Lesson> lessonList = ExampleParser.getLessons(baseresource/*, picturePath*/);
 	    
 	    return lessonList;
 	}

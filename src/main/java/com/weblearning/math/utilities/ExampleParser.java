@@ -1,5 +1,6 @@
 package com.weblearning.math.utilities;
 
+import com.weblearning.domain.Lesson;
 import com.weblearning.domain.LessonBody;
 
 import java.util.ArrayList;
@@ -17,10 +18,12 @@ public class ExampleParser {
 
 	private static String configFile;
 	//private static String configPicPath;
-	private static LessonBody lesson;
-	static List<LessonBody> lessonList;
+	private static Lesson lesson;
+	private static List<Lesson> lessonList;
+	private static LessonBody lessonBody;
+	private static List<LessonBody> lessonBodyList;
 
-	public static List<LessonBody> getLessons(Resource resource/*, Resource path*/) {
+	public static List<Lesson> getLessons(Resource resource/*, Resource path*/) {
 
 		lessonList = null;
 		lesson = null;
@@ -41,10 +44,14 @@ public class ExampleParser {
 
 				case XMLStreamConstants.START_ELEMENT:
 					if ("lessons".equals(reader.getLocalName())) {
-						lessonList = new ArrayList<LessonBody>();
+						lessonList = new ArrayList<Lesson>();
 					}
 					if ("lesson".equals(reader.getLocalName())) {
-						lesson = new LessonBody();
+						lesson = new Lesson();
+						lessonBodyList = new ArrayList<LessonBody>();
+					}
+					if ("LessonBodies".equals(reader.getLocalName())) {
+						lessonBody = new LessonBody();
 					}
 					break;
 				case XMLStreamConstants.CHARACTERS:
@@ -53,24 +60,29 @@ public class ExampleParser {
 
 				case XMLStreamConstants.END_ELEMENT:
 					switch (reader.getLocalName()) {
+
 					case "lesson":
+						lesson.setLessonBodyList(lessonBodyList);
 						lessonList.add(lesson);
 						break;
+					case "LessonBodies":
+						lessonBodyList.add(lessonBody);
+						break;
 					case "LessonHeader":
-						lesson.setLessonHeader(tagContent);
+						lessonBody.setLessonHeader(tagContent);
 						break;
 					case "LessonBody":
-						lesson.setLessonBody(tagContent);
+						lessonBody.setLessonBody(tagContent);
 						break;
 					case "PicturePath":
-						lesson.setPicturePath(tagContent);
+						lessonBody.setPicturePath(tagContent);
 						break;
 					}
+					
 					break;
 				case XMLStreamConstants.START_DOCUMENT:
 					lessonList = new ArrayList<>();
 					break;
-
 				}
 			}
 

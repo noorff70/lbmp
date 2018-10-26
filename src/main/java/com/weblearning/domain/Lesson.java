@@ -7,9 +7,17 @@ import java.util.List;
  * 
  */
 
-public interface Lesson {
+public class Lesson {
 	
-	public List<LessonBody> getLessonList();
+	List<LessonBody> lessonBodyList;
+
+	public List<LessonBody> getLessonBodyList() {
+		return lessonBodyList;
+	}
+
+	public void setLessonBodyList(List<LessonBody> lessonBodyList) {
+		this.lessonBodyList = lessonBodyList;
+	}
 	
 	
 }

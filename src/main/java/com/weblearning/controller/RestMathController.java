@@ -35,7 +35,7 @@ public class RestMathController {
 		
 		// Create a list of problems
 		List<Problem> problemList = new ArrayList<Problem>();
-		List<LessonBody> lessonList = new LinkedList<LessonBody>();
+		List<Lesson> lessonList = new LinkedList<Lesson>();
 
 		// Get the TopicDetail from db based on the topicDetailId passed by the URL get
 		// method
@@ -54,7 +54,7 @@ public class RestMathController {
 
 		ch.setProblemList(problemList);
 		
-		lessonList = mathClassLoaderService.getLesson(lessonClassName);
+		lessonList = mathClassLoaderService.getLessonList(lessonClassName);
 		ch.setLessonList(lessonList);
 		
 		return ch;

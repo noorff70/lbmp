@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.weblearning.domain.Lesson;
-import com.weblearning.domain.LessonBody;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.grade.Question;
 import com.weblearning.math.utilities.MathUtilities;
+import com.weblearning.service.LessonService;
 import com.weblearning.service.MathClassLoaderService;
 import com.weblearning.service.MessageResolveService;
 
@@ -29,6 +29,8 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	
 	@Autowired
 	MessageResolveService mService;
+	@Autowired
+	LessonService lessonService;
 	
 
 	@Override
@@ -63,11 +65,12 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	}
 	
 
-	public List<LessonBody> getLesson(String className) {
+	public List<Lesson> getLessonList(String className) {
 
-		Lesson ls = loadLessonClass(className);
-		if (null != ls) {
-			return ls.getLessonList();
+		lessonService = (LessonService) loadLessonClass(className);
+		
+		if (null != lessonService) {
+			return lessonService.getLessonList();
 		}
 		return null;
 	}
@@ -96,11 +99,11 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 
 	}
 	
-	public Lesson loadLessonClass(String className) {
+	public LessonService loadLessonClass(String className) {
 
 		try {
 			Class<?> clazz = Class.forName(className);
-			return (Lesson) clazz.newInstance();
+			return (LessonService) clazz.newInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
