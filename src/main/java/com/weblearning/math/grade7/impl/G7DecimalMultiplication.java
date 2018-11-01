@@ -79,7 +79,7 @@ public class G7DecimalMultiplication extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_7_MULTIPLY_DECIMAL_NUMBERS, null, Locale.ENGLISH);
 		answ.setAnswer(answer);
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
 
 		return problem;
@@ -126,7 +126,7 @@ public class G7DecimalMultiplication extends GenericQuestion {
 		String heading = mSource.getMessage(Constants.GRADE_7_MULTIPLY_DECIMAL_NUMBERS, null, Locale.ENGLISH);
 		answ.setAnswer(Double.toString(answer));
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.DEFAULT);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
 
 		return problem;

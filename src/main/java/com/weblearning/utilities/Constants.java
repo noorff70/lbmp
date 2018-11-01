@@ -25,6 +25,7 @@ public interface Constants {
 	//public static String PROBLEM_TYPE_SINGLE = "SINGLE";
 	public static String PROBLEM_TYPE_FRACTION = "FRACTION";
 	public static String PROBLEM_TYPE_GEOMETRY = "GEOMETRY";
+	public static String PROBLEM_TYPE_MULTIPLES = "MULTIPLES";
 	public static String MOVE_TO = "moveTo";
 	public static String LINE_TO = "lineTo";
 	public static int SET_PRECISION_THREE = 3;
@@ -120,7 +121,8 @@ public interface Constants {
 	public static String GRADE_EIGHT_POLYNOMIAL_OPERATION_EXPRESSION="gr8.polynomial.operation.expression";
 	public static String GRADE_EIGHT_UNDERSTAND_RATIOS="gr8.understand.ratios";
 	
-	
+	public static String ANSWER_TO_QUESTION=" answer ";
+	public static String FIND_THE_SUM="find.the.sum";
 	public static String FIND_VALUE_OF_X = "find.value.of.x";
 	public static String SIMPLIFY_FRACTION = "simplify.fraction";
 	public static String FIND_OUT_LARGER_FRACTION = "find.larger.fraction";
@@ -129,6 +131,12 @@ public interface Constants {
 	public static String ADD_THE_FOLLOWING_MIXED_FRACTION = "add.the.folowing.mixed.fraction";
 	public static String SELECT_PROPER_TYPE_OF_FRACTION = "select.proper.type.of.fraction";
 	public static String ADD_FOLLOWING_DECIMAL_NUMBERS = "add.following.decimal.numbers";
+	public static String CONVERT_TO_NEAREST_TENTHS="convert.to.nearest.tenth";
+	public static String CONVERT_TO_NEAREST_THOUSAND="convert.to.nearest.thousand";
+	public static String CONVERT_TO_NEAREST_HUNDREDTHS="convert.to.nearest.hundredths";
+	public static String CONVERT_TO_NEAREST_TENT_THOUSAND="convert.to.nearest.tenth.thousand";
+	public static String CONVERT_TO_TEN_THOUSAND="convert.to.tent.thousand";
+	public static String CONVERT_TO_NEAREST_HUNDRED="convert.to.nearest.hundred";
 	public static String SUBTRACT_FOLLOWING_DECIMAL_NUMBERS = "subtract.following.decimal.numbers";
 	public static String ROUND_UPTO_TWO_DECIMAL_POSITION = "round.upto.two.decimal.position";
 	public static String ROUND_UPTO_FOUR_DECIMAL_POSITION = "round.upto.four.decimal.position";
