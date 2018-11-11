@@ -85,6 +85,7 @@ public interface Constants {
 	public static String GRADE_7_CONVERT_FOLLOWING_FROM_DECIMAL_TO_FRACTION= "gr7.convert.following.from.decimal.to.fraction";
 	public static String GRADE_7_ADD_DECIMAL_NUMBERS = "gr7.add.decimal.numbers";
 	public static String GRADE_7_SUBTRACT_DECIMAL_NUMBERS = "gr7.subtract.decimal.numbers";
+	public static String GRADE_7_FIND_THE_RESULT = "gr7.find.the.result";
 	public static String GRADE_7_MULTIPLY_DECIMAL_NUMBERS = "gr7.multiply.decimal.numbers";
 	public static String GRADE_7_DIVISION_DECIMAL_NUMBERS = "gr7.division.decimal.numbers";
 	public static String GRADE_7_INTEGER_EXPONENTIATION= "gr7.division.integer.exponentiation";
@@ -132,15 +133,17 @@ public interface Constants {
 	public static String SELECT_PROPER_TYPE_OF_FRACTION = "select.proper.type.of.fraction";
 	public static String ADD_FOLLOWING_DECIMAL_NUMBERS = "add.following.decimal.numbers";
 	public static String CONVERT_TO_NEAREST_TENTHS="convert.to.nearest.tenth";
+	public static String GET_TENTH_POSITION="get.tenth.position";
+	public static String GET_THOUSANDTH_POSITION="get.thousandth.position";
 	public static String CONVERT_TO_NEAREST_THOUSAND="convert.to.nearest.thousand";
 	public static String CONVERT_TO_NEAREST_HUNDREDTHS="convert.to.nearest.hundredths";
+	public static String CONVERT_TO_NEAREST_THOUSANDTHS="convert.to.nearest.thousandths";
 	public static String CONVERT_TO_NEAREST_TENT_THOUSAND="convert.to.nearest.tenth.thousand";
 	public static String CONVERT_TO_TEN_THOUSAND="convert.to.tent.thousand";
 	public static String CONVERT_TO_NEAREST_HUNDRED="convert.to.nearest.hundred";
 	public static String SUBTRACT_FOLLOWING_DECIMAL_NUMBERS = "subtract.following.decimal.numbers";
 	public static String ROUND_UPTO_TWO_DECIMAL_POSITION = "round.upto.two.decimal.position";
 	public static String ROUND_UPTO_FOUR_DECIMAL_POSITION = "round.upto.four.decimal.position";
-	public static String MULTIPLY_FOLLOWING_DECIMAL_NUMBERS = "multiply.following.decimal.numbers";
 	public static String DIVISION_FOLLOWING_DECIMAL_NUMBERS = "division.following.decimal.numbers";
 	public static String INTEGER_EXPONENTIATION = "value.of.number.exponentiation";
 	public static String FIND_EXPRESSION = "value.of.expression";
@@ -149,6 +152,9 @@ public interface Constants {
 	public static String CALCULATE_PERCENTAGE_OF_FRACTION="calculate.fraction.precentage";
 	public static String CONVERT_TO_IMPROPER_FRACTION_WHEN_NECESSARY="convert.to.improper";
 	public static String CONVERT_UNIT_LENGTH="gr7.convert.length.unit";
+	public static String GREATER_THAN_ORIGINAL_NUMBER="greater.than.original";
+	public static String LESS_THAN_ORIGINAL_NUMBER="less.than.original";
+	public static String EVALUATE_THE_FOLLOWING="answer.the.following";
 	
 	public static String UNIT_MILI_METER="mili";
 	public static String UNIT_CENTI_METER="centi";
