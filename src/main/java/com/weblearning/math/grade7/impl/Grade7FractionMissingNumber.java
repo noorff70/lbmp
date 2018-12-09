@@ -1,11 +1,8 @@
 package com.weblearning.math.grade7.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import org.apache.commons.math3.fraction.Fraction;
 import org.apache.log4j.Logger;
@@ -15,8 +12,8 @@ import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.math.grade.GenericQuestion;
+import com.weblearning.math.grade7.utilities.GR7_Constants;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
@@ -28,108 +25,419 @@ public class Grade7FractionMissingNumber extends GenericQuestion {
 	public List<?> getQuestions(MathConfiguration mathConfig) {
 		// TODO Auto-generated method stub
 
-		List<Problem> addSubtractFraction = new LinkedList<Problem>();
+		List<Problem> missingFraction = new LinkedList<Problem>();
 
-		for (int i=0; i<25; i++){
-			//either three or four items in the statement
-			//for (int j = 2; j<=3 ; j++)
-			int j=2;//have 2 fractions in the equation
-				addSubtractFraction.add(getProblem1(j, mathConfig));
-		}
+		for (int i=0; i< 1; i++)
+			missingFraction.add(getProblem1(mathConfig, i));
+		for (int i=0; i< 1; i++)
+			missingFraction.add(getProblem2(mathConfig, i));
+		for (int i=0; i< 3; i++)
+			missingFraction.add(getProblem3(mathConfig, i));
+		for (int i=0; i< 3; i++)
+			missingFraction.add(getProblem4(mathConfig, i));
+		for (int i=0; i< 3; i++)
+			missingFraction.add(getProblem5(mathConfig, i));
+		for (int i=0; i< 3; i++)
+			missingFraction.add(getProblem6(mathConfig, i));
+		for (int i=0; i< 3; i++)
+			missingFraction.add(getProblem7(mathConfig, i));
 			
-		return addSubtractFraction;
+		return missingFraction;
 	}
 
 	/*
 	 * Add simple fraction for two fractions. Add + Add
 	 */
-	public Problem getProblem1(int numberOfFractions, MathConfiguration mathConfig) {
-
-		MessageSource mSource = mathConfig.getmSource();
+	public Problem getProblem1(MathConfiguration mathConfig, int i) {
+		
 		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		List<FractionObject> fractionList = new ArrayList<FractionObject>();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
-		Fraction result = new Fraction(0, 1);
-		String question = "";
-		String missingResult = null;
 
-		//fraction type- whole, mixed or normal
-		Map<Integer, String> fractionType = new HashMap<Integer, String>();
-		//signtype + or -
-		Map<Integer, String> signType = new HashMap<Integer, String>();
+		String question1="", question2="", question3="", question4="", question5="";
+		String answer1="", answer2="", answer3="", answer4="", answer5="";
 		
-		fractionType.put(1, Constants.FRACTION_TYPE_MIXED);
-		fractionType.put(2, Constants.FRACTION_TYPE_NORMAL);
 		
-		signType.put(1, Constants.SIGN_PLUS);
-		signType.put(2, Constants.SIGN_MINUS);
+		//find the 1/2 + 2/3 = 
+		Fraction frac1a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction frac1b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
 		
-		//this number will tell which one of the fraction will be missing
-		int missingNumber = MathUtilities.getRandomNumber(1, 2);
-		
-		//position 0= numerator, 1= denominator
-		int numeratorDenominators[] = new int [2];
-		
-		for (int i=1; i<=numberOfFractions; i++) {
-			
-			FractionObject fracObject = new FractionObject();
-			String fraction = (String)fractionType.get(MathUtilities.getRandomNumber(1, 2));
-			//String fraction = Constants.FRACTION_TYPE_NORMAL;
-			
-			if (fraction.equals(Constants.FRACTION_TYPE_MIXED)){
-				numeratorDenominators = MathUtilities.getNumeratorDenominator(2, 10, Constants.FRACTION_TYPE_MIXED);
-				fracObject.setFractionType(Constants.FRACTION_TYPE_MIXED);
-			}
-			else{
-				numeratorDenominators = MathUtilities.getNumeratorDenominator(2, 10, Constants.FRACTION_TYPE_NORMAL);
-				fracObject.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			}
-			
-			//i= missing number which is a random number. if this is the missing number then put an X
-			if (i== missingNumber){
-				fracObject.setMissingFraction(true);
-				Fraction missingFraction = new Fraction (numeratorDenominators[0], numeratorDenominators[1]);
-				missingResult = MathUtilities.convertSingleFRactionToString(missingFraction.getNumerator(), missingFraction.getDenominator());
-			}
-			else
-				fracObject.setMissingFraction(false);
+		Fraction result1 = frac1a.subtract(frac1b);
 
-			fracObject.setNumerator(numeratorDenominators[0]);
-			fracObject.setDenominator(numeratorDenominators[1]);
-			fracObject.setPrefix((String) signType.get(MathUtilities.getRandomNumber(1, 2)));
-			fracObject.setPostFix((String) signType.get(MathUtilities.getRandomNumber(1, 2)));
-			
-			fractionList.add(fracObject);
-			
-		}
-		//get the result as a fraction		
-		result = MathUtilities.getResultAsFraction(fractionList);
+		question1 = "$" +"\\Box - "
+				+ "\\frac{"+ Integer.toString(frac1b.getNumerator()) + "}{"+ Integer.toString(frac1b.getDenominator())+ "} = " 
+				+ "\\frac{" + Integer.toString(result1.getNumerator())+ "}{" + Integer.toString(result1.getDenominator()) + "}"
+				+ "$";
+		answer1 = frac1a.toString();
+		
+		
+		//find the 1/2 + 2/3 = 
+		Fraction _2a = new Fraction(MathUtilities.getRandomNumber(1, 5));
+		Fraction _2b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 6));
+		
+		Fraction _2c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		
+		question2 = "$" +Integer.toString(_2a.getNumerator()) + "\\frac{" + Integer.toString(_2b.getNumerator()) + "}{" + Integer.toString(_2b.getDenominator()) + "} + "
+				+ "\\Box = " ;
+		
+		_2b = _2a.add(_2b);
+		Fraction _2Result = _2b.add(_2c);
+		question2 = question2 +  "\\frac{" + Integer.toString(_2Result.getNumerator()) + "}{" + Integer.toString(_2Result.getDenominator()) + "}$";
+		
+		answer2 = _2c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _3a = new Fraction(MathUtilities.getRandomNumber(1, 5));
+		Fraction _3b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 6));
+		
+		Fraction _3c = new Fraction(MathUtilities.getRandomNumber(1, 3));
+		
+		question3 = "$" +Integer.toString(_3a.getNumerator()) + "\\frac{" + Integer.toString(_3b.getNumerator()) + "}{" + Integer.toString(_3b.getDenominator()) + "} - "
+				+ "\\Box = " ;
+		
+		_3b = _3a.add(_3b);
+		Fraction _3Result = _3b.subtract(_3c);
+		question3 = question3 +  "\\frac{" + Integer.toString(_3Result.getNumerator()) + "}{" + Integer.toString(_3Result.getDenominator()) + "}$";
+		answer3 = _3c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _4a = new Fraction(MathUtilities.getRandomNumber(1, 5));
+		Fraction _4b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 6));
+				
+		Fraction _4c = new Fraction(MathUtilities.getRandomNumber(1, 3));
+				
+		question4 = "$ \\Box + " +Integer.toString(_4a.getNumerator()) + "\\frac{" + Integer.toString(_4b.getNumerator()) + "}{" + Integer.toString(_4b.getDenominator()) + "}  "
+						+ " = " ;
+				
+		_4b = _4a.add(_4b);
+		Fraction _4Result = _4b.add(_4c);
+		question4 = question4 +  "\\frac{" + Integer.toString(_4Result.getNumerator()) + "}{" + Integer.toString(_4Result.getDenominator()) + "}$";
+		answer4 = _4c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _5a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		
+		Fraction result5 = _5a.subtract(_5b);
 
-		//pass this result as Fraction to get a FractionObject
-		FractionObject resultObject = MathUtilities.getFractionAsString(result);
+		question5 = "$" +"\\Box - "
+				+ "\\frac{"+ Integer.toString(_5b.getNumerator()) + "}{"+ Integer.toString(_5b.getDenominator())+ "} = " 
+				+ "\\frac{" + Integer.toString(result5.getNumerator())+ "}{" + Integer.toString(result5.getDenominator()) + "}"
+				+ "$";
+		answer5 = _5a.toString();
 		
-		List<FractionObject> resultList = new ArrayList<FractionObject>();
-		resultList.add(resultObject);
 		
-		//get the formatted result
-		String result1 = MathUtilities.getQuestionAsStringFraction(resultList);
-		question = MathUtilities.getQuestionAsStringFraction(fractionList) + " = " + result1;
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question1 +	Constants.ANSWER_TO_QUESTION + answer1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question2 +	Constants.ANSWER_TO_QUESTION + answer2 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question3 +	Constants.ANSWER_TO_QUESTION + answer3, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question4 + 	Constants.ANSWER_TO_QUESTION  + answer4, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question5 + Constants.ANSWER_TO_QUESTION  + answer5, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		
-		//Set the question
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.FIND_VALUE_OF_X, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine(question);
-		questionList.add(qLine1);
-		questionList.add(qLine2);
 
-		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION;
-		answ.setAnswer(missingResult);
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_ADDITION, null, Locale.ENGLISH);
+		answ.setAnswer("BLANK");
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_MULTIPLES);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem2(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question1="", question2="", question3="", question4="", question5="";
+		String answer1="", answer2="", answer3="", answer4="", answer5="";
+		
+		
+		//find the 1/2 + 2/3 = 
+		Fraction frac1a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction frac1b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction frac1c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 5));
+		
+		Fraction result1 = frac1a.subtract(frac1b).add(frac1c);
+
+		question1 = "$" +"\\Box - "
+				+ "\\frac{"+ Integer.toString(frac1b.getNumerator()) + "}{"+ Integer.toString(frac1b.getDenominator())+ "} +" 
+				+ "\\frac{" + Integer.toString(frac1c.getNumerator())+ "}{" + Integer.toString(frac1c.getDenominator()) + "} = "
+				+ "\\frac{" + Integer.toString(result1.getNumerator())+ "}{" + Integer.toString(result1.getDenominator()) + "}"
+				+ "$";
+		answer1 = frac1a.toString();
+		
+		
+		//find the 1/2 + 2/3 = 
+		Fraction _2a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _2b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _2c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result2 = _2a.add(_2b).add(_2c);
+
+		question2 = "$" + "\\frac{"+ Integer.toString(_2a.getNumerator()) + "}{"+ Integer.toString(_2a.getDenominator())+ "} + "
+				+ "\\frac{"+ Integer.toString(_2b.getNumerator()) + "}{"+ Integer.toString(_2b.getDenominator())+ "} +" 
+				+ "\\Box = "
+				+ "\\frac{" + Integer.toString(result2.getNumerator())+ "}{" + Integer.toString(result2.getDenominator()) + "}"
+				+ "$";
+		answer2 = _2c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _3a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _3b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _3c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result3 = _3a.subtract(_3b).subtract(_3c);
+
+		question3 = "$" + "\\frac{"+ Integer.toString(_3a.getNumerator()) + "}{"+ Integer.toString(_3a.getDenominator())+ "} - "
+				+ "(\\frac{"+ Integer.toString(_3b.getNumerator()) + "}{"+ Integer.toString(_3b.getDenominator())+ "} + " 
+				+ "\\Box ) = "
+				+ "\\frac{" + Integer.toString(result3.getNumerator())+ "}{" + Integer.toString(result3.getDenominator()) + "}"
+				+ "$";
+		answer3 = _3c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _4a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _4b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _4c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result4 = _4a.subtract(_4b).add(_4c);
+
+		question4 = "$" + "\\frac{"+ Integer.toString(_4a.getNumerator()) + "}{"+ Integer.toString(_4a.getDenominator())+ "} - "
+				+ "(\\frac{"+ Integer.toString(_4b.getNumerator()) + "}{"+ Integer.toString(_4b.getDenominator())+ "} - " 
+				+ "\\Box ) = "
+				+ "\\frac{" + Integer.toString(result4.getNumerator())+ "}{" + Integer.toString(result4.getDenominator()) + "}"
+				+ "$";
+		answer4 = _4c.toString();
+		
+		//find the 1/2 + 2/3 =
+		Fraction _5a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result5 = _5a.add(_5b).subtract(_5c);
+
+		question5 = "$" + "\\frac{"+ Integer.toString(_5a.getNumerator()) + "}{"+ Integer.toString(_5a.getDenominator())+ "} + "
+				+ "(\\frac{"+ Integer.toString(_5b.getNumerator()) + "}{"+ Integer.toString(_5b.getDenominator())+ "} - " 
+				+ "\\Box ) = "
+				+ "\\frac{" + Integer.toString(result5.getNumerator())+ "}{" + Integer.toString(result5.getDenominator()) + "}"
+				+ "$";
+		answer5 = _5c.toString();
+		
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question1 +	Constants.ANSWER_TO_QUESTION + answer1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question2 +	Constants.ANSWER_TO_QUESTION + answer2 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question3 +	Constants.ANSWER_TO_QUESTION + answer3, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question4 + 	Constants.ANSWER_TO_QUESTION  + answer4, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question5 + Constants.ANSWER_TO_QUESTION  + answer5, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_ADDITION, null, Locale.ENGLISH);
+		answ.setAnswer("BLANK");
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_MULTIPLES);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem3(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question1="";
+		String answer1="";
+		
+		Fraction _3a = new Fraction(MathUtilities.getRandomNumber(1, 5));
+		Fraction _3b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 6));
+		
+		Fraction _3c = new Fraction(MathUtilities.getRandomNumber(1, 3));
+		
+		question1 = "$" +Integer.toString(_3a.getNumerator()) + "\\frac{" + Integer.toString(_3b.getNumerator()) + "}{" + Integer.toString(_3b.getDenominator()) + "} - "
+				+ "\\Box = " ;
+		
+		_3b = _3a.add(_3b);
+		
+		Fraction _3Result = _3b.subtract(_3c);
+		question1 = question1 +  "\\frac{" + Integer.toString(_3Result.getNumerator()) + "}{" + Integer.toString(_3Result.getDenominator()) + "}$";
+		
+		answer1 = _3c.toString();
+
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question1));
+		
+		String heading = mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH);
+		answ.setAnswer(answer1);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
 
 		return problem;
 	}
+	
+	public Problem getProblem4(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		Fraction _4a = new Fraction(MathUtilities.getRandomNumber(1, 5));
+		Fraction _4b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 6));
+				
+		Fraction _4c = new Fraction(MathUtilities.getRandomNumber(1, 3));
+				
+		question4 = "$ \\Box + " +Integer.toString(_4a.getNumerator()) + "\\frac{" + Integer.toString(_4b.getNumerator()) + "}{" + Integer.toString(_4b.getDenominator()) + "}  "
+						+ " = " ;
+				
+		_4b = _4a.add(_4b);
+		Fraction _4Result = _4b.add(_4c);
+		question4 = question4 +  "\\frac{" + Integer.toString(_4Result.getNumerator()) + "}{" + Integer.toString(_4Result.getDenominator()) + "}$";
+		answer4 = _4c.toString();
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4 ));
+
+		String heading = mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem5(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question5="";
+		String answer5="";
+		
+		Fraction _5a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		
+		Fraction result5 = _5a.subtract(_5b);
+
+		question5 = "$" +"\\Box - "
+				+ "\\frac{"+ Integer.toString(_5b.getNumerator()) + "}{"+ Integer.toString(_5b.getDenominator())+ "} = " 
+				+ "\\frac{" + Integer.toString(result5.getNumerator())+ "}{" + Integer.toString(result5.getDenominator()) + "}"
+				+ "$";
+		answer5 = _5a.toString();
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question5 ));
+
+		String heading = mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH);
+		answ.setAnswer(answer5);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem6(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question5="";
+		String answer5="";
+		
+		Fraction _5a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _5c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result5 = _5a.add(_5b).subtract(_5c);
+
+		question5 = "$" + "\\frac{"+ Integer.toString(_5a.getNumerator()) + "}{"+ Integer.toString(_5a.getDenominator())+ "} + "
+				+ "(\\frac{"+ Integer.toString(_5b.getNumerator()) + "}{"+ Integer.toString(_5b.getDenominator())+ "} - " 
+				+ "\\Box ) = "
+				+ "\\frac{" + Integer.toString(result5.getNumerator())+ "}{" + Integer.toString(result5.getDenominator()) + "}"
+				+ "$";
+		answer5 = _5c.toString();
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question5));
+
+		String heading = mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH);
+		answ.setAnswer(answer5);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem7(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		Fraction _4a = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _4b = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(4, 8));
+		Fraction _4c = new Fraction(MathUtilities.getRandomNumber(1, 3), MathUtilities.getRandomNumber(6, 8));
+		
+		Fraction result4 = _4a.subtract(_4b).add(_4c);
+
+		question4 = "$" + "\\frac{"+ Integer.toString(_4a.getNumerator()) + "}{"+ Integer.toString(_4a.getDenominator())+ "} - "
+				+ "(\\frac{"+ Integer.toString(_4b.getNumerator()) + "}{"+ Integer.toString(_4b.getDenominator())+ "} - " 
+				+ "\\Box ) = "
+				+ "\\frac{" + Integer.toString(result4.getNumerator())+ "}{" + Integer.toString(result4.getDenominator()) + "}"
+				+ "$";
+		answer4 = _4c.toString();
+
+		String heading = mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	
 
 }

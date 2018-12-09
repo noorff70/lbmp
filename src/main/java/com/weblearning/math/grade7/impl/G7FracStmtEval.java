@@ -1,16 +1,19 @@
 package com.weblearning.math.grade7.impl;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.math3.fraction.Fraction;
+import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
-import com.weblearning.domain.utility.FractionObject;
 import com.weblearning.math.grade.GenericQuestion;
+import com.weblearning.math.grade7.utilities.GR7_Constants;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
@@ -22,238 +25,573 @@ public class G7FracStmtEval extends GenericQuestion {
 
 		List<Problem> g6FracStmtEval = new ArrayList<Problem>();
 
-		for (int i = 0; i < 5; i++){
-			//j stands for rule. rules can be 1,2 ,3 etc
-			for (int j=1; j<=4; j++){
-				g6FracStmtEval.add(getProblem(j, mathConfig));
-			}
-		}
+		for (int i = 0; i < 2; i++)
+			g6FracStmtEval.add(getProblem1(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g6FracStmtEval.add(getProblem2(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g6FracStmtEval.add(getProblem3(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g6FracStmtEval.add(getProblem4(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g6FracStmtEval.add(getProblem5(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g6FracStmtEval.add(getProblem6(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g6FracStmtEval.add(getProblem7(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g6FracStmtEval.add(getProblem8(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g6FracStmtEval.add(getProblem9(mathConfig, i)); 
+		for (int i = 0; i < 3; i++)
+			g6FracStmtEval.add(getProblem10(mathConfig, i));
 
 		return g6FracStmtEval;
 	}
-
-
-	/*Find the statement if the first statement is is geater than, less than or equal to the second statement
-	 * 
-	 */
-	public Problem getProblem (int rule, MathConfiguration mathConfig){
+	
+	public Problem getProblem1(MathConfiguration mathConfig, int i) {
 		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 		
-		int numerator1, denominator1, numerator2, denominator2, numerator3, denominator3, numerator4, denominator4;
-		numerator1=denominator1=numerator2=denominator2=numerator3=denominator3=numerator4=denominator4=0;
+		MessageSource mSource = mathConfig.getmSource();
 		
-		List<FractionObject> fractionList1 = new ArrayList<FractionObject>();
-		List<FractionObject> fractionList3 = new ArrayList<FractionObject>();
 		
-		FractionObject fracObject1 = new FractionObject();
-		FractionObject fracObject2 = new FractionObject();
-		FractionObject fracObject3 = new FractionObject();
-		FractionObject fracObject4 = new FractionObject();
-		
-		String result = null;
-		Fraction result1 = new Fraction(0, 1);
-		Fraction result3 = new Fraction(0, 1); 
-		
-		List <QuestionLine>questionList = new ArrayList<QuestionLine>();
-		
-		//ceate the first fractions numeator/denominator
-		numerator1 = MathUtilities.getRandomNumber(11, 20);
-		denominator1 = MathUtilities.getRandomNumber(1, 10);
-		
-		// create the second fraction numerator/denominator
-		numerator2 = MathUtilities.getRandomNumber(1, 10);
-		denominator2 = MathUtilities.getRandomNumber(12, 30);
-		
-		//create the third fraction numerator/denominator
-		numerator3 = MathUtilities.getRandomNumber(11, 20);
-		denominator3 = MathUtilities.getRandomNumber(1, 10);
-		
-		//create the fourth numerator/denominator
-		numerator4 = MathUtilities.getRandomNumber(1, 10);
-		denominator4 = MathUtilities.getRandomNumber(12, 30);
-		
-		switch (rule){
-		
-		//Evaluste f1* f2 AND f3*f4
-		case(1):
-	
-			//create the first fraction object
-			fracObject1.setNumerator(numerator1);
-			fracObject1.setDenominator(denominator1);
-			fracObject1.setPrefix(Constants.SIGN_PLUS);
-			fracObject1.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-					
-			fracObject2.setNumerator(numerator2);
-			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_MULTIPLY);
-			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList1.add(fracObject1);
-			fractionList1.add(fracObject2);
-				
-			//create the third fraction object
-			fracObject3.setNumerator(numerator3);
-			fracObject3.setDenominator(denominator3);
-			fracObject3.setPrefix(Constants.SIGN_PLUS);
-			fracObject3.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			// create the fourth fraction object
-			fracObject4.setNumerator(numerator4);
-			fracObject4.setDenominator(denominator4);
-			fracObject4.setPrefix(Constants.SIGN_MULTIPLY);
-			fracObject4.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList3.add(fracObject3);
-			fractionList3.add(fracObject4);
-			
-			break;
-		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
-			//Evaluate f1/f2 AND f3*f4
-		case(2):
-			//create the first fraction object
-			fracObject1.setNumerator(numerator1);
-			fracObject1.setDenominator(denominator1);
-			fracObject1.setPrefix(Constants.SIGN_PLUS);
-			fracObject1.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-					
-			fracObject2.setNumerator(numerator2);
-			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_DIVISION);
-			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList1.add(fracObject1);
-			fractionList1.add(fracObject2);
-				
-			//create the third fraction object
-			fracObject3.setNumerator(numerator3);
-			fracObject3.setDenominator(denominator3);
-			fracObject3.setPrefix(Constants.SIGN_PLUS);
-			fracObject3.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			// create the fourth fraction object
-			fracObject4.setNumerator(numerator4);
-			fracObject4.setDenominator(denominator4);
-			fracObject4.setPrefix(Constants.SIGN_MULTIPLY);
-			fracObject4.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList3.add(fracObject3);
-			fractionList3.add(fracObject4);
-			break;
-			
+		String question="";
+		String answer="";
+		
+		Fraction frac1a = new Fraction(MathUtilities.getRandomNumber(2, 20), MathUtilities.getRandomNumber(2, 20));
+		Fraction frac1b = new Fraction(MathUtilities.getRandomNumber(2, 20), MathUtilities.getRandomNumber(2, 20));
+		
+		Fraction frac1c = new Fraction(MathUtilities.getRandomNumber(2, 20), MathUtilities.getRandomNumber(2, 20));
+		Fraction frac1d = new Fraction(MathUtilities.getRandomNumber(2, 20), MathUtilities.getRandomNumber(2, 20));
+		
+		if (frac1a.multiply(frac1b).compareTo(frac1c.multiply(frac1d)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac1c.multiply(frac1d)) == -1)
+			answer= "<";
+		else
+			answer = "=";
 
-			//Evaluate f1/f2 and f3/f4
-		case(3):
-			//create the first fraction object
-			fracObject1.setNumerator(numerator1);
-			fracObject1.setDenominator(denominator1);
-			fracObject1.setPrefix(Constants.SIGN_PLUS);
-			fracObject1.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-					
-			fracObject2.setNumerator(numerator2);
-			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_DIVISION);
-			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList1.add(fracObject1);
-			fractionList1.add(fracObject2);
-				
-			//create the third fraction object
-			fracObject3.setNumerator(numerator3);
-			fracObject3.setDenominator(denominator3);
-			fracObject3.setPrefix(Constants.SIGN_PLUS);
-			fracObject3.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			// create the fourth fraction object
-			fracObject4.setNumerator(numerator4);
-			fracObject4.setDenominator(denominator4);
-			fracObject4.setPrefix(Constants.SIGN_DIVISION);
-			fracObject4.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList3.add(fracObject3);
-			fractionList3.add(fracObject4);
-			break;
+		question = "$" +"\\frac{" + Integer.toString(frac1a.getNumerator()) + "}{" + Integer.toString(frac1a.getDenominator()) + "} \\times "
+				+ "\\frac{"+ Integer.toString(frac1b.getNumerator()) + "}{"+ Integer.toString(frac1b.getDenominator())+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(frac1c.getNumerator()) + "}{" + Integer.toString(frac1c.getDenominator()) + "} \\times "
+				+ "\\frac{"+ Integer.toString(frac1d.getNumerator()) + "}{"+ Integer.toString(frac1d.getDenominator())+ "}" 
+				+ "$";
 	
-			//evaluate f1*f2 and f3/f4
-		case(4):
-			//create the first fraction object
-			fracObject1.setNumerator(numerator1);
-			fracObject1.setDenominator(denominator1);
-			fracObject1.setPrefix(Constants.SIGN_PLUS);
-			fracObject1.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-					
-			fracObject2.setNumerator(numerator2);
-			fracObject2.setDenominator(denominator2);
-			fracObject2.setPrefix(Constants.SIGN_MULTIPLY);
-			fracObject2.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList1.add(fracObject1);
-			fractionList1.add(fracObject2);
-				
-			//create the third fraction object
-			fracObject3.setNumerator(numerator3);
-			fracObject3.setDenominator(denominator3);
-			fracObject3.setPrefix(Constants.SIGN_PLUS);
-			fracObject3.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			// create the fourth fraction object
-			fracObject4.setNumerator(numerator4);
-			fracObject4.setDenominator(denominator4);
-			fracObject4.setPrefix(Constants.SIGN_DIVISION);
-			fracObject4.setFractionType(Constants.FRACTION_TYPE_NORMAL);
-			
-			//add the fraction objects to list
-			fractionList3.add(fracObject3);
-			fractionList3.add(fracObject4);
-			break;		
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
 
-			
-		}
-		
-		result1 = MathUtilities.getResultAsFraction(fractionList1);
-		result3 = MathUtilities.getResultAsFraction(fractionList3);
-		
-		questionList.add(new QuestionLine("A " + MathUtilities.getQuestionAsStringFraction(fractionList1) + " > " + MathUtilities.getQuestionAsStringFraction(fractionList3)));
-		questionList.add(new QuestionLine("B " + MathUtilities.getQuestionAsStringFraction(fractionList1) + " < " + MathUtilities.getQuestionAsStringFraction(fractionList3)));
-		questionList.add(new QuestionLine("C " + MathUtilities.getQuestionAsStringFraction(fractionList1) + " = " + MathUtilities.getQuestionAsStringFraction(fractionList3)));
-	
-		result = getResult(result1, result3);
-		
-		String heading = Constants.GRADE_7_CONTENT_FIND_MISSING_FRACTION_FOR_MULTIPLICATION;
-		answ.setAnswer(result);
-		
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
-		
+		problem.setAnswer(answ);
+
 		return problem;
 	}
 	
-	/*
-	 * Get the result
-	 */
-	public String getResult (Fraction result1, Fraction result3){
+	public Problem getProblem2(MathConfiguration mathConfig, int i) {
 		
-		String result = null;
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
 		
-		if (result1.getNumerator()/result1.getDenominator()> result3.getNumerator()/result3.getDenominator())
-			result = "A";
-		else if (result1.getNumerator()/result1.getDenominator()< result3.getNumerator()/result3.getDenominator())
-			result = "B";
-		else if (result1.getNumerator()/result1.getDenominator()== result3.getNumerator()/result3.getDenominator())
-			result = "C";
+		MessageSource mSource = mathConfig.getmSource();
 		
-		return result;
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+
+		
+		if (frac1a.add(frac1b).compareTo(frac2a.multiply(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.add(frac1b).compareTo(frac2a.multiply(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} + "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem3(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+
+		
+		if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\div "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	
+	public Problem getProblem4(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 0, _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 0, _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+		
+		if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\div "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
 	}
 	
 
+	
+	public Problem getProblem5(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+		frac1a = frac1a.multiply(new Fraction(-1));
+		frac2a = frac2b.multiply(new Fraction(-1));
+		
+		if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"(-\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "}) \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"(-\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "}) \\times "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	
+	public Problem getProblem6(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+		frac2a = frac2b.multiply(new Fraction(-1));
+		
+		if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"(-\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "}) \\times "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	
+	public Problem getProblem7(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 0, _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+		
+		if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.divide(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\div "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+
+
+	public Problem getProblem8(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+
+		
+		if (frac1a.divide(frac1b).compareTo(frac2a.subtract(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.divide(frac1b).compareTo(frac2a.subtract(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\div "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} - "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem9(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int _1a = 2*MathUtilities.getRandomNumber(2, 20), _1b = 5*MathUtilities.getRandomNumber(2, 20);
+		int _1c = 2*MathUtilities.getRandomNumber(2, 20), _1d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		int factor1 = MathUtilities.getRandomNumber(1, 5);
+		int factor2 = MathUtilities.getRandomNumber(1, 5);
+		int _2a = _1a*factor1, _2b = _1b*factor1;
+		int _2c = _1c*factor2, _2d = _1d*factor2;
+		
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+			
+		if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.multiply(frac1b).compareTo(frac2a.multiply(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" +"\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ "  \\Box  " 
+				+"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\times "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	public Problem getProblem10(MathConfiguration mathConfig, int i) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+		String answer="";
+		
+		int a = MathUtilities.getRandomNumber(1, 5);
+		int _1a = MathUtilities.getRandomNumber(2, 20), _1b = MathUtilities.getRandomNumber(2, 20);
+		int _1c = MathUtilities.getRandomNumber(2, 20), _1d = MathUtilities.getRandomNumber(2, 20);
+		
+		int b = MathUtilities.getRandomNumber(2, 5);
+		int _2a = 5*MathUtilities.getRandomNumber(2, 20), _2b = 2*MathUtilities.getRandomNumber(2, 20);
+		int _2c = 2*MathUtilities.getRandomNumber(2, 20), _2d = 5*MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction fa = new Fraction(a);
+		Fraction frac1a = new Fraction(_1a, _1b);
+		Fraction frac1b = new Fraction(_1c, _1d);
+		
+		Fraction fb = new Fraction(b);
+		Fraction frac2a = new Fraction(_2a, _2b);
+		Fraction frac2b = new Fraction(_2c, _2d);
+		
+		fa = fa.add(frac1a);
+		fb = fb.add(frac2a);
+		
+		if (frac1a.subtract(frac1b).compareTo(frac2a.subtract(frac2b)) ==1 )
+			answer= ">";
+		else if (frac1a.subtract(frac1b).compareTo(frac2a.subtract(frac2b)) == -1 )
+			answer= "<";
+		else
+			answer = "=";
+
+		question = "$" + Integer.toString(a)+ "\\frac{" + Integer.toString(_1a) + "}{" + Integer.toString(_1b) + "} - "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}  " 
+				+ "  \\Box   " 
+				+ Integer.toString(b) +"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} - "
+				+ "\\frac{"+ Integer.toString(_2c) + "}{"+ Integer.toString(_2d)+ "}" 
+				+ "$";
+	
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.EVALUATE_WITH_SIGN, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question));
+
+		String heading = mSource.getMessage(GR7_Constants.FRACTION_OPERATION_EVALUATE, null, Locale.ENGLISH);
+		answ.setAnswer(answer);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
 
 }
 

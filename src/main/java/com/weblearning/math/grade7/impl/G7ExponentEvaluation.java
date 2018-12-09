@@ -28,75 +28,297 @@ public class G7ExponentEvaluation extends GenericQuestion {
 
 		List<Problem> g7ExponentEvaluation = new ArrayList<Problem>();
 
-		for (int i = 0; i < 25; i++)
+		for (int i = 0; i < 4; i++)
 			g7ExponentEvaluation.add(getProblem1(mathConfig, i));
+		for (int i = 0; i < 4; i++)
+			g7ExponentEvaluation.add(getProblem2(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g7ExponentEvaluation.add(getProblem3(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g7ExponentEvaluation.add(getProblem4(mathConfig, i));
+		for (int i = 0; i < 4; i++)
+			g7ExponentEvaluation.add(getProblem5(mathConfig, i));
+		for (int i = 0; i < 3; i++)
+			g7ExponentEvaluation.add(getProblem6(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g7ExponentEvaluation.add(getProblem7(mathConfig, i));
+		for (int i = 0; i < 2; i++)
+			g7ExponentEvaluation.add(getProblem8(mathConfig, i));
 
 		return g7ExponentEvaluation;
 	}
 
-	/*
-	 * Exponentiation
-	 */
-	public Problem getProblem1(MathConfiguration mathConfig, int i) {
 
+	
+	//3^ 3 = 27
+	public Problem getProblem1(MathConfiguration mathConfig, int i) {
+		
+		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
+		
 		MessageSource mSource = mathConfig.getmSource();
+		
 
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
-		String question = "";
-		int answer = 0;
+		String question4="";
+		String answer4="";
+		
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 8);
+		int q4Pow = MathUtilities.getRandomNumber(2, 4);
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$"+ q4Base + "^{" + q4Pow + "}" + " = " + "\\Box" + "$";
+		answer4 = Integer.toString(ans4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
 
-		// get a random first number
-
-		int firstNumber = MathUtilities.getRandomNumber(1, 10);
-		int pow = MathUtilities.getRandomNumber(1, 4);
-
-		// we put the number and value to a map so that it can be compared and
-		// we don't get any duplicate value
-		// The map wil be (k,v)-> (i,(firstnumber, pow)), where i is the number
-		// of iteration
-		if (objectMaps.size() == 0) {
-			UniqueObjectMap objectMap = new UniqueObjectMap();
-			objectMap.setNumber(firstNumber);
-			objectMap.setPow(pow);
-			objectMaps.put(i, objectMap);
-
-			question = "$" + firstNumber + "^{" + pow + "}$";
-			answer = (int) Math.pow(firstNumber, pow);
-		} else {
-			// 2nd time and so on, we need to compare the value if that is in
-			// the map
-
-			while (MathUtilities.isObjectPresent(firstNumber, pow, objectMaps)) {
-
-				firstNumber = MathUtilities.getRandomNumber(1, 10);
-				pow = MathUtilities.getRandomNumber(1, 4);
-			}
-			// save the values to the class and put in the map
-			UniqueObjectMap objectMap = new UniqueObjectMap();
-			objectMap.setNumber(firstNumber);
-			objectMap.setPow(pow);
-			objectMaps.put(i, objectMap);
-
-			// create question and answer sections
-			question = "$" + objectMap.getNumber() + "^{" + objectMap.getPow()
-					+ "}$";
-			answer = (int) Math.pow(objectMap.getNumber(), objectMap.getPow());
-		}
-
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(
-				Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine(question);
-
-		questionList.add(qLine1);
-		questionList.add(qLine2);
-
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
-		answ.setAnswer(Integer.toString(answer));
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//(1)^ 0 = 1
+	public Problem getProblem2(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 8);
+		int q4Pow = 0;
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$"+ q4Base + "^{" + q4Pow + "}" + " = " + "\\Box" + "$";
+		answer4 = Integer.toString(ans4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//(5)^ 1 = 5
+	public Problem getProblem3(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 8);
+		int q4Pow = 1;
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$"+ q4Base + "^{" + q4Pow + "}" + " = " + "\\Box" + "$";
+		answer4 = Integer.toString(ans4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//(-3)^ 3 = -27
+	public Problem getProblem4(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(-8, -2);
+		int q4Pow = MathUtilities.getRandomNumber(2, 4);
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$("+ q4Base + ")^{" + q4Pow + "}" + " = " + "\\Box" + "$";
+		answer4 = Integer.toString(ans4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//-(-3)^ 3 = 27
+	public Problem getProblem5(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+		
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(-8, -2);
+		int q4Pow = MathUtilities.getRandomNumber(2, 4);
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		ans4 = ans4 * -1;
+		question4 = "$-("+ q4Base + ")^{" + q4Pow + "}" + " = " + "\\Box" + "$";
+		answer4 = Integer.toString(ans4);
+		
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//box^ 3 = 27
+	public Problem getProblem6(MathConfiguration mathConfig, int i) {
+			
+			
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+			
+		MessageSource mSource = mathConfig.getmSource();
+			
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+			
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 8);
+		int q4Pow = MathUtilities.getRandomNumber(2, 4);
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$\\Box^{" + q4Pow + "}" + " = " + ans4 + "$";
+		answer4 = Integer.toString(q4Base);
+			
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//3^x = 27
+	public Problem getProblem7(MathConfiguration mathConfig, int i) {
+			
+			
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+			
+		MessageSource mSource = mathConfig.getmSource();
+			
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+			
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 8);
+		int q4Pow = MathUtilities.getRandomNumber(2, 4);
+		int ans4 = (int) Math.pow((double)q4Base, (double)q4Pow);
+		question4 = "$" + Integer.toString(q4Base) +"^{x}" + " = " + ans4 + "$";
+		answer4 = Integer.toString(q4Pow);
+			
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//3^x = 27
+	public Problem getProblem8(MathConfiguration mathConfig, int i) {
+			
+			
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+			
+		MessageSource mSource = mathConfig.getmSource();
+			
+
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question4="";
+		String answer4="";
+			
+		//find the result
+		int q4Base = MathUtilities.getRandomNumber(2, 5);
+		int q4Pow = MathUtilities.getRandomNumber(-3, -2);
+		int ans4 = (int) Math.pow((double)q4Base, (double)Math.abs(q4Pow));
+		question4 = "$" + Integer.toString(q4Base) +"^{" + q4Pow + "}" + " =  \\Box $";
+		answer4 = "$" +"\\frac{" + Integer.toString(1) + "}{" + Integer.toString(ans4) + "}$";
+			
+		questionList.add(new QuestionLine( mSource.getMessage(Constants.EVALUATE_THE_FOLLOWING, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question4));
+
+		String heading = mSource.getMessage(Constants.GRADE_7_EXPONENT_BASE, null, Locale.ENGLISH);
+		answ.setAnswer(answer4);
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
 
 		return problem;
 	}

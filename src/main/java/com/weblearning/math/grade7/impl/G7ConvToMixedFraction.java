@@ -40,28 +40,28 @@ public class G7ConvToMixedFraction extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 		
-		
-		int denominator = MathUtilities.getRandomNumber(2, 20);
-		int numerator = MathUtilities.getRandomNumber(denominator+1, 50);
+		int denominator = MathUtilities.getRandomNumber(2, 10);
+		int numerator = (MathUtilities.getRandomNumber(1, 5) + denominator ) * MathUtilities.getRandomNumber(2, 5) ;
 		
 		int whole = numerator/denominator;
 		//remainder is now the new numerator ex 35%15= whole=2, newnumerator = 5, denominator =15
-		int newNumerator = numerator % denominator;
+		int remainder = numerator % denominator;
 		
-		String question = MathUtilities.convertSingleFRactionToString(numerator, denominator);
+		String question = "$" + "\\frac {" + Integer.toString(numerator) + "}{"+ Integer.toString(denominator) + "}$";
 		
-		Fraction frac = Fraction.getReducedFraction(newNumerator, denominator);
+		Fraction frac = new Fraction(remainder, denominator );
 		
 		//this is a whole number
-		if (newNumerator==0)
+		if (remainder == 0)
 			answer = Integer.toString(whole);
 		else
-			answer = whole + MathUtilities.convertSingleFRactionToString(frac.getNumerator(), frac.getDenominator());
+			answer = Integer.toString(whole) +" " +Integer.toString(frac.getNumerator()) + "/" + Integer.toString(frac.getDenominator()) ;
+		
+		answ.setAnswer(answer);
 		
 		//add the questions
 		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.CONVERT_THE_FOLLOWING_TO_MIXED_FRACTION, null, Locale.ENGLISH));
 		QuestionLine qLine2 = new QuestionLine(question);
-
 		
 		questionList.add(qLine1);
 		questionList.add(qLine2);
