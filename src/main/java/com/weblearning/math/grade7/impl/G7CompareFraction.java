@@ -29,15 +29,15 @@ public class G7CompareFraction extends GenericQuestion{
 			g7CompareFraction.add(getProblem1(mathConfig, i));
 		for (int i=0; i< 1; i++)
 			g7CompareFraction.add(getProblem2(mathConfig, i));
-		for (int i=0; i< 1; i++)
+		for (int i=0; i< 3; i++)
 			g7CompareFraction.add(getProblem3(mathConfig, i));
-		for (int i=0; i< 1; i++)
+		for (int i=0; i< 3; i++)
 			g7CompareFraction.add(getProblem4(mathConfig, i));
-		for (int i=0; i< 1; i++)
+		for (int i=0; i< 3; i++)
 			g7CompareFraction.add(getProblem5(mathConfig, i));
-		for (int i=0; i< 1; i++)
+		for (int i=0; i< 3; i++)
 			g7CompareFraction.add(getProblem6(mathConfig, i));
-		for (int i=0; i< 1; i++)
+		for (int i=0; i< 3; i++)
 			g7CompareFraction.add(getProblem7(mathConfig, i));
 		
 		
