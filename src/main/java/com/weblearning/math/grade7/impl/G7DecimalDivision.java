@@ -84,14 +84,14 @@ public class G7DecimalDivision extends GenericQuestion {
 	}
 	
 	
-	public int getDecimalPosition(double firstDecimal, double secondDecimal){
+	/*public int getDecimalPosition(double firstDecimal, double secondDecimal){
 		
 		int first= Double.toString(firstDecimal).length()- Double.toString(firstDecimal).indexOf('.')-1;
 		int second= Double.toString(secondDecimal).length()- Double.toString(secondDecimal).indexOf('.')-1;
 		
 		return first+second;
 		
-	}
+	}*/
 	
 
 }

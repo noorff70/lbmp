@@ -25,4 +25,42 @@ public interface GR7_Constants {
 	public static String PERFORM_FRACTION_OPERATION="perform.fraction.operation";
 	public static String SIMPLIFY_FRACTION="simplify.fraction";
 	public static String FRACTION_SIMPLIFICATION="fraction.simplification";
+	public static String CONVERSION_OF_UNITS="conversion.of.units";
+	
+	public static String TIMES ="times";
+	public static String RD="rd";
+	public static String TH="th";
+	public static String SUM_OF="sum.of";
+	public static String AVERAGE_OF="average.of";
+	
+	public static String CONVERT_FROM="convert.from";
+	public static String CONVERT_TO="convert.to";
+	public static String KILOMETER="kilometer";
+	public static String METER="meter";
+	public static String DECAMETER="decameter";
+	public static String MILIMETER="milimeter";
+	public static String CENTIMETER="centimeter";
+	public static String DECIMETER="decimeter";
+	public static String HECTOMETER="hectometer";
+	public static String CONVERT="convert";
+	public static String FEET="feet";
+	public static String INCH="inch";
+	public static String YARD="yard";
+	public static String MILE="mile";
+	public static String POUND="pound";
+	public static String KILOGRAM="kilogram";
+	public static String OUNCE="ounce";
+	public static String GRAM="gram";
+	public static String LITER="liter";
+	public static String MILILITER="mililiter";
+	public static String CENTILITER="centiliter";
+	public static String KILOLITER="kiloleter";
+	public static String DECILITER="deciliter";
+	public static String DECALITER="decaliter";
+	public static String MILIGRAM="miligram";
+	public static String CENTIGRAM="centigram";
+	public static String DECIGRAM="decigram";
+	public static String DECAGRAM="decagram";
+	
+	public static String PERCENTAGE_BASICS="percentage.basics";
 }

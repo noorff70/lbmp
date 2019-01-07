@@ -42,5 +42,31 @@ public class RestMathClientServiceImpl implements RestMathClientService{
 		return problemList;
 
 	}
+	
+	@Override
+	public List<Problem> returnExpression(List<Problem> answerList) {
+		List<Problem> problemList = new ArrayList<Problem>();
+		
+		String uri = "http://localhost:5000/getExpressions";
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		
+
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<Object> entity = new HttpEntity<Object>(answerList, headers);
+		String answer = restTemplate.postForObject(uri, entity, String.class);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			problemList = mapper.readValue(answer, mapper.getTypeFactory().constructCollectionType(List.class, Problem.class));
+		}catch(Exception e) {
+			logger.error("From RestMathClientServiceImpl:  "+ e);
+		}
+		
+		return problemList;
+
+	}
  
 }

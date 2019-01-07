@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+	<problem>
+		<questionline>x is a positive integer which is the average of two positive integers a and b. Write an expression in terms of a and b the value of x </questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>2</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$(a + b) \over _var1 $</displayableanswer>
+			<answerLine>(a+b)/2</answerLine>
+			<answerLine>(b+a)/2</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>var1 times of x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>var1x</displayableanswer>
+			<answerLine>var1x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>var1 less than x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>x-var1</displayableanswer>
+			<answerLine>-var1+x</answerLine>
+			<answerLine>x-var1</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>var1 more than x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>x+var1</displayableanswer>
+			<answerLine>x+var1</answerLine>
+			<answerLine>var1+x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Sum of two consecutive numbers when the smaller is x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<answerType>default</answerType>
+			<displayableanswer>x+x+1</displayableanswer>
+			<answerLine>x+x+1</answerLine>
+			<answerLine>2x+1</answerLine>
+			<answerLine>1+2x</answerLine>
+			<answerLine>1+x+x</answerLine>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Half ox x plus var1</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$\frac{x}{2} + var1$</displayableanswer>
+			<answerLine>x/2+var1</answerLine>
+			<answerLine>var1+x/2</answerLine>
+			<answerLine>exp</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>x/2+var1</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Write an expression for two positive integers where the condition is _var1 , _var2 th of a plus _var3  .</questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>3</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>_var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>6</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<variable>
+			<variableName>_var3</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>11</lowerlimit>
+			<upprlimit>20</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$\frac{_var1}{_var2} a + _var3  $</displayableanswer>
+			<answerLine>_var1 a/_var2 + _var3</answerLine>
+			<answerLine>_var3 + _var1 a/_var2</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	 <problem>
+		<questionline>Total age of Ali and Azam are x years. What is Azam's age if Ali is _var1 years old? Write in terms of x.</questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$x - _var1 $</displayableanswer>
+			<answerLine>x-_var1</answerLine>
+			<answerLine>-_var1 + x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>John's age is x. Jane is John's elder sister and she is _var1 years older than John. Write Jane's age in terms of x</questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>3</lowerlimit>
+			<upprlimit>7</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$ x + _var1  $</displayableanswer>
+			<answerLine>x + _var1</answerLine>
+			<answerLine>_var1 + x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Adam and Adriana are siblings. Adam is var1 years older than Adriana. Adriana is x years old. What is their total age in terms of x?</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>x + x + var1 </displayableanswer>
+			<answerLine>var1+2x</answerLine>
+			<answerLine>2x+var1</answerLine>
+			<answerLine>x+x+var1</answerLine>
+			<answerLine>var1+x+x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Mary and Maria are two sisters. Mary is x years old and Maria is var1 years younger than Mary. What is their combined age in terms of x?</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>x+x-var1</displayableanswer>
+			<answerLine>x+x-var1</answerLine>
+			<answerLine>2x-var1</answerLine>
+			<answerLine>-var1 +2x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Mary and Maria are two sisters. Mary is x years old and Maria is var1 years younger than Mary. Their dad's age is var2 years plus var3 times of the sum of their age. Write their dad's age in terms of x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>1</lowerlimit>
+			<upprlimit>3</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>1</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var3</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>3</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$ exp $</displayableanswer>
+			<answerLine>var3(x + x -var1) + var2</answerLine>
+			<answerLine>var3(-var1 + x + x) + var2</answerLine>
+			<answerLine>var2 + var3(x + x -var1)</answerLine>
+			<answerLine>var2 + var3(-var1 + x + x)</answerLine>
+			<answerLine>var3(2x -var1) + var2</answerLine>
+			<answerLine>var3(-var1 + 2x) + var2</answerLine>
+			<answerLine>var2 + var3(2x -var1)</answerLine>
+			<answerLine>var2 + var3(2x -var1)</answerLine>
+			<answerLine>var2 + var3(x + x -var1)</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>var3*(x + x -var1) + var2</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Mary and Maria are two sisters. Mary is x years old and Maria is var1 years older than Mary. Their mom's age is var2 years plus var3, var4th times of the sum of their age. Write their mom's age in terms of x.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>1</lowerlimit>
+			<upprlimit>3</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>10</lowerlimit>
+			<upprlimit>15</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var3</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>3</upprlimit>
+		</variable>
+			<variable>
+			<variableName>var4</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>4</lowerlimit>
+			<upprlimit>9</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$ \frac{var3}{var4}(exp) + var2$</displayableanswer>
+			<answerLine>var3(exp)/var4 + var2$</answerLine>
+			<answerLine>(exp)var3/var4 + var2$</answerLine>
+			<answerLine>var3(x+x+var1)/var4 + var2</answerLine>
+			<answerLine>var3(x+var1+x)/var4 + var2</answerLine>
+			<answerLine>(x+x+var1)var3/var4 + var2</answerLine>
+			<answerLine>(x+x+var1)var3/var4 + var2</answerLine>
+			<answerLine>var2 +var3(exp)/var4</answerLine>
+			<answerLine>var2 +(exp)var3/var4</answerLine>
+			<answerLine>var2+var3(x+x+var1)/var4</answerLine>
+			<answerLine>var2+var3(x+var1+x)/var4</answerLine>
+			<answerLine>var2+(x+x+var1)var3/var4</answerLine>
+			<answerLine>var2+(x+x+var1)var3/var4</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>(x + x +var1)</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Zaman has x Dollars. Jamila has var1 times dollars than Zaman. How much money Jamila has? Express in terms of Dollar.  </questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>var1x</displayableanswer>
+			<answerLine>var1x</answerLine>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Zaman has x Dollars. Jamila has var1 times dollars than Zaman. How much money Jamila has? Express in terms of Cents.  </questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>exp</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerLine>100*var1*x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>100*var1*x</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Jennifer had x dollars. She went for shopping and bought a shirt for var1 dollars and a trouser for var2 dollars. How much dollar she has now? </questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>15</lowerlimit>
+			<upprlimit>20</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>21</lowerlimit>
+			<upprlimit>25</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>exp</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerLine>x-var1-var2</answerLine>
+			<answerLine>x-var2-var1</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>x-var1-var2</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Jennifer has var1 times plus var2 dollars than Jack has. If jack has y dollars, then how much money Jennifer has? </questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>30</lowerlimit>
+			<upprlimit>50</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>exp</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerLine>var1y+var2</answerLine>
+			<answerLine>var2+var1y</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>var1*y + var2</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Jennifer has var1 times plus var2 dollars than Jack has. If jack has y dollars, then how much money Jennifer has? Write in cents. </questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>30</lowerlimit>
+			<upprlimit>50</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>exp</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerLine>100*var1y+100*var2</answerLine>
+			<answerLine>100*var2+100*var1y</answerLine>
+			<answerLine>100(var1y+var2)</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<expression>100*(var1*y + var2)</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	
+	
+ 	
+	<problem>
+		<questionline>Team A has won _var1 times games than Team B. Team B has won x number of games. How many games Team A won in terms of x?</questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>4</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$  _var1 \times x $</displayableanswer>
+			<answerLine>_var1x</answerLine>
+			<answerLine>_var1*x</answerLine>
+			<answerLine>_var1xx</answerLine>
+			<answerLine>_var1Xx</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Team A has won _var1 times games than Team B. Team A has won x number of games. How many games Team B won in terms of x?</questionline>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>4</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>$  \frac{x}{_var1} $</displayableanswer>
+			<answerLine>x/_var1</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Tim has got a new piggy bank. He starts saving x cents every day for the month of January starting from January 1st. What would be his total savings after _var1 days? Write in terms of x.</questionline>
+		<Answer>
+			<displayableanswer>$ _var1 x $</displayableanswer>
+			<answerLine>_var1 x</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>15</lowerlimit>
+			<upprlimit>31</upprlimit>
+		</variable>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Tim has a 50 cents in his piggy bank. He starts saving x cents every day for the month of January starting from January 1st. What would be his total savings after _var1 days? Write in terms of x.</questionline>
+		<Answer>
+			<displayableanswer>$  50 + _var1 x $</displayableanswer>
+			<answerLine>50+_var1 x</answerLine>
+			<answerLine>_var1 x + 50</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>15</lowerlimit>
+			<upprlimit>31</upprlimit>
+		</variable>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Tim had 1 dollar at the beginning of month. Everyday he saved x cents. At the end of _var1 days he gave _var2 cents to his sister. How much money he has now after _var1 days? Write in terms of cents.</questionline>
+		<Answer>
+			<displayableanswer>$  _var1 x + exp $</displayableanswer>
+			<answerLine>_var1 x + exp</answerLine>
+			<answerLine>exp + _var1x</answerLine>
+			<answerLine>100 - _var2 + _var1 x</answerLine>
+			<answerLine>100 + _var1 x -_var2</answerLine>
+			<answerLine>- _var2 + 100 + _var1 x</answerLine>
+			<answerLine>- _var2 + _var1 x + 100</answerLine>
+			<answerLine>_var1 x + 100 - _var2</answerLine>
+			<answerLine>_var1 x - _var2 + _var1</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<variable>
+			<variableName>_var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>15</lowerlimit>s
+			<upprlimit>30</upprlimit>
+		</variable>
+		<variable>
+			<variableName>_var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>20</lowerlimit>
+			<upprlimit>90</upprlimit>
+		</variable>
+		<expression>100 - _var2</expression>
+		<heading>Algebric Expression</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	
+</problems>

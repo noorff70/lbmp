@@ -15,8 +15,8 @@ import com.weblearning.math.utilities.ReplaceExpressionUtility;
 import com.weblearning.service.RestMathClientService;
 import com.weblearning.service.impl.RestMathClientServiceImpl;
 
-public class G7PCTDecimal extends GenericQuestion{
-
+public class G7AlgExpWrite extends GenericQuestion{
+	
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
@@ -29,7 +29,7 @@ public class G7PCTDecimal extends GenericQuestion{
 		//PythonExpressionThread pExpress;
 		
 		resourceLoader = new FileSystemResourceLoader();
-	    Resource baseresource = resourceLoader.getResource( "classpath:/locale/math/grade7/problems/WordProblems/WordProblem.xml" );
+	    Resource baseresource = resourceLoader.getResource( "classpath:/locale/math/grade7/problems/AlgebricExp/G7AlgExpWrite.xml" );
 
 	    //get all the problems
 	    List<Problem> problemList = ProblemParser.getProblems(baseresource);
@@ -64,5 +64,4 @@ public class G7PCTDecimal extends GenericQuestion{
 	
 		return problemList;
 	}
-	
 }

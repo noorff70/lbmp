@@ -22,6 +22,7 @@ public class Problem {
 	Answer answer;
 	GeometryObject  geometryObject;
 	String questionType;
+	List <Variable> variableList;
 	
 	public Problem(){
 		
@@ -92,5 +93,13 @@ public class Problem {
 	public void setQuestionType(String type) {
 		this.questionType = type;
 	}
-
+	
+	public List <Variable> getVariableList() {
+		return this.variableList;
+	}
+	
+	public void setVariableList(List <Variable> v) {
+		this.variableList = v;
+	}
+	
 }
