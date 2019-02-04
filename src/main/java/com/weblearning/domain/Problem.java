@@ -2,6 +2,8 @@ package com.weblearning.domain;
 
 import java.util.List;
 
+import com.weblearning.domain.utility.geometry.GeometryObject;
+
 /**
  * 
  * @author Faizul
@@ -20,9 +22,10 @@ public class Problem {
 	List<QuestionLine> questionLines;
 	/*Answer to the question */
 	Answer answer;
-	GeometryObject  geometryObject;
 	String questionType;
 	List <Variable> variableList;
+	GeometryObject  geometryObject;
+	GraphObject graphObject;
 	
 	public Problem(){
 		
@@ -100,6 +103,14 @@ public class Problem {
 	
 	public void setVariableList(List <Variable> v) {
 		this.variableList = v;
+	}
+	
+	public void setGraphObject(GraphObject go) {
+		this.graphObject = go;
+	}
+	
+	public GraphObject getGraphObject() {
+		return this.graphObject;
 	}
 	
 }

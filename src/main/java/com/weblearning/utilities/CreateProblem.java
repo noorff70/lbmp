@@ -3,7 +3,7 @@ package com.weblearning.utilities;
 import java.util.List;
 
 import com.weblearning.domain.Answer;
-import com.weblearning.domain.GeometryObject;
+//import com.weblearning.domain.GeometryObject;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 
@@ -33,7 +33,7 @@ public class CreateProblem {
 	}
 	
 	
-	public Problem constructProblem(List<QuestionLine> questionList, GeometryObject geoObject, String answ, String questionHeading,  String subHeading, int rank, String type){
+	/*public Problem constructProblem(List<QuestionLine> questionList, GeometryObject geoObject, String answ, String questionHeading,  String subHeading, int rank, String type){
 		
 		Problem problem = new Problem();
 		
@@ -51,7 +51,7 @@ public class CreateProblem {
 		
 		return problem;
 		
-	}
+	}*/
 	
 	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, int rank, String type, String picturePath  ){
 		

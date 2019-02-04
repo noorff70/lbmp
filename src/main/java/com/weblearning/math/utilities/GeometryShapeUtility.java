@@ -1,4 +1,4 @@
-package com.weblearning.math.utilities;
+/*package com.weblearning.math.utilities;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,9 +17,9 @@ import com.weblearning.domain.utility.LineObject;
 import com.weblearning.domain.utility.PolygonObject;
 import com.weblearning.domain.utility.geometry.Triangle;
 
-/*
+
  * This class reads an xml file and creates the coordinates and geometric object
- */
+ 
 public class GeometryShapeUtility {
 	
 	
@@ -251,3 +251,4 @@ public class GeometryShapeUtility {
 		
 	}
 }
+*/

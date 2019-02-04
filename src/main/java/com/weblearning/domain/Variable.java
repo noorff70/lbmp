@@ -1,5 +1,7 @@
 package com.weblearning.domain;
 
+import java.util.List;
+
 public class Variable {
 	
 	int lowerLimit;
@@ -7,6 +9,7 @@ public class Variable {
 	String variableName;
 	String variableType;
 	int variableValue;
+	List<?>valueList;
 	
 	public int getLowerLimit() {
 		return lowerLimit;
@@ -38,6 +41,12 @@ public class Variable {
 	
 	public int getVariableValue() {
 		return this.variableValue;
+	}
+	public List<?> getValueList() {
+		return valueList;
+	}
+	public void setValueList(List<?> valueList) {
+		this.valueList = valueList;
 	}
 
 }

@@ -63,4 +63,14 @@ public interface GR7_Constants {
 	public static String DECAGRAM="decagram";
 	
 	public static String PERCENTAGE_BASICS="percentage.basics";
+	
+	public static String CALCULATE_MEAN="calculate.mean";
+	public static String CALCULATE_MEDIAN="calculate.median";
+	public static String CALCULATE_MODE="calculate.mode";
+	public static String MEAN_MEDIAN_MODE_BASICS="mean.median.mode.basics";
+	public static String MEDIAN_WORD_PROBLEM="median.word.problem";
+	
+	public static String EXPERIMENTAL_PROBABILITY="experimental.probability";
+	public static String COORDINATE_GEOMETRY="coordinate.geometry";
+	
 }

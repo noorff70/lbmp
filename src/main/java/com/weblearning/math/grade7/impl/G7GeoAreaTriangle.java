@@ -1,4 +1,4 @@
-package com.weblearning.math.grade7.impl;
+/*package com.weblearning.math.grade7.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -98,3 +98,4 @@ public class G7GeoAreaTriangle extends GeometryQuestion {
 
 	
 }
+*/

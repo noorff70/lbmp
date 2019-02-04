@@ -36,6 +36,8 @@ public interface Constants {
 	public static String RADIO_TYPE= "RADIOTYPE";
 	public static String LATEX_FORMAT= "LATEXFORMAT";
 	public static String PI_PLOT= "PIPLOT";
+	public static String PI_BAR_GRAPH= "PIBARGRAPH";
+	public static String TABLE= "TABLE";
 	
 	public static String FACTOR_LIST="factorList";
 	public static String STRING_MULTIPLY="multiply";

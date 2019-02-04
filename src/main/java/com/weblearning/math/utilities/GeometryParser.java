@@ -1,4 +1,4 @@
-package com.weblearning.math.utilities;
+/*package com.weblearning.math.utilities;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -86,3 +86,4 @@ public class GeometryParser {
 	}
 
 }
+*/

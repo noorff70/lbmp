@@ -1,4 +1,4 @@
-package com.weblearning.domain.utility.geometry;
+/*package com.weblearning.domain.utility.geometry;
 
 public class Triangle {
 	
@@ -73,3 +73,4 @@ public class Triangle {
 	
 
 }
+*/

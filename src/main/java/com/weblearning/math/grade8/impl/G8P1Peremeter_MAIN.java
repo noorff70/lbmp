@@ -1,4 +1,4 @@
-package com.weblearning.math.grade8.impl;
+/*package com.weblearning.math.grade8.impl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -46,9 +46,9 @@ public class G8P1Peremeter_MAIN extends GenericQuestion {
 		return g8P1Peremeter;
 	}
 
-	/*
+	
 	 * Add simple fraction for two fractions. Add + Add
-	 */
+	 
 	public Problem getProblem1(MathConfiguration mathConfig, GeometryObject gObj) {
 		
 		
@@ -74,3 +74,4 @@ public class G8P1Peremeter_MAIN extends GenericQuestion {
 	}
 	
 }
+*/

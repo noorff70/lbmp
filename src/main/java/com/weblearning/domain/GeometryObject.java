@@ -1,4 +1,4 @@
-package com.weblearning.domain;
+/*package com.weblearning.domain;
 
 import java.util.List;
 
@@ -72,4 +72,4 @@ public class GeometryObject {
 		this.pathToPicture = path;
 	}
 
-}
+}*/

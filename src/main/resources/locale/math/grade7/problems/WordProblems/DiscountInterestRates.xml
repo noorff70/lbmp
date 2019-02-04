@@ -288,7 +288,7 @@
 		<Answer>
 			<answerType>decimal</answerType>
 			<displayableanswer>exp</displayableanswer>
-			<displayableanswer>exp%</displayableanswer>
+			<answerLine>exp%</answerLine>
 		</Answer>
 		<expression>100-(100*var1/var2)</expression>
 		<heading>Discount Rate- Word Problems</heading>
@@ -348,7 +348,7 @@
 		<questionType>FRACTION</questionType>
 	</problem>
 	<problem>
-		<questionline>A shopper sold a product for $var1. The cost price was $var2. How much profit the shopper made?</questionline>
+		<questionline>A shopper sold a product for CAD var1. The cost price was CAD var2. How much profit the shopper made?</questionline>
 		<variable>
 			<variableName>var1</variableName>
 			<variableValue>0</variableValue>
@@ -477,7 +477,7 @@
 		<rank>1</rank>
 		<questionType>FRACTION</questionType>
 	</problem>
-	<problem>
+    <problem>
 		<questionline>Andrew bought a game for $var1. The original price was $var2. What is the discount rate Andrew got for the game?</questionline>
 		<variable>
 			<variableName>var1</variableName>
@@ -496,7 +496,8 @@
 		<Answer>
 			<answerType>decimal</answerType>
 			<displayableanswer>exp</displayableanswer>
-			<displayableanswer>exp%</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerLine>exp%</answerLine>
 		</Answer>
 		<expression>100-(100*var1/var2)</expression>
 		<heading>Discount Rate- Word Problems</heading>
@@ -528,5 +529,5 @@
 		<heading>Percentage- Word Problems</heading>
 		<rank>1</rank>
 		<questionType>FRACTION</questionType>
-	</problem>
+	</problem> -->
 </problems>

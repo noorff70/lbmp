@@ -12,19 +12,29 @@ Spyder Editor
 This is a temporary script file.
 """
 import matplotlib.pyplot as plt, mpld3
-import math
-import sympy
 import numpy as np
-import matplotlib.patheffects
+from collections import defaultdict
+#import matplotlib.patheffects
+
 #import base64
 #from io import BytesIO
 #from StringIO import StringIO
 from flask import Flask, request, json, Response
-from sympy import Symbol
-from sympy import init_printing
+#from sympy import Symbol
+#from sympy import init_printing
+from sympy.parsing.sympy_parser import parse_expr
 from sympy import latex
 from sympy import sympify
 from matplotlib.lines import Line2D
+
+from bokeh.plotting import figure
+from bokeh.embed import json_item
+from datetime import date
+from random import randint
+from bokeh.models import ColumnDataSource, LabelSet
+from bokeh.models.widgets import DataTable, DateFormatter, TableColumn
+from bokeh.io import output_file, show
+from bokeh.layouts import widgetbox
 
 from ast import literal_eval
 
@@ -42,8 +52,6 @@ def get_math_answers():
         problems = json.loads( json.dumps(request.json, indent =4))
         #print problems
         for problem in problems:
-            
-
             if 'answer' in problem:
                 if problem['answer']['answerList'] is not None:
                     for answerLn in problem['answer']['answerList']:
@@ -200,6 +208,157 @@ def get_angle_text(angle_plot):
 
     return [ x_width + separation_radius, y_width + separation_radius, angle]   
 
+
+
+@app.route("/getExpressions",  methods=["POST"])
+def get_math_expression():
+
+    if request.headers['Content-Type'] == 'text/plain':
+        #print (request.data)
+        return 'OK', 200
+    elif request.headers['Content-Type'] == 'application/json':
+        #put json object in a dict
+        problems = json.loads( json.dumps(request.json, indent =4))
+        #print problems
+        for problem in problems:
+            if 'answer' in problem:
+                if problem['answer']['expression'] is not None:
+                    if problem['answer']['answerType'] == 'decimal':
+                        #da = latex(sympify(problem['answer']['expression']))
+                        da = parse_expr(problem['answer']['expression'])
+                        da= round(da.evalf(),2)
+                        #print round(da, 2)
+                        problem['answer']['expression']  = latex(da) 
+                    if problem['answer']['answerType'] == 'default':
+                        da = latex(sympify(problem['answer']['expression']))
+                        problem['answer']['expression']  = da 
+        js = json.dumps(problems)
+       
+        resp = Response(js, status=200, mimetype='application/json')
+        return resp             
+
+    else:
+        print ('Unsupported Type')
+        return "Unsupported Media Type", 415
+    
+
+@app.route("/getGraph",  methods=["POST"])
+def get_math_graph():
+    
+        
+    problems = json.loads( json.dumps(request.json, indent =4))
+    
+     #update dataRange array
+    for problem in problems:
+                
+        if problem['graphObject'] is not None:
+                    
+            if problem['graphObject']['graphType'] == 'PIBARGRAPH':
+                                
+                cols = []
+                rows=[]
+                                
+                for legend in problem['graphObject']['colVals']:
+                    cols.append(str(legend))  
+
+                for dRange in problem['graphObject']['rowVals']:
+                    rows.append(float(str(dRange)))
+                
+                for qLn in problem['questionLines']:
+                    if qLn['latexFormat'] == 'PIPLOT':
+
+                        p = figure(x_range=cols, plot_height=250, title="", sizing_mode='scale_width')
+                        p.vbar(x=cols, top=rows, width=0.9)
+
+                        p.xgrid.grid_line_color = None
+                        p.y_range.start = 0
+                        item_text = json.dumps(json_item(p))
+                        
+                        qLn['questionLn'] = item_text
+                        
+            elif problem['graphObject']['graphType'] == 'TABLE':
+                
+                #create an empty dictionary
+                data = {}
+                columns=[]
+                
+                variableList = json.loads( json.dumps(problem['graphObject']['variableList']))
+                       
+                for variable in variableList:
+                    variableName = str(variable['variableName'])
+                    values = [] #create list of values in a variable
+                    for value in variable['valueList']:
+                        values.append(str(value)) #add the value in variable
+                        #create key and list of values in a dictionary
+                        data[variableName]=values
+                
+                for variable in variableList:
+                    variableName = str(variable['variableName'])
+
+                    columns.append(TableColumn(field=variableName, title=variableName))
+
+                    
+                for qLn in problem['questionLines']:
+                    
+                    if qLn['latexFormat'] == 'PIPLOT':
+                        
+                        source = ColumnDataSource(data)
+
+                        data_table = DataTable(source=source, columns=columns, width=400, height=100)
+            
+                        plot = json.dumps(json_item(data_table))
+                        qLn['questionLn'] = plot
+                        
+        if problem['geometryObject'] is not None:
+            p = figure(plot_height=250, title="", sizing_mode='scale_width')
+
+            geoObject = problem['geometryObject']
+            
+            if geoObject['circles'] is not None:
+                x=[] 
+                y=[]
+                circles = geoObject['circles']
+                for circle in circles:
+                    x.append(circle['xCo'])
+                    y.append(circle['yCo'])
+                    
+                p.circle(x, y, fill_color="red", size=8, )
+                
+            if geoObject['labels'] is not None:
+                data={} #empty dictionary data
+                xsVal=[]
+                ysVal=[]
+                labelsVal=[]
+
+                for label in geoObject['labels']:
+                   xsVal.append(label['xCo'])
+                   ysVal.append(label['yCo'])
+                   labelsVal.append(str(label['labelName']))
+                   
+                data['xs']= xsVal
+                data['ys']= ysVal
+                data['labels']= labelsVal
+                source = ColumnDataSource(data=dict(xs=xsVal, ys=ysVal, names=labelsVal))
+                #source = ColumnDataSource(data=dict(xs=[1, 5, 3], ys=[0, 0, 7],names=['A', 'B', 'C']))
+                labs = LabelSet(x='xs', y='ys', text='names', source=source, render_mode='canvas')
+                p.add_layout(labs)
+                
+            if geoObject['lines'] is not None:
+                for ln in geoObject['lines']:
+                    p.line([ln['x1'],ln['x2']],[ln['y1'],ln['y2']],line_width=2)
+
+            
+            for qLn in problem['questionLines']:
+                if qLn['latexFormat'] == 'PIPLOT':
+                    p.toolbar.logo = None
+                    item_text = json.dumps(json_item(p))
+                    qLn['questionLn'] = item_text
+                    
+    js = json.dumps(problems)
+    resp = Response(js, status=200, mimetype='application/json')
+    return resp 
+    
+ 
 
 if __name__ == "__main__":
     app.run()
