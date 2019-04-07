@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<problems>
+	<problem>
+		<questionline>AB and CD Lines are always same distance apart and never touch each other. AB and CD are ____ Lines.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>0</lowerlimit>
+			<upprlimit>0</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>Parallel</displayableanswer>
+			<answerLine>Parallel</answerLine>
+			<answerLine>parallel</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>A line meeting another line at a right angle is said to be __________ to it.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>0</lowerlimit>
+			<upprlimit>0</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>Perpendicular</displayableanswer>
+			<answerLine>Perpendicular</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>A(var1, var2) and B(var3, var2) are connected. AB is parallel to ____ Axis.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>-2</lowerlimit>
+			<upprlimit>-5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var3</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>7</lowerlimit>
+			<upprlimit>15</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>X</displayableanswer>
+			<answerLine>X</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>A(var1, var2) and B(var1, var3) are connected. AB is parallel to ____ Axis.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>-2</lowerlimit>
+			<upprlimit>-5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var3</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>7</lowerlimit>
+			<upprlimit>15</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>Y</displayableanswer>
+			<answerLine>Y</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>AB is parallel to X Axis and CD is parallel to Y Axis. AB and CD meets at point E. AB and CD are both ______ to each other.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>Perpendicular</displayableanswer>
+			<answerLine>Perpendicular</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+		<problem>
+		<questionline>AB and CD are parallel lines and EF line goes through both the lines. EF is called a _______ line.</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>Transversal</displayableanswer>
+			<answerLine>Transversal</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Lines and Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+</problems>

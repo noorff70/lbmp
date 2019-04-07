@@ -248,7 +248,7 @@ public class G7DecimalMixedOp extends GenericQuestion {
 		BigDecimal bgf = new BigDecimal((double)MathUtilities.getRandomNumber(1, 9)/ 10).setScale(1,  RoundingMode.HALF_UP);
 		BigDecimal bgg = new BigDecimal((double)MathUtilities.getRandomNumber(1, 9)/ 10).setScale(1,  RoundingMode.HALF_UP);
 		
-		BigDecimal bgh = new BigDecimal(MathUtilities.getRandomNumber(2, 10));
+	//	BigDecimal bgh = new BigDecimal(MathUtilities.getRandomNumber(2, 10));
 		BigDecimal bgi = new BigDecimal(MathUtilities.getRandomNumber(2, 10));
 		BigDecimal bgj = new BigDecimal(MathUtilities.getRandomNumber(2, 10));
 		BigDecimal bgk = new BigDecimal(MathUtilities.getRandomNumber(2, 10));

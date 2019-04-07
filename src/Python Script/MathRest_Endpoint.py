@@ -310,9 +310,17 @@ def get_math_graph():
                         qLn['questionLn'] = plot
                         
         if problem['geometryObject'] is not None:
-            p = figure(plot_height=250, title="", sizing_mode='scale_width')
+            
+            # p.sizing_mode='scale_both'
 
             geoObject = problem['geometryObject']
+            
+            if geoObject['rangeXY'] is not None:
+                rangeXY = geoObject['rangeXY']
+                print(rangeXY['lowerX'],  rangeXY['upperX'])
+                p = figure(title="", width=400, height=400, match_aspect=True, x_range=(rangeXY['lowerX'], rangeXY['upperX']), y_range=(rangeXY['lowerY'], rangeXY['upperY']))
+            else: 
+                p = figure(title="", width=400, height=400, match_aspect=True)
             
             if geoObject['circles'] is not None:
                 x=[] 
@@ -345,7 +353,26 @@ def get_math_graph():
                 
             if geoObject['lines'] is not None:
                 for ln in geoObject['lines']:
-                    p.line([ln['x1'],ln['x2']],[ln['y1'],ln['y2']],line_width=2)
+                    if ln['color'] is not None:
+                        p.line([ln['x1'],ln['x2']],[ln['y1'],ln['y2']],line_width=2, color = ln['color'])
+                    else:
+                        p.line([ln['x1'],ln['x2']],[ln['y1'],ln['y2']],line_width=2)
+                    
+            if geoObject['patches'] is not None:
+                x=[] 
+                y=[]
+                patches = geoObject['patches']
+                for patch in patches:
+                    xcoordinates = patch['coX']
+                    for xco in xcoordinates:
+                        x.append(xco)
+                        
+                for patch in patches:
+                    ycoordinates = patch['coY']
+                    for yco in ycoordinates:
+                        y.append(yco)
+                        
+                p.patch(x, y, alpha=0.5, line_width=2)   
 
             
             for qLn in problem['questionLines']:

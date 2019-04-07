@@ -1,4 +1,4 @@
-package com.weblearning.domain.utility;
+/*package com.weblearning.domain.utility;
 
 public class AngleObject {
 	
@@ -58,3 +58,4 @@ public class AngleObject {
 	
 
 }
+*/

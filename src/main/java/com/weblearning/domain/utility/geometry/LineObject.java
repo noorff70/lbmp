@@ -6,6 +6,7 @@ public class LineObject {
 	Double x2;
 	Double y1;
 	Double y2;
+	String color;
 	
 	public Double getX1() {
 		return x1;
@@ -30,6 +31,12 @@ public class LineObject {
 	}
 	public void setY2(Double y2) {
 		this.y2 = y2;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	

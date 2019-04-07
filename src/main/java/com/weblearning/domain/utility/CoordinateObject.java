@@ -1,4 +1,4 @@
-package com.weblearning.domain.utility;
+/*package com.weblearning.domain.utility;
 
 public class CoordinateObject {
 	
@@ -65,3 +65,4 @@ public class CoordinateObject {
 	}
 
 }
+*/

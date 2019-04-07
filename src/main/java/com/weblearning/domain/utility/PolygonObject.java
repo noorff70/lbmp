@@ -1,4 +1,4 @@
-package com.weblearning.domain.utility;
+/*package com.weblearning.domain.utility;
 
 import java.util.List;
 
@@ -59,3 +59,4 @@ public class PolygonObject {
 	}
 
 }
+*/

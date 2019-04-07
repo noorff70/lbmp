@@ -72,5 +72,9 @@ public interface GR7_Constants {
 	
 	public static String EXPERIMENTAL_PROBABILITY="experimental.probability";
 	public static String COORDINATE_GEOMETRY="coordinate.geometry";
+	public static String GEOMETRY_AREAS="geometry.areas";
+	public static String GEOMETRY_SURFACE_AREAS="geometry.surface.areas";
+	
+	public static String TRIANGLES="triangles";
 	
 }

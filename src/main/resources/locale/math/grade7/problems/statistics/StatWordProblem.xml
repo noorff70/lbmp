@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <problems>
  	<problem>
 		<questionline>You have scored var1, var2 and var3 in class tests. What is your average on the tests? </questionline>

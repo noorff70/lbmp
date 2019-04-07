@@ -1,4 +1,4 @@
-<%@ page import="com.weblearning.controller.MenuController" %>
+<%-- <%@ page import="com.weblearning.controller.MenuController" %>
 <%@ page import="com.weblearning.domain.*" %>
 <%@ page import="java.util.*" %>
 
@@ -27,4 +27,4 @@
 			}%>
 		</ul>	
 	<%} %>
-</div>
+</div> --%>

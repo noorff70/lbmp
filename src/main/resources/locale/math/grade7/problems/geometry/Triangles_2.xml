@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<problems>
+	<problem>
+		<questionline>Triangle ABC has AC=BC and </questionline>
+		<questionline>$\angle BAC = var1$</questionline>
+		<questionline>AD and BD lines divides Angle CAB and Angle CBA equally</questionline>
+		<questionline>The value of Angle ADB?</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>50</lowerlimit>
+			<upprlimit>80</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>exp</displayableanswer>
+			<answerLine>exp</answerLine>
+			<answerType>decimal</answerType>
+		</Answer>
+		<expression>(180-var1)</expression>
+		<heading>Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+	<problem>
+		<questionline>Line AB intersects X and Y Axis at A(var1, 0) and B(0, var2). The coordinate is C(0,0)</questionline>
+		<questionline>What is the value of Angle AOB?</questionline>
+		<variable>
+			<variableName>var1</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>2</lowerlimit>
+			<upprlimit>5</upprlimit>
+		</variable>
+		<variable>
+			<variableName>var2</variableName>
+			<variableValue>0</variableValue>
+			<variableType>int</variableType>
+			<lowerlimit>6</lowerlimit>
+			<upprlimit>10</upprlimit>
+		</variable>
+		<Answer>
+			<displayableanswer>90</displayableanswer>
+			<answerLine>90</answerLine>
+			<answerType>default</answerType>
+		</Answer>
+		<heading>Angles</heading>
+		<rank>1</rank>
+		<questionType>FRACTION</questionType>
+	</problem>
+</problems>
