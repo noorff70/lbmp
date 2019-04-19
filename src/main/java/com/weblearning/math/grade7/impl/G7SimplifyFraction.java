@@ -116,7 +116,7 @@ public class G7SimplifyFraction extends GenericQuestion{
 			answer5 = frac5a.toString();
 		
 		
-		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.SIMPLIFY_FRACTION, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( "Simplify and convert to Improper Fraction", null, Constants.DEFAULT));
 		questionList.add(new QuestionLine( question1 +	Constants.ANSWER_TO_QUESTION + answer1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine( question2 +	Constants.ANSWER_TO_QUESTION + answer2 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine( question3 +	Constants.ANSWER_TO_QUESTION + answer3, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));

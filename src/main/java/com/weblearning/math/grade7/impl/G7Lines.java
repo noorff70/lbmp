@@ -524,7 +524,7 @@ public class G7Lines extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+		//MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 

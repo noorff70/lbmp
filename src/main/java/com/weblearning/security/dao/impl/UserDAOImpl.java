@@ -1,12 +1,13 @@
 package com.weblearning.security.dao.impl;
 
+
+
+import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 
 import com.weblearning.security.dao.UserDAO;
@@ -15,8 +16,8 @@ import com.weblearning.security.model.User;
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO{
 	
-	@Autowired
-	SessionFactory sessionFactory;
+	@PersistenceContext
+	EntityManager entityManager;
 	
 
 	/*
@@ -26,17 +27,18 @@ public class UserDAOImpl implements UserDAO{
 	 * In- username, password,
 	 * out- boolean
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean isValidUser(String username, String password) {
 		
-		Session session = sessionFactory.getCurrentSession();
+		List<User> userList = new ArrayList<User>();
 		
-		Criteria cr = session.createCriteria(User.class);
-		cr.add(Restrictions.like("username", username));
-		List<User> result = cr.list();
-
+		userList = entityManager.createQuery("Select u from User u where u.username =: username")
+				.setParameter("username", username)
+				.setParameter("password", password)
+				.getResultList();
 		
-		User user = result.get(0);
+		User user = userList.get(0);
 		
 		if (user.getPassword().equals(password))
 			return true;

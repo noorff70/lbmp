@@ -69,11 +69,11 @@ public class G7ConvtDecimalToFraction extends GenericQuestion{
 
 		
 		question = Double.toString(decimalNumber);
-		answer = MathUtilities.convertSingleFRactionToString(frac.getNumerator(), frac.getDenominator());
-		
+		//answer = MathUtilities.convertSingleFRactionToString(frac.getNumerator(), frac.getDenominator());
+		answer = frac.getNumerator() + "/" + frac.getDenominator();
 		
 		//add the questions
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.GRADE_7_CONVERT_DECIMAL_TO_FRACTION, null, Locale.ENGLISH));
+		QuestionLine qLine1 = new QuestionLine("Convert the following Decimal to Proper Fraction");
 		QuestionLine qLine2 = new QuestionLine(question);
 
 		

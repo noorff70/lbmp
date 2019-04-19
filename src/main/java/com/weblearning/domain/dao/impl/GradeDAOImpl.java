@@ -2,38 +2,29 @@ package com.weblearning.domain.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
 
 import com.weblearning.domain.Grade;
 import com.weblearning.domain.dao.GradeDAO;
 
 
-@Service
+@Repository
 public class GradeDAOImpl implements GradeDAO  {
 
-  	SessionFactory sessionFactory;
+	@PersistenceContext
+	EntityManager entityManager;
 	
   	public GradeDAOImpl(){
   		
   	}
   	
-	
-	public GradeDAOImpl(SessionFactory sFactory){
-		sessionFactory = sFactory;
-	}
- 
-	@SuppressWarnings("unchecked")
-	@Transactional
-	public List<Grade> findAllGrades() {
-		 
-		@SuppressWarnings("unused")
-		Session session = sessionFactory.getCurrentSession();
-
-		return sessionFactory.getCurrentSession()
-	            .createQuery("from Grade").list();
-	
-    }
+  	public List<Grade> findAllGrades() {
+  		return (List<Grade>) entityManager
+  				.createQuery("from Grade", Grade.class)
+  				.getResultList();
+  	}
+  	
 }

@@ -80,12 +80,12 @@ public class G7IdentifyFractionType extends GenericQuestion{
 		QuestionLine qLine1;
 		if (wholeNumber > 0){
 			//mixed number
-			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH)+ Integer.toString(wholeNumber) +
+			qLine1 = new QuestionLine("Select A, B or C for " + Integer.toString(wholeNumber) +
 					MathUtilities.convertSingleFRactionToString(newNumerator, denominator), null, "");
 		}
 		else
 			//proper or improper fraction
-			qLine1 = new QuestionLine(mSource.getMessage(Constants.SELECT_PROPER_TYPE_OF_FRACTION, null, Locale.ENGLISH) + MathUtilities.convertSingleFRactionToString(numerator, denominator), null, "");
+			qLine1 = new QuestionLine("Select A, B or C for " + MathUtilities.convertSingleFRactionToString(numerator, denominator), null, "");
 		 
 		
 		QuestionLine qLine2 = new QuestionLine(Constants.FRACTION_TYPE_PERFECT_ANSWER + " Perfect Fraction", "", "");

@@ -1,10 +1,11 @@
 package com.weblearning.domain.dao.impl;
 
+import java.util.LinkedList;
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 
 import com.weblearning.domain.TopicDetail;
@@ -17,24 +18,22 @@ import com.weblearning.domain.dao.TopicDetailDAO;
 @Repository("topicDetail")
 public class TopicDetailDAOImpl implements TopicDetailDAO{
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	
+	@PersistenceContext
+	EntityManager entityManager;
+
 	@SuppressWarnings("unchecked")
+	@Override
 	public TopicDetail findAllTopicDetails(String topicId) {
 		
-		int topic= Integer.parseInt(topicId);		
+		int topic = Integer.parseInt(topicId);
+		List<TopicDetail> topicDetailList = new LinkedList<TopicDetail>();
 		
-		String sql = "from TopicDetail t where t.topicDetailsID=:topic";
-		Query query = sessionFactory.getCurrentSession().createQuery(sql);
-		query.setParameter("topic", topic );
+		topicDetailList = (List<TopicDetail>) entityManager
+				.createQuery("Select t from TopicDetail t where t.topicDetailsID=:topic order by t.topicDetailsID")
+				.setParameter("topic", topic)
+				.getResultList();
 		
-		List<TopicDetail> result = query.list();
-		
-		TopicDetail topicDetail= (TopicDetail) result.get(0);
-		
-		return topicDetail;
+		return topicDetailList.get(0);
 	}
-
+	
 }

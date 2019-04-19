@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -66,6 +67,7 @@ public class Topic {
 	
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="topic")
+	@OrderBy("TOPICDETAILID")
 	public Set<TopicDetail> getTopicDetail(){
 		return topicDetail;
 	}

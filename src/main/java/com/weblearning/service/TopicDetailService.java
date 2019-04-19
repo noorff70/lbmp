@@ -1,6 +1,8 @@
 package com.weblearning.service;
 
 
+import org.springframework.stereotype.Service;
+
 import com.weblearning.domain.TopicDetail;
 
 /*
@@ -8,6 +10,7 @@ import com.weblearning.domain.TopicDetail;
  * name, topic detail id etc
  */
 
+@Service
 public interface TopicDetailService {
 	
 	public TopicDetail getTopicDetail(String topicDetailID);

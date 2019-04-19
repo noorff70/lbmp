@@ -130,7 +130,7 @@ public class G7CompareFraction extends GenericQuestion{
 			answer4 = "=";
 
 		
-		question4 = "$-(" + Integer.toString(_4ai) + "\\frac{"+ Integer.toString(_4c) + "}{"+ Integer.toString(_4d)+ "})  \\Box "
+		question4 = "$-(" + Integer.toString(_4ai) + "\\frac{"+ Integer.toString(_4a) + "}{"+ Integer.toString(_4b)+ "})  \\Box "
 				+ "-" + Integer.toString(_4bi) + "\\frac{"+ Integer.toString(_4c) + "}{"+ Integer.toString(_4d)+ "}" + "$";
 
 		
@@ -152,7 +152,7 @@ public class G7CompareFraction extends GenericQuestion{
 				+ "-" + Integer.toString(_5bi) + "$";
 		
 		
-		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.PERFORM_FRACTION_OPERATION, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( "Fill in the blank with either >, < or =", null, Constants.DEFAULT));
 		questionList.add(new QuestionLine( question1 +	Constants.ANSWER_TO_QUESTION + answer1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine( question2 +	Constants.ANSWER_TO_QUESTION + answer2 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine( question3 +	Constants.ANSWER_TO_QUESTION + answer3, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));

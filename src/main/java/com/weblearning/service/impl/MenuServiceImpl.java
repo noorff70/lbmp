@@ -19,6 +19,7 @@ public class MenuServiceImpl implements MenuService{
 	@Autowired 
 	GradeDAO gradeDAO;
 	@Override
+	@Transactional
 	public List<Grade> getGradeList() {
 		
 		return gradeDAO.findAllGrades();
