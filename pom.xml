@@ -28,6 +28,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -112,6 +118,7 @@
 
 		<!-- End of Spring dependencies -->
 		<!-- Tiles -->
+		<!-- 
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
@@ -139,7 +146,7 @@
 			<artifactId>tiles-template</artifactId>
 			<version>2.2.1</version>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
