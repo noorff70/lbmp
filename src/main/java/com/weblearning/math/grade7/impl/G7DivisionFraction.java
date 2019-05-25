@@ -63,8 +63,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 * 2/3 =
 		int _1ai = MathUtilities.getRandomNumber(1, 5), _1bi = MathUtilities.getRandomNumber(1,  5); 
-		int _1a = MathUtilities.getRandomNumber(2, 20), _1b = MathUtilities.getRandomNumber(2, 20);
-		int _1c = MathUtilities.getRandomNumber(2, 20), _1d = MathUtilities.getRandomNumber(2, 20); 
+		int _1a = MathUtilities.getRandomNumber(1, 10), _1b = MathUtilities.getRandomNumber(2, 5)*_1a;
+		int _1c = MathUtilities.getRandomNumber(2, 10), _1d = MathUtilities.getRandomNumber(2, 5)*_1c; 
 		
 		Fraction frac1a = new Fraction(_1ai).add(new Fraction(_1a, _1b));
 		Fraction frac1b = new Fraction(_1bi).add(new Fraction(_1c, _1d));
@@ -78,8 +78,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 = 
 		int _2ai = MathUtilities.getRandomNumber(1, 5), _2bi = MathUtilities.getRandomNumber(1,  5); 
-		int _2a = MathUtilities.getRandomNumber(2, 20), _2b = MathUtilities.getRandomNumber(2, 20);
-		int _2c = MathUtilities.getRandomNumber(2, 20), _2d = MathUtilities.getRandomNumber(2, 20); 
+		int _2a = MathUtilities.getRandomNumber(1, 5), _2b = MathUtilities.getRandomNumber(2, 5)*_2a;
+		int _2c = MathUtilities.getRandomNumber(2, 10), _2d = MathUtilities.getRandomNumber(2, 5)*_2c; 
 		
 		Fraction frac2a = new Fraction(_2ai).add(new Fraction(_2a, _2b));
 		Fraction frac2b = new Fraction(_2bi).add(new Fraction(_2c, _2d));
@@ -93,8 +93,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 = 
 		int _3ai = MathUtilities.getRandomNumber(1, 5), _3bi = MathUtilities.getRandomNumber(1,  5); 
-		int _3a = MathUtilities.getRandomNumber(2, 20), _3b = MathUtilities.getRandomNumber(2, 20);
-		int _3c = MathUtilities.getRandomNumber(2, 20), _3d = MathUtilities.getRandomNumber(2, 20); 
+		int _3a = MathUtilities.getRandomNumber(1, 10), _3b = MathUtilities.getRandomNumber(2, 5)*_3a;
+		int _3c = MathUtilities.getRandomNumber(1, 5), _3d = MathUtilities.getRandomNumber(2, 10)*_3c; 
 		
 		Fraction frac3a = new Fraction(_3ai).add(new Fraction(_3a, _3b));
 		Fraction frac3b = new Fraction(_3bi).add(new Fraction(_3c, _3d));
@@ -107,7 +107,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 =
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5); 
-		int _4c = MathUtilities.getRandomNumber(2, 20), _4d = MathUtilities.getRandomNumber(2, 20); 
+		int _4c = MathUtilities.getRandomNumber(2, 10), _4d = MathUtilities.getRandomNumber(2, 5)*_4c; 
 		
 		Fraction frac4a = new Fraction(_4ai);
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));
@@ -121,7 +121,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//5
 		int _5ai = MathUtilities.getRandomNumber(1, 5), _5bi = MathUtilities.getRandomNumber(2,  5); 
-		int _5a = MathUtilities.getRandomNumber(2, 20), _5b = MathUtilities.getRandomNumber(2, 20);
+		int _5a = MathUtilities.getRandomNumber(2, 20), _5b = MathUtilities.getRandomNumber(2, 5)*_5a;
 		
 		Fraction frac5a = new Fraction(_5ai).add(new Fraction(_5a, _5b));
 		Fraction frac5b = new Fraction(_5bi);
@@ -167,7 +167,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 * 2/3 =
 		int _1ai = MathUtilities.getRandomNumber(2, 20), _1bi = MathUtilities.getRandomNumber(2, 20); 
-		int _1c = MathUtilities.getRandomNumber(2, 20), _1d = MathUtilities.getRandomNumber(2, 20); 
+		int _1c = MathUtilities.getRandomNumber(1, 10), _1d = MathUtilities.getRandomNumber(2, 10)*_1c; 
 		
 		Fraction frac1a = new Fraction(_1ai);
 		Fraction frac1b = new Fraction(_1bi).add(new Fraction(_1c, _1d));
@@ -181,8 +181,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 = 
 		int _2ai = MathUtilities.getRandomNumber(1, 5), _2bi = MathUtilities.getRandomNumber(1,  5); 
-		int _2a = MathUtilities.getRandomNumber(2, 20), _2b = MathUtilities.getRandomNumber(2, 20);
-		int _2c = MathUtilities.getRandomNumber(2, 20), _2d = MathUtilities.getRandomNumber(2, 20); 
+		int _2a = MathUtilities.getRandomNumber(1, 5), _2b = MathUtilities.getRandomNumber(2, 5)*_2a;
+		int _2c = MathUtilities.getRandomNumber(1, 10), _2d = MathUtilities.getRandomNumber(2, 5)*_2c; 
 		
 		Fraction frac2a = new Fraction(_2ai).add(new Fraction(_2a, _2b));
 		Fraction frac2b = new Fraction(_2bi).add(new Fraction(_2c, _2d));
@@ -196,9 +196,9 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 = 
 		int _3ai = MathUtilities.getRandomNumber(1, 5), _3bi = MathUtilities.getRandomNumber(1,  5), _3ci= MathUtilities.getRandomNumber(2, 20); 
-		int _3a = MathUtilities.getRandomNumber(2, 20), _3b = MathUtilities.getRandomNumber(2, 20);
-		int _3c = MathUtilities.getRandomNumber(2, 20), _3d = MathUtilities.getRandomNumber(2, 20);
-		int _3e = MathUtilities.getRandomNumber(2, 20), _3f = MathUtilities.getRandomNumber(2, 20); 
+		int _3a = MathUtilities.getRandomNumber(1, 5), _3b = MathUtilities.getRandomNumber(2, 10)*_3a;
+		int _3c = MathUtilities.getRandomNumber(2, 10), _3d = MathUtilities.getRandomNumber(2, 5)*_3c;
+		int _3e = MathUtilities.getRandomNumber(1, 5), _3f = MathUtilities.getRandomNumber(2, 10)*_3e; 
 		
 		Fraction frac3a = new Fraction(_3ai).add(new Fraction(_3a, _3b));
 		Fraction frac3b = new Fraction(_3bi).add(new Fraction(_3c, _3d));
@@ -214,8 +214,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//find the 1/2 + 2/3 =
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4c = MathUtilities.getRandomNumber(2, 20), _4d = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4c = MathUtilities.getRandomNumber(2, 10), _4d = MathUtilities.getRandomNumber(2, 5)*_4c; 
+		int _4e = MathUtilities.getRandomNumber(1, 5), _4f = MathUtilities.getRandomNumber(2, 10)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai);
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));
@@ -232,7 +232,7 @@ public class G7DivisionFraction extends GenericQuestion {
 		
 		//5
 		int _5ai = MathUtilities.getRandomNumber(1, 5), _5bi = MathUtilities.getRandomNumber(2,  5), _5ci= MathUtilities.getRandomNumber(2, 5); 
-		int _5a = MathUtilities.getRandomNumber(2, 20), _5b = MathUtilities.getRandomNumber(2, 20);
+		int _5a = MathUtilities.getRandomNumber(2, 10), _5b = MathUtilities.getRandomNumber(2, 5)*_5a;
 		
 		Fraction frac5a = new Fraction(_5ai).add(new Fraction(_5a, _5b));
 		Fraction frac5b = new Fraction(_5bi);
@@ -277,8 +277,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4c = MathUtilities.getRandomNumber(2, 20), _4d = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4c = MathUtilities.getRandomNumber(2, 5), _4d = MathUtilities.getRandomNumber(2, 10)*_4c; 
+		int _4e = MathUtilities.getRandomNumber(2, 5), _4f = MathUtilities.getRandomNumber(2, 20)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai);
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));
@@ -317,8 +317,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4a = MathUtilities.getRandomNumber(2, 5), _4b = MathUtilities.getRandomNumber(2, 10)*_4a; 
+		int _4e = MathUtilities.getRandomNumber(2, 10), _4f = MathUtilities.getRandomNumber(2, 5)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai).add(new Fraction(_4a, _4b));
 		Fraction frac4b = new Fraction(_4bi);
@@ -357,9 +357,9 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 20); 
-		int _4c = MathUtilities.getRandomNumber(2, 20), _4d = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4a = MathUtilities.getRandomNumber(2, 5), _4b = MathUtilities.getRandomNumber(2, 10)*_4a; 
+		int _4c = MathUtilities.getRandomNumber(2, 10), _4d = MathUtilities.getRandomNumber(2, 10)*_4c; 
+		int _4e = MathUtilities.getRandomNumber(2, 5), _4f = MathUtilities.getRandomNumber(2, 15)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai).add(new Fraction(_4a, _4b));
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));
@@ -398,8 +398,8 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = MathUtilities.getRandomNumber(2, 20), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4a = MathUtilities.getRandomNumber(2, 10), _4b = MathUtilities.getRandomNumber(2, 5)*_4a; 
+		int _4e = MathUtilities.getRandomNumber(2, 5), _4f = MathUtilities.getRandomNumber(2, 10)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai).add(new Fraction(_4a, _4b));
 		Fraction frac4b = new Fraction(_4bi);
@@ -438,9 +438,9 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = 0, _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 20); 
-		int _4c = MathUtilities.getRandomNumber(2, 20), _4d = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4a = MathUtilities.getRandomNumber(2, 10), _4b = MathUtilities.getRandomNumber(2, 5)*_4a; 
+		int _4c = MathUtilities.getRandomNumber(2, 10), _4d = MathUtilities.getRandomNumber(2, 5)*_4c; 
+		int _4e = MathUtilities.getRandomNumber(2, 5), _4f = MathUtilities.getRandomNumber(2, 10)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai).add(new Fraction(_4a, _4b));
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));
@@ -479,9 +479,9 @@ public class G7DivisionFraction extends GenericQuestion {
 		String answer="";
 		
 		int _4ai = MathUtilities.getRandomNumber(1,  5), _4bi = MathUtilities.getRandomNumber(1,  5), _4ci= MathUtilities.getRandomNumber(1, 5); 
-		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 20); 
+		int _4a = MathUtilities.getRandomNumber(2, 20), _4b = MathUtilities.getRandomNumber(2, 5)*_4a; 
 		int _4c = 0, _4d = MathUtilities.getRandomNumber(2, 20); 
-		int _4e = MathUtilities.getRandomNumber(2, 20), _4f = MathUtilities.getRandomNumber(2, 20); 
+		int _4e = MathUtilities.getRandomNumber(1, 10), _4f = MathUtilities.getRandomNumber(2, 5)*_4e; 
 		
 		Fraction frac4a = new Fraction(_4ai).add(new Fraction(_4a, _4b));
 		Fraction frac4b = new Fraction(_4bi).add(new Fraction(_4c, _4d));

@@ -46,7 +46,7 @@ public class RestMathController {
 		String className = packageName + topicDetail.getClassName();
 		
 		String lessonName = topicDetail.getTopic().getGradeSubject();
-		String lessonClassName = getLessonPackageName(gradeId) + lessonName;
+		//String lessonClassName = getLessonPackageName(gradeId) + lessonName;
 
 		// Get the list of problems and add that to session for later retrieval
 		mathClassLoaderService.setGradeId(gradeId);
@@ -54,7 +54,7 @@ public class RestMathController {
 
 		ch.setProblemList(problemList);
 		
-		lessonList = mathClassLoaderService.getLessonList(lessonClassName);
+		lessonList = mathClassLoaderService.getLessonList(lessonName);
 		ch.setLessonList(lessonList);
 		
 		return ch;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<lessons>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Factors</LessonHeader>
+			<LessonBody>A factor is a number that divides another number with no remainder. For example 2, 3, 4 and 6 are factors of 12 because each divides 12 evenly. 5 is not a factor of 12 because when divided by 5 it gets a remainder of 2. What can be the other factors of 12? Ofcourse 1 and 12 itself, since 1 and 12 can evenly divide 12.</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>Factors</LessonHeader>
+			<LessonBody>We can also define factors as numbers we can multiply to get another number. So, 2 and 3 are factors of 6 because 2 X 3 = 6</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>Factors</LessonHeader>
+			<LessonBody>A number can have many factors. For example we can write 3X4 =12, 2X6=12, and 1X12 =12. So the factors of 12 are 1,2,3,6 and 12</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Prime Factors</LessonHeader>
+			<LessonBody>A factor that is a prime number is called a Prime Factor. The number 6 has the factors as 1,2,3,6. Only 2 and 3 are prime numbers and factors of 6. Therefore, 2 and 3 are prime factors.</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>Factors</LessonHeader>
+			<LessonBody>We can also say that any prime number that can be multiplied to give the original number is called a prime factor. For example  28 = (1X28, 2X 2 X7, 4X7). So here both 7 and 2 are prime factors of 28</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Highest Common Factor (HCF/ GCF)</LessonHeader>
+			<LessonBody>The greatest numer that is a factor of more than one number is called Highest Common Factor (HCF) or Greatest Common Factor (GCF)</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>Factors</LessonHeader>
+			<LessonBody>Let's take two numbers 8 and 12. Compare Factors of 8 (1,2,4) and Factors of 12 (1,2,3,4,6,12). The common factors for both are (1,2,4) and among these 4 is the highest. So 4 is called the HCF</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Least Common Multiplier</LessonHeader>
+			<LessonBody>Least Common Multiplier is also called LCM. LCM of 2 numbers is the smallest number that both of those two numbers can divide evenly.</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>LCM</LessonHeader>
+			<LessonBody>Let's take two numbers 8 and 12. As you can see from the picture that 8 and 12 are divided by a common factor 2 and we keep on dividing by a common factor until we can't do anymore. This gives us (2,2,2,3). So the LCM is 24. 24 is divisible by both 8 and 12. </LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/numberconcepts/LCM1.jpg</PicturePath>
+		</LessonBodies>
+		<LessonBodies>
+			<LessonHeader>LCM</LessonHeader>
+			<LessonBody>Consdider two numbers 5 and 6 for which we need to find out LCM. Since there is no common factor, the LCM will be 5X6 = 30. And 30 is the lowest number both 5 and 6 are divisible.</LessonBody>
+			<PicturePath></PicturePath>
+		</LessonBodies>
+	</lesson>	
+</lessons>

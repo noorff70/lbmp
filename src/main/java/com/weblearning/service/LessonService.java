@@ -9,6 +9,6 @@ import com.weblearning.domain.Lesson;
 @Service
 public interface LessonService {
 	
-	public List<Lesson> getLessonList();
+	public List<Lesson> getLessonList(String resourcePath);
 
 }

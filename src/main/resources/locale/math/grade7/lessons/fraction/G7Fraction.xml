@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<lessons>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Type</LessonHeader>
+			<LessonBody>There are three types of Fractions. 1. Perfect Fraction has numerator less than denominator, 2. Imperfect Fraction has numerator greater than denominator and , 3. Mixed Fraction- has a Whole part and a FRaction Part. Mixed fractions and Imperfect Fractions can be converted to each other. See the picture of different kinds of Fractions.</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fraction/FractionTypes.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Conversion</LessonHeader>
+			<LessonBody>To convert an Improper Fraction to Mixed Fraction, divide the numerator by denominator and put Quotient as whole and Remainder over Divisor will make the Fraction Part. To make a Mixed Fraction to Improper, multiply denominator with whoe and then add numerator to get new Numerator. The denominator will remain same. See the picture</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fraction/FractionConversion.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Simplification</LessonHeader>
+			<LessonBody>Divide both numerator and denominator of a fraction with a common factor. COnsider a fraction $12 \\\over 30$. We divide both with a common factor of 2 since 2 can divide both of them equally. We get $6 \\\over 15$. The next common factor is 3. Divide both with 3 to get the reduced function.</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fraction/FractionSimplification.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Comparison</LessonHeader>
+			<LessonBody>Make all fractions with same base and then compare. See the example.</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fraction/FractionComparison.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>	
+</lessons>

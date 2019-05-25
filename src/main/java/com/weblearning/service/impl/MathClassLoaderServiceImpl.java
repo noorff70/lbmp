@@ -65,12 +65,10 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 	}
 	
 
-	public List<Lesson> getLessonList(String className) {
+	public List<Lesson> getLessonList(String resourcePath) {
 
-		lessonService = (LessonService) loadLessonClass(className);
-		
-		if (null != lessonService) {
-			return lessonService.getLessonList();
+		if (null != resourcePath) {
+			return lessonService.getLessonList(resourcePath);
 		}
 		return null;
 	}
@@ -99,26 +97,9 @@ public class MathClassLoaderServiceImpl implements MathClassLoaderService{
 
 	}
 	
-	public LessonService loadLessonClass(String className) {
-
-		try {
-			Class<?> clazz = Class.forName(className);
-			return (LessonService) clazz.newInstance();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return null;
-
-	}
-	
 	
 	 /* Create a static value for different purposes 
 	  */
-	 
 	
 	public void createConfigValues (MathConfiguration mConfig){
 		

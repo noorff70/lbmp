@@ -42,7 +42,7 @@ public class G7DivideSimpleFraction extends GenericQuestion {
 
 		return gr7DivideFraction;
 	}
-	
+	/* little tough for grade seven, may be for grade 8
 	public Problem getProblem1(MathConfiguration mathConfig, int i) {
 		
 		
@@ -127,6 +127,98 @@ public class G7DivideSimpleFraction extends GenericQuestion {
 
 		return problem;
 	}
+	*/
+	
+	
+	public Problem getProblem1(MathConfiguration mathConfig, int i) {
+		
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+		
+		MessageSource mSource = mathConfig.getmSource();
+		
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question1="", question2="", question3="", question4="", question5="";
+		String answer1="", answer2="", answer3="", answer4="", answer5="";
+		
+		//find the 1/2 * 2/3 = 
+		int _1a= 2* MathUtilities.getRandomNumber(2, 20);
+		int _1c= 2* MathUtilities.getRandomNumber(2, 20), _1d = MathUtilities.getRandomNumber(2, 20);
+		
+		Fraction result1 = new Fraction(_1a, 1).divide(new Fraction(_1c, _1d));
+
+		question1 = "$" + Integer.toString(_1a) + "\\div "
+				+ "\\frac{"+ Integer.toString(_1c) + "}{"+ Integer.toString(_1d)+ "}" 
+				+ " = " + "\\Box"  + "$";
+		answer1 = result1.getNumerator() + "/" + result1.getDenominator() ;
+		
+		//find the 1/2 + 2/3 = 
+		int _2a = 5* MathUtilities.getRandomNumber(1,20), _2b= 2* MathUtilities.getRandomNumber(1,20);
+		int _2c = 5* MathUtilities.getRandomNumber(1,10);
+		Fraction frac2 = new Fraction(_2a, _2b).divide(new Fraction(_2c, 1));
+				
+		question2 = "$" +"\\frac{" + Integer.toString(_2a) + "}{" + Integer.toString(_2b) + "} \\div "
+					+ Integer.toString(_2c)   
+					+ " = " + "\\Box"  + "$";
+		answer2 = Integer.toString(frac2.getNumerator()) + "/" + Integer.toString(frac2.getDenominator()) ;
+		
+	
+		
+		//find the 1/2 + 2/3 = 
+		int _3a = 2* MathUtilities.getRandomNumber(1,5), _3b = 5* MathUtilities.getRandomNumber(6, 10);
+		int _3c = 2* MathUtilities.getRandomNumber(1,10), _3d= 5* _3c;
+		int _3e = MathUtilities.getRandomNumber(2, 5);
+		Fraction _3frac = new Fraction(_3a, _3b).divide(new Fraction(_3e, 1).add(new Fraction(_3c, _3d)));
+				
+		question3= "$" + "\\frac{"+ Integer.toString(_3a) + "}{"+ Integer.toString(_3b)+ "}" 
+					+ " \\div" 
+					+ Integer.toString(_3e) + "\\frac{"+ Integer.toString(_3c) + "}{"+ Integer.toString(_3d)+ "}"
+					+ " = \\Box $";
+		answer3 = Integer.toString(_3frac.getNumerator()) + "/" + Integer.toString(_3frac.getDenominator()) ;
+		
+		//find the 1/2 + 2/3 =
+		int _4a = MathUtilities.getRandomNumber(1,5);
+		int _4b = 2* MathUtilities.getRandomNumber(1,5), _4c = 5* _4b;
+		int _4d= 2* MathUtilities.getRandomNumber(1,10),  _4e = 2* MathUtilities.getRandomNumber(12,20);
+		Fraction _4frac1 = new Fraction(_4a, 1).add(new Fraction(_4b, _4c));
+		Fraction _4result = _4frac1.divide(new Fraction(_4d, _4e));
+
+		question4= "$" + Integer.toString(_4a)+ "\\frac{" + Integer.toString(_4b) + "}{" + Integer.toString(_4c) + "}  \\div "
+					+ "\\frac{"+ Integer.toString(_4d) + "}{"+ Integer.toString(_4e)+ "}" 
+					+ " =  \\Box"  + "$";
+		answer4 = Integer.toString(_4result.getNumerator()) + "/" + Integer.toString(_4result.getDenominator()) ;
+		
+		//1 / (3 1/2)
+		int _5a = 2* MathUtilities.getRandomNumber(1,20);
+		int _5b= 2* MathUtilities.getRandomNumber(1,5);
+		int _5c = MathUtilities.getRandomNumber(1,10), _5d= _5c*MathUtilities.getRandomNumber(2, 4);
+		Fraction _result5 = new Fraction(_5a, 1).divide(new Fraction(_5b, 1).add(new Fraction(_5c, _5d)));
+
+		question5 = "$" + Integer.toString(_5a)+ " \\div "
+						+ Integer.toString(_5b) + "\\frac{"+ Integer.toString(_5c) + "}{"+ Integer.toString(_5d)+ "}" 
+						+ " = " + "\\Box"+ "$";
+		answer5 = Integer.toString(_result5.getNumerator()) + "/" + Integer.toString(_result5.getDenominator()) ;
+		
+		
+		questionList.add(new QuestionLine( mSource.getMessage(GR7_Constants.FIND_THE_VALUE_OF_THE_BOX, null, Locale.ENGLISH), null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( question1 +	Constants.ANSWER_TO_QUESTION + answer1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question2 +	Constants.ANSWER_TO_QUESTION + answer2 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question3 +	Constants.ANSWER_TO_QUESTION + answer3, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question4 + 	Constants.ANSWER_TO_QUESTION  + answer4, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( question5 + Constants.ANSWER_TO_QUESTION  + answer5, null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		
+
+		String heading = mSource.getMessage(GR7_Constants.DIVIDE_FRACTIONS, null, Locale.ENGLISH);
+		answ.setAnswer("BLANK");
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_MULTIPLES);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
 	
 	public Problem getProblem2(MathConfiguration mathConfig, int i) {
 		

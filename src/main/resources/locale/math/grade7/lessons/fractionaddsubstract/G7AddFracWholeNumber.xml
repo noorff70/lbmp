@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<lessons>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Simple Fraction Addition</LessonHeader>
+			<LessonBody>First make the denominators (bottom numbers) same for both the fractions. Add the numerators (top numbers) and then simplify if necessary. Let's say we are adding $ 1\\\over 2 $ + $ 2\\\over 4 $. We need to make the denominator of the first fraction same as the second one, i.e. 4. To do that we have to multiply the first fraction's numerator and denominator with 2. We get $2\\\over 4$. Then add with second fraction to get a result </LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractionaddsubstract/FractionAdd1.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction with LCM</LessonHeader>
+			<LessonBody>Another way to add/subtract frction is to use LCM. Find out LCM of all the denominators of all Fractions. Take denominator of first fraction and divide the LCM of this denominator. Multiply result of this with the numerator. Continue the operation for all fractions. </LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractionaddsubstract/AddFracLCM.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Mixed Fraction Operation</LessonHeader>
+			<LessonBody>Convert all Mixed Fractions to Improper Fractions. Make denominators of all fractions same. Make sure to multiply both numerator and denominator of a fraction to multiply with same number.</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractionaddsubstract/FracAdd2.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction with Whole Number</LessonHeader>
+			<LessonBody>Convert Mixed Fraction to Improper Fraction. Then make denominator of all the numbers same and perform usual operation. Example $3 $ - 2$1\\\over 2$. 3 is equal to $3\\\over 1$. Multiply both numerator and denominator with 2 to make it a fraction and all the denominators have 2 now. Then perform usual operation</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractionaddsubstract/FracAdd3.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>	
+</lessons>

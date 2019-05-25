@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<lessons>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Multiplication</LessonHeader>
+			<LessonBody>Multiply all the numerators to make a new numerator, then multiply all the denominators to make a new denominator. Simplify new fraction to get the result</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractiondivision/fractionmultiplication.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+	<lesson>
+		<LessonBodies>
+			<LessonHeader>Fraction Division</LessonHeader>
+			<LessonBody>Find the reciprocal of the denominator (reversing numerator and denominator) and then multiply tis with numerator. Simplify fraction if needed. See example.</LessonBody>
+			<PicturePath>/assets/images/grade7/lessons/fractiondivision/fractiondivision.jpg</PicturePath>
+		</LessonBodies>
+	</lesson>
+</lessons>

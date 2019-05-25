@@ -13,6 +13,8 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
+
+//Not used
 public class Grade7Exponents extends GenericQuestion{
 
 	@Override
