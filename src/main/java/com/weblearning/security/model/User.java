@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="LBMPUSER")
 public class User{
 	
-	String userId;
+	Long userId;
 	
 	@NotEmpty(message = "Please enter User Name.")
 	String username;
@@ -30,11 +30,11 @@ public class User{
 	
 	@Id
 	@Column(name="USERID")
-	public String getUserId(){
+	public Long getUserId(){
 		return userId;
 	}
 	
-	public void setUserId(String uId){
+	public void setUserId(Long uId){
 		userId = uId;
 	}
 	

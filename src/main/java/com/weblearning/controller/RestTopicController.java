@@ -26,35 +26,6 @@ public class RestTopicController {
 	public UIObject topics(@RequestParam("GRADEID") String gradeId, @RequestParam("SUBJECTID") String subjectId,
 			HttpServletRequest request) {
 
-		// UIObject uiObject = (UIObject) request.getSession().getAttribute(WebConstants.UI_OBJECT);
-		// List<Topic> topicList;
-
-		// Look for the UIObject in Session
-/*		if (null != uiObject) {
-			topicList = uiObject.getTopicList();
-
-			if (null != topicList && topicList.size() > 0) {
-				// get the first Topic and the Subject and Grade
-				Topic topic = topicList.get(0);
-				int sId = topic.getSubjectId();
-				int gId = topic.getGradeId();
-
-				// if the current subject and gradeid match with session, then return the same
-				// object
-				if (sId == Integer.parseInt(subjectId) && gId == Integer.parseInt(gradeId))
-					return uiObject;
-				// Look into DB, create a new UIObject and return
-				else
-					return getNewUIObject(gradeId, subjectId, request);
-
-			} else {
-				return getNewUIObject(gradeId, subjectId, request);
-			}
-		} else {
-
-			return getNewUIObject(gradeId, subjectId, request);
-
-		}*/
 
 		return getNewUIObject(gradeId, subjectId, request);
 	}

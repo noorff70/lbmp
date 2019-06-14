@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.weblearning.domain.MessageReturned;
 import com.weblearning.security.dao.UserDAO;
+import com.weblearning.security.model.User;
 import com.weblearning.security.service.LoginService;
 
 /*
@@ -22,9 +24,15 @@ public class LoginServiceImpl implements LoginService{
 	 * (non-Javadoc)
 	 * @see com.weblearning.security.service.LoginService#isValidUser(java.lang.String, java.lang.String)
 	 */
-	public boolean isValidUser(String username, String password) {
+	public MessageReturned isValidUser(String username, String password) {
 		
 		return userDAO.isValidUser(username, password);
+		
+	}
+	
+	public MessageReturned insertUser(User user) {
+		
+		return userDAO.saveUser(user);
 		
 	}
 
