@@ -57,43 +57,5 @@ public class UserDAOImpl implements UserDAO{
 		
 		return msgRtn;
 	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public MessageReturned saveUser(User user) {
-		
-		MessageReturned msgRtn = new MessageReturned();
-		Long maxId;
-		List<User> userList = new ArrayList<User>();
-		String username = user.getUsername();
-		
-		userList = entityManager.createQuery("Select u from User u where u.username =:username")
-				.setParameter("username", username)
-				.getResultList();
-		
-		
-		if (null != userList && userList.size() == 0) {
-			try {
-				maxId = (Long)entityManager.createQuery("select max(u.userId) from User u").getSingleResult();
-				user.setUserId(maxId+1);
-				
-				entityManager.persist(user);
-				
-				msgRtn.setMsg("User saved Successfully");
-				msgRtn.setSuccess(true);
-				
-			}catch(Exception e) {
-				msgRtn.setMsg("System error. Please contact Administrator.");
-				msgRtn.setSuccess(false);
-				logger.error(e);
-			}
-		} else {
-			msgRtn.setMsg("User already exists. Please try with a new UserId.");
-			msgRtn.setSuccess(false);
-		}
-
-		
-		return msgRtn;
-	}
 
 }

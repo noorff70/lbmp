@@ -1,23 +1,16 @@
 package com.weblearning.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.weblearning.domain.MessageReturned;
+import com.weblearning.domain.Student;
+import com.weblearning.domain.Tutor;
 import com.weblearning.security.model.User;
 import com.weblearning.security.service.LoginService;
-import com.weblearning.utilities.LBMPExeption;
 
 
 @RestController
@@ -39,7 +32,7 @@ public class UserLoginController {
 		return msgRtn;
 	}
 	
-	@PostMapping(value="/insertUser")
+	/*@PostMapping(value="/insertUser")
 	public MessageReturned insertUser(@RequestBody User usr ){
 		
 		MessageReturned msgRtn;
@@ -48,8 +41,54 @@ public class UserLoginController {
 		user.setPassword(usr.getPassword());
 		user.setUsername(usr.getUsername());
 		
-		//boolean login = loginService.insertUser(user);
 		msgRtn = loginService.insertUser(user);
+		
+		//RestTemplate restTemplate = new RestTemplate();
+		
+		//String fooResourceUrl
+		//   = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCsvWlEp2m3zPIRJGaI-nKhpicXsegy72w";
+																								
+		//ResponseEntity<String> response   = restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
+
+		return msgRtn;
+	}*/
+	
+	@PostMapping(value="/insertUser")
+	public MessageReturned insertUser(@RequestBody User usr ){
+		
+		MessageReturned msgRtn= new MessageReturned();
+		String role = usr.getUserRole();
+		
+		if (role.equals("Tutor")) {
+			Tutor tutor = new Tutor();
+			tutor.setPassword(usr.getPassword());
+			tutor.setUsername(usr.getUsername());
+			tutor.setPostalCode(usr.getPostalCode());
+			tutor.setGradeTutor(usr.getGradeTutor());
+			
+			msgRtn = loginService.insertTutor(tutor);
+		}
+		else if(role.equals("Student")) {
+			
+			Student student = new Student();
+			student.setPassword(usr.getPassword());
+			student.setUsername(usr.getUsername());
+			student.setPostalCode(usr.getPostalCode());
+			student.setGradeTutor(usr.getGradeTutor());
+			
+			msgRtn = loginService.insertStudent(student);
+		}
+		
+		
+		
+
+		
+		//tutor.setGradeTutors(ttr.);
+		
+		
+
+		
+		
 
 		return msgRtn;
 	}

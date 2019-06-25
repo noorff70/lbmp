@@ -6,6 +6,5 @@ import com.weblearning.security.model.User;
 public interface UserDAO {
 	
 	public MessageReturned isValidUser(String username, String password);
-	public MessageReturned saveUser(User user);
 
 }

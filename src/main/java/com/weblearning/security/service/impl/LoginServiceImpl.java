@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.weblearning.domain.MessageReturned;
+import com.weblearning.domain.Student;
+import com.weblearning.domain.Tutor;
+import com.weblearning.domain.dao.StudentDAO;
+import com.weblearning.domain.dao.TutorDAO;
 import com.weblearning.security.dao.UserDAO;
 import com.weblearning.security.model.User;
 import com.weblearning.security.service.LoginService;
@@ -20,20 +24,29 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	UserDAO userDAO;
 	
-	/*Returns boolean value based on the user in System
-	 * (non-Javadoc)
-	 * @see com.weblearning.security.service.LoginService#isValidUser(java.lang.String, java.lang.String)
-	 */
+	@Autowired
+	TutorDAO tutorDAO;
+	
+	@Autowired
+	StudentDAO studentDAO;
+	
+	//check user in system
 	public MessageReturned isValidUser(String username, String password) {
 		
 		return userDAO.isValidUser(username, password);
 		
 	}
 	
-	public MessageReturned insertUser(User user) {
+	//save student
+	public MessageReturned insertStudent(Student student) {
 		
-		return userDAO.saveUser(user);
+		return studentDAO.saveStudent(student);
 		
+	}
+	
+	//save tutor
+	public MessageReturned insertTutor(Tutor tutor) {
+		return tutorDAO.saveTutor(tutor);
 	}
 
 }

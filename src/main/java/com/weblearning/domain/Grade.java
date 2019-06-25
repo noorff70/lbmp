@@ -11,16 +11,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.weblearning.security.model.User;
+
 import javax.persistence.JoinColumn;
 
 
 @Entity
-@Table(name="GRADE")
+@Table(name="grade")
 public class Grade {
 
 	int gradeId;
 	String gradeName;
+	
 	private Set<Subject> subjects = new HashSet<Subject>(0);
+	//many to many between tutor and grade and grade receivinf side
+	private Set<User> users = new HashSet<User>(0);
 
 	public Grade(){
 	}
@@ -52,7 +58,7 @@ public class Grade {
 	}
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "GRADE_SUBJECT", joinColumns = { 
+	@JoinTable(name = "grade_subject", joinColumns = { 
 			@JoinColumn(name = "GRADEID", nullable = false, updatable = false) }, 
 			inverseJoinColumns = { @JoinColumn(name = "SUBJECTID", 
 					nullable = false, updatable = false) })
@@ -64,5 +70,16 @@ public class Grade {
 	public void setSubjects(Set <Subject>subs){
 		subjects = subs;
 	}
+	
+	
+	//many to many relatioship between tutor and grade
+	@ManyToMany(mappedBy = "gradeTutor")
+	public Set<User> getUsers() {
+		return this.users;
+	}
+	public void setUsers(Set<User> gt) {
+		this.users = gt;
+	}
+	
 
 }
