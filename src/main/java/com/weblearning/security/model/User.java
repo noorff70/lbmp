@@ -37,7 +37,6 @@ public class User{
 	
 	@NotEmpty(message = "Please enter User Name.")
 	String username;
-	@NotEmpty
 	String password;
 	String postalCode;
 	
@@ -97,6 +96,7 @@ public class User{
 
 	
 	// many to many relationship for tutor and grade and tutor owning side
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "user_grade",
         joinColumns = @JoinColumn(name = "USER_USERID", insertable=false, updatable=false),

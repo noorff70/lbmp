@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.weblearning.security.model.User;
 
 import javax.persistence.JoinColumn;
@@ -57,6 +58,7 @@ public class Grade {
 		this.gradeName = grade;
 	}
 	
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "grade_subject", joinColumns = { 
 			@JoinColumn(name = "GRADEID", nullable = false, updatable = false) }, 

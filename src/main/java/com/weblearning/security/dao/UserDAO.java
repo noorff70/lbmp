@@ -1,10 +1,9 @@
 package com.weblearning.security.dao;
 
-import com.weblearning.domain.MessageReturned;
-import com.weblearning.security.model.User;
+import com.weblearning.security.model.LoggedUser;
 
 public interface UserDAO {
 	
-	public MessageReturned isValidUser(String username, String password);
+	public LoggedUser isValidUser(String username, String password);
 
 }

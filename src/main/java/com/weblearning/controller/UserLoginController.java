@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.weblearning.domain.MessageReturned;
 import com.weblearning.domain.Student;
 import com.weblearning.domain.Tutor;
+import com.weblearning.security.model.LoggedUser;
 import com.weblearning.security.model.User;
 import com.weblearning.security.service.LoginService;
 
@@ -22,14 +23,17 @@ public class UserLoginController {
 	private LoginService loginService;
 	
 	@PostMapping(value="/loginview")
-	public MessageReturned getLoginPage(@RequestBody User user ){
+	public LoggedUser getLoginPage(@RequestBody User user ){
 		
-		MessageReturned msgRtn;
+		//MessageReturned msgRtn;
+		LoggedUser loggedUser = new LoggedUser();
 		
 		//boolean login = loginService.isValidUser(user.getUsername(), user.getPassword());
-		msgRtn = loginService.isValidUser(user.getUsername(), user.getPassword());
+		loggedUser = loginService.isValidUser(user.getUsername(), user.getPassword());
+		
+		
 
-		return msgRtn;
+		return loggedUser;
 	}
 	
 	/*@PostMapping(value="/insertUser")
