@@ -61,4 +61,32 @@ public class StudentDAOImpl implements StudentDAO{
 		return msgRtn;
 	}
 
+	@Override
+	public MessageReturned updateStudent(Student student) {
+		
+		MessageReturned msgRtn = new MessageReturned();
+		
+		Student stu = new Student();
+		
+		try {
+			stu = (Student)entityManager.createQuery("")
+					.setParameter("studentName", stu.getUsername())
+					.getSingleResult();
+			
+			stu.setGradeTutor(student.getGradeTutor());
+			stu.setPassword(student.getPassword());
+			stu.setPostalCode(student.getPostalCode());
+			
+			entityManager.persist(stu);
+			msgRtn.setMsg("Student Saved Successfully");
+			msgRtn.setSuccess(true);
+			
+		}catch (Exception e) {
+			msgRtn.setMsg("Student Couldn't Saved Successfully");
+			msgRtn.setSuccess(false);
+		}
+		
+		return msgRtn;
+	}
+
 }

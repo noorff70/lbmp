@@ -34,19 +34,30 @@ public class LoginServiceImpl implements LoginService{
 	public MessageReturned isValidUser(String username, String password) {
 		
 		return userDAO.isValidUser(username, password);
-		
 	}
 	
 	//save student
 	public MessageReturned insertStudent(Student student) {
 		
 		return studentDAO.saveStudent(student);
-		
 	}
 	
 	//save tutor
 	public MessageReturned insertTutor(Tutor tutor) {
 		return tutorDAO.saveTutor(tutor);
 	}
+
+	@Override
+	public MessageReturned updateStudent(Student student) {
+		
+		return studentDAO.updateStudent(student);
+	}
+
+	@Override
+	public MessageReturned updateTutor(Tutor tutor) {
+		
+		return tutorDAO.updateTutor(tutor);
+	}
+	
 
 }

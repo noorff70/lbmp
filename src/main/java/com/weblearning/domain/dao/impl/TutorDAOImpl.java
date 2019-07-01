@@ -62,4 +62,35 @@ public class TutorDAOImpl implements TutorDAO {
 		return msgRtn;
 	}
 
+	@Override
+	public MessageReturned updateTutor(Tutor tutor) {
+		
+		MessageReturned msg = new MessageReturned();
+		Tutor tut = new Tutor();
+		
+		String tutorName = tutor.getUsername();
+		
+		try {
+			tut = (Tutor)entityManager.createQuery("Select u from User u where u.username =:tutorName")
+					.setParameter("tutorName", tutorName)
+					.getSingleResult();
+			
+			tut.setPassword(tutor.getPassword());
+			tut.setPostalCode(tutor.getPostalCode());
+			tut.setGradeTutor(tutor.getGradeTutor());
+			
+			entityManager.persist(tut);
+			
+			msg.setMsg("Tutor Updated Successfully");
+			msg.setSuccess(true);
+			
+		}catch(Exception e) {
+			msg.setMsg("Failed to update Tutor");
+			msg.setSuccess(false);
+			
+		}
+		
+		return msg;
+	}
+
 }

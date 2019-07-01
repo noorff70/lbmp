@@ -78,18 +78,35 @@ public class UserLoginController {
 			
 			msgRtn = loginService.insertStudent(student);
 		}
-		
-		
-		
 
+		return msgRtn;
+	}
+	
+	@PostMapping(value="/updateUser")
+	public MessageReturned updateUser (@RequestBody User usr) {
 		
-		//tutor.setGradeTutors(ttr.);
+		MessageReturned msgRtn= new MessageReturned();
 		
+		if (usr.getUserRole().equals("Tutor")) {
+			
+			Tutor tutor = new Tutor();
+			tutor.setPassword(usr.getPassword());
+			tutor.setUsername(usr.getUsername());
+			tutor.setPostalCode(usr.getPostalCode());
+			tutor.setGradeTutor(usr.getGradeTutor());
+			
+			msgRtn = loginService.updateTutor(tutor);
+			
+		}else if (usr.getUserRole().equals("Student")) {
+			Student student = new Student();
+			student.setPassword(usr.getPassword());
+			student.setUsername(usr.getUsername());
+			student.setPostalCode(usr.getPostalCode());
+			student.setGradeTutor(usr.getGradeTutor());
+			
+			msgRtn = loginService.updateStudent(student);
+		}
 		
-
-		
-		
-
 		return msgRtn;
 	}
 	

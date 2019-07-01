@@ -5,4 +5,5 @@ import com.weblearning.domain.Tutor;
 
 public interface TutorDAO {
 	public MessageReturned saveTutor(Tutor tutor) ;
+	public MessageReturned updateTutor(Tutor tutor);
 }

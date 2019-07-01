@@ -5,4 +5,5 @@ import com.weblearning.domain.Student;
 
 public interface StudentDAO {
 	public MessageReturned saveStudent(Student student) ;
+	public MessageReturned updateStudent(Student student) ;
 }
