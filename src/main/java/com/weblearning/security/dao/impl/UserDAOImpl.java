@@ -48,8 +48,8 @@ public class UserDAOImpl implements UserDAO{
 		
 		user = userList.get(0);
 		
-		//loggedUser.setGradeTutor(user.getGradeTutor());
-		//loggedUser.setUserRole(user.getUserRole());
+		loggedUser.setGradeTutor(user.getGradeUser());
+		loggedUser.setUserRole(user.getUserRole());
 		loggedUser.setUsername(user.getUsername());
 		//user.setPassword(null);
 		

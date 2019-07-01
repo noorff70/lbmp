@@ -1,12 +1,15 @@
 package com.weblearning.security.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * This class is used to identify the user in the system
  */
 
 public class LoggedUser{
 	
-	//private Set<Grade> gradeTutor = new HashSet<Grade>(0);
+	private Set<?> gradeTutor = new HashSet();
 	
 	Long userId;
 	
@@ -59,12 +62,12 @@ public class LoggedUser{
 	}
 
 	
-	//public Set<Grade> getGradeTutor() {
-	//	return this.gradeTutor;
-	//}
+	public Set<?> getGradeTutor() {
+		return this.gradeTutor;
+	}
 	
-	//public void setGradeTutor(Set<Grade> tg) {
-	//	this.gradeTutor = tg;
-	//}
+	public void setGradeTutor(Set<?> tg) {
+		this.gradeTutor = tg;
+	}
 
 }

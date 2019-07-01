@@ -19,6 +19,8 @@ import javax.persistence.JoinColumn;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.weblearning.domain.Grade;
 
 /*
@@ -31,7 +33,7 @@ import com.weblearning.domain.Grade;
 @DiscriminatorColumn(name="USERTYPE")
 public class User{
 	
-	private Set<Grade> gradeTutor = new HashSet<Grade>(0);
+	private Set<Grade> gradeUser = new HashSet<Grade>(0);
 	
 	Long userId;
 	
@@ -96,18 +98,18 @@ public class User{
 
 	
 	// many to many relationship for tutor and grade and tutor owning side
-
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "user_grade",
         joinColumns = @JoinColumn(name = "USER_USERID", insertable=false, updatable=false),
         inverseJoinColumns = @JoinColumn(name = "GRADE_GRADEID", insertable=false, updatable=false))
 	
-	public Set<Grade> getGradeTutor() {
-		return this.gradeTutor;
+	public Set<Grade> getGradeUser() {
+		return this.gradeUser;
 	}
 	
-	public void setGradeTutor(Set<Grade> tg) {
-		this.gradeTutor = tg;
+	public void setGradeUser(Set<Grade> tg) {
+		this.gradeUser = tg;
 	}
 
 }

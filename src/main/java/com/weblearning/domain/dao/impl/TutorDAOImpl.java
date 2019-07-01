@@ -77,7 +77,7 @@ public class TutorDAOImpl implements TutorDAO {
 			
 			tut.setPassword(tutor.getPassword());
 			tut.setPostalCode(tutor.getPostalCode());
-			tut.setGradeTutor(tutor.getGradeTutor());
+			tut.setGradeUser(tutor.getGradeUser());
 			
 			entityManager.persist(tut);
 			

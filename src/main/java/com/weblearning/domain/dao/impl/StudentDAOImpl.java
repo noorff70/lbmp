@@ -73,7 +73,7 @@ public class StudentDAOImpl implements StudentDAO{
 					.setParameter("studentName", stu.getUsername())
 					.getSingleResult();
 			
-			stu.setGradeTutor(student.getGradeTutor());
+			stu.setGradeUser(student.getGradeUser());
 			stu.setPassword(student.getPassword());
 			stu.setPostalCode(student.getPostalCode());
 			

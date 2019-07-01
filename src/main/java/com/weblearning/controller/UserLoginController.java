@@ -68,7 +68,7 @@ public class UserLoginController {
 			tutor.setPassword(usr.getPassword());
 			tutor.setUsername(usr.getUsername());
 			tutor.setPostalCode(usr.getPostalCode());
-			tutor.setGradeTutor(usr.getGradeTutor());
+			tutor.setGradeUser(usr.getGradeUser());
 			
 			msgRtn = loginService.insertTutor(tutor);
 		}
@@ -78,7 +78,7 @@ public class UserLoginController {
 			student.setPassword(usr.getPassword());
 			student.setUsername(usr.getUsername());
 			student.setPostalCode(usr.getPostalCode());
-			student.setGradeTutor(usr.getGradeTutor());
+			student.setGradeUser(usr.getGradeUser());
 			
 			msgRtn = loginService.insertStudent(student);
 		}
@@ -97,7 +97,7 @@ public class UserLoginController {
 			tutor.setPassword(usr.getPassword());
 			tutor.setUsername(usr.getUsername());
 			tutor.setPostalCode(usr.getPostalCode());
-			tutor.setGradeTutor(usr.getGradeTutor());
+			tutor.setGradeUser(usr.getGradeUser());
 			
 			msgRtn = loginService.updateTutor(tutor);
 			
@@ -106,7 +106,7 @@ public class UserLoginController {
 			student.setPassword(usr.getPassword());
 			student.setUsername(usr.getUsername());
 			student.setPostalCode(usr.getPostalCode());
-			student.setGradeTutor(usr.getGradeTutor());
+			student.setGradeUser(usr.getGradeUser());
 			
 			msgRtn = loginService.updateStudent(student);
 		}
