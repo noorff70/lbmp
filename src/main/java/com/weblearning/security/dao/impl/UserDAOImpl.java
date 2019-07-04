@@ -10,12 +10,14 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.weblearning.security.dao.UserDAO;
 import com.weblearning.security.model.LoggedUser;
 import com.weblearning.security.model.User;
 
 @Repository("userDAO")
+@Transactional
 public class UserDAOImpl implements UserDAO{
 	
 	private static final Logger logger = Logger.getLogger(UserDAOImpl.class);
@@ -46,22 +48,14 @@ public class UserDAOImpl implements UserDAO{
 				.setParameter("password", password)
 				.getResultList();
 		
-		user = userList.get(0);
-		
-		loggedUser.setGradeTutor(user.getGradeUser());
-		loggedUser.setUserRole(user.getUserRole());
-		loggedUser.setUsername(user.getUsername());
-		//user.setPassword(null);
-		
-		/*if (null != userList && userList.size() > 0) {
-			msgRtn.setSuccess(true);
-			msgRtn.setMsg("Login Successful");
-		}
-		else {
-			msgRtn.setSuccess(false);
-			msgRtn.setMsg("Could not login. User with matching Password not found.");
-		}*/
+	
+		if (null != userList && userList.size() > 0) {
+			user = userList.get(0);
 			
+			loggedUser.setGradeTutor(user.getGradeUser());
+			loggedUser.setUserRole(user.getUserRole());
+			loggedUser.setUsername(user.getUsername());
+		}
 		
 		return loggedUser;
 	}

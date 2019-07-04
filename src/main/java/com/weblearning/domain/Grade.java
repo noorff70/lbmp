@@ -75,8 +75,8 @@ public class Grade {
 	
 	
 	//many to many relatioship between tutor and grade
-	@JsonIgnore
-	@ManyToMany(mappedBy = "gradeUser")
+
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "gradeUser")
 	public Set<User> getUsers() {
 		return this.users;
 	}
