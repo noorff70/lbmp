@@ -51,8 +51,10 @@ public class RestMathController {
 		// Get the list of problems and add that to session for later retrieval
 		mathClassLoaderService.setGradeId(gradeId);
 		problemList = mathClassLoaderService.getProblemList(className);
+		
+		List<Problem> pList = getProblemListAfterNumberAssigned(problemList);
 
-		ch.setProblemList(problemList);
+		ch.setProblemList(pList);
 		
 		lessonList = mathClassLoaderService.getLessonList(lessonName);
 		ch.setLessonList(lessonList);
@@ -84,6 +86,16 @@ public class RestMathController {
 			return Constants.GRADE_8_PACKAGE_LESSON;
 		
 		return null;
+	}
+	
+	private List<Problem> getProblemListAfterNumberAssigned (List<Problem> pList) {
+		
+		for (int i=0; i< pList.size(); i++) {
+			Problem p = pList.get(i);
+			p.setProblemNumber(i+1);
+		}
+		
+		return pList;
 	}
 
 }

@@ -53,7 +53,7 @@ public class CreateProblem {
 		
 	}*/
 	
-	public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, int rank, String type, String picturePath  ){
+	/*public Problem constructProblem(List<QuestionLine> questionList, String answ, String questionHeading,  String subHeading, int rank, String type, String picturePath  ){
 		
 		Problem problem = new Problem();
 		
@@ -71,6 +71,6 @@ public class CreateProblem {
 		
 		return problem;
 		
-	}
+	}*/
 
 }

@@ -26,6 +26,7 @@ public class Problem {
 	List <Variable> variableList;
 	GeometryObject  geometryObject;
 	GraphObject graphObject;
+	int problemNumber;
 	
 	public Problem(){
 		
@@ -111,6 +112,14 @@ public class Problem {
 	
 	public GraphObject getGraphObject() {
 		return this.graphObject;
+	}
+	
+	public int getProblemNumber() {
+		return this.problemNumber;
+	}
+	
+	public void setProblemNumber (int pNo) {
+		this.problemNumber = pNo;
 	}
 	
 }
