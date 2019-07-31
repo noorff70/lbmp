@@ -19,9 +19,8 @@ import javax.persistence.JoinColumn;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators.IntSequenceGenerator;
 import com.weblearning.domain.Grade;
 
 /*
@@ -33,7 +32,7 @@ import com.weblearning.domain.Grade;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="USERTYPE")
 public class User{
-	@JsonIgnore
+	
 	private Set<Grade> gradeUser = new HashSet<Grade>(0);
 	
 	Long userId;
@@ -104,7 +103,7 @@ public class User{
     @JoinTable(name = "user_grade",
         joinColumns = @JoinColumn(name = "USER_USERID", insertable=false, updatable=false),
         inverseJoinColumns = @JoinColumn(name = "GRADE_GRADEID", insertable=false, updatable=false))
-	
+	@JsonIdentityInfo(generator=IntSequenceGenerator.class)
 	public Set<Grade> getGradeUser() {
 		return this.gradeUser;
 	}

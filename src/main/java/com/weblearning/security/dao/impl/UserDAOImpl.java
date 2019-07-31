@@ -43,21 +43,28 @@ public class UserDAOImpl implements UserDAO{
 		List<User> userList = new ArrayList<User>();
 		//MessageReturned msgRtn = new MessageReturned();
 		
-		userList = entityManager.createQuery("Select u from User u where u.username =:username and u.password =:password")
-				.setParameter("username", username)
-				.setParameter("password", password)
-				.getResultList();
-		
-	
-		if (null != userList && userList.size() > 0) {
-			user = userList.get(0);
+		try {
+			userList = entityManager.createQuery("Select u from User u where u.username =:username and u.password =:password")
+					.setParameter("username", username)
+					.setParameter("password", password)
+					.getResultList();
 			
-			loggedUser.setGradeTutor(user.getGradeUser());
-			loggedUser.setUserRole(user.getUserRole());
-			loggedUser.setUsername(user.getUsername());
-		}
 		
-		return loggedUser;
+			if (null != userList && userList.size() > 0) {
+				user = userList.get(0);
+				
+				loggedUser.setGradeTutor(user.getGradeUser());
+				loggedUser.setUserRole(user.getUserRole());
+				loggedUser.setUsername(user.getUsername());
+			}
+			
+			return loggedUser;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 
 }
