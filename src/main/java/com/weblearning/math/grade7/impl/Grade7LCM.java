@@ -90,12 +90,12 @@ public class Grade7LCM extends GenericQuestion{
 		
 		List <QuestionLine>questionList = new LinkedList<QuestionLine>();
 		
-		List<?> primeNumberList = MathUtilities.getPrimeNumberList(2, 500);
+		List<Integer> primeNumberList = MathUtilities.getPrimeNumberList(2, 500);
 				
-		int lcmNumber1=0;
-		int lcmNumber2=0;
-		int lcmNumber3=0;
-		int lcmNumber4 =4;
+		Integer lcmNumber1=0;
+		Integer lcmNumber2=0;
+		Integer lcmNumber3=0;
+		Integer lcmNumber4 =4;
 		
 		//Generate two random numbers
 		if (!primeNumber && numberOfItems ==1 ){
@@ -105,18 +105,18 @@ public class Grade7LCM extends GenericQuestion{
 		}
 		else if (primeNumber && numberOfItems ==1){
 			
-			lcmNumber1 = (int) primeNumberList.get(MathUtilities.getRandomNumber(2, 10));
+			lcmNumber1 = primeNumberList.get(MathUtilities.getRandomNumber(2, 10));
 			lcmNumber2 = lcmNumber1* MathUtilities.getRandomNumber(2, 5);
 		}
 		else if (!primeNumber && numberOfItems ==2){
 			
-			lcmNumber1 = (int) primeNumberList.get(MathUtilities.getRandomNumber(min, max));
-			lcmNumber2 = (int) primeNumberList.get(MathUtilities.getRandomNumber(min, max * MathUtilities.getRandomNumber(2, 5)));
+			lcmNumber1 = primeNumberList.get(MathUtilities.getRandomNumber(min, max));
+			lcmNumber2 = primeNumberList.get(MathUtilities.getRandomNumber(min, max * MathUtilities.getRandomNumber(2, 5)));
 		}
 		else if (!primeNumber && numberOfItems ==4){
-			lcmNumber1 = (int) primeNumberList.get(MathUtilities.getRandomNumber(min, max));
+			lcmNumber1 = primeNumberList.get(MathUtilities.getRandomNumber(min, max));
 			lcmNumber2 = lcmNumber1* MathUtilities.getRandomNumber(2, 5);
-			lcmNumber3 = (int) primeNumberList.get(MathUtilities.getRandomNumber(min, max));
+			lcmNumber3 = primeNumberList.get(MathUtilities.getRandomNumber(min, max));
 			lcmNumber4 = lcmNumber1* MathUtilities.getRandomNumber(2, 5);
 		}
 		

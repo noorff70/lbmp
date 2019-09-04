@@ -86,11 +86,11 @@ public class Grade6PrimeNumbers extends GenericQuestion{
 		Answer answer = new Answer();
 		
 		List<QuestionLine> questionList = new ArrayList<QuestionLine>();
-		List<?> primeNumberList = MathUtilities.getPrimeNumberList(20, 100);
+		List<Integer> primeNumberList = MathUtilities.getPrimeNumberList(20, 100);
 		
 		//
 		int randomPosition = MathUtilities.getRandomNumber(0, primeNumberList.size()-2);
-		int nextPrime = (int) primeNumberList.get(randomPosition+1);
+		Integer nextPrime = primeNumberList.get(randomPosition+1);
 		
 		questionList.add(new QuestionLine("What is the next prime number of "+ primeNumberList.get(randomPosition)));
 		
