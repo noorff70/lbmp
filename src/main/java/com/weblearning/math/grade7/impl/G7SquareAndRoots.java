@@ -5,7 +5,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.context.MessageSource;
 
@@ -18,7 +17,7 @@ import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G7ExponentDecimalFraction extends GenericQuestion {
+public class G7SquareAndRoots extends GenericQuestion {
 	
 
 
@@ -33,9 +32,9 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 			g7ExponentDecimalFraction.add(getProblem2(mathConfig));
 		for (int i=0; i< 5; i++)
 			g7ExponentDecimalFraction.add(getProblem3(mathConfig));
-		for (int i=0; i< 5; i++)
+		for (int i=0; i< 3; i++)
 			g7ExponentDecimalFraction.add(getProblem4(mathConfig));
-		for (int i=0; i< 5; i++)
+		for (int i=0; i< 2; i++)
 			g7ExponentDecimalFraction.add(getProblem5(mathConfig));
 
 		return g7ExponentDecimalFraction;
@@ -49,7 +48,6 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		MessageSource mSource = mathConfig.getmSource();
 		
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -58,23 +56,21 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 		//get a random first number
 		
-		double randomNumber = (double)MathUtilities.getRandomNumber(11, 15)/10;
-		BigDecimal bg = new BigDecimal(randomNumber * randomNumber).setScale(2, RoundingMode.HALF_UP);
+		int randomNumber = MathUtilities.getRandomNumber(2, 10);
+		Integer bg = new Integer(randomNumber * randomNumber);
 		
 		//create question and answer sections
 		question = "$("+randomNumber +")^{" +2+"}$";
 
 		answer = bg.toString();
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine("Round upto 2 Decimals");
-		QuestionLine qLine3 = new QuestionLine(question);
+		QuestionLine qLine1 = new QuestionLine("Find Square of the Following");
+		QuestionLine qLine2 = new QuestionLine(question);
 
 		questionList.add(qLine1);
 		questionList.add(qLine2);
-		questionList.add(qLine3);
 
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		String heading = "Square and Square Roots";
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
@@ -88,7 +84,6 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		MessageSource mSource = mathConfig.getmSource();
 		
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -97,23 +92,21 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 		//get a random first number
 		
-		double randomNumber = (double)MathUtilities.getRandomNumber(11, 15)/10;
-		BigDecimal bg = new BigDecimal(randomNumber * randomNumber * randomNumber).setScale(3, RoundingMode.HALF_UP);
+		int randomNumber = MathUtilities.getRandomNumber(2,20);
+		Integer bg = new Integer(randomNumber * randomNumber );
 		
 		//create question and answer sections
-		question = "$("+randomNumber +")^{" +3+"}$";
+		question = "$\\sqrt"+bg +"$";
 
-		answer = bg.toString();
+		answer = Integer.toString(randomNumber);
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine("Round upto 3 Decimals");
-		QuestionLine qLine3 = new QuestionLine(question);
+		QuestionLine qLine1 = new QuestionLine("Find Square Root of the following number");
+		QuestionLine qLine2 = new QuestionLine(question);
 
 		questionList.add(qLine1);
 		questionList.add(qLine2);
-		questionList.add(qLine3);
 
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		String heading = "Square and Square Roots";
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
@@ -127,7 +120,7 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 		
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -136,23 +129,31 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 		//get a random first number
 		
-		double randomNumber = (double)MathUtilities.getRandomNumber(1, 9)/10;
-		BigDecimal bg = new BigDecimal(randomNumber * randomNumber ).setScale(2, RoundingMode.HALF_UP);
+		int num1 = MathUtilities.getRandomNumber(1, 10);
+		int num2 = MathUtilities.getRandomNumber(1, 10);
+		
+		int sqtNum1 = num1* num1;
+
+		
 		
 		//create question and answer sections
-		question = "$("+randomNumber +")^{" +2+"}$";
+		question = "$\\sqrt"+ Integer.toString(sqtNum1) +"\\Box" + Integer.toString(num2) + "$";
+		
+		if (num1> num2)
+			answer = ">";
+		else if (num1<num2)
+			answer = "<";
+		else 
+			answer = "=";
 
-		answer = bg.toString();
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine("Round upto 2 Decimals");
+		QuestionLine qLine1 = new QuestionLine("Compare left and right side and put either >, < or =");
 		QuestionLine qLine3 = new QuestionLine(question);
 
 		questionList.add(qLine1);
-		questionList.add(qLine2);
 		questionList.add(qLine3);
 
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		String heading = "Square and Square Roots";
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
@@ -166,7 +167,6 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		MessageSource mSource = mathConfig.getmSource();
 		
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -175,23 +175,28 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 		//get a random first number
 		
-		double randomNumber = (double)MathUtilities.getRandomNumber(1, 9)/10;
-		BigDecimal bg = new BigDecimal(randomNumber * randomNumber).setScale(2, RoundingMode.HALF_UP);
+		int randomNumber = MathUtilities.getRandomNumber(101, 300);
+		BigDecimal sqrt = new BigDecimal(Math.sqrt(randomNumber)).setScale(2, RoundingMode.HALF_UP); //get the square root with two decimal
+		int upperVal=0;
+		int lowerVal = (int)Math.sqrt(randomNumber);
 		
-		//create question and answer sections
-		question = "-$("+randomNumber +")^{" +2+"}$";
+		if (sqrt.doubleValue()> lowerVal)
+			upperVal = lowerVal +1;
+		else if  (sqrt.doubleValue() == lowerVal)
+			upperVal = lowerVal;
+			
+		if (upperVal == lowerVal)
+			question = "$\\sqrt" +  Integer.toString(randomNumber) + "$ of is $\\Box$";
+		else
+			question = "$ \\sqrt" + Integer.toString(randomNumber) + "$ is between " + Integer.toString(lowerVal) + " and $\\Box  $";
 
-		answer = "-" + bg.toString();
+		answer = Integer.toString(upperVal);
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine("Round upto 2 Decimals");
-		QuestionLine qLine3 = new QuestionLine(question);
+		QuestionLine qLine1 = new QuestionLine(question);
 
 		questionList.add(qLine1);
-		questionList.add(qLine2);
-		questionList.add(qLine3);
 
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		String heading = "Square and Square Roots";
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
@@ -205,7 +210,6 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-		MessageSource mSource = mathConfig.getmSource();
 		
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -214,23 +218,28 @@ public class G7ExponentDecimalFraction extends GenericQuestion {
 		
 		//get a random first number
 		
-		double randomNumber = (double)MathUtilities.getRandomNumber(1, 9)/10;
-		BigDecimal bg = new BigDecimal(randomNumber * randomNumber).setScale(2, RoundingMode.HALF_UP);
+		int randomNumber = MathUtilities.getRandomNumber(101, 300);
+		BigDecimal sqrt = new BigDecimal(Math.sqrt(randomNumber)).setScale(2, RoundingMode.HALF_UP); //get the square root with two decimal
+		int upperVal=0;
+		int lowerVal = (int)Math.sqrt(randomNumber);
 		
-		//create question and answer sections
-		question = "$(-"+randomNumber +")^{" +2+"}$";
+		if (sqrt.doubleValue()> lowerVal)
+			upperVal = lowerVal +1;
+		else if  (sqrt.doubleValue() == lowerVal)
+			upperVal = lowerVal;
+			
+		if (upperVal == lowerVal)
+			question = "$\\sqrt" +  Integer.toString(randomNumber) + "$ of is $\\Box$";
+		else 		
+			question = "$\\sqrt " + Integer.toString(randomNumber) + "$"+ " is between " +"$\\Box $" +" and"  + Integer.toString(upperVal);
 
-		answer = bg.toString();
+		answer = Integer.toString(lowerVal);
 	
-		QuestionLine qLine1 = new QuestionLine(mSource.getMessage(Constants.INTEGER_EXPONENTIATION, null, Locale.ENGLISH));
-		QuestionLine qLine2 = new QuestionLine("Round upto 2 Decimals");
-		QuestionLine qLine3 = new QuestionLine(question);
+		QuestionLine qLine1 = new QuestionLine(question);
 
 		questionList.add(qLine1);
-		questionList.add(qLine2);
-		questionList.add(qLine3);
 
-		String heading = mSource.getMessage(Constants.GRADE_7_INTEGER_EXPONENTIATION, null, Locale.ENGLISH);
+		String heading = "Square and Square Roots";
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
