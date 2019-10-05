@@ -304,7 +304,7 @@ def get_math_graph():
                         
                         source = ColumnDataSource(data)
 
-                        data_table = DataTable(source=source, columns=columns, width=400, height=100)
+                        data_table = DataTable(source=source, columns=columns, width=300, height=100)
             
                         plot = json.dumps(json_item(data_table))
                         qLn['questionLn'] = plot
@@ -318,9 +318,9 @@ def get_math_graph():
             if geoObject['rangeXY'] is not None:
                 rangeXY = geoObject['rangeXY']
                 print(rangeXY['lowerX'],  rangeXY['upperX'])
-                p = figure(title="", width=400, height=400, match_aspect=True, x_range=(rangeXY['lowerX'], rangeXY['upperX']), y_range=(rangeXY['lowerY'], rangeXY['upperY']))
+                p = figure(title="", width=300, height=300, match_aspect=True, x_range=(rangeXY['lowerX'], rangeXY['upperX']), y_range=(rangeXY['lowerY'], rangeXY['upperY']))
             else: 
-                p = figure(title="", width=400, height=400, match_aspect=True)
+                p = figure(title="", width=300, height=300, match_aspect=True)
             
             if geoObject['circles'] is not None:
                 x=[] 
