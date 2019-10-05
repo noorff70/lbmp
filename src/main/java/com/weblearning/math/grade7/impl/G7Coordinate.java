@@ -379,7 +379,7 @@ public class G7Coordinate extends GenericQuestion{
 			questionList.add(new QuestionLine( "Coordinate of midpoint of line CD"+ GR8_Constants.ANSWER_TO_QUESTION + ans5  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 			questionList.add(new QuestionLine( "X Coordinate of any point on line BD"+ GR8_Constants.ANSWER_TO_QUESTION + ans6  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 			questionList.add(new QuestionLine( "Y Coordinate of any point on line CD"+ GR8_Constants.ANSWER_TO_QUESTION + ans7  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-			questionList.add(new QuestionLine( "Coordinate of mid point on line AC"+ GR8_Constants.ANSWER_TO_QUESTION + ans8  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		//	questionList.add(new QuestionLine( "Coordinate of mid point on line AC"+ GR8_Constants.ANSWER_TO_QUESTION + ans8  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 
 			String heading = mSource.getMessage(GR7_Constants.COORDINATE_GEOMETRY, null, Locale.ENGLISH);
 			answ.setAnswer("Blank");
