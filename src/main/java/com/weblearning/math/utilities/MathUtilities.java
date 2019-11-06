@@ -206,7 +206,7 @@ public class MathUtilities {
 		if (i==1 || i==2 || i==3)
 			return prime;
 		else{
-			for (int j=2; j<i/2; j++){
+			for (int j=2; j<=i/2; j++){
 				if (i %j ==0){
 					prime =false;
 					break;
@@ -247,8 +247,11 @@ public class MathUtilities {
 		for (int i=1; i<500; i++){
 			List<Integer> listOfFactors = new ArrayList<Integer>();
 			for(int j=1; j<= i ; j++){
-				if (i % j==0 && checkForPrime(j)){
+				if (i % j==0 && checkForPrime(j) && i != j){
 					//check if that number is a prime number
+					listOfFactors.add(j);
+				}
+				if (i== j) {
 					listOfFactors.add(j);
 				}
 			}

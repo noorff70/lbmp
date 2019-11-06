@@ -49,12 +49,21 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		int randomPosition = MathUtilities.getRandomNumber(3,20 );
 		
 		Map<?, ?> mapPrimeFactor = mConfig.getPrimeFactors();
+		// will hold all uthe factors of a number
 		List<?> listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
 		
 		//for a prime number listFactor will have a size of 2. We need something more than a prime number.
 		while(listFactor.size()<= 2){
 			randomPosition = MathUtilities.getRandomNumber(3,20 );
 			listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
+		}
+		
+		// remove non prime factors from list
+		for ( int i=0; i<listFactor.size(); i++ ) {
+			int num = (int) listFactor.get(i); 
+			if (!MathUtilities.checkForPrime(num)) {
+				listFactor.remove(i);
+			}
 		}
 		
 		StringBuilder str = new StringBuilder();
@@ -110,6 +119,13 @@ public class Grade7PrimeFactors extends GenericQuestion{
 			listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
 		}
 		
+		for ( int i=0; i<listFactor.size(); i++ ) {
+			int num = (int) listFactor.get(i); 
+			if (!MathUtilities.checkForPrime(num)) {
+				listFactor.remove(i);
+			}
+		}
+		
 		StringBuilder str = new StringBuilder();
 
 		for (int i=0; i< listFactor.size(); i++){
@@ -159,6 +175,13 @@ public class Grade7PrimeFactors extends GenericQuestion{
 		while(listFactor.size()<= 2){
 			randomPosition = MathUtilities.getRandomNumber(3,20 );
 			listFactor = (List<?>) mapPrimeFactor.get(randomPosition);
+		}
+		
+		for ( int i=0; i<listFactor.size(); i++ ) {
+			int num = (int) listFactor.get(i); 
+			if (!MathUtilities.checkForPrime(num)) {
+				listFactor.remove(i);
+			}
 		}
 		
 		StringBuilder str = new StringBuilder();

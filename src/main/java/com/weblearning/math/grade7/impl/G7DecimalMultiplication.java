@@ -231,6 +231,7 @@ public class G7DecimalMultiplication extends GenericQuestion {
 	
 			
 		questionList.add(new QuestionLine( question, null, Constants.DEFAULT));
+		questionList.add(new QuestionLine("Select A or B when: ", null, Constants.DEFAULT));
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.GREATER_THAN_ORIGINAL_NUMBER, null, Locale.ENGLISH), null, Constants.DEFAULT));
 		questionList.add(new QuestionLine(mSource.getMessage(Constants.LESS_THAN_ORIGINAL_NUMBER, null, Locale.ENGLISH), null, Constants.DEFAULT));
 		
