@@ -44,6 +44,7 @@
 7211;"Simple Equations";721;"G7SimpleEquations"
 7212;"Algebric Expression Writing";721;"G7AlgExpWrite"
 7213;"Expression Evaluation";721;"G7AlgebricExpEval1"
+7214;"Simplify Algebric Expression";721;"G7AlgExpSimplify"
 7221;"Mean, Median and Mode";722;"G7StatMeanBasic"
 7222;"Word Problems";722;"G7StatWordProblem"
 7231;"Experimental Probability";723;"G7ExpProb"
