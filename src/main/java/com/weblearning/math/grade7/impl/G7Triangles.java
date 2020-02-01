@@ -3,6 +3,7 @@ package com.weblearning.math.grade7.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 //import java.util.Locale;
@@ -19,6 +20,10 @@ import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
+import com.weblearning.domain.utility.geometry.CircleObject;
+import com.weblearning.domain.utility.geometry.GeometryObject;
+import com.weblearning.domain.utility.geometry.LabelObject;
+import com.weblearning.domain.utility.geometry.LineObject;
 import com.weblearning.math.grade.GenericQuestion;
 import com.weblearning.math.grade7.utilities.GR7_Constants;
 import com.weblearning.math.grade8.impl.GR8_Constants;
@@ -66,6 +71,7 @@ public class G7Triangles extends GenericQuestion{
 	    problemList.add(getProblem1(mathConfig));
 	    problemList.add(getProblem2(mathConfig));
 	    problemList.add(getProblem3(mathConfig));
+	    problemList.add(getProblem4(mathConfig));
 	    problemList.add(getProblem4(mathConfig));
 	
 		return problemList;
@@ -233,6 +239,107 @@ public class G7Triangles extends GenericQuestion{
 		answ.setAnswer(answer);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+	
+	//draw a triangle
+	public Problem getProblem5(MathConfiguration mathConfig) {
+			
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+			
+		MessageSource mSource = mathConfig.getmSource();
+			
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="", q2="", q3="";
+			
+		GeometryObject geo = new GeometryObject();
+		List<CircleObject> circleList = new ArrayList<CircleObject>();
+		List<LabelObject> labelList = new ArrayList<LabelObject>();
+		List<LineObject> lineList = new ArrayList<LineObject>();
+			
+		CircleObject co1= new CircleObject();
+		LabelObject lo1 = new LabelObject();
+		int _1x = 3;
+		int _1y = 0;
+		co1.setxCo(Double.valueOf(_1x));
+		co1.setyCo(Double.valueOf(_1y));
+		lo1.setxCo(Double.valueOf(_1x+.025));
+		lo1.setyCo(Double.valueOf(_1y+.025));
+		lo1.setLabelName("A");
+			
+		CircleObject co2= new CircleObject();
+		LabelObject lo2 = new LabelObject();
+		int _2x = 7;
+		int _2y = 0;
+		co2.setxCo(Double.valueOf(_2x));
+		co2.setyCo(Double.valueOf(_2y));
+		lo2.setxCo(Double.valueOf(_2x+.025));
+		lo2.setyCo(Double.valueOf(_2y+.025));
+		lo2.setLabelName("B");
+			
+		CircleObject co3= new CircleObject();
+		LabelObject lo3 = new LabelObject();
+		double _3x = 3;
+		double _3y = -6;
+		co3.setxCo(Double.valueOf(_3x));
+		co3.setyCo(Double.valueOf(_3y));
+		lo3.setxCo(Double.valueOf(_3x+.025));
+		lo3.setyCo(Double.valueOf(_3y+.025));
+		lo3.setLabelName("C");
+			
+			
+		LineObject ln1 = new LineObject();
+		ln1.setX1(Double.valueOf(_1x));
+		ln1.setX2(Double.valueOf(_2x));
+		ln1.setY1(Double.valueOf(_1y));
+		ln1.setY2(Double.valueOf(_2y));
+			
+		LineObject ln2 = new LineObject();
+		ln2.setX1(Double.valueOf(_1x));
+		ln2.setX2(Double.valueOf(_3x));
+		ln2.setY1(Double.valueOf(_1y));
+		ln2.setY2(Double.valueOf(_3y));
+			
+		LineObject ln3 = new LineObject();
+		ln3.setX1(Double.valueOf(_2x));
+		ln3.setX2(Double.valueOf(_3x));
+		ln3.setY1(Double.valueOf(_2y));
+		ln3.setY2(Double.valueOf(_3y));
+			
+		lineList.add(ln1);
+		lineList.add(ln2);
+		lineList.add(ln3);
+		geo.setLines(lineList);
+			
+		circleList.add(co1);
+		circleList.add(co2);
+		circleList.add(co3);
+		geo.setCircles(circleList);	
+			
+		labelList.add(lo1);
+		labelList.add(lo2);
+		labelList.add(lo3);
+		geo.setLabels(labelList);
+			
+			
+		question = "ABC is not what type of triangle (choose among- Acute, Right, Obtuse)?";
+		q2 = "BC > AC > AB";
+		q3 = "AB parallel to X axis and AC parallel to Y axis";
+			
+		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
+		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
+		questionList.add( new QuestionLine( q2, null, Constants.DEFAULT));
+		questionList.add( new QuestionLine( q3, null, Constants.DEFAULT));
+		
+		String heading = mSource.getMessage(GR7_Constants.COORDINATE_GEOMETRY, null, Locale.ENGLISH);
+		answ.setAnswer("Obtuse");
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
+		problem.setGeometryObject(geo);
 		problem.setAnswer(answ);
 
 		return problem;

@@ -26,7 +26,7 @@ import com.weblearning.service.impl.RestMathClientServiceImpl;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
 
-public class G7AreasSurface extends GenericQuestion{
+public class G7AreasVolumes extends GenericQuestion{
 	
 	//@Autowired
 	//private ResourceLoader resourceLoader;
@@ -53,12 +53,13 @@ public class G7AreasSurface extends GenericQuestion{
 		problemList.add(getProblem11(mathConfig));
 		problemList.add(getProblem12(mathConfig)); 
 		problemList.add(getProblem13(mathConfig));
-		problemList.add(getProblem14(mathConfig));
+		problemList.add(getProblem14(mathConfig)); 
 		problemList.add(getProblem15(mathConfig));
 		problemList.add(getProblem16(mathConfig));
 		problemList.add(getProblem17(mathConfig));
 		problemList.add(getProblem18(mathConfig));
-		problemList.add(getProblem19(mathConfig));
+		problemList.add(getProblem19(mathConfig)); 
+		problemList.add(getProblem20(mathConfig)); 
 				
 		restMathClient = new RestMathClientServiceImpl();
 		problemList = restMathClient.returnGraph(problemList);
@@ -72,7 +73,7 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -172,20 +173,19 @@ public class G7AreasSurface extends GenericQuestion{
 		
 		geo.setLines(lineList);
 		geo.setLabels(labelList);
-		
-		//double res = 2*(h*width + h*l + width*l);
-		double res = 2*(h*w + h*l + w*l);
+
+		double res = w*h*l;
 		
 		String result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP).toString();
 		
 			
-		question = "Find out the surface area of the picture above in cm square";
+		question = "Find out volume of the picture above";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
+		String heading = "Volumes";
 		answ.setAnswer(result);
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
@@ -201,7 +201,7 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -297,15 +297,14 @@ public class G7AreasSurface extends GenericQuestion{
 		
 		geo.setLines(lineList);
 		
-		double l = MathUtilities.getRandomNumber(2, 3) * 100;
+		double h = MathUtilities.getRandomNumber(5, 10) * 10;
 		LabelObject lo1 = new LabelObject();
-		lo1.setLabelName("l= " + Double.toString(l) + " cm");
+		lo1.setLabelName("h= " + Double.toString(h) + " cm");
 		lo1.setxCo(6.0);
 		lo1.setyCo(0.0);
-	//	double length = l/10;
 		
 		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName("h");
+		lo2.setLabelName("a");
 		lo2.setxCo(1.95);
 		lo2.setyCo(1.0);
 		
@@ -315,20 +314,20 @@ public class G7AreasSurface extends GenericQuestion{
 		geo.setLabels(labelList);
 		
 		double w = 15;
-		double h = 13;
+		double a = 13;
 		
-		// double res = w*h + + 3*w*length; // (w*h)/ 2 + (w*h)/ 2
-		double res = w*h + + 3*w*l; // (w*h)/ 2 + (w*h)/ 2
+
+		double res = ((w*13)/ 2) * h; // (w*h)/ 2 + (w*h)/ 2
 		BigDecimal result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP);
 		
 			
-		question = "The triangle is an equilateral triangle with one side: " + Double.toString(w) + " cm and h = " + Double.toString(h) + " cm. Find out the surface Area in cm square";
+		question = "The height of the prism is " + h + " cm. The prism has an equilateral triangular base with a side of  " + w + " cm. and height of the triangle is a which is " + a + " cm";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_AREAS, null, Locale.ENGLISH);
+		String heading = "Volumes";
 		answ.setAnswer(result.toString());
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
@@ -344,7 +343,7 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -422,24 +421,22 @@ public class G7AreasSurface extends GenericQuestion{
 		lineList.add(l8);
 		lineList.add(l9);
 		
-		int l = 50;
+		int h = MathUtilities.getRandomNumber(2, 5) * 10;
 		LabelObject lo1 = new LabelObject();
 		lo1.setxCo(5.0);
 		lo1.setyCo(.25);
-		lo1.setLabelName("l = " + Integer.toString(l));
+		lo1.setLabelName("h = " + Integer.toString(h));
 		
 		int w = 10;
 		LabelObject lo2 = new LabelObject();
-		lo2.setxCo(1.9);
+		lo2.setxCo(1.0);
 		lo2.setyCo(-.05);
 		lo2.setLabelName("w = " + Integer.toString(w));
 		
 		labelList.add(lo1);
 		labelList.add(lo2);
 		
-		BigDecimal h = new BigDecimal(Math.sqrt(w*w + w*w)).setScale(2, RoundingMode.HALF_UP); //pythoguras theory 
-		
-		double result = w*w + 2* w*l + h.doubleValue()*l; //((b*h)/2 = (w*w)/ 2 + (w*w)/ 2) + 
+		double result = ((w*w)/2)*h; //((b*h)/2 = (w*w)/ 2 + (w*w)/ 2) + 
 		
 		geo.setLines(lineList);
 		geo.setLabels(labelList);
@@ -447,13 +444,13 @@ public class G7AreasSurface extends GenericQuestion{
 		BigDecimal  rs = new BigDecimal(result).setScale(2, RoundingMode.HALF_UP);
 		
 			
-		question = "Find out the surface area of the above picture when the triangle is a Isosceles Right Triangle and the hypotenuse is " + h.toString();
+		question = "Above is a Isoscele Right Triangular Prism. Find out the volume of the prism";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
+		String heading = "Volumes";
 		answ.setAnswer(rs.toString());
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
@@ -469,7 +466,7 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -533,6 +530,13 @@ public class G7AreasSurface extends GenericQuestion{
 		l9.setY1(Double.valueOf(0));
 		l9.setX2(Double.valueOf(10));
 		l9.setY2(Double.valueOf(3));
+		
+		LineObject l10 = new LineObject();
+		l10.setX1(Double.valueOf(4));
+		l10.setY1(Double.valueOf(2));
+		l10.setX2(Double.valueOf(4));
+		l10.setY2(Double.valueOf(0));
+		l10.setColor("grey");
 
 		
 		lineList.add(l1);
@@ -544,6 +548,7 @@ public class G7AreasSurface extends GenericQuestion{
 		lineList.add(l7);
 		lineList.add(l8);
 		lineList.add(l9);
+		lineList.add(l10);
 		
 		LabelObject lo1 = new LabelObject();
 		lo1.setLabelName("a");
@@ -556,8 +561,8 @@ public class G7AreasSurface extends GenericQuestion{
 		lo2.setyCo(2.1);
 		
 		LabelObject lo3 = new LabelObject();
-		lo3.setLabelName("c");
-		lo3.setxCo(5.0);
+		lo3.setLabelName("h");
+		lo3.setxCo(3.0);
 		lo3.setyCo(1.0);
 		
 		LabelObject lo4 = new LabelObject();
@@ -575,21 +580,19 @@ public class G7AreasSurface extends GenericQuestion{
 		
 		double a = 10;
 		double b = 8;
-		double c = 5;
-		double d = 30;
-		double h = MathUtilities.getRandomNumber(2, 3);
+		double h = 5;
+		double d = MathUtilities.getRoundedAnswer(3, 5)*10;
 		
-		double result = ((a+b)/2)*h +  ((a+b)/2)*h + 2*c*d + b*d + a*d;
+		double result = ((a+b)/2)*h*d;
 		BigDecimal res = new BigDecimal(result).setScale(2,  RoundingMode.HALF_UP);
 		
 			
-		question = "Find out the surface area of the trapozoid where a= " + Double.toString(a) + ", b= " + Double.toString(b) + ", c= " 
-				+ Double.toString(c) + ", d= " + Double.toString(d) + ", and height is " + Double.toString(h);
+		question = "Find the value of trapezoidal prism where a, b d and h are " + a + ", " + b + ", " + d + ", " + h + " cm";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
+		String heading = "Volumes";
 		answ.setAnswer(res.toString());
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
@@ -599,216 +602,14 @@ public class G7AreasSurface extends GenericQuestion{
 		return problem;
 	}
 	
+
+	//draw a rombus
 	public Problem getProblem5(MathConfiguration mathConfig) {
 				
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
-			
-		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
-
-		String question="";
-			
-		GeometryObject geo = new GeometryObject();
-		
-		List<LineObject> lineList = new ArrayList<LineObject>();
-		List<LabelObject> labelList = new ArrayList<LabelObject>();
-		
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(-2));
-		l1.setY2(Double.valueOf(2));
-		
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(0));
-		l2.setY2(Double.valueOf(3));
-		
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(-2));
-		l3.setY1(Double.valueOf(2));
-		l3.setX2(Double.valueOf(-2));
-		l3.setY2(Double.valueOf(5));
-		
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(-2));
-		l4.setY1(Double.valueOf(5));
-		l4.setX2(Double.valueOf(0));
-		l4.setY2(Double.valueOf(3));
-		
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(-2));
-		l5.setY1(Double.valueOf(5));
-		l5.setX2(Double.valueOf(1));
-		l5.setY2(Double.valueOf(5));
-		
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(0));
-		l6.setY1(Double.valueOf(3));
-		l6.setX2(Double.valueOf(3));
-		l6.setY2(Double.valueOf(3));
-		
-		LineObject l7 = new LineObject();
-		l7.setX1(Double.valueOf(1));
-		l7.setY1(Double.valueOf(5));
-		l7.setX2(Double.valueOf(3));
-		l7.setY2(Double.valueOf(3));
-
-		LineObject l8 = new LineObject();
-		l8.setX1(Double.valueOf(1));
-		l8.setY1(Double.valueOf(5));
-		l8.setX2(Double.valueOf(5));
-		l8.setY2(Double.valueOf(3));
-		
-		LineObject l9 = new LineObject();
-		l9.setX1(Double.valueOf(3));
-		l9.setY1(Double.valueOf(3));
-		l9.setX2(Double.valueOf(7));
-		l9.setY2(Double.valueOf(1));
-		
-		LineObject l10 = new LineObject();
-		l10.setX1(Double.valueOf(5));
-		l10.setY1(Double.valueOf(3));
-		l10.setX2(Double.valueOf(7));
-		l10.setY2(Double.valueOf(1));
-		
-		LineObject l11 = new LineObject();
-		l11.setX1(Double.valueOf(0));
-		l11.setY1(Double.valueOf(0));
-		l11.setX2(Double.valueOf(7));
-		l11.setY2(Double.valueOf(0));
-		
-		LineObject l12 = new LineObject();
-		l12.setX1(Double.valueOf(7));
-		l12.setY1(Double.valueOf(0));
-		l12.setX2(Double.valueOf(7));
-		l12.setY2(Double.valueOf(1));
-
-		
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-		lineList.add(l7);
-		lineList.add(l8);
-		lineList.add(l9);
-		lineList.add(l10);
-		lineList.add(l11);
-		lineList.add(l12);
-		
-		LabelObject lo1 = new LabelObject();
-		lo1.setLabelName("a");
-		lo1.setxCo(-1.0);
-		lo1.setyCo(.75);
-		
-		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName("b");
-		lo2.setxCo(-1.75);
-		lo2.setyCo(3.0);
-		
-		LabelObject lo3 = new LabelObject();
-		lo3.setLabelName("c");
-		lo3.setxCo(.1);
-		lo3.setyCo(1.75);
-		
-		LabelObject lo4 = new LabelObject();
-		lo4.setLabelName("d");
-		lo4.setxCo(-1.0);
-		lo4.setyCo(3.9);
-		
-		LabelObject lo5 = new LabelObject();
-		lo5.setLabelName("e");
-		lo5.setxCo(1.95);
-		lo5.setyCo(2.55);
-		
-		LabelObject lo6 = new LabelObject();
-		lo6.setLabelName("f");
-		lo6.setxCo(0.0);
-		lo6.setyCo(5.1);
-		
-		LabelObject lo7 = new LabelObject();
-		lo7.setLabelName("g");
-		lo7.setxCo(2.0);
-		lo7.setyCo(3.9);
-		
-		LabelObject lo8 = new LabelObject();
-		lo8.setLabelName("h");
-		lo8.setxCo(4.0);
-		lo8.setyCo(2.5);
-		
-		LabelObject lo9 = new LabelObject();
-		lo9.setLabelName("l");
-		lo9.setxCo(4.0);
-		lo9.setyCo(4.1);
-		
-		LabelObject lo10 = new LabelObject();
-		lo10.setLabelName("i");
-		lo10.setxCo(6.0);
-		lo10.setyCo(2.1);
-		
-		LabelObject lo11 = new LabelObject();
-		lo11.setLabelName("j");
-		lo11.setxCo(3.0);
-		lo11.setyCo(-.95);
-		
-		LabelObject lo12 = new LabelObject();
-		lo12.setLabelName("k");
-		lo12.setxCo(7.0);
-		lo12.setyCo(.75);
-		
-		labelList.add(lo1);
-		labelList.add(lo2);
-		labelList.add(lo3);
-		labelList.add(lo4);
-		labelList.add(lo5);
-		labelList.add(lo6);
-		labelList.add(lo7);
-		labelList.add(lo8);
-		labelList.add(lo9);
-		labelList.add(lo10);
-		labelList.add(lo11);
-		labelList.add(lo12);
-		
-		geo.setLines(lineList);
-		geo.setLabels(labelList);
-		
-		double a = 10;
-		double j = 2*a;
-		double h = a*1.5;
-		BigDecimal hg = new BigDecimal(h).setScale(2, RoundingMode.HALF_UP);
-		question = "a= b= c= d= e= f= g= i= " + Double.toString(a) + " , j = twice of a" 
-				+ " ,k = " + Integer.toString(2) + ", h= " + hg.toString()
-				+ ". Find the surface area of the picture.";
-		//
-		double result = a*a + a*a +a*h+ 2*(((a+j)*(a-2)/2)) + 2*2*j+ 2*a + a*j;
-		BigDecimal bg = new BigDecimal(result).setScale(2, RoundingMode.HALF_UP);
-
-		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
-		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
-
-				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(bg.toString());
-
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
-		problem.setAnswer(answ);
-
-		return problem;
-	}
-	
-	//draw a rombus
-	public Problem getProblem6(MathConfiguration mathConfig) {
-				
-		CreateProblem cProblem = new CreateProblem();
-		Answer answ = new Answer();
-			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -883,12 +684,12 @@ public class G7AreasSurface extends GenericQuestion{
 		lineList.add(l8);
 		lineList.add(l9);
 		
-		double w = MathUtilities.getRoundedAnswer(2, 10);
+		double w = MathUtilities.getRandomNumber(2, 10);
 		
 		double l = 2* w;
 		LabelObject lo3 = new LabelObject();
 		lo3.setLabelName("l= " + Double.toString(l) + " cm");
-		lo3.setxCo(5.0);
+		lo3.setxCo(3.5);
 		lo3.setyCo(.2);
 
 		labelList.add(lo3);
@@ -897,18 +698,18 @@ public class G7AreasSurface extends GenericQuestion{
 		geo.setLabels(labelList);
 		
 		double area = w*w;
-		double result = 2*w*w + 2*l*w + 2*l*w;		
+		double result = area*l;		
 		
 		BigDecimal bg = new BigDecimal(result).setScale(2, RoundingMode.HALF_UP);
 		
 			
-		question = "The area of the smallest side is " + Double.toString(area) + "cm square and is a square. Find out the total surface area of the prism.";
+		question = "The area of the smallest side is " + Double.toString(area) + "cm square and is a square. Find out the volume of the prism.";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
+		String heading = "Volumes";
 		answ.setAnswer(bg.toString());
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
@@ -917,370 +718,126 @@ public class G7AreasSurface extends GenericQuestion{
 
 		return problem;
 	}
+	
+	//draw a rectangle
+	public Problem getProblem6(MathConfiguration mathConfig) {
+					
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+					
+	//	MessageSource mSource = mathConfig.getmSource();
+				
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
-	//draw a triangle
+		String question="";
+		
+		int m = MathUtilities.getRandomNumber(3, 10);
+		int volume= m * m * (2*m);
+										
+		question = "A rectangular prism has two of the sides as squares. One of the side of the square is " + m + "cm. The length of the rectangular side is twice the side of square side. Find"
+				+ " out volume of the prism";
+
+		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+
+						
+		String heading = "Volumes";
+		answ.setAnswer(Integer.toString(volume));
+
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		problem.setAnswer(answ);
+
+		return problem;
+	}
+
 	public Problem getProblem7(MathConfiguration mathConfig) {
-							
+		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-			
-		MessageSource mSource = mathConfig.getmSource();
-			
+					
+	//	MessageSource mSource = mathConfig.getmSource();
+				
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
-			
-		GeometryObject geo = new GeometryObject();
 		
-		List<LineObject> lineList = new ArrayList<LineObject>();
+		int m = 2;
+		int n = 4;
+		int o = 6;
 		
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(0));
-		l1.setY2(Double.valueOf(3));
-		
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(7));
-		l2.setY2(Double.valueOf(0));
-		
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(0));
-		l3.setY1(Double.valueOf(3));
-		l3.setX2(Double.valueOf(7));
-		l3.setY2(Double.valueOf(3));
-		
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(7));
-		l4.setY1(Double.valueOf(0));
-		l4.setX2(Double.valueOf(7));
-		l4.setY2(Double.valueOf(3));
-		
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(0));
-		l5.setY1(Double.valueOf(3));
-		l5.setX2(Double.valueOf(2));
-		l5.setY2(Double.valueOf(5));
-		
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(2));
-		l6.setY1(Double.valueOf(5));
-		l6.setX2(Double.valueOf(9));
-		l6.setY2(Double.valueOf(5));
-		
-		LineObject l7 = new LineObject();
-		l7.setX1(Double.valueOf(7));
-		l7.setY1(Double.valueOf(3));
-		l7.setX2(Double.valueOf(9));
-		l7.setY2(Double.valueOf(5));
-		
-		LineObject l8 = new LineObject();
-		l8.setX1(Double.valueOf(7));
-		l8.setY1(Double.valueOf(0));
-		l8.setX2(Double.valueOf(9));
-		l8.setY2(Double.valueOf(2));
-		
-		LineObject l9 = new LineObject();
-		l9.setX1(Double.valueOf(9));
-		l9.setY1(Double.valueOf(2));
-		l9.setX2(Double.valueOf(9));
-		l9.setY2(Double.valueOf(5));
-		
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-		lineList.add(l7);
-		lineList.add(l8);
-		lineList.add(l9);
-		
-		double w = MathUtilities.getRoundedAnswer(2, 10);
-		
-		double l = 2* w;
-		LabelObject lo3 = new LabelObject();
-		lo3.setLabelName("l= " + Double.toString(l) + " cm");
-		lo3.setxCo(5.0);
-		lo3.setyCo(.2);
-		
-		geo.setLines(lineList);
-		
-		String a1 = Integer.toString(6);
-		String a2 = Integer.toString(8);
-		String a3 = Integer.toString(12);
-			
-		question = "Look at the above picture and answer the following" ;
+		int a = 3;
+		int b = 2; 
+										
+		question = "Volume of two rectangular boxes are same. Dimensions of one are " + m + "," + n + ", " + o + " cm. The length and width of the other one are " + a + ", and " + b 
+				+ " cm respectively. What is the height of the second box?"; 
 
-		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
-		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
-		questionList.add(new QuestionLine( "Number of the surfaces:"+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Number of vertices :"+ GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Number of edges :"+ GR8_Constants.ANSWER_TO_QUESTION + a3,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-			
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("");
+		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+						
+		String heading = "Volumes";
+		answ.setAnswer(Integer.toString(8));
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
+
 		return problem;
 	}
 	
-	//draw a triangle
 	public Problem getProblem8(MathConfiguration mathConfig) {
-								
+		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-				
-		MessageSource mSource = mathConfig.getmSource();
+					
+	//	MessageSource mSource = mathConfig.getmSource();
 				
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
-				
-		GeometryObject geo = new GeometryObject();
-			
-		List<LineObject> lineList = new ArrayList<LineObject>();
-			
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(3));
-		l1.setY2(Double.valueOf(-2));
-			
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(0));
-		l2.setY2(Double.valueOf(6));
-			
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(3));
-		l3.setY1(Double.valueOf(-2));
-		l3.setX2(Double.valueOf(3));
-		l3.setY2(Double.valueOf(3));
-			
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(3));
-		l4.setY1(Double.valueOf(-2));
-		l4.setX2(Double.valueOf(4));
-		l4.setY2(Double.valueOf(0));
-			
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(4));
-		l5.setY1(Double.valueOf(0));
-		l5.setX2(Double.valueOf(4));
-		l5.setY2(Double.valueOf(6));
-			
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(0));
-		l6.setY1(Double.valueOf(6));
-		l6.setX2(Double.valueOf(3));
-		l6.setY2(Double.valueOf(3));
-			
-		LineObject l7 = new LineObject();
-		l7.setX1(Double.valueOf(0));
-		l7.setY1(Double.valueOf(6));
-		l7.setX2(Double.valueOf(4));
-		l7.setY2(Double.valueOf(6));
 		
-		LineObject l8 = new LineObject();
-		l8.setX1(Double.valueOf(3));
-		l8.setY1(Double.valueOf(3));
-		l8.setX2(Double.valueOf(4));
-		l8.setY2(Double.valueOf(6));
-			
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-		lineList.add(l7);
-		lineList.add(l8);
-			
-		geo.setLines(lineList);
-			
-		String a1 = Integer.toString(5);
-		String a2 = Integer.toString(6);
-		String a3 = Integer.toString(9);
-				
-		question = "Look at the above picture and answer the following" ;
+		int a = MathUtilities.getRandomNumber(1, 3);
+		int surfaceArea = 6 * 3* a * a; // 6(a*a + a*a + a*a) = surface area
+										
+		question = "The surface area of a cube is " + surfaceArea + " square cm. What is the volume of the cube? "; 
 
-		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
-		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
-		questionList.add(new QuestionLine( "Number of the surfaces:"+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Number of vertices :"+ GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Number of edges :"+ GR8_Constants.ANSWER_TO_QUESTION + a3,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("");
+		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+						
+		String heading = "Volumes";
+		answ.setAnswer(Integer.toString(a*a*a));
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
+
 		return problem;
 	}
 	
-	//draw a triangle
 	public Problem getProblem9(MathConfiguration mathConfig) {
-								
+		
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-				
-		MessageSource mSource = mathConfig.getmSource();
+					
+	//	MessageSource mSource = mathConfig.getmSource();
 				
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
-				
-		GeometryObject geo = new GeometryObject();
-			
-		List<LineObject> lineList = new ArrayList<LineObject>();
-		List<LabelObject> labelList = new ArrayList<LabelObject>(); 
-			
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(0));
-		l1.setY2(Double.valueOf(10));
-			
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(1.95));
-		l2.setY2(Double.valueOf(-5.0));
-			
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(1.95));
-		l3.setY1(Double.valueOf(-5));
-		l3.setX2(Double.valueOf(1.95));
-		l3.setY2(Double.valueOf(5));
-			
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(1.95));
-		l4.setY1(Double.valueOf(5));
-		l4.setX2(Double.valueOf(0));
-		l4.setY2(Double.valueOf(10));
-			
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(1.95));
-		l5.setY1(Double.valueOf(-5));
-		l5.setX2(Double.valueOf(6.95));
-		l5.setY2(Double.valueOf(-5));
-			
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(6.95));
-		l6.setY1(Double.valueOf(-5));
-		l6.setX2(Double.valueOf(6.95));
-		l6.setY2(Double.valueOf(5));
-			
-		LineObject l7 = new LineObject();
-		l7.setX1(Double.valueOf(6.95));
-		l7.setY1(Double.valueOf(-5));
-		l7.setX2(Double.valueOf(8));
-		l7.setY2(Double.valueOf(0));
 		
-		LineObject l8 = new LineObject();
-		l8.setX1(Double.valueOf(8));
-		l8.setY1(Double.valueOf(0));
-		l8.setX2(Double.valueOf(8));
-		l8.setY2(Double.valueOf(10));
+		int a= 10;
+		int b= 20;
+		int c= 30;
 		
-		LineObject l9 = new LineObject();
-		l9.setX1(Double.valueOf(1.95));
-		l9.setY1(Double.valueOf(5));
-		l9.setX2(Double.valueOf(6.95));
-		l9.setY2(Double.valueOf(5));
-		
-		LineObject l10 = new LineObject();
-		l10.setX1(Double.valueOf(6.95));
-		l10.setY1(Double.valueOf(5));
-		l10.setX2(Double.valueOf(8));
-		l10.setY2(Double.valueOf(10));
-		
-		LineObject l11 = new LineObject();
-		l11.setX1(Double.valueOf(0));
-		l11.setY1(Double.valueOf(10));
-		l11.setX2(Double.valueOf(4));
-		l11.setY2(Double.valueOf(13));
-		
-		LineObject l12 = new LineObject();
-		l12.setX1(Double.valueOf(4));
-		l12.setY1(Double.valueOf(13));
-		l12.setX2(Double.valueOf(8));
-		l12.setY2(Double.valueOf(10));
-		
-		LineObject l13 = new LineObject();
-		l13.setX1(Double.valueOf(4.2));
-		l13.setY1(Double.valueOf(5));
-		l13.setX2(Double.valueOf(4.2));
-		l13.setY2(Double.valueOf(8.75));
-			
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-		lineList.add(l7);
-		lineList.add(l8);
-		lineList.add(l9);
-		lineList.add(l10);
-		lineList.add(l11);
-		lineList.add(l12);
-		lineList.add(l13);
-		
-		double base = 10;
-		double height = base * 2.5;
-		double apothem = base * 1.1;
-		
-		LabelObject lo1 = new LabelObject();
-		lo1.setLabelName(new BigDecimal(base).setScale(2, RoundingMode.HALF_UP).toString());
-		lo1.setxCo(4.0);
-		lo1.setyCo(-4.95);
-		
-		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName(new BigDecimal(height).setScale(2, RoundingMode.HALF_UP).toString());
-		lo2.setxCo(2.0);
-		lo2.setyCo(0.0);
-		
-		LabelObject lo3 = new LabelObject();
-		BigDecimal log = new BigDecimal(apothem).setScale(2, RoundingMode.HALF_UP);
-		lo3.setLabelName(new BigDecimal(apothem).setScale(2, RoundingMode.HALF_UP).toString());
-		lo3.setxCo(4.3);
-		lo3.setyCo(6.0);
-		
-		labelList.add(lo1);
-		labelList.add(lo2);
-		labelList.add(lo3);
-			
-		geo.setLines(lineList);
-		geo.setLabels(labelList);
-		
-		String a1 = Integer.toString(7);
-		String a2 = Integer.toString(10);
-	//	String a3 = Integer.toString(15);
-		BigDecimal a4 = new BigDecimal(5*apothem*base + 5*base*height).setScale(2, RoundingMode.HALF_UP);
-				
-		question = "The Apothem of the pentagonal prism is " + log.toString() + ". Answer the following:";
+		int m = 25;
+		int n = 15; 
+		int o = 15;
+										
+		question = "You have two boxes, box A and box b, where you would like to hold water during summer for gardening. The dimensions of A are " + a + ", " + b + ", " + c + " cm and B are"
+				+ m + ", " + n + ", " + o + " cm. Which one will hold more water?"; 
 
-		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
-		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
-		questionList.add(new QuestionLine( "Number of the surfaces:"+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Number of vertices :"+ GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-	//	questionList.add(new QuestionLine( "Number of edges :"+ GR8_Constants.ANSWER_TO_QUESTION + a3,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-		questionList.add(new QuestionLine( "Surface area of the Pentagonal Prism :"+ GR8_Constants.ANSWER_TO_QUESTION + a4.toString(),  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
-				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("");
+		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+						
+		String heading = "Volumes";
+		answ.setAnswer("A");
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
+
 		return problem;
 	}
 	
@@ -1365,20 +922,19 @@ public class G7AreasSurface extends GenericQuestion{
 		lineList.add(l8);
 		lineList.add(l9);
 			
-		int h = 100;
+		int h = 10;
 		LabelObject lo1 = new LabelObject();
 		lo1.setLabelName("h= " + Integer.toString(h) + " cm");
 		lo1.setxCo(.025);
 		lo1.setyCo(1.0);
 			
-		int w = 1000;
+		int w = 10;
 		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName("w= " + Integer.toString(w) + " mm");
+		lo2.setLabelName("w= " + Integer.toString(w) + " cm");
 		lo2.setxCo(1.5);
 		lo2.setyCo(1.90);
-		double width = (double)w/10;
 			
-		int l = 20;
+		int l = 50;
 		LabelObject lo3 = new LabelObject();
 		lo3.setLabelName("l= " + Integer.toString(l) + " cm");
 		lo3.setxCo(5.0);
@@ -1391,20 +947,21 @@ public class G7AreasSurface extends GenericQuestion{
 		geo.setLines(lineList);
 		geo.setLabels(labelList);
 			
-		double res = 2*(h*width + h*l + width*l);
-		// double res = 2*(h*w + h*l + w*l);
-			
-		String result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP).toString();
+		double a1 = (2*(h*w + h*l + w*l)-(w*l))*.25;
+		int a3 = MathUtilities.getRandomNumber(3, 5);
+		int a2 = l * h* w * a3;
 			
 				
-		question = "Find out the surface area of the picture above in cm square";
+		question = "Consider the box with its top open and dimensions given in the picture.";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( "What would be the cost to paint outside of the whole box if it costs CAD 0.25 for one square centemeter? "+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( "What would be the cost to fill in the box with hays if hays cost CAD" + a3 + ".00 per cubic cm" + GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 
 					
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(result);
+		answ.setAnswer("");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setGeometryObject(geo);
@@ -1515,39 +1072,37 @@ public class G7AreasSurface extends GenericQuestion{
 		
 		geo.setLines(lineList);
 		
-		double l = MathUtilities.getRandomNumber(2, 3) * 100;
+		double h = MathUtilities.getRandomNumber(2, 3) * 10;
 		LabelObject lo1 = new LabelObject();
-		lo1.setLabelName("l= " + Double.toString(l) + " mm");
+		lo1.setLabelName("h= " + Double.toString(h) + " cm");
 		lo1.setxCo(6.0);
 		lo1.setyCo(0.0);
-		double length = l/10;
-		
-		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName("h");
-		lo2.setxCo(1.95);
-		lo2.setyCo(1.0);
 		
 		labelList.add(lo1);
-		labelList.add(lo2);
 		
 		geo.setLabels(labelList);
 		
 		double w = 15;
-		double h = 13;
+		double l = 13;
 		
-		double res = w*h + + 3*w*length; // (w*h)/ 2 + (w*h)/ 2
-		// double res = w*h + + 3*w*l; // (w*h)/ 2 + (w*h)/ 2
-		BigDecimal result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP);
+		double area = w*l + + 3*w*h; // (w*h)/ 2 + (w*h)/ 2
+		double baseArea = (double)(15 *13)/2; 
 		
+
+		BigDecimal a1 = new BigDecimal(area * .3).setScale(2, RoundingMode.HALF_UP);
+		BigDecimal a2 = new BigDecimal(baseArea*h).setScale(2, RoundingMode.HALF_UP);
 			
-		question = "The triangle is an equilateral triangle with one side: " + Double.toString(w) + " cm and h = " + Double.toString(h) + " cm. Find out the prism surface Area in cm square";
+		question = "Above is a triangular prism. The base of the prism makes an equilateral triangle. The base of the triangle is 15 cm and height is"
+				+ " 13 cm. " ;
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( "How much will it cost to wrap the prism with paper if it costs .30 per square cm of paper "+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( "How much water you can put in the prism in terms of cubic cm" + GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 
 				
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(result.toString());
+		answ.setAnswer("");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setGeometryObject(geo);
@@ -1562,7 +1117,7 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
@@ -1636,21 +1191,15 @@ public class G7AreasSurface extends GenericQuestion{
 		lineList.add(l8);
 		lineList.add(l9);
 		
-		int w = 5;
-		int l= 10;
-		int h = 2;
-		
 		geo.setLines(lineList);
 		
-		int result = 2*(w*l + l*h + w*h);
-			
-		question = "Width is 5 cm. Length is twice as much as width. Height of the prism is 2 cm. Find out total surface area of the prism" ;
+		question = "Width is 3.5 cm. Length is twice as much as width. Height of the prism is 30 mm. Find out volume of the prism" ;
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(Integer.toString(result));
+		String heading = "Volumes";
+		answ.setAnswer("73.5");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setGeometryObject(geo);
@@ -1800,13 +1349,13 @@ public class G7AreasSurface extends GenericQuestion{
 	
 		geo.setLines(lineList);
 				
-		question = "The area of a = 4 square cm and b = 6 square cm. What is the surface area" ;
+		question = "The dimension of the square is 2 cm by 2 cm and dimension of the rectangle is 2 cm by 3 cm. What is the volume of the box?" ;
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 					
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("128");
+		answ.setAnswer("96");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setGeometryObject(geo);
@@ -1957,13 +1506,14 @@ public class G7AreasSurface extends GenericQuestion{
 		
 		geo.setLines(lineList);
 					
-		question = "a reprsents a square and is 4 square cm. b is rectangular and is 6 square cm. Length of b is 3 cm. If length of b is reduced by 1 cm and the object becomes a cube then what would be the surface area? " ;
+		question = "The dimension of the square is 2 cm by 2 cm and dimension of the rectangle is 2 cm by 3 cm. If you squeeze the length "
+				+ "of the rectangle and make it a square with a dimension of 2 cm by 2 cm then what will be the volume of the box?" ;
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 						
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("96");
+		answ.setAnswer("64");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setGeometryObject(geo);
@@ -1978,19 +1528,19 @@ public class G7AreasSurface extends GenericQuestion{
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
 			
-		MessageSource mSource = mathConfig.getmSource();
+	//	MessageSource mSource = mathConfig.getmSource();
 			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
 			
-		question = "The volume of a cube is 1000 cubic meter. If all the sides are halved then what would be the surface area of the cube?";
+		question = "You have a box measuring 10 cm by 10 cm by 10 cm. How many dice you can place on the box with dimensions 5 cm by 5 cm by 5 cm?";
 
-		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
 				
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer("150");
+		String heading = "Volumes";
+		answ.setAnswer("8");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
@@ -2003,124 +1553,23 @@ public class G7AreasSurface extends GenericQuestion{
 				
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-				
-		MessageSource mSource = mathConfig.getmSource();
-				
+			
+	//	MessageSource mSource = mathConfig.getmSource();
+			
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
-				
-		GeometryObject geo = new GeometryObject();
 			
-		List<LineObject> lineList = new ArrayList<LineObject>();
-		List<LabelObject> labelList = new ArrayList<LabelObject>();
-			
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(0));
-		l1.setY2(Double.valueOf(2));
-			
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(3));
-		l2.setY2(Double.valueOf(0));
-			
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(0));
-		l3.setY1(Double.valueOf(2));
-		l3.setX2(Double.valueOf(3));
-		l3.setY2(Double.valueOf(2));
-			
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(3));
-		l4.setY1(Double.valueOf(2));
-		l4.setX2(Double.valueOf(3));
-		l4.setY2(Double.valueOf(0));
-			
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(3));
-		l5.setY1(Double.valueOf(0));
-		l5.setX2(Double.valueOf(7));
-		l5.setY2(Double.valueOf(2));
-			
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(3));
-		l6.setY1(Double.valueOf(2));
-		l6.setX2(Double.valueOf(7));
-		l6.setY2(Double.valueOf(4));
-			
-		LineObject l7 = new LineObject();
-		l7.setX1(Double.valueOf(7));
-		l7.setY1(Double.valueOf(2));
-		l7.setX2(Double.valueOf(7));
-		l7.setY2(Double.valueOf(4));
-			
-		LineObject l8 = new LineObject();
-		l8.setX1(Double.valueOf(4));
-		l8.setY1(Double.valueOf(4));
-		l8.setX2(Double.valueOf(7));
-		l8.setY2(Double.valueOf(4));
-			
-		LineObject l9 = new LineObject();
-		l9.setX1(Double.valueOf(0));
-		l9.setY1(Double.valueOf(2));
-		l9.setX2(Double.valueOf(4));
-		l9.setY2(Double.valueOf(4));
-			
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-		lineList.add(l7);
-		lineList.add(l8);
-		lineList.add(l9);
-			
-		int h = MathUtilities.getRandomNumber(2, 5);
-		LabelObject lo1 = new LabelObject();
-		lo1.setLabelName("h= " + Integer.toString(h) + " cm");
-		lo1.setxCo(.025);
-		lo1.setyCo(1.0);
-		
-		int w = MathUtilities.getRandomNumber(6, 10);
-		LabelObject lo2 = new LabelObject();
-		lo2.setLabelName("w= " + Integer.toString(w) + " cm");
-		lo2.setxCo(1.5);
-		lo2.setyCo(1.90);
-			// double width = (double)w/10;
-			
-		int l = 20;
-		LabelObject lo3 = new LabelObject();
-		lo3.setLabelName("l= " + Integer.toString(l) + " cm");
-		lo3.setxCo(5.0);
-		lo3.setyCo(.2);
-			
-		labelList.add(lo1);
-		labelList.add(lo2);
-		labelList.add(lo3);
-			
-		geo.setLines(lineList);
-		geo.setLabels(labelList);
-		
-		double res = 2*(h*w + h*l + w*l) * 2;
-			
-		String result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP).toString();
-			
-				
-		question = "If it takes $2 for a square centemeter of wrapping that what would be the cost for wrapping the whole box?";
+		question = "You have 3 CD boxes with dimensions 2 cm by 5 cm by 12 cm and 5 cd boxes with 3 cm by 5 cm by 12 cm. "
+				+ "What should be the minimum size of the container in terms of cubic centemeter that will hold all the 8 boxes?";
 
-		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
-					
-		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(result);
+				
+		String heading = "Volumes";
+		answ.setAnswer("1260");
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
 		problem.setAnswer(answ);
 
 		return problem;
@@ -2137,27 +1586,195 @@ public class G7AreasSurface extends GenericQuestion{
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
+					
+		GeometryObject geo = new GeometryObject();
+				
+		List<LineObject> lineList = new ArrayList<LineObject>();
+		List <LabelObject> labelList = new ArrayList<LabelObject>();
+			
+		LabelObject lb1 = new LabelObject();
+		LabelObject lb2 = new LabelObject();
+
+							
+		lb1.setxCo(1.0);
+		lb1.setyCo(1.0);
+		lb1.setLabelName("a");
+			
+		lb2.setxCo(4.0);
+		lb2.setyCo(5.0);
+		lb2.setLabelName("b");
+			
+		labelList.add(lb1);
+		labelList.add(lb2);  
+				
+		LineObject l1 = new LineObject();
+		l1.setX1(Double.valueOf(0));
+		l1.setY1(Double.valueOf(0));
+		l1.setX2(Double.valueOf(4));
+		l1.setY2(Double.valueOf(0));
+				
+		LineObject l2 = new LineObject();
+		l2.setX1(Double.valueOf(0));
+		l2.setY1(Double.valueOf(0));
+		l2.setX2(Double.valueOf(0));
+		l2.setY2(Double.valueOf(2));
+				
+		LineObject l3 = new LineObject();
+		l3.setX1(Double.valueOf(4));
+		l3.setY1(Double.valueOf(0));
+		l3.setX2(Double.valueOf(4));
+		l3.setY2(Double.valueOf(2));
+				
+		LineObject l4 = new LineObject();
+		l4.setX1(Double.valueOf(0));
+		l4.setY1(Double.valueOf(2));
+		l4.setX2(Double.valueOf(4));
+		l4.setY2(Double.valueOf(2));
+				
+		LineObject l5 = new LineObject();
+		l5.setX1(Double.valueOf(0));
+		l5.setY1(Double.valueOf(2));
+		l5.setX2(Double.valueOf(2));
+		l5.setY2(Double.valueOf(4));
+				
+		LineObject l6 = new LineObject();
+		l6.setX1(Double.valueOf(2));
+		l6.setY1(Double.valueOf(4));
+		l6.setX2(Double.valueOf(6));
+		l6.setY2(Double.valueOf(4));
+			
+		LineObject l7 = new LineObject();
+		l7.setX1(Double.valueOf(2));
+		l7.setY1(Double.valueOf(4));
+		l7.setX2(Double.valueOf(2));
+		l7.setY2(Double.valueOf(6));
+				
+		LineObject l8 = new LineObject();
+		l8.setX1(Double.valueOf(6));
+		l8.setY1(Double.valueOf(4));
+		l8.setX2(Double.valueOf(6));
+		l8.setY2(Double.valueOf(6));
+				
+		LineObject l9 = new LineObject();
+		l9.setX1(Double.valueOf(2));
+		l9.setY1(Double.valueOf(6));
+		l9.setX2(Double.valueOf(4));
+		l9.setY2(Double.valueOf(8));
+			
+		LineObject l10 = new LineObject();
+		l10.setX1(Double.valueOf(4));
+		l10.setY1(Double.valueOf(8));
+		l10.setX2(Double.valueOf(8));
+		l10.setY2(Double.valueOf(8));
+			
+		LineObject l11 = new LineObject();
+		l11.setX1(Double.valueOf(6));
+		l11.setY1(Double.valueOf(6));
+		l11.setX2(Double.valueOf(8));
+		l11.setY2(Double.valueOf(8));
+			
+		LineObject l12 = new LineObject();
+		l12.setX1(Double.valueOf(8));
+		l12.setY1(Double.valueOf(8));
+		l12.setX2(Double.valueOf(8));
+		l12.setY2(Double.valueOf(4));
+			
+		LineObject l13 = new LineObject();
+		l13.setX1(Double.valueOf(4));
+		l13.setY1(Double.valueOf(2));
+		l13.setX2(Double.valueOf(8));
+		l13.setY2(Double.valueOf(6));
+			
+		LineObject l14 = new LineObject();
+		l14.setX1(Double.valueOf(4));
+		l14.setY1(Double.valueOf(0));
+		l14.setX2(Double.valueOf(8));
+		l14.setY2(Double.valueOf(4)); 
 		
-		int m = MathUtilities.getRandomNumber(3, 10);
-		int area = m * m;
-		int surfaceArea = 6 * area;
-										
-		question = "If the surface area of a cube is " + Integer.toString(surfaceArea) + ", the what is the dimension of the cube";
+		LineObject l15 = new LineObject();
+		l15.setX1(Double.valueOf(8));
+		l15.setY1(Double.valueOf(8));
+		l15.setX2(Double.valueOf(8));
+		l15.setY2(Double.valueOf(4)); 
+		
+		LineObject l16 = new LineObject();
+		l15.setX1(Double.valueOf(2));
+		l15.setY1(Double.valueOf(6));
+		l15.setX2(Double.valueOf(6));
+		l15.setY2(Double.valueOf(6)); 
+				
+		lineList.add(l1);
+		lineList.add(l2);
+		lineList.add(l3);
+		lineList.add(l4);
+		lineList.add(l5);
+		lineList.add(l6);
+		lineList.add(l7);
+		lineList.add(l8);
+		lineList.add(l9);
+		lineList.add(l10);
+		lineList.add(l11);
+		lineList.add(l12);
+		lineList.add(l13);
+		lineList.add(l14);
+		lineList.add(l15);
+		lineList.add(l16);
+		
+		geo.setLines(lineList);
+					
+		question = "The dimension of all the boxes above is 2 cm by 2 cm by 3 cm. What would be volume of the picture?" ;
 
-		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
-
+		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
+		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 						
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(Integer.toString(m));
+		answ.setAnswer("36");
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
+		problem.setGeometryObject(geo);
+		problem.setAnswer(answ);
+				
+		return problem;
+	}
+	
+
+	
+	public Problem getProblem18(MathConfiguration mathConfig) {
+		
+		CreateProblem cProblem = new CreateProblem();
+		Answer answ = new Answer();
+			
+	//	MessageSource mSource = mathConfig.getmSource();
+			
+		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
+
+		String question="";
+			
+		question = "Consider a cube with 8 cubic centemeter volume. If you double each side of the cube then answer the following ";
+		
+		int a1 = 6* 4;
+		int a2 = 6 * 16;
+		int a3 = 4*4*4;
+
+		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
+		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
+		questionList.add(new QuestionLine( "What would be the new surface area if the volume is 8? "+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( "What would be the new surface area" + GR8_Constants.ANSWER_TO_QUESTION + a2,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+		questionList.add(new QuestionLine( "What would be the new volume" + GR8_Constants.ANSWER_TO_QUESTION + a3,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
+
+
+				
+		String heading = "Volumes";
+		answ.setAnswer("8");
+		
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_MULTIPLES);
 		problem.setAnswer(answ);
 
 		return problem;
 	}
 	
 	//draw a rectangle
-	public Problem getProblem18(MathConfiguration mathConfig) {
+	public Problem getProblem19(MathConfiguration mathConfig) {
 					
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
@@ -2175,101 +1792,47 @@ public class G7AreasSurface extends GenericQuestion{
 										
 		question = "If the surface area of a cube is " + Integer.toString(surfaceArea) + ", the what is the volume of the cube";
 
-		questionList.add( new QuestionLine( question, null, Constants.PROBLEM_TYPE_FRACTION));
+		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
+		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
+
 						
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
 		answ.setAnswer(Integer.toString(volume));
 
-		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PROBLEM_TYPE_FRACTION);
+		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
 		problem.setAnswer(answ);
 
 		return problem;
 	}
 	
-	public Problem getProblem19(MathConfiguration mathConfig) {
-		
+	//draw a rectangle
+	public Problem getProblem20(MathConfiguration mathConfig) {
+						
 		CreateProblem cProblem = new CreateProblem();
 		Answer answ = new Answer();
-				
+						
 		MessageSource mSource = mathConfig.getmSource();
-				
+					
 		List<QuestionLine> questionList = new LinkedList<QuestionLine>();
 
 		String question="";
-				
-		GeometryObject geo = new GeometryObject();
-			
-		List<LineObject> lineList = new ArrayList<LineObject>();
-	//	List<LabelObject> labelList = new ArrayList<LabelObject>();
-			
-		LineObject l1 = new LineObject();
-		l1.setX1(Double.valueOf(0));
-		l1.setY1(Double.valueOf(0));
-		l1.setX2(Double.valueOf(3));
-		l1.setY2(Double.valueOf(1.5));
-			
-		LineObject l2 = new LineObject();
-		l2.setX1(Double.valueOf(0));
-		l2.setY1(Double.valueOf(0));
-		l2.setX2(Double.valueOf(3));
-		l2.setY2(Double.valueOf(1.5));
-			
-		LineObject l3 = new LineObject();
-		l3.setX1(Double.valueOf(0));
-		l3.setY1(Double.valueOf(0));
-		l3.setX2(Double.valueOf(-1));
-		l3.setY2(Double.valueOf(3));
-			
-		LineObject l4 = new LineObject();
-		l4.setX1(Double.valueOf(0));
-		l4.setY1(Double.valueOf(0));
-		l4.setX2(Double.valueOf(2));
-		l4.setY2(Double.valueOf(8));
-			
-		LineObject l5 = new LineObject();
-		l5.setX1(Double.valueOf(-1));
-		l5.setY1(Double.valueOf(3));
-		l5.setX2(Double.valueOf(2));
-		l5.setY2(Double.valueOf(8));
-			
-		LineObject l6 = new LineObject();
-		l6.setX1(Double.valueOf(3));
-		l6.setY1(Double.valueOf(1.5));
-		l6.setX2(Double.valueOf(2));
-		l6.setY2(Double.valueOf(8));
-						
-		lineList.add(l1);
-		lineList.add(l2);
-		lineList.add(l3);
-		lineList.add(l4);
-		lineList.add(l5);
-		lineList.add(l6);
-			
-		int h = MathUtilities.getRandomNumber(20, 30);
-		
-		int b = MathUtilities.getRandomNumber(6, 10);
-			
-		geo.setLines(lineList);
-		
-		
-		int res = b * b + 2 * b * h;
-			
-		String result = new BigDecimal(res).setScale(2, RoundingMode.HALF_UP).toString();
-			
-				
-		question = "Above is a square pyramid and the base is " + Integer.toString(b) + ", and the height is " + Integer.toString(h) + ". Find out the surface area of the pyramid.";
+											
+		question = "You have a cat that needs 12 ml of serving twice a day. You bought a box which is 8/10 full and dimension of the box are"
+				+ "10 cm by 8 cm by 6 cm. How many days will it last?";
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 
-					
+							
 		String heading = mSource.getMessage(GR7_Constants.GEOMETRY_SURFACE_AREAS, null, Locale.ENGLISH);
-		answ.setAnswer(result);
+		answ.setAnswer("16");
 
 		Problem problem = cProblem.constructProblem(questionList, heading, Constants.RANK_ONE, Constants.PI_PLOT);
-		problem.setGeometryObject(geo);
 		problem.setAnswer(answ);
 
 		return problem;
 	}
+	
+	
+			
 }

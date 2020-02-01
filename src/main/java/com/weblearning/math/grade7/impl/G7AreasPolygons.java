@@ -107,7 +107,7 @@ public class G7AreasPolygons extends GenericQuestion{
 		BigDecimal result = new BigDecimal(((double)(xDistance-x)*(yDistance-y))).setScale(2, RoundingMode.HALF_UP);
 		
 			
-		question = "Find out the area of the rectangle";
+		question = "Find out the area of the rectangle: x distance = " + Integer.toString(xDistance-x) + ", y distance = " + Integer.toString(yDistance-y);
 
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));

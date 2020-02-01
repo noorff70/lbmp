@@ -7,12 +7,15 @@ import org.apache.log4j.Logger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.weblearning.domain.MathbotQuestion;
 import com.weblearning.domain.Problem;
 import com.weblearning.service.RestMathClientService;
 
+@Service("restMathClient")
 public class RestMathClientServiceImpl implements RestMathClientService{
 
 	private static final Logger logger = Logger.getLogger(RestMathClientServiceImpl.class);
@@ -92,6 +95,33 @@ public class RestMathClientServiceImpl implements RestMathClientService{
 		}
 		
 		return problemList;
+		
+	}
+	
+	public String returnMathbot(String question){
+		
+		String problemAnswer= null;
+		
+		String uri = "http://localhost:5000/getMathAssistant";
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+			
+
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<Object> entity = new HttpEntity<Object>(question, headers);
+		String answer = restTemplate.postForObject(uri, entity, String.class);
+	//	System.out.println(answer);
+		
+	//	ObjectMapper mapper = new ObjectMapper();
+	//	try {
+	//		problemAnswer = mapper.readValue(answer, mapper.getTypeFactory().constructCollectionType(List.class, MathbotQuestion.class));
+	//	}catch(Exception e) {
+	//		logger.error("From RestMathClientServiceImpl:  "+ e);
+	//	}
+		
+	//	return problemAnswer;
+		return answer;
 		
 	}
  

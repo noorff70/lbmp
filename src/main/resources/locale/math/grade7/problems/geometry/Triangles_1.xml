@@ -169,7 +169,7 @@
 		<questionType>FRACTION</questionType>
 	</problem>
 	<problem>
-		<questionline>The angle which is other than $90^{\circ} $ in an Isosceles Right Triangle is _________. </questionline>
+		<questionline>The angle which is other than $90^{\circ} $ in an Isosceles Right Triangle is _________ Degree. </questionline>
 		<variable>
 			<variableName>var1</variableName>
 			<variableValue>0</variableValue>

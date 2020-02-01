@@ -223,7 +223,7 @@ public class G7Lines extends GenericQuestion{
 			
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
-
+		questionList.add(new QuestionLine("Choose: Interior, Exterior, Traversal, Parallel, Perpendicular, Corresponding"));
 		questionList.add(new QuestionLine( "AB and CD are:"+ GR8_Constants.ANSWER_TO_QUESTION + a1 ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine(  "Line EF is called"+ GR8_Constants.ANSWER_TO_QUESTION + a2  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
 		questionList.add(new QuestionLine(  "Angle AGE and Angle CHG are called ____ Angles:"+ GR8_Constants.ANSWER_TO_QUESTION + a3  ,  null, Constants.PROBLEM_TYPE_MULTIPLE_QUESTIONS));
@@ -356,7 +356,7 @@ public class G7Lines extends GenericQuestion{
 		String a8 = "False";
 		String a9 = "True";
 				
-		question = "See the picture and answer the following:" ;
+		question = "See the picture and write True/ False in the blank:" ;
 				
 		questionList.add( new QuestionLine( "", null, Constants.PI_PLOT));
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
@@ -540,7 +540,7 @@ public class G7Lines extends GenericQuestion{
 		else 
 			ans = "Obtuse";
 
-		question = "Lines AB and BC meets at point B and Angle ABC is " + Integer.toString(a) + "What type of angle is ABC (acute/ obtuse/ right)" ;
+		question = "Lines AB and BC meets at point B and angle ABC is " + Integer.toString(a) + ". What type of angle is ABC (acute/ obtuse/ right)" ;
 
 		questionList.add( new QuestionLine( question, null, Constants.DEFAULT));
 

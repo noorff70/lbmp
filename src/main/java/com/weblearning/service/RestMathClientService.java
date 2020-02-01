@@ -12,4 +12,5 @@ public interface RestMathClientService {
 	public List<Problem> returnAnswerList(List<Problem> answerList);
 	public List<Problem> returnExpression(List<Problem> answerList);
 	public List<Problem> returnGraph(List<Problem> answerList);
+	public String returnMathbot(String question);
 }

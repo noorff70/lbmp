@@ -149,7 +149,7 @@ public class G7Coordinate extends GenericQuestion{
 		String ans3 = Integer.toString(_3x) + "," + Integer.toString(_3y);
 		String ans4 = Integer.toString(_4x) + "," + Integer.toString(_4y);
 		String ans5 = Integer.toString(_5x) + "," + Integer.toString(_5y);
-		String ans6 = Integer.toString(_6x) + "," + Integer.toString(_6y);
+	//	String ans6 = Integer.toString(_6x) + "," + Integer.toString(_6y);
 				
 		
 		question = "Write the coordinates (put a comma between x and y coordinates)"   ;
@@ -365,8 +365,8 @@ public class G7Coordinate extends GenericQuestion{
 			String ans4 = Integer.toString(_4x)	+ "," + Integer.toString(_4y);
 			String ans5 = Double.toString((double)(_3x+_4x)/2)	+ "," + Integer.toString(_4y);
 			String ans6 = Double.toString(_2x);
-			String ans7 = Double.toString(_4y);
-			String ans8 = Double.toString(_1x)	+ "," + Double.toString((double)(_1y+_3y)/2);
+		//	String ans7 = Double.toString(_4y);
+	//		String ans8 = Double.toString(_1x)	+ "," + Double.toString((double)(_1y+_3y)/2);
 			
 			question = "Write the coordinates (put a comma between x and y coordinates)"   ;
 			

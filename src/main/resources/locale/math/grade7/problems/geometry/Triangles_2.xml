@@ -24,8 +24,8 @@
 		<questionType>FRACTION</questionType>
 	</problem>
 	<problem>
-		<questionline>Line AB intersects X and Y Axis at A(var1, 0) and B(0, var2). The coordinate is C(0,0)</questionline>
-		<questionline>What is the value of Angle AOB?</questionline>
+		<questionline>Line AB intersects X and Y Axis at A(var1, 0) and B(0, var2). The coordinate is C(0,0). If ACB form a triangle. </questionline>
+		<questionline>What is the value of $\angle$ ACB?</questionline>
 		<variable>
 			<variableName>var1</variableName>
 			<variableValue>0</variableValue>

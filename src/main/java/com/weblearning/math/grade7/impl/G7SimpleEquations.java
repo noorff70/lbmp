@@ -3,17 +3,17 @@ package com.weblearning.math.grade7.impl;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
+//import java.util.Locale;
 
 import org.apache.commons.math3.fraction.Fraction;
-import org.springframework.context.MessageSource;
+//import org.springframework.context.MessageSource;
 
 import com.weblearning.domain.Answer;
 import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
-import com.weblearning.math.grade7.utilities.GR7_Constants;
+//import com.weblearning.math.grade7.utilities.GR7_Constants;
 import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.utilities.Constants;
 import com.weblearning.utilities.CreateProblem;
