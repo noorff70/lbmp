@@ -16,9 +16,6 @@ import numpy as np
 from collections import defaultdict
 #import matplotlib.patheffects
 
-#import base64
-#from io import BytesIO
-#from StringIO import StringIO
 from flask import Flask, request, json, Response
 #from sympy import Symbol
 #from sympy import init_printing
@@ -29,18 +26,20 @@ from matplotlib.lines import Line2D
 
 from bokeh.plotting import figure
 from bokeh.embed import json_item
-from datetime import date
-from random import randint
 from bokeh.models import ColumnDataSource, LabelSet
 from bokeh.models.widgets import DataTable, DateFormatter, TableColumn
 from bokeh.io import output_file, show
 from bokeh.layouts import widgetbox
 
-from ast import literal_eval
+#from mathbot import mathbot_api
+#from ast import literal_eval
 
 
 app = Flask(__name__)
 
+#app.register_blueprint(mathbot_api)
+
+"""
 @app.route("/answers",  methods=["POST"])
 def get_math_answers():
     ans = ""
@@ -209,7 +208,7 @@ def get_angle_text(angle_plot):
     return [ x_width + separation_radius, y_width + separation_radius, angle]   
 
 
-
+"""
 @app.route("/getExpressions",  methods=["POST"])
 def get_math_expression():
 
