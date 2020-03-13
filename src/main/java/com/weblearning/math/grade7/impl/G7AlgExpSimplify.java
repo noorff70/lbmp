@@ -863,7 +863,7 @@ public class G7AlgExpSimplify extends GenericQuestion{
 		public Problem getProblem24(MathConfiguration mathConfig) {
 
 			String question = "";
-			String ans = "";
+
 
 			CreateProblem cProblem = new CreateProblem();
 			List<QuestionLine> questionList = new LinkedList<QuestionLine>();

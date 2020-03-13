@@ -1,7 +1,5 @@
 package com.weblearning.math.grade7.impl;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +13,6 @@ import com.weblearning.domain.MathConfiguration;
 import com.weblearning.domain.Problem;
 import com.weblearning.domain.QuestionLine;
 import com.weblearning.math.grade.GenericQuestion;
-import com.weblearning.math.utilities.MathUtilities;
 import com.weblearning.math.utilities.ProblemParser;
 import com.weblearning.math.utilities.ReplaceExpressionUtility;
 import com.weblearning.service.RestMathClientService;
